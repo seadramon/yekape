@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TanahKavlingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +20,16 @@ Route::get('/', function () {
 });
 Route::get('template', function () {
     return view('template');
+});
+
+Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
+
+	Route::group(['prefix' => '/tanah-kavling', 'as' => 'tanah-kavling.'], function(){	
+
+		Route::get('/', 		[TanahKavlingController::class, 'index'])->name('index');
+		Route::get('loadData', 	[TanahKavlingController::class, 'loadData'])->name('data');
+		Route::get('create', 	[TanahKavlingController::class, 'create'])->name('create');
+		Route::post('store', 	[TanahKavlingController::class, 'store'])->name('store');
+		Route::post('/destroy', [TanahKavlingController::class, 'destroy'])->name('destroy');
+	});
 });

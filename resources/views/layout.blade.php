@@ -25,6 +25,7 @@
 		<link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
+		@yield('css')
 		<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 	</head>
 	<!--end::Head-->
@@ -453,7 +454,40 @@
 											</div>
 											<!--end:Menu sub-->
 										</div>
-										<!--end:Menu item-->                                        
+										<!--end:Menu item-->   
+										<!--begin:Menu item-->
+										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+											<!--begin:Menu link-->
+											<span class="menu-link">
+												<span class="menu-icon">
+													<i class="ki-duotone ki-address-book fs-2">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+												<span class="menu-title">Sekretariat Perusahaan</span>
+												<span class="menu-arrow"></span>
+											</span>
+											<!--end:Menu link-->
+											<!--begin:Menu sub-->
+											<div class="menu-sub menu-sub-accordion">
+												<!--begin:Menu item-->
+												<div class="menu-item">
+													<!--begin:Menu link-->
+													<a class="menu-link" href="{{ route('master.tanah-kavling.index') }}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+														<span class="menu-title">Master Tanah Kavling</span>
+													</a>
+													<!--end:Menu link-->
+												</div>
+												<!--end:Menu item-->
+											</div>
+											<!--end:Menu sub-->
+										</div>
+										<!--end:Menu item-->                                     
 									</div>
 									<!--end::Menu-->
 								</div>
@@ -549,17 +583,18 @@
 		<script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
-		<script src="{{ asset('assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
+		{{--<script src="{{ asset('assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>--}}
 		<script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="{{ asset('assets/js/widgets.bundle.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/widgets.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/utilities/modals/create-app.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
+		{{--<script src="{{ asset('assets/js/widgets.bundle.js') }}"></script>--}}
+		{{--<script src="{{ asset('assets/js/custom/widgets.js') }}"></script>--}}
+		{{--<script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>--}}
+		{{--<script src="{{ asset('assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>--}}
+		{{--<script src="{{ asset('assets/js/custom/utilities/modals/create-app.js') }}"></script>--}}
+		{{--<script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>--}}
 		<!--end::Custom Javascript-->
+		@yield('js')
 		<!--end::Javascript-->
 	</body>
 	<!--end::Body-->
