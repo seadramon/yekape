@@ -16,7 +16,7 @@ use App\Http\Controllers\TanahKavlingController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('template');
 });
 Route::get('template', function () {
     return view('template');
