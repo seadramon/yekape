@@ -46,7 +46,7 @@ composer install production:
   extends: .production-job
   stage: deploy
   script:
-    - docker exec portal bash -c "php artisan env:decrypt --key=yekapesecretsangatrahasiasekalii; composer install; php artisan optimize:clear"
+    - docker exec portal bash -c "composer install; php artisan env:decrypt --key=yekapesecretsangatrahasiasekalii; php artisan optimize:clear"
 publish asset production:
   extends: 
     - .production-job
