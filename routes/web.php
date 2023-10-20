@@ -29,6 +29,7 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 		Route::get('/', 		[TanahKavlingController::class, 'index'])->name('index');
 		Route::get('loadData', 	[TanahKavlingController::class, 'loadData'])->name('data');
 		Route::get('create', 	[TanahKavlingController::class, 'create'])->name('create');
+		Route::get('edit/{id}', 		[TanahKavlingController::class, 'edit'])->name('edit');
 		Route::post('store', 	[TanahKavlingController::class, 'store'])->name('store');
 		Route::post('/destroy', [TanahKavlingController::class, 'destroy'])->name('destroy');
 	});
