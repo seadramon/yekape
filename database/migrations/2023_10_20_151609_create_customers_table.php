@@ -41,6 +41,13 @@ return new class extends Migration
             $table->string('nama_pajak')->nullable();
             $table->string('alamat_pajak')->nullable();
             $table->string('kota_pajak')->nullable();
+
+            $table->string('file_ktp_suami')->nullable();
+            $table->string('file_ktp_istri')->nullable();
+            $table->string('file_kk')->nullable();
+            $table->string('file_npwp')->nullable();
+            $table->string('file_sk')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
         });

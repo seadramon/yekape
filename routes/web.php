@@ -37,11 +37,10 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 
 	Route::group(['prefix' => '/customer', 'as' => 'customer.'], function(){	
 
-		Route::get('/', 		[CustomerController::class, 'index'])->name('index');
-		Route::get('loadData', 	[CustomerController::class, 'loadData'])->name('data');
-		Route::get('create', 	[CustomerController::class, 'create'])->name('create');
-		Route::get('edit/{id}', 		[CustomerController::class, 'edit'])->name('edit');
-		Route::post('store', 	[CustomerController::class, 'store'])->name('store');
-		Route::post('/destroy', [CustomerController::class, 'destroy'])->name('destroy');
+		Route::get('/', 			[CustomerController::class, 'index'])->name('index');
+		Route::get('loadData', 		[CustomerController::class, 'loadData'])->name('data');
+		Route::get('create/{id?}', 	[CustomerController::class, 'create'])->name('create');
+		Route::post('store', 		[CustomerController::class, 'store'])->name('store');
+		Route::post('/destroy', 	[CustomerController::class, 'destroy'])->name('destroy');
 	});
 });

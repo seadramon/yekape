@@ -30,6 +30,11 @@ class CustomerController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File KTP Suami" data-bs-image="'. asset($model->file_ktp_suami) .'">Show KTP Suami</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File KTP Istri" data-bs-image="'. asset($model->file_ktp_istri) .'">Show KTP Istri</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File KK" data-bs-image="'. asset($model->file_kk) .'">Show KK</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File NPWP" data-bs-image="'. asset($model->file_npwp) .'">Show NPWP</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File SK" data-bs-image="'. asset($model->file_sk) .'">Show SK</a></li>
                             <li><a class="dropdown-item" href="' . route('master.customer.create', ['id' => $model->id]) . '">Edit</a></li>
                             <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$model->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
                         </ul>
@@ -43,6 +48,12 @@ class CustomerController extends Controller
 
     public function create($id = null)
     {
+        $data = null;
+
+        if ($id) {
+            $data = Customer::find($id);
+        }
+
     	$agama = [
     		"" => "-Pilih Agama-",
     		"ISLAM" => "Islam",
@@ -55,12 +66,12 @@ class CustomerController extends Controller
     		'L' => 'Laki-laki',
     		'P' => 'Perempuan'
     	];
-    	return view('master.customer.create', compact('agama', 'jk'));
+    	return view('master.customer.create', compact('agama', 'jk', 'data'));
     }
 
     public function store(Request $request, FlasherInterface $flasher)
     {
-    	try {
+        try {
             DB::beginTransaction();
             
             if ($request->id) {
@@ -96,13 +107,19 @@ class CustomerController extends Controller
 
 	        $id = $data->id;
 
+            DB::commit();
+
+            // Store FIle Upload
 	        $files = [
-	        	'ktp_suami',
-	        	'ktp_istri',
-	        	'kk',
-	        	'npwp',
-	        	'sk'
+	        	'file_ktp_suami',
+	        	'file_ktp_istri',
+	        	'file_kk',
+	        	'file_npwp',
+	        	'file_sk'
 	        ];
+
+            $customerFile = Customer::find($id);
+            $countFile = 0;
 
 	        foreach ($files as $postFile) {
 		        if ($request->hasFile($postFile)) {
@@ -116,11 +133,19 @@ class CustomerController extends Controller
 		            $file->resize(300, null, function ($constraint) {
 		                $constraint->aspectRatio();
 		            });
-		            $file->save(storage_path('app/public/customers/'. $id .'/'.$postFile.'.'. $extension));
+                    $filename = $postFile.'.'. $extension;
+		            $file->save(storage_path('app/public/customers/'. $id .'/'.$filename));
+
+                    $customerFile->$postFile = 'storage/customers/' . $id . '/' . $filename;
+
+                    $countFile++;
 		        }
 	        }
 
-            DB::commit();
+            if ($countFile > 0) {
+                $customerFile->save();
+                DB::commit();
+            }
 
             $flasher->addSuccess('Data has been saved successfully!');
             return redirect()->route('master.customer.index');
@@ -129,6 +154,24 @@ class CustomerController extends Controller
             
             $flasher->addError($e->getMessage());
             return redirect()->back();
+        }
+    }
+
+    public function destroy(Request $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            $data = Customer::find($request->id);
+            $data->delete();
+
+            DB::commit();
+
+            return response()->json(['result' => 'success'])->setStatusCode(200, 'OK');
+        } catch (Exception $e) {
+            DB::rollback();
+
+            return response()->json(['result' => $e->getMessage()])->setStatusCode(500, 'ERROR');
         }
     }
 }

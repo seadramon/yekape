@@ -41,6 +41,22 @@
     <!--end::Row-->
 </div>
 <!--end::Content container-->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      		</div>
+      		<div class="modal-body text-center">
+        		<img src="{{ asset('assets/img/empty.jpg') }}" id="fileImage" width="300px">
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      		</div>
+    	</div>
+  	</div>
+</div>
 @endsection
 @section('css')
 <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css"/>
@@ -57,6 +73,7 @@
 @endsection
 @section('js')
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js"></script>
 <script type="text/javascript">
 	"use strict";
 
@@ -124,17 +141,32 @@
 			// ajax
 			$.ajax({
 				type:"post",
-				url: "{{ url('master/tanah-kavling/destroy') }}",
+				url: "{{ url('master/customer/destroy') }}",
 				data: {id : id, _token: "{{ csrf_token() }}"},
 				success: function(res){
 					if (res.result == 'success') {
 						flasher.success("Data telah berhasil dihapus!");
 
-						$('#tabel_master_driver').DataTable().ajax.url("{{ route('master.tanah-kavling.data') }}").load();
+						$('#tabel_master_driver').DataTable().ajax.url("{{ route('master.customer.data') }}").load();
 					}
 				}
 			});
 		}
 	});
+
+	var exampleModal = document.getElementById('imageModal')
+	exampleModal.addEventListener('show.bs.modal', function (event) {
+
+	  	var button = event.relatedTarget
+	  	var title = button.getAttribute('data-bs-title')
+	  	var image = button.getAttribute('data-bs-image')
+	  
+	  	var modalTitle = exampleModal.querySelector('.modal-title')
+	  	var modalBodyInput = exampleModal.querySelector('.modal-body img')
+
+	  	modalTitle.textContent = title
+	  	$('#fileImage').attr('src', image)
+	})
+
 </script>
 @endsection

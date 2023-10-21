@@ -113,24 +113,46 @@
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Upload KTP Suami</label>
-                            {!! Form::file('ktp_suami', ['class' => 'form-control', 'id' => 'ktp_suami']) !!}
+                            <label class="form-label">
+                                Upload KTP Suami
+                            </label>
+                            {!! Form::file('file_ktp_suami', ['class' => 'form-control', 'id' => 'ktp_suami']) !!}
+
+                            @if (isset($data->file_ktp_suami))
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File KTP Suami" data-bs-image="{{asset($data->file_ktp_suami)}}">(Show KTP Suami)</a>
+                            @endif
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Upload KTP Istri</label>
-                            {!! Form::file('ktp_istri', ['class' => 'form-control', 'id' => 'ktp_istri']) !!}
+                            {!! Form::file('file_ktp_istri', ['class' => 'form-control', 'id' => 'ktp_istri']) !!}
+
+                            @if (isset($data->file_ktp_istri))
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File KTP Istri" data-bs-image="{{asset($data->file_ktp_istri)}}">(Show KTP Istri)</a>
+                            @endif
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Upload KK</label>
-                            {!! Form::file('kk', ['class' => 'form-control', 'id' => 'kk']) !!}
+                            {!! Form::file('file_kk', ['class' => 'form-control', 'id' => 'kk']) !!}
+
+                            @if (isset($data->file_kk))
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File KK" data-bs-image="{{asset($data->file_kk)}}">(Show KK)</a>
+                            @endif
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Upload NPWP</label>
-                            {!! Form::file('npwp', ['class' => 'form-control', 'id' => 'npwp']) !!}
+                            {!! Form::file('file_npwp', ['class' => 'form-control', 'id' => 'npwp']) !!}
+
+                            @if (isset($data->file_npwp))
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File NPWP" data-bs-image="{{asset($data->file_npwp)}}">(Show NPWP)</a>
+                            @endif
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Upload SK</label>
-                            {!! Form::file('sk', ['class' => 'form-control', 'id' => 'sk']) !!}
+                            {!! Form::file('file_sk', ['class' => 'form-control', 'id' => 'sk']) !!}
+
+                            @if (isset($data->file_sk))
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File SK" data-bs-image="{{asset($data->file_sk)}}">(Show SK)</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -146,6 +168,23 @@
     <!--end::Row-->
 </div>
 <!--end::Content container-->
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{ asset('assets/img/empty.jpg') }}" id="fileImage" width="300px">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('css')
@@ -161,6 +200,20 @@ $(document).ready(function() {
         placeholder: "Pilih Perkiraan",
         allowClear: true
     });
+
+    var exampleModal = document.getElementById('imageModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+
+        var button = event.relatedTarget
+        var title = button.getAttribute('data-bs-title')
+        var image = button.getAttribute('data-bs-image')
+      
+        var modalTitle = exampleModal.querySelector('.modal-title')
+        var modalBodyInput = exampleModal.querySelector('.modal-body img')
+
+        modalTitle.textContent = title
+        $('#fileImage').attr('src', image)
+    })
 });
 </script>
 @endsection
