@@ -466,40 +466,6 @@
 														<span class="path3"></span>
 													</i>
 												</span>
-												<span class="menu-title">Bagian Pemasaran</span>
-												<span class="menu-arrow"></span>
-											</span>
-											<!--end:Menu link-->
-											<!--begin:Menu sub-->
-											<div class="menu-sub menu-sub-accordion">
-												<!--begin:Menu item-->
-												<div class="menu-item">
-													<!--begin:Menu link-->
-													<a class="menu-link" href="{{ route('master.customer.index') }}">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-														<span class="menu-title">Master Customer</span>
-													</a>
-													<!--end:Menu link-->
-												</div>
-												<!--end:Menu item-->
-											</div>
-											<!--end:Menu sub-->
-										</div>
-										<!--end:Menu item--> 
-
-										<!--begin:Menu item-->
-										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-											<!--begin:Menu link-->
-											<span class="menu-link">
-												<span class="menu-icon">
-													<i class="ki-duotone ki-address-book fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-													</i>
-												</span>
 												<span class="menu-title">Sekretariat Perusahaan</span>
 												<span class="menu-arrow"></span>
 											</span>
@@ -522,6 +488,44 @@
 											<!--end:Menu sub-->
 										</div>
 										<!--end:Menu item-->  
+
+										<!--begin:Menu item-->
+										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+											<!--begin:Menu link-->
+											<span class="menu-link">
+												<span class="menu-icon">
+													<i class="ki-duotone ki-address-book fs-2">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+												<span class="menu-title">Bagian Pemasaran</span>
+												<span class="menu-arrow"></span>
+											</span>
+											<!--end:Menu link-->
+											<!--begin:Menu sub-->
+											<div class="menu-sub menu-sub-accordion">
+												<!--begin:Menu item-->
+												<div class="menu-item">
+													<a class="menu-link" href="{{ route('master.customer.index') }}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+														<span class="menu-title">Master Customer</span>
+													</a>
+													<a class="menu-link" href="{{ route('pemasaran.suratpesanan.index') }}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+														<span class="menu-title">Surat Pesanan Rumah/Ruko</span>
+													</a>
+												</div>
+												<!--end:Menu item-->
+											</div>
+											<!--end:Menu sub-->
+										</div>
+										<!--end:Menu item--> 
 
 									</div>
 									<!--end::Menu-->
@@ -629,9 +633,34 @@
 		{{--<script src="{{ asset('assets/js/custom/utilities/modals/create-app.js') }}"></script>--}}
 		{{--<script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>--}}
 		<!--end::Custom Javascript-->
+		<script type="text/javascript">
+            function formatRupiah(angka, prefix){
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split           = number_string.split(','),
+                sisa            = split[0].length % 3,
+                rupiah          = split[0].substr(0, sisa),
+                ribuan          = split[0].substr(sisa).match(/\d{3}/gi);
+
+                if(ribuan){
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+            }
+        </script>
 		@yield('js')
 		<script type="text/javascript">
 			$(".kt-datepicker").flatpickr();
+
+			$(".kt-daterangepicker").flatpickr({
+				altInput: true,
+			    altFormat: "d-m-Y",
+			    dateFormat: "Y-m-d",
+			    mode: "range"
+			});
 		</script>
 		<!--end::Javascript-->
 	</body>

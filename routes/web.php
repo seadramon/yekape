@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TanahKavlingController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SuratPesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +44,18 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 		Route::post('store', 		[CustomerController::class, 'store'])->name('store');
 		Route::post('/destroy', 	[CustomerController::class, 'destroy'])->name('destroy');
 	});
+});
+
+Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
+
+	Route::group(['prefix' => '/suratpesanan', 'as' => 'suratpesanan.'], function(){	
+		Route::get('/', 			[SuratPesananController::class, 'index'])->name('index');
+		Route::get('loadData', 		[SuratPesananController::class, 'loadData'])->name('data');
+		Route::get('create/{id?}', 	[SuratPesananController::class, 'create'])->name('create');
+		Route::get('cetak/{id}', 	[SuratPesananController::class, 'cetak'])->name('cetak');
+		Route::get('cetakppjb/{id?}', 	[SuratPesananController::class, 'cetakppjb'])->name('cetakppjb');
+		Route::post('store', 		[SuratPesananController::class, 'store'])->name('store');
+		Route::post('/destroy', 	[SuratPesananController::class, 'destroy'])->name('destroy');
+	});
+
 });
