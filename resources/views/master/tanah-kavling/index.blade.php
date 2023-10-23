@@ -15,6 +15,12 @@
                 </div>
 
                 <div class="card-body py-5">
+                	<div class="row">
+                		<div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Perkiraan</label>
+                            {!! Form::select('perkiraan_id', $perkiraan, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'perkiraan_id']) !!}
+                        </div>
+                	</div>
                     <table id="tabel_master_driver" class="table table-row-bordered gy-5" style="vertical-align: middle;">
                         <thead>
                             <tr class="fw-semibold fs-6 text-muted">
@@ -22,6 +28,7 @@
                                 <th>Blok</th>
                                 <th>Nomor</th>
                                 <th>Kode Kavling</th>
+                                <th>Perkiraan</th>
                                 <th>Letak</th>
                                 <th>Luas Bangun</th>
                                 <th>Luas Tanah</th>
@@ -98,6 +105,7 @@
 	                {data: 'blok', name: 'blok', defaultContent: '-'},
 	                {data: 'nomor', name: 'nomor', defaultContent: '-'},
 	                {data: 'kode_kavling', name: 'kode_kavling', defaultContent: '-'},
+	                {data: 'perkiraan.keterangan', name: 'perkiraan.keterangan', defaultContent: '-'},
 	                {data: 'letak', name: 'letak', defaultContent: '-'},
 	                {data: 'luas_bangun', name: 'luas_bangun', defaultContent: '-'},
 	                {data: 'luas_tanah', name: 'luas_tanah', defaultContent: '-'},
@@ -122,6 +130,13 @@
 	KTUtil.onDOMContentLoaded(function () {
 	    KTDatatablesServerSide.init();
 	});
+
+	$("#perkiraan_id").change(function(){
+        var id = $('#perkiraan_id option:selected').val();
+        var url = "{{ url('master/tanah-kavling/loadData') }}?perkiraan_id=" + id;
+        // alert(url);
+		$('#tabel_master_driver').DataTable().ajax.url(url).load();
+    });
 
 	$('body').on('click', '.delete', function () {
 		if (confirm("Delete Record?") == true) {
