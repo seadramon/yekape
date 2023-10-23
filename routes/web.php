@@ -18,7 +18,7 @@ use App\Http\Controllers\SuratPesananController;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('template');
 });
 Route::get('template', function () {
     return view('template');
