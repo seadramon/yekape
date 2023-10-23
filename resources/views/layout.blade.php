@@ -3,11 +3,10 @@
 <html lang="en">
 	<!--begin::Head-->
 	<head><base href="../"/>
-		<title>Metronic - The World's #1 Selling Bootstrap Admin Template by Keenthemes</title>
 		<meta charset="utf-8" />
-		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
-		<meta name="keywords" content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Portal | PT. Yekape Surabaya</title>
+        <meta name="description" content="Aside light theme example" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content="Metronic - Bootstrap Admin Template, HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails, Spring Boot, Blazor, Django, Express.js, Node.js, Flask Admin Dashboard Theme & Template" />
@@ -454,7 +453,42 @@
 											</div>
 											<!--end:Menu sub-->
 										</div>
-										<!--end:Menu item-->   
+										<!--end:Menu item-->  
+
+										<!--begin:Menu item-->
+										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+											<!--begin:Menu link-->
+											<span class="menu-link">
+												<span class="menu-icon">
+													<i class="ki-duotone ki-address-book fs-2">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+												<span class="menu-title">Bagian Pemasaran</span>
+												<span class="menu-arrow"></span>
+											</span>
+											<!--end:Menu link-->
+											<!--begin:Menu sub-->
+											<div class="menu-sub menu-sub-accordion">
+												<!--begin:Menu item-->
+												<div class="menu-item">
+													<!--begin:Menu link-->
+													<a class="menu-link" href="{{ route('master.customer.index') }}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+														<span class="menu-title">Master Customer</span>
+													</a>
+													<!--end:Menu link-->
+												</div>
+												<!--end:Menu item-->
+											</div>
+											<!--end:Menu sub-->
+										</div>
+										<!--end:Menu item--> 
+
 										<!--begin:Menu item-->
 										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 											<!--begin:Menu link-->
@@ -487,7 +521,8 @@
 											</div>
 											<!--end:Menu sub-->
 										</div>
-										<!--end:Menu item-->                                     
+										<!--end:Menu item-->  
+
 									</div>
 									<!--end::Menu-->
 								</div>
@@ -595,6 +630,9 @@
 		{{--<script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>--}}
 		<!--end::Custom Javascript-->
 		@yield('js')
+		<script type="text/javascript">
+			$(".kt-datepicker").flatpickr();
+		</script>
 		<!--end::Javascript-->
 	</body>
 	<!--end::Body-->

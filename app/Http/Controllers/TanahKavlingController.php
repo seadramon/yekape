@@ -59,6 +59,24 @@ class TanahKavlingController extends Controller
     	return view('master.tanah-kavling.create', compact('data', 'perkiraan'));
     }
 
+    public function edit($id)
+    {
+        $data = null;
+        $id = !empty($request->id)?$request->id:'';
+
+        if ($id) {
+            $data = Kavling::find($id);
+        }
+
+        $perkiraan = Perkiraan::get()
+            ->mapWithKeys(function($item){
+                return [$item->id => $item->keterangan];
+            })
+            ->all();
+
+        return view('master.tanah-kavling.create', compact('data', 'perkiraan'));
+    }
+
     public function store(Request $request, FlasherInterface $flasher)
     {
     	// dd($request->all());
