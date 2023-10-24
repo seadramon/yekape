@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TanahKavlingController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\SuratPesananController;
 
 /*
@@ -58,4 +59,11 @@ Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
 		Route::post('/destroy', 	[SuratPesananController::class, 'destroy'])->name('destroy');
 	});
 
+});
+
+Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){	
+
+	Route::get('/data', [KaryawanController::class, 'data'])->name('data');
+	Route::post('/destroy', [KaryawanController::class, 'destroy'])->name('destroy');
+	Route::resource('/', KaryawanController::class)->except(['destroy'])->parameters(['' => 'karyawan']);
 });
