@@ -16,12 +16,23 @@ class TanahKavlingController extends Controller
     //
     public function index()
     {
-    	return view('master.tanah-kavling.index');
+        $perkiraan = Perkiraan::get()
+            ->mapWithKeys(function($item){
+                return [$item->id => $item->keterangan];
+            })
+            ->all();
+        $perkiraan = ["" => "Semua"] + $perkiraan;
+
+    	return view('master.tanah-kavling.index', compact('perkiraan'));
     }
 
     public function loadData(Request $request)
     {
-    	$query = Kavling::select('*');
+    	$query = Kavling::with('perkiraan');
+
+        if (!empty($request->perkiraan_id)) {
+            $query->where('perkiraan_id', $request->perkiraan_id);
+        }
 
     	return DataTables::eloquent($query)
             ->addColumn('menu', function ($model) {
@@ -85,28 +96,34 @@ class TanahKavlingController extends Controller
             
             if ($request->id) {
             	$data = Kavling::find($request->id);
+
+                $data->no_pbb = str_replace('.', '', str_replace('-', '', $request->no_pbb));
+                $data->no_shgb = $request->no_shgb;
+                $data->no_imb = $request->no_imb;
+                $data->luas_bangun = str_replace('.', '', $request->luas_bangun);
+                $data->luas_tanah = str_replace('.', '', $request->luas_tanah);
             } else {
             	$data = new Kavling;
-            }
-			
-			$data->no_pbb = str_replace('.', '', str_replace('-', '', $request->no_pbb));
-			$data->no_shgb = $request->no_shgb;
-			$data->no_imb = $request->no_imb;
-			$data->perkiraan_id = $request->perkiraan_id;
-			$data->blok = $request->blok;
-			$data->nomor = $request->nomor;
-			$data->kode_kavling = $request->kode_kavling;
-			$data->nama = strtoupper($request->nama);
-			$data->letak = strtoupper($request->lokasi);
-			$data->luas_bangun = str_replace('.', '', $request->luas_bangun);
-			$data->luas_tanah = str_replace('.', '', $request->luas_tanah);
-			// $data->nama_wp = strtoupper($request->nama_wp);
-			// $data->alamat_wp = strtoupper($request->alamat_wp);
-			$data->alamat_op = strtoupper($request->alamat_op);
-			$data->user_entry = "Administrator";
-			$data->doc = date('Y-m-d H:i:s');
-			$data->save();            	
 
+                $data->no_pbb = str_replace('.', '', str_replace('-', '', $request->no_pbb));
+                $data->no_shgb = $request->no_shgb;
+                $data->no_imb = $request->no_imb;
+                $data->perkiraan_id = $request->perkiraan_id;
+                $data->blok = $request->blok;
+                $data->nomor = $request->nomor;
+                $data->kode_kavling = $request->kode_kavling;
+                $data->nama = strtoupper($request->nama);
+                $data->letak = strtoupper($request->letak);
+                $data->luas_bangun = str_replace('.', '', $request->luas_bangun);
+                $data->luas_tanah = str_replace('.', '', $request->luas_tanah);
+                // $data->nama_wp = strtoupper($request->nama_wp);
+                // $data->alamat_wp = strtoupper($request->alamat_wp);
+                $data->alamat_op = strtoupper($request->alamat_op);
+                $data->user_entry = "Administrator";
+                $data->doc = date('Y-m-d H:i:s');
+            }          	
+
+            $data->save();
             DB::commit();
 
             $flasher->addSuccess('Data has been saved successfully!');
