@@ -8,32 +8,22 @@
         <div class="col-12 mb-md-5 mb-xl-10">
             <div class="card shadow-sm">
                 <div class="card-header">
-                    <h3 class="card-title">List Tanah Kavling</h3>
+                    <h3 class="card-title">Data Customer</h3>
                     <div class="card-toolbar">
-                        <a href="{{route('master.tanah-kavling.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
+                        <a href="{{route('master.customer.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
                     </div>
                 </div>
 
                 <div class="card-body py-5">
-                	<div class="row">
-                		<div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Perkiraan</label>
-                            {!! Form::select('perkiraan_id', $perkiraan, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'perkiraan_id']) !!}
-                        </div>
-                	</div>
                     <table id="tabel_master_driver" class="table table-row-bordered gy-5" style="vertical-align: middle;">
                         <thead>
                             <tr class="fw-semibold fs-6 text-muted">
+                                <th>ID</th>
                                 <th>Nama</th>
-                                <th>Blok</th>
-                                <th>Nomor</th>
-                                <th>Kode Kavling</th>
-                                <th>Perkiraan</th>
-                                <th>Letak</th>
-                                <th>Luas Bangun</th>
-                                <th>Luas Tanah</th>
-                                <th>No PBB</th>
-                                <th>No SHGB</th>
+                                <th>Alamat</th>
+                                <th>Telp1</th>
+                                <th>Jenis Kelamin</th>
+                                <th>No KTP</th>
                                 <th>Menu</th>
                             </tr>
                         </thead>
@@ -51,6 +41,22 @@
     <!--end::Row-->
 </div>
 <!--end::Content container-->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      		</div>
+      		<div class="modal-body text-center">
+        		<img src="{{ asset('assets/img/empty.jpg') }}" id="fileImage" width="300px">
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      		</div>
+    	</div>
+  	</div>
+</div>
 @endsection
 @section('css')
 <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css"/>
@@ -67,6 +73,7 @@
 @endsection
 @section('js')
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js"></script>
 <script type="text/javascript">
 	"use strict";
 
@@ -99,18 +106,14 @@
 	            serverSide: true,
 	            order: [[0, 'desc']],
 	            stateSave: true,
-	            ajax: "{{ route('master.tanah-kavling.data') }}",
+	            ajax: "{{ route('master.customer.data') }}",
 	            columns: [
+	                {data: 'id', name: 'id', defaultContent: '-'},
 	                {data: 'nama', name: 'nama', defaultContent: '-'},
-	                {data: 'blok', name: 'blok', defaultContent: '-'},
-	                {data: 'nomor', name: 'nomor', defaultContent: '-'},
-	                {data: 'kode_kavling', name: 'kode_kavling', defaultContent: '-'},
-	                {data: 'perkiraan.keterangan', name: 'perkiraan.keterangan', defaultContent: '-'},
-	                {data: 'letak', name: 'letak', defaultContent: '-'},
-	                {data: 'luas_bangun', name: 'luas_bangun', defaultContent: '-'},
-	                {data: 'luas_tanah', name: 'luas_tanah', defaultContent: '-'},
-	                {data: 'no_pbb', name: 'no_pbb', defaultContent: '-'},
-	                {data: 'no_shgb', name: 'no_shgb', defaultContent: '-'},
+	                {data: 'alamat', name: 'alamat', defaultContent: '-'},
+	                {data: 'telp_1', name: 'telp_1', defaultContent: '-'},
+	                {data: 'jenis_kelamin', name: 'jenis_kelamin', defaultContent: '-'},
+	                {data: 'no_ktp', name: 'no_ktp', defaultContent: '-'},
 	                {data: 'menu', orderable: false, searchable: false}
 	            ],
 	        });
@@ -131,13 +134,6 @@
 	    KTDatatablesServerSide.init();
 	});
 
-	$("#perkiraan_id").change(function(){
-        var id = $('#perkiraan_id option:selected').val();
-        var url = "{{ url('master/tanah-kavling/loadData') }}?perkiraan_id=" + id;
-        // alert(url);
-		$('#tabel_master_driver').DataTable().ajax.url(url).load();
-    });
-
 	$('body').on('click', '.delete', function () {
 		if (confirm("Delete Record?") == true) {
 			var id = $(this).data('id');
@@ -145,17 +141,32 @@
 			// ajax
 			$.ajax({
 				type:"post",
-				url: "{{ url('master/tanah-kavling/destroy') }}",
+				url: "{{ url('master/customer/destroy') }}",
 				data: {id : id, _token: "{{ csrf_token() }}"},
 				success: function(res){
 					if (res.result == 'success') {
 						flasher.success("Data telah berhasil dihapus!");
 
-						$('#tabel_master_driver').DataTable().ajax.url("{{ route('master.tanah-kavling.data') }}").load();
+						$('#tabel_master_driver').DataTable().ajax.url("{{ route('master.customer.data') }}").load();
 					}
 				}
 			});
 		}
 	});
+
+	var exampleModal = document.getElementById('imageModal')
+	exampleModal.addEventListener('show.bs.modal', function (event) {
+
+	  	var button = event.relatedTarget
+	  	var title = button.getAttribute('data-bs-title')
+	  	var image = button.getAttribute('data-bs-image')
+	  
+	  	var modalTitle = exampleModal.querySelector('.modal-title')
+	  	var modalBodyInput = exampleModal.querySelector('.modal-body img')
+
+	  	modalTitle.textContent = title
+	  	$('#fileImage').attr('src', image)
+	})
+
 </script>
 @endsection

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TanahKavlingController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SuratPesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,31 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 		Route::get('/', 		[TanahKavlingController::class, 'index'])->name('index');
 		Route::get('loadData', 	[TanahKavlingController::class, 'loadData'])->name('data');
 		Route::get('create', 	[TanahKavlingController::class, 'create'])->name('create');
+		Route::get('edit/{id}', 		[TanahKavlingController::class, 'edit'])->name('edit');
 		Route::post('store', 	[TanahKavlingController::class, 'store'])->name('store');
 		Route::post('/destroy', [TanahKavlingController::class, 'destroy'])->name('destroy');
 	});
+
+	Route::group(['prefix' => '/customer', 'as' => 'customer.'], function(){	
+
+		Route::get('/', 			[CustomerController::class, 'index'])->name('index');
+		Route::get('loadData', 		[CustomerController::class, 'loadData'])->name('data');
+		Route::get('create/{id?}', 	[CustomerController::class, 'create'])->name('create');
+		Route::post('store', 		[CustomerController::class, 'store'])->name('store');
+		Route::post('/destroy', 	[CustomerController::class, 'destroy'])->name('destroy');
+	});
+});
+
+Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
+
+	Route::group(['prefix' => '/suratpesanan', 'as' => 'suratpesanan.'], function(){	
+		Route::get('/', 			[SuratPesananController::class, 'index'])->name('index');
+		Route::get('loadData', 		[SuratPesananController::class, 'loadData'])->name('data');
+		Route::get('create/{id?}', 	[SuratPesananController::class, 'create'])->name('create');
+		Route::get('cetak/{id}', 	[SuratPesananController::class, 'cetak'])->name('cetak');
+		Route::get('cetakppjb/{id?}', 	[SuratPesananController::class, 'cetakppjb'])->name('cetakppjb');
+		Route::post('store', 		[SuratPesananController::class, 'store'])->name('store');
+		Route::post('/destroy', 	[SuratPesananController::class, 'destroy'])->name('destroy');
+	});
+
 });
