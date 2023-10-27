@@ -114,19 +114,19 @@
 	});
 
 	$('body').on('click', '.delete', function () {
-		if (confirm("Delete Record?") == true) {
+		if (confirm("Are You sure want to delete this Record?") == true) {
 			var id = $(this).data('id');
 
 			// ajax
 			$.ajax({
 				type:"post",
-				url: "{{ url('master/customer/destroy') }}",
+				url: "{{ route('karyawan.destroy') }}",
 				data: {id : id, _token: "{{ csrf_token() }}"},
 				success: function(res){
 					if (res.result == 'success') {
-						flasher.success("Data telah berhasil dihapus!");
+						flasher.success("Data has been deleted successfully!");
 
-						$('#tabel_master_driver').DataTable().ajax.url("{{ route('master.customer.data') }}").load();
+						$('#tabel_teacher').DataTable().ajax.url("{{ route('karyawan.data') }}").load();
 					}
 				}
 			});
