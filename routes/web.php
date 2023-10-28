@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TanahKavlingController;
+use App\Http\Controllers\TanahMentahController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SuratPesananController;
 
@@ -43,6 +44,15 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 		Route::get('create/{id?}', 	[CustomerController::class, 'create'])->name('create');
 		Route::post('store', 		[CustomerController::class, 'store'])->name('store');
 		Route::post('/destroy', 	[CustomerController::class, 'destroy'])->name('destroy');
+	});
+
+	Route::group(['prefix' => '/tanah-mentah', 'as' => 'tanah-mentah.'], function(){	
+
+		Route::get('/', 			[TanahMentahController::class, 'index'])->name('index');
+		Route::get('loadData', 		[TanahMentahController::class, 'loadData'])->name('data');
+		Route::get('create/{id?}', 	[TanahMentahController::class, 'create'])->name('create');
+		Route::post('store', 		[TanahMentahController::class, 'store'])->name('store');
+		Route::post('/destroy', 	[TanahMentahController::class, 'destroy'])->name('destroy');
 	});
 });
 
