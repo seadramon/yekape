@@ -8,21 +8,29 @@
         <div class="col-12 mb-md-5 mb-xl-10">
             <div class="card shadow-sm">
                 <div class="card-header">
-                    <h3 class="card-title">Data Karyawan</h3>
+                    <h3 class="card-title">List Tanah Mentah</h3>
                     <div class="card-toolbar">
-                        <a href="{{route('karyawan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
+                        <a href="{{route('master.tanah-mentah.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
                     </div>
                 </div>
 
                 <div class="card-body py-5">
+                	<div class="row">
+                		<div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Perkiraan</label>
+                            {!! Form::select('perkiraan_id', $perkiraan, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'perkiraan_id']) !!}
+                        </div>
+                	</div>
                     <table id="tabel_master_driver" class="table table-row-bordered gy-5" style="vertical-align: middle;">
                         <thead>
                             <tr class="fw-semibold fs-6 text-muted">
-                                <th>NIK</th>
+                                <th>No PBB</th>
+                                <th>No SHGB</th>
+                                <th>Perkiraan</th>
                                 <th>Nama</th>
-                                <th>Jabatan</th>
-                                <th>Alamat</th>
-                                <th>Menu</th>
+                                <th>Lokasi</th>
+                                <th>Luas Tanah</th>
+                                <!-- <th>Menu</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +46,7 @@
     </div>
     <!--end::Row-->
 </div>
+<!--end::Content container-->
 @endsection
 @section('css')
 <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css"/>
@@ -54,7 +63,6 @@
 @endsection
 @section('js')
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js"></script>
 <script type="text/javascript">
 	"use strict";
 
@@ -87,13 +95,15 @@
 	            serverSide: true,
 	            order: [[0, 'desc']],
 	            stateSave: true,
-	            ajax: "{{ route('karyawan.data') }}",
+	            ajax: "{{ route('master.tanah-mentah.data') }}",
 	            columns: [
-	                {data: 'nik', name: 'nik', defaultContent: '-'},
+	                {data: 'no_pbb', name: 'no_pbb', defaultContent: '-'},
+	                {data: 'no_shgb', name: 'no_shgb', defaultContent: '-'},
+	                {data: 'perkiraan.kd_perkiraan', name: 'perkiraan.kd_perkiraan', defaultContent: '-'},
 	                {data: 'nama', name: 'nama', defaultContent: '-'},
-	                {data: 'jabatan.nama', name: 'jabatan.nama', defaultContent: '-'},
-	                {data: 'alamat', name: 'alamat', defaultContent: '-'},
-	                {data: 'menu', orderable: false, searchable: false}
+	                {data: 'lokasi', name: 'lokasi', defaultContent: '-'},
+	                {data: 'luas_tanah', name: 'luas_tanah', defaultContent: '-'},
+	                // {data: 'menu', orderable: false, searchable: false}
 	            ],
 	        });
 
@@ -113,39 +123,31 @@
 	    KTDatatablesServerSide.init();
 	});
 
+	$("#perkiraan_id").change(function(){
+        var id = $('#perkiraan_id option:selected').val();
+        var url = "{{ url('master/tanah-mentah/loadData') }}?perkiraan_id=" + id;
+        // alert(url);
+		$('#tabel_master_driver').DataTable().ajax.url(url).load();
+    });
+
 	$('body').on('click', '.delete', function () {
-		if (confirm("Are You sure want to delete this Record?") == true) {
+		if (confirm("Delete Record?") == true) {
 			var id = $(this).data('id');
 
 			// ajax
 			$.ajax({
 				type:"post",
-				url: "{{ route('karyawan.destroy') }}",
+				url: "{{ url('master/tanah-mentah/destroy') }}",
 				data: {id : id, _token: "{{ csrf_token() }}"},
 				success: function(res){
 					if (res.result == 'success') {
-						flasher.success("Data has been deleted successfully!");
+						flasher.success("Data telah berhasil dihapus!");
 
-						$('#tabel_teacher').DataTable().ajax.url("{{ route('karyawan.data') }}").load();
+						$('#tabel_master_driver').DataTable().ajax.url("{{ route('master.tanah-mentah.data') }}").load();
 					}
 				}
 			});
 		}
 	});
-
-	var exampleModal = document.getElementById('imageModal')
-	exampleModal.addEventListener('show.bs.modal', function (event) {
-
-	  	var button = event.relatedTarget
-	  	var title = button.getAttribute('data-bs-title')
-	  	var image = button.getAttribute('data-bs-image')
-	  
-	  	var modalTitle = exampleModal.querySelector('.modal-title')
-	  	var modalBodyInput = exampleModal.querySelector('.modal-body img')
-
-	  	modalTitle.textContent = title
-	  	$('#fileImage').attr('src', image)
-	})
-
 </script>
 @endsection

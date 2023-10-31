@@ -8,8 +8,9 @@
         <!--begin::Col-->
         <div class="col-12 mb-md-5 mb-xl-10">
             @if (isset($data))
-                {!! Form::model($data, ['route' => ['master.customer.store', $data->id], 'class' => 'form', 'id' => "form-kavling", 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
+                {!! Form::model($data, ['route' => ['karyawan.update', $data->id], 'class' => 'form', 'id' => "form-kavling",]) !!}
                 {!! Form::hidden('id', $data->id) !!}
+                @method('PUT')
             @else
                 {!! Form::open(['url' => route('karyawan.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-kavling"]) !!}
             @endif
@@ -56,12 +57,16 @@
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Jabatan</label>
-                            {!! Form::select('jabatan_id', $jabatans, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jabatan_id']) !!}
+                            <label class="form-label">No HP</label>
+                            {!! Form::text('no_hp', null, ['class'=>'form-control', 'id'=>'no_hp', 'autocomplete'=>'off']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Jenis Kelamin</label>
                             {!! Form::select('jenis_kelamin', $genders, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis_kelamin']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Jabatan</label>
+                            {!! Form::select('jabatan_id', $jabatans, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jabatan_id']) !!}
                         </div>
                     </div>
                 </div>
@@ -87,8 +92,10 @@
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script src="{{ asset('assets/plugins/custom/formrepeater/formrepeater.bundle.js') }}"></script>
 <script type="text/javascript">
-$(document).ready(function() {
+    $(document).ready(function() {
 
-});
+    });
+
+    
 </script>
 @endsection

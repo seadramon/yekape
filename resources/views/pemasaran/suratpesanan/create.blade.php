@@ -31,14 +31,14 @@
 
                     @if (empty($data))
                         <div class="row">
-                            <div class="fv-row form-group col-lg-6 mb-3">
+                            <div class="fv-row form-group col-lg-6 mb-3 @if(!isset($data)) hidden @endif">
                                 <label class="form-label">Nomor SP</label>
-                                {!! Form::text('no_sp', null, ['class'=>'form-control', 'id'=>'no_sp', 'autocomplete'=>'off', 'required']) !!}
+                                {!! Form::text('no_sp', null, ['class'=>'form-control', 'id'=>'no_sp', 'autocomplete'=>'off', 'required', 'readonly' => 'readonly']) !!}
                             </div>
 
                             <div class="fv-row form-group col-lg-6 mb-3">
                                 <label class="form-label">Tanggal SP</label>
-                                {!! Form::text('tgl_sp', null, ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'required']) !!}
+                                {!! Form::text('tgl_sp', date('Y-m-d'), ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'required']) !!}
                             </div>
 
                             <div class="fv-row form-group col-lg-6 mb-3">

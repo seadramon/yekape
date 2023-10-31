@@ -70,24 +70,23 @@ class KaryawanController extends Controller
     {
         $data = null;
 
-        $religions = Religion::get()
+        $jabatans = Jabatan::get()
             ->mapWithKeys(function ($item) {
-                return [$item->id => $item->religion];
+                return [$item->id => $item->nama];
             })
             ->all();
-        $religions = ['' => 'Choose Religion'] + $religions;
+        $jabatans = ['' => 'Pilih Jabatan'] + $jabatans;
 
-        $genders = ['L' => 'Male', 'P' => 'Female'];
+        $genders = ['L' => 'Laki-Laki', 'P' => 'Perempuan'];
 
         if ($id) {
-            $data = Teacher::find($id);
+            $data = Karyawan::find($id);
         }
 
-        return view('master.teacher.edit', [
-            'religions' => $religions,
+        return view('karyawan.create', [
+            'jabatans' => $jabatans,
             'genders' => $genders,
             'data' => $data,
-            'id' => $id,
         ]);
     }
 
@@ -98,7 +97,7 @@ class KaryawanController extends Controller
 
             Validator::make($request->all(), [
                 'nama' => 'required',
-                'jabatan_id' => 'required',
+                // 'jabatan_id' => 'required',
             ])->validate();
 
             $karyawan = new Karyawan;
@@ -111,6 +110,7 @@ class KaryawanController extends Controller
             $karyawan->tgl_lahir = $request->tgl_lahir;
             $karyawan->jabatan_id = $request->jabatan_id;
             $karyawan->jenis_kelamin = $request->jenis_kelamin;
+            $karyawan->no_hp = $request->no_hp;
             $karyawan->save();
 
             DB::commit();
@@ -134,27 +134,30 @@ class KaryawanController extends Controller
             DB::beginTransaction();
 
             Validator::make($request->all(), [
-                'name' => 'required',
-                'religion_id' => 'required',
+                'nama' => 'required',
             ])->validate();
 
-            $teacher = Teacher::find($request->id);
+            $karyawan = Karyawan::find($request->karyawan);
 
-            $teacher->name = $request->name;
-            $teacher->phone_number = $request->phone_number;
-            $teacher->religion_id = $request->religion_id;
-            $teacher->gender = $request->gender;
-            $teacher->pob = $request->pob;
-            $teacher->dob = Carbon::createFromFormat('d/m/Y', $request->dob)->format('Y-m-d');
-            $teacher->address = $request->address;
+            $karyawan->nik = $request->nik;
+            $karyawan->nama = $request->nama;
+            $karyawan->alamat_ktp = $request->alamat_ktp;
+            $karyawan->alamat_domisili = $request->alamat_domisili;
+            $karyawan->tempat_lahir = $request->tempat_lahir;
+            $karyawan->tgl_lahir = $request->tgl_lahir;
+            $karyawan->jabatan_id = $request->jabatan_id;
+            $karyawan->jenis_kelamin = $request->jenis_kelamin;
+            $karyawan->no_hp = $request->no_hp;
+            $karyawan->save();
 
-            $teacher->save();
+
+            $karyawan->save();
 
             DB::commit();
 
             $flasher->addSuccess('Data has been saved successfully!');
 
-            return redirect()->route('master.teacher.index');
+            return redirect()->route('karyawan.index');
         } catch (Exception $e) {
             DB::rollback();
 
@@ -170,7 +173,7 @@ class KaryawanController extends Controller
         DB::beginTransaction();
 
         try {
-            $data = Teacher::find($request->id);
+            $data = Karyawan::find($request->id);
             $data->delete();
 
             DB::commit();

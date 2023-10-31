@@ -7,14 +7,11 @@ use Flasher\Prime\FlasherInterface;
 use App\Models\Kavling;
 use App\Models\Customer;
 use App\Models\SuratPesananRumah;
-
-use Intervention\Image\ImageManagerStatic as Image;
+use Exception;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use Yajra\DataTables\Facades\DataTables;
-use DB;
-use File;
-use PDF;
-use Response;
-use Storage;
+use Elibyy\TCPDF\Facades\TCPDF as PDF;
 
 class SuratPesananController extends Controller
 {
@@ -41,14 +38,28 @@ class SuratPesananController extends Controller
     	}
 
     	return DataTables::eloquent($query)
-            ->addColumn('menu', function ($model) {
-                $column = '<a href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank"><span class="badge badge-info">Cetak</span></a>
-                <a href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank"><span class="badge badge-warning">PPJB</span></a>
-                    ';
-
-                return $column;
+            ->editColumn('status', function ($model) {
+                if($model->status == 'draft'){
+                    $teks = '<span class="badge badge-outline badge-primary">' . $model->status . '</span>';
+                }else{
+                    $teks = '<span class="badge badge-outline badge-dark">-</span>';
+                }
+                return $teks;
             })
-            ->rawColumns(['menu'])
+            ->addColumn('menu', function ($model) {
+                $html = '<div class="btn-group">
+                        <button class="btn btn-light-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>
+                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank">Cetak PPJB</a></li>
+                        </ul>
+                    </div>';
+
+                return $html;
+            })
+            ->rawColumns(['menu', 'status'])
             ->toJson();
     }
 
@@ -102,7 +113,7 @@ class SuratPesananController extends Controller
                 $data = new SuratPesananRumah;
             }
             
-            $data->no_sp = $request->no_sp;
+            // $data->no_sp = $request->no_sp;
             $data->tgl_sp = date('Y-m-d', strtotime($request->tgl_sp));
             $data->tipe_pembelian = $request->tipe_pembelian;
             $data->jenis_pembeli = $request->jenis_pembeli;
@@ -116,7 +127,6 @@ class SuratPesananController extends Controller
             $data->no_sppk = $request->no_sppk;
             $data->rencana_ajb = date('Y-m-d', strtotime($request->rencana_ajb));
             $data->masa_bangun = $request->masa_bangun;
-
             if (!empty($request->range_pembangunan)) {
                 $daterange = explode(" to ", $request->range_pembangunan);
 

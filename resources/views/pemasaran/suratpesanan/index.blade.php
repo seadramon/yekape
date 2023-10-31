@@ -29,6 +29,7 @@
                                 <th>Tipe SP</th>
                                 <th>Customer</th>
                                 <th>Kavling</th>
+                                <th>Status</th>
                                 <th>Menu</th>
                             </tr>
                         </thead>
@@ -118,6 +119,7 @@
 	                {data: 'tipe_pembelian', name: 'tipe_pembelian', defaultContent: '-'},
 	                {data: 'customer.nama', name: 'customer.nama', defaultContent: '-'},
 	                {data: 'kavling.nama', name: 'kavling.nama', defaultContent: '-'},
+	                {data: 'status', orderable: false, searchable: false},
 	                {data: 'menu', orderable: false, searchable: false}
 	            ],
 	        });

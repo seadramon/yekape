@@ -1,0 +1,44 @@
+{
+    "bagian": [
+        {
+          "id": "1",
+          "kode_bagian": "SKP",
+          "nama_bagian": "SEKRETARIAT PERUSAHAAN"
+        },
+        {
+          "id": "2",
+          "kode_bagian": "PMS",
+          "nama_bagian": "BAGIAN PEMASARAN"
+        },
+        {
+          "id": "3",
+          "kode_bagian": "KEU",
+          "nama_bagian": "BAGIAN KEUANGAN"
+        },
+        {
+          "id": "4",
+          "kode_bagian": "PMB",
+          "nama_bagian": "BAGIAN PEMBANGUNAN"
+        },
+        {
+          "id": "5",
+          "kode_bagian": "PRC",
+          "nama_bagian": "BAGIAN PERENCANAAN"
+        },
+        {
+          "id": "6",
+          "kode_bagian": "SPI",
+          "nama_bagian": "SATUAN PENGAWASAN INTERNAL"
+        },
+        {
+          "id": "7",
+          "kode_bagian": "GRH",
+          "nama_bagian": "STRATEGI BISNIS UNIT GRAHA"
+        },
+        {
+          "id": "8",
+          "kode_bagian": "PBJ",
+          "nama_bagian": "PENGADAAN BARANG DAN JASA"
+        }
+    ]
+}
