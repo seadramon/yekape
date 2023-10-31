@@ -17,7 +17,6 @@ class CustomerController extends Controller
 
     public function index()
     {
-        Cus
     	return view('master.customer.index');
     }
 

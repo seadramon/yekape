@@ -15,7 +15,7 @@ use Elibyy\TCPDF\Facades\TCPDF as PDF;
 
 class SuratPesananController extends Controller
 {
-    
+
     public function index()
     {
         $tipe = [
@@ -80,8 +80,8 @@ class SuratPesananController extends Controller
 
         $jenis = [
             "" => '-Pilih Jenis-',
-            "UMUM" => "UMUM",
-            "KARYAWAN" => "KARYAWAN",
+            "RUMAH" => "RUMAH",
+            "RUSUNAMI" => "RUSUNAMI",
             "RUKO" => "RUKO"
         ];
 
@@ -106,13 +106,13 @@ class SuratPesananController extends Controller
     {
         try {
             DB::beginTransaction();
-            
+
             if ($request->id) {
                 $data = SuratPesananRumah::find($request->id);
             } else {
                 $data = new SuratPesananRumah;
             }
-            
+
             // $data->no_sp = $request->no_sp;
             $data->tgl_sp = date('Y-m-d', strtotime($request->tgl_sp));
             $data->tipe_pembelian = $request->tipe_pembelian;
@@ -145,7 +145,7 @@ class SuratPesananController extends Controller
             return redirect()->route('pemasaran.suratpesanan.index');
         } catch(Exception $e) {
             DB::rollback();
-            
+
             $flasher->addError($e->getMessage());
             return redirect()->back();
         }
@@ -172,18 +172,18 @@ class SuratPesananController extends Controller
     public function cetak($id)
     {
         $data = SuratPesananRumah::with('customer')->find($id);
-        
+
         PDF::SetTitle('Surat Pesanan Rumah');
         PDF::SetPrintHeader(false);
         PDF::SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
         PDF::SetMargins(2, 4, 2, 2); //left,top,right,bottom-
         PDF::SetAutoPageBreak(TRUE, 10);
         PDF::setImageScale(PDF_IMAGE_SCALE_RATIO);
-        
+
         PDF::AddPage('P', 'A4');
         // PDF::SetFont('times', '', 9, '', false);
         PDF::writeHTML(view('pemasaran.suratpesanan.pdf_ecotunai',['data' => $data])->render(), true, false, false, false, '');
-        
+
         // return Response::make(PDF::Output('SuratPesanan.pdf', 'I'), 200, array('Content-Type' => 'application/pdf'));
         return Response::make(PDF::Output('SuratPesanan.pdf', 'I'), 200, array('Content-Type' => 'application/pdf'));
     }
@@ -200,19 +200,19 @@ class SuratPesananController extends Controller
             // Set font
             $pdf->SetFont('helvetica', 'I', 8);
             $pdf->Cell(0, 5, 'SPPJB. Halaman '.$pdf->getAliasNumPage().'/'.$pdf->getAliasNbPages(), 0, false, 'R', 0, '', 0, false, 'T', 'M');
-            
+
         });
 
 
-            
+
         PDF::SetTitle('Surat PPJB');
         PDF::SetPrintHeader(false);
         PDF::SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
         PDF::SetMargins(16, 20, 6, 2); //left,top,right,bottom-
-        PDF::SetFooterMargin(PDF_MARGIN_FOOTER);  
+        PDF::SetFooterMargin(PDF_MARGIN_FOOTER);
         PDF::SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
         PDF::setImageScale(PDF_IMAGE_SCALE_RATIO);
-        
+
         PDF::AddPage('P', 'A4');
         PDF::SetFont('times', '', 9, '', false);
         PDF::writeHTML(view('pemasaran.suratpesanan.pdf_ppjb',['data' => $data])->render(), true, false, false, false, '');
