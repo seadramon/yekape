@@ -32,21 +32,21 @@
 	<body id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
 		<!--begin::Theme mode setup on page load-->
 		<script>
-            var defaultThemeMode = "light"; 
-            var themeMode; 
-            if ( document.documentElement ) { 
-                if ( document.documentElement.hasAttribute("data-bs-theme-mode")) { 
-                    themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); 
-                } else { 
-                    if ( localStorage.getItem("data-bs-theme") !== null ) { 
-                        themeMode = localStorage.getItem("data-bs-theme"); 
-                    } else { 
-                        themeMode = defaultThemeMode; 
-                    } 
-                } 
-                if (themeMode === "system") { 
-                    themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; 
-                } document.documentElement.setAttribute("data-bs-theme", themeMode); 
+            var defaultThemeMode = "light";
+            var themeMode;
+            if ( document.documentElement ) {
+                if ( document.documentElement.hasAttribute("data-bs-theme-mode")) {
+                    themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
+                } else {
+                    if ( localStorage.getItem("data-bs-theme") !== null ) {
+                        themeMode = localStorage.getItem("data-bs-theme");
+                    } else {
+                        themeMode = defaultThemeMode;
+                    }
+                }
+                if (themeMode === "system") {
+                    themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                } document.documentElement.setAttribute("data-bs-theme", themeMode);
             }
         </script>
 		<!--end::Theme mode setup on page load-->
@@ -453,7 +453,7 @@
 											</div>
 											<!--end:Menu sub-->
 										</div>
-										<!--end:Menu item-->  
+										<!--end:Menu item-->
 
 										<!--begin:Menu item-->
 										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -481,13 +481,19 @@
 														</span>
 														<span class="menu-title">Master Tanah Kavling</span>
 													</a>
+                                                    <a class="menu-link" href="{{ route('karyawan.index') }}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+														<span class="menu-title">Master Karyawan</span>
+													</a>
 													<!--end:Menu link-->
 												</div>
 												<!--end:Menu item-->
 											</div>
 											<!--end:Menu sub-->
 										</div>
-										<!--end:Menu item-->  
+										<!--end:Menu item-->
 
 										<!--begin:Menu item-->
 										<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -525,7 +531,7 @@
 											</div>
 											<!--end:Menu sub-->
 										</div>
-										<!--end:Menu item--> 
+										<!--end:Menu item-->
 
 									</div>
 									<!--end::Menu-->
