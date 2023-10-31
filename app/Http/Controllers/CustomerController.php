@@ -14,8 +14,10 @@ use Storage;
 
 class CustomerController extends Controller
 {
+
     public function index()
     {
+        Cus
     	return view('master.customer.index');
     }
 
@@ -73,13 +75,13 @@ class CustomerController extends Controller
     {
         try {
             DB::beginTransaction();
-            
+
             if ($request->id) {
             	$data = Customer::find($request->id);
             } else {
             	$data = new Customer;
             }
-			
+
 			$data->no_ktp = $request->no_ktp;
 	        $data->nama = $request->nama;
 	        $data->telp_1 = $request->telp_1;
@@ -103,7 +105,7 @@ class CustomerController extends Controller
 	        $data->alamat_pajak = $request->alamat_pajak;
 	        $data->kota_pajak = $request->kota_pajak;
 	        $data->doc = date('Y-m-d H:i:s');
-	        $data->save();  
+	        $data->save();
 
 	        $id = $data->id;
 
@@ -151,7 +153,7 @@ class CustomerController extends Controller
             return redirect()->route('master.customer.index');
         } catch(Exception $e) {
             DB::rollback();
-            
+
             $flasher->addError($e->getMessage());
             return redirect()->back();
         }
