@@ -113,7 +113,6 @@ class SuratPesananController extends Controller
                 $data = new SuratPesananRumah;
             }
             
-            // $data->no_sp = $request->no_sp;
             $data->tgl_sp = date('Y-m-d', strtotime($request->tgl_sp));
             $data->tipe_pembelian = $request->tipe_pembelian;
             $data->jenis_pembeli = $request->jenis_pembeli;

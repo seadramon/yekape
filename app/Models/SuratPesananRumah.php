@@ -42,6 +42,7 @@ class SuratPesananRumah extends Model
             }
         });
         self::saved(function (SuratPesananRumah $spr) {
+
         });
     }
 

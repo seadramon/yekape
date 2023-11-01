@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingFeeController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TanahKavlingController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\TanahMentahController;
 use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\NupController;
 use App\Http\Controllers\SuratPesananController;
 
 /*
@@ -79,6 +81,18 @@ Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
 		Route::post('/destroy', 	[SuratPesananController::class, 'destroy'])->name('destroy');
 	});
 
+	Route::group(['prefix' => '/nup', 'as' => 'nup.'], function(){	
+	
+		Route::get('/data', [NupController::class, 'data'])->name('data');
+		Route::post('/destroy', [NupController::class, 'destroy'])->name('destroy');
+		Route::resource('/', NupController::class)->except(['destroy'])->parameters(['' => 'nup']);
+	});
+	Route::group(['prefix' => '/booking-fee', 'as' => 'booking-fee.'], function(){	
+	
+		Route::get('/data', [BookingFeeController::class, 'data'])->name('data');
+		Route::post('/destroy', [BookingFeeController::class, 'destroy'])->name('destroy');
+		Route::resource('/', BookingFeeController::class)->except(['destroy'])->parameters(['' => 'booking-fee']);
+	});
 });
 
 Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){	

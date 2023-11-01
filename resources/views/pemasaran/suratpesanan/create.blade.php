@@ -184,10 +184,7 @@
 <script src="{{ asset('assets/plugins/custom/formrepeater/formrepeater.bundle.js') }}"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    $(".currency").keyup(function() {
-        var rp = formatRupiah(this.value);
-        $(this).val(rp);
-    });
+
 });
 </script>
 @endsection

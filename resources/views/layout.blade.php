@@ -557,6 +557,18 @@
 														</span>
 														<span class="menu-title">Surat Pesanan Rumah/Ruko</span>
 													</a>
+													<a class="menu-link" href="{{ route('pemasaran.nup.index') }}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+														<span class="menu-title">NUP</span>
+													</a>
+													<a class="menu-link" href="{{ route('pemasaran.booking-fee.index') }}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+														<span class="menu-title">Booking Fee</span>
+													</a>
 												</div>
 												<!--end:Menu item-->
 											</div>
@@ -671,6 +683,12 @@
 		{{--<script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>--}}
 		<!--end::Custom Javascript-->
 		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".currency").keyup(function() {
+					var rp = formatRupiah(this.value);
+					$(this).val(rp);
+				});
+			});
             function formatRupiah(angka, prefix){
                 var number_string = angka.replace(/[^,\d]/g, '').toString(),
                 split           = number_string.split(','),
@@ -698,6 +716,7 @@
 			    dateFormat: "Y-m-d",
 			    mode: "range"
 			});
+			
 		</script>
 		<!--end::Javascript-->
 	</body>
