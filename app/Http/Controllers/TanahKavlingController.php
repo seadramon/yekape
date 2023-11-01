@@ -93,7 +93,7 @@ class TanahKavlingController extends Controller
     	// dd($request->all());
         try {
             DB::beginTransaction();
-            
+
             if ($request->id) {
             	$data = Kavling::find($request->id);
 
@@ -121,7 +121,7 @@ class TanahKavlingController extends Controller
                 $data->alamat_op = strtoupper($request->alamat_op);
                 $data->user_entry = "Administrator";
                 $data->doc = date('Y-m-d H:i:s');
-            }          	
+            }
 
             $data->save();
             DB::commit();
@@ -130,7 +130,7 @@ class TanahKavlingController extends Controller
             return redirect()->route('master.tanah-kavling.index');
         } catch(Exception $e) {
             DB::rollback();
-            
+
             $flasher->addError($e->getMessage());
             return redirect()->back();
         }
@@ -140,7 +140,7 @@ class TanahKavlingController extends Controller
     {
         DB::beginTransaction();
 
-        try {               
+        try {
             $data = Kavling::find($request->id);
             $data->delete();
 
