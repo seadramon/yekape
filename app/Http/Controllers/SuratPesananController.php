@@ -15,7 +15,7 @@ use Elibyy\TCPDF\Facades\TCPDF as PDF;
 
 class SuratPesananController extends Controller
 {
-    
+
     public function index()
     {
         $tipe = [
@@ -31,7 +31,8 @@ class SuratPesananController extends Controller
     public function loadData(Request $request)
     {
     	$query = SuratPesananRumah::with(['customer', 'kavling'])
-    		->where('tgl_batal', null);
+    		->where('tgl_batal', null)
+            ->whereNotIn('status', ['revised']);
 
     	if (!empty($request->tipe_pembelian)) {
     		$query->where('tipe_pembelian', $request->tipe_pembelian);
@@ -52,6 +53,7 @@ class SuratPesananController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Revisi</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank">Cetak PPJB</a></li>
                         </ul>
@@ -106,13 +108,13 @@ class SuratPesananController extends Controller
     {
         try {
             DB::beginTransaction();
-            
+
             if ($request->id) {
                 $data = SuratPesananRumah::find($request->id);
             } else {
                 $data = new SuratPesananRumah;
             }
-            
+
             $data->tgl_sp = date('Y-m-d', strtotime($request->tgl_sp));
             $data->tipe_pembelian = $request->tipe_pembelian;
             $data->jenis_pembeli = $request->jenis_pembeli;
@@ -144,7 +146,67 @@ class SuratPesananController extends Controller
             return redirect()->route('pemasaran.suratpesanan.index');
         } catch(Exception $e) {
             DB::rollback();
-            
+
+            $flasher->addError($e->getMessage());
+            return redirect()->back();
+        }
+    }
+
+    public function revisi($id = null)
+    {
+        $data = SuratPesananRumah::find($id);
+
+        $tipe = [
+            "" => '-Pilih Tipe-',
+            "KPR" => "KPR",
+            "TUNAI" => "TUNAI",
+            "INHOUSE" => "INHOUSE"
+        ];
+
+        $jenis = [
+            "" => '-Pilih Jenis-',
+            "UMUM" => "UMUM",
+            "KARYAWAN" => "KARYAWAN",
+            "RUKO" => "RUKO"
+        ];
+
+        $kavling = Kavling::select('id', 'nama')
+            ->get()
+            ->mapWithKeys(function($item){
+                return [$item->id => $item->nama];
+            })->all();
+        $kavling = ["" => "-Pilih Kavling-"] + $kavling;
+
+        $customer = Customer::select('id', 'nama')
+            ->get()
+            ->mapWithKeys(function($item){
+                return [$item->id => $item->nama];
+            })->all();
+        $customer = ["" => "-Pilih Customer-"] + $customer;
+
+        return view('pemasaran.suratpesanan.create', compact('data', 'kavling', 'customer', 'tipe', 'jenis'));
+    }
+
+    public function revisiStore($spr, Request $request, FlasherInterface $flasher)
+    {
+        DB::beginTransaction();
+        try {
+            $data = SuratPesananRumah::find($spr);
+
+            $spr_baru = $data->replicate(["no_sp", "status", "data", "counter", "parent_id", "booking_fee_id"]);
+            $spr_baru->parent_id = $spr;
+            $spr_baru->save();
+
+            $data->status = "revised";
+            $data->save();
+
+            DB::commit();
+
+            $flasher->addSuccess('Data has been saved successfully!');
+            return redirect()->route('pemasaran.suratpesanan.index');
+        } catch(Exception $e) {
+            DB::rollback();
+
             $flasher->addError($e->getMessage());
             return redirect()->back();
         }
@@ -171,18 +233,18 @@ class SuratPesananController extends Controller
     public function cetak($id)
     {
         $data = SuratPesananRumah::with('customer')->find($id);
-        
+
         PDF::SetTitle('Surat Pesanan Rumah');
         PDF::SetPrintHeader(false);
         PDF::SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
         PDF::SetMargins(2, 4, 2, 2); //left,top,right,bottom-
         PDF::SetAutoPageBreak(TRUE, 10);
         PDF::setImageScale(PDF_IMAGE_SCALE_RATIO);
-        
+
         PDF::AddPage('P', 'A4');
         // PDF::SetFont('times', '', 9, '', false);
         PDF::writeHTML(view('pemasaran.suratpesanan.pdf_ecotunai',['data' => $data])->render(), true, false, false, false, '');
-        
+
         // return Response::make(PDF::Output('SuratPesanan.pdf', 'I'), 200, array('Content-Type' => 'application/pdf'));
         return Response::make(PDF::Output('SuratPesanan.pdf', 'I'), 200, array('Content-Type' => 'application/pdf'));
     }
@@ -199,19 +261,19 @@ class SuratPesananController extends Controller
             // Set font
             $pdf->SetFont('helvetica', 'I', 8);
             $pdf->Cell(0, 5, 'SPPJB. Halaman '.$pdf->getAliasNumPage().'/'.$pdf->getAliasNbPages(), 0, false, 'R', 0, '', 0, false, 'T', 'M');
-            
+
         });
 
 
-            
+
         PDF::SetTitle('Surat PPJB');
         PDF::SetPrintHeader(false);
         PDF::SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
         PDF::SetMargins(16, 20, 6, 2); //left,top,right,bottom-
-        PDF::SetFooterMargin(PDF_MARGIN_FOOTER);  
+        PDF::SetFooterMargin(PDF_MARGIN_FOOTER);
         PDF::SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
         PDF::setImageScale(PDF_IMAGE_SCALE_RATIO);
-        
+
         PDF::AddPage('P', 'A4');
         PDF::SetFont('times', '', 9, '', false);
         PDF::writeHTML(view('pemasaran.suratpesanan.pdf_ppjb',['data' => $data])->render(), true, false, false, false, '');
