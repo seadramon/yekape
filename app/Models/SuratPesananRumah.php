@@ -19,11 +19,15 @@ class SuratPesananRumah extends Model
 
     protected static function booted()
     {
-        static::saving(function ($spr) {
+        static::saving(function (SuratPesananRumah $spr) {
             if ($spr->no_sp == null) {
-                $number = self::generate_number($spr->parent_id != null, $spr->tgl_sp);
-                $spr->counter = $number[0];
-                $spr->no_sp = $number[1];
+                if($spr->parent_id != null){
+                    $spr->no_sp = self::revised_number($spr->parent->no_sp);
+                }else{
+                    $number = self::generate_number($spr->parent_id != null, $spr->tgl_sp);
+                    $spr->counter = $number[0];
+                    $spr->no_sp = $number[1];
+                }
             }
             if ($spr->status == null) {
                 $spr->status = 'draft';
@@ -42,6 +46,7 @@ class SuratPesananRumah extends Model
             }
         });
         self::saved(function (SuratPesananRumah $spr) {
+
         });
     }
 
@@ -65,11 +70,27 @@ class SuratPesananRumah extends Model
         ];
     }
 
+    public static function revised_number($old_number)
+    {
+        $old = explode("-", $old_number);
+        if(count($old) > 1){
+            $counter = intval(substr($old[1], 1)) + 1;
+            $new_number = $old[0] . "-P" . $counter;
+        }else{
+            $new_number = $old_number . "-P1";
+        }
+        return $new_number;
+    }
+
     public function customer(){
         return $this->belongsTo('App\Models\Customer', 'customer_id', 'id');
     }
 
     public function kavling(){
         return $this->belongsTo('App\Models\Kavling', 'kavling_id', 'id');
+    }
+
+    public function parent(){
+        return $this->belongsTo(SuratPesananRumah::class, 'parent_id', 'id');
     }
 }

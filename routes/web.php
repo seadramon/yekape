@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingFeeController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TanahKavlingController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\TanahMentahController;
 use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\NupController;
 use App\Http\Controllers\SuratPesananController;
 
 /*
@@ -29,7 +31,7 @@ Route::get('template', function () {
 
 Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 
-	Route::group(['prefix' => '/tanah-kavling', 'as' => 'tanah-kavling.'], function(){	
+	Route::group(['prefix' => '/tanah-kavling', 'as' => 'tanah-kavling.'], function(){
 
 		Route::get('/', 		[TanahKavlingController::class, 'index'])->name('index');
 		Route::get('loadData', 	[TanahKavlingController::class, 'loadData'])->name('data');
@@ -39,7 +41,7 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 		Route::post('/destroy', [TanahKavlingController::class, 'destroy'])->name('destroy');
 	});
 
-	Route::group(['prefix' => '/customer', 'as' => 'customer.'], function(){	
+	Route::group(['prefix' => '/customer', 'as' => 'customer.'], function(){
 
 		Route::get('/', 			[CustomerController::class, 'index'])->name('index');
 		Route::get('loadData', 		[CustomerController::class, 'loadData'])->name('data');
@@ -48,7 +50,7 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 		Route::post('/destroy', 	[CustomerController::class, 'destroy'])->name('destroy');
 	});
 
-	Route::group(['prefix' => '/tanah-mentah', 'as' => 'tanah-mentah.'], function(){	
+	Route::group(['prefix' => '/tanah-mentah', 'as' => 'tanah-mentah.'], function(){
 
 		Route::get('/', 			[TanahMentahController::class, 'index'])->name('index');
 		Route::get('loadData', 		[TanahMentahController::class, 'loadData'])->name('data');
@@ -57,7 +59,7 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 		Route::post('/destroy', 	[TanahMentahController::class, 'destroy'])->name('destroy');
 	});
 
-	Route::group(['prefix' => '/cluster', 'as' => 'cluster.'], function(){	
+	Route::group(['prefix' => '/cluster', 'as' => 'cluster.'], function(){
 
 		Route::get('/', 			[ClusterController::class, 'index'])->name('index');
 		Route::get('loadData', 		[ClusterController::class, 'loadData'])->name('data');
@@ -69,19 +71,31 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 
 Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
 
-	Route::group(['prefix' => '/suratpesanan', 'as' => 'suratpesanan.'], function(){	
-		Route::get('/', 			[SuratPesananController::class, 'index'])->name('index');
-		Route::get('loadData', 		[SuratPesananController::class, 'loadData'])->name('data');
-		Route::get('create/{id?}', 	[SuratPesananController::class, 'create'])->name('create');
+	Route::group(['prefix' => '/suratpesanan', 'as' => 'suratpesanan.'], function(){
+        Route::get('/loadData', [SuratPesananController::class, 'loadData'])->name('data');
+		Route::post('/destroy', [SuratPesananController::class, 'destroy'])->name('destroy');
 		Route::get('cetak/{id}', 	[SuratPesananController::class, 'cetak'])->name('cetak');
 		Route::get('cetakppjb/{id?}', 	[SuratPesananController::class, 'cetakppjb'])->name('cetakppjb');
-		Route::post('store', 		[SuratPesananController::class, 'store'])->name('store');
-		Route::post('/destroy', 	[SuratPesananController::class, 'destroy'])->name('destroy');
+		Route::get('{id}/revisi', 	[SuratPesananController::class, 'revisi'])->name('revisi');
+		Route::put('{id}/revisi', 	[SuratPesananController::class, 'revisiStore'])->name('revisi-store');
+		Route::resource('/', SuratPesananController::class)->except(['destroy'])->parameters(['' => 'spr']);
 	});
 
+	Route::group(['prefix' => '/nup', 'as' => 'nup.'], function(){
+
+		Route::get('/data', [NupController::class, 'data'])->name('data');
+		Route::post('/destroy', [NupController::class, 'destroy'])->name('destroy');
+		Route::resource('/', NupController::class)->except(['destroy'])->parameters(['' => 'nup']);
+	});
+	Route::group(['prefix' => '/booking-fee', 'as' => 'booking-fee.'], function(){
+
+		Route::get('/data', [BookingFeeController::class, 'data'])->name('data');
+		Route::post('/destroy', [BookingFeeController::class, 'destroy'])->name('destroy');
+		Route::resource('/', BookingFeeController::class)->except(['destroy'])->parameters(['' => 'booking-fee']);
+	});
 });
 
-Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){	
+Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){
 
 	Route::get('/data', [KaryawanController::class, 'data'])->name('data');
 	Route::post('/destroy', [KaryawanController::class, 'destroy'])->name('destroy');
