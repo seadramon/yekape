@@ -26,8 +26,20 @@
 
                     <div class="row">
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">SPR</label>
-                            {!! Form::select('spr', $spr, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'spr', 'required']) !!}
+                            <label class="form-label">
+                                @php
+                                    $attr = ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'spr', 'required']
+                                @endphp
+                                @if ($tipe == 'KWT')
+                                    SPR
+                                @else
+                                    NUP / Bookin Fee
+                                    @php
+                                        $attr = ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'spr']
+                                    @endphp
+                                @endif
+                            </label>
+                            {!! Form::select('spr', $spr, null, $attr) !!}
                         </div>
                     </div>
                     <div class="row">

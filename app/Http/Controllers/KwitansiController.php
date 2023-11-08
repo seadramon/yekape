@@ -54,10 +54,6 @@ class KwitansiController extends Controller
     {
         $data = null;
 
-       
-        
-        
-
         if($tipe == 'KWT'){
             $spr = SuratPesananRumah::get()
                 ->mapWithKeys(function ($item) {
@@ -157,12 +153,18 @@ class KwitansiController extends Controller
             
             if($request->jenis_kwitansi == 'KWT'){
                 $spr = SuratPesananRumah::find($request->spr);
-                $spr->source_type = get_class($spr);
-                $spr->source_id = $spr->id;
+                $kwitansi->source_type = get_class($spr);
+                $kwitansi->source_id = $spr->id;
 
                 $kwitansi->ppn = $request->ppn;
                 $kwitansi->dpp = $request->dpp;
                 $kwitansi->ppn = $request->ppn;
+            }else{
+                if($request->spr){
+                    $spr = Nup::find($request->spr) ?? BookingFee::find($request->spr);
+                    $kwitansi->source_type = get_class($spr);
+                    $kwitansi->source_id = $spr->id;
+                }
             }
 
             $kwitansi->save();
