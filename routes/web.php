@@ -7,6 +7,7 @@ use App\Http\Controllers\TanahKavlingController;
 use App\Http\Controllers\TanahMentahController;
 use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\KwitansiController;
 use App\Http\Controllers\NupController;
@@ -28,6 +29,11 @@ Route::get('/', function () {
 });
 Route::get('template', function () {
     return view('template');
+});
+
+Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.'], function(){
+	Route::get('spr-monthly', [DashboardController::class, 'sprMonthly'])->name('spr-monthly');
+	Route::resource('/', DashboardController::class)->only(['index'])->parameters(['' => 'id']);
 });
 
 Route::group(['prefix' => '/master', 'as' => 'master.'], function(){

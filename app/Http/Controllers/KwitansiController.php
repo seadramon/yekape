@@ -149,16 +149,16 @@ class KwitansiController extends Controller
             $kwitansi->tipe_bayar = $request->tipe_bayar;
             $kwitansi->bank = $request->bank;
             $kwitansi->tanggal_transfer = $request->tanggal_transfer;
-            $kwitansi->jumlah = $request->jumlah;
+            $kwitansi->jumlah = str_replace('.', '', $request->jumlah);
             
             if($request->jenis_kwitansi == 'KWT'){
                 $spr = SuratPesananRumah::find($request->spr);
                 $kwitansi->source_type = get_class($spr);
                 $kwitansi->source_id = $spr->id;
 
-                $kwitansi->ppn = $request->ppn;
-                $kwitansi->dpp = $request->dpp;
-                $kwitansi->ppn = $request->ppn;
+                $kwitansi->ppn = str_replace('.', '', $request->ppn);
+                $kwitansi->dpp = str_replace('.', '', $request->dpp);
+                $kwitansi->ppn = str_replace('.', '', $request->ppn);
             }else{
                 if($request->spr){
                     $spr = Nup::find($request->spr) ?? BookingFee::find($request->spr);
