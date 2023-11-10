@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookingFeeController;
 use Illuminate\Support\Facades\Route;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use App\Http\Controllers\TanahKavlingController;
 use App\Http\Controllers\TanahMentahController;
@@ -100,4 +101,14 @@ Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){
 	Route::get('/data', [KaryawanController::class, 'data'])->name('data');
 	Route::post('/destroy', [KaryawanController::class, 'destroy'])->name('destroy');
 	Route::resource('/', KaryawanController::class)->except(['destroy'])->parameters(['' => 'karyawan']);
+});
+
+Route::get('/kwitansi', function () {
+    $pdf = Pdf::loadView('prints.kwitansi');
+
+    $filename = "Kwitansi";
+
+    $customPaper = [0, 0, 16.5, 21.5];
+    return $pdf->setPaper('a4', 'landscape')
+        ->stream($filename . '.pdf');
 });
