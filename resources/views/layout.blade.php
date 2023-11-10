@@ -389,7 +389,7 @@
 														<span class="path2"></span>
 													</i>
 												</span>
-												<span class="menu-title">Corporate</span>
+												<span class="menu-title">Keuangan</span>
 												<span class="menu-arrow"></span>
 											</span>
 											<!--end:Menu link-->
@@ -398,59 +398,11 @@
 												<!--begin:Menu item-->
 												<div class="menu-item">
 													<!--begin:Menu link-->
-													<a class="menu-link active" href="../../demo1/dist/pages/about.html">
+													<a class="menu-link active" href="{{ route('kwitansi.index') }}">
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
-														<span class="menu-title">About</span>
-													</a>
-													<!--end:Menu link-->
-												</div>
-												<!--end:Menu item-->
-												<!--begin:Menu item-->
-												<div class="menu-item">
-													<!--begin:Menu link-->
-													<a class="menu-link" href="../../demo1/dist/pages/team.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-														<span class="menu-title">Our Team</span>
-													</a>
-													<!--end:Menu link-->
-												</div>
-												<!--end:Menu item-->
-												<!--begin:Menu item-->
-												<div class="menu-item">
-													<!--begin:Menu link-->
-													<a class="menu-link" href="../../demo1/dist/pages/contact.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-														<span class="menu-title">Contact Us</span>
-													</a>
-													<!--end:Menu link-->
-												</div>
-												<!--end:Menu item-->
-												<!--begin:Menu item-->
-												<div class="menu-item">
-													<!--begin:Menu link-->
-													<a class="menu-link" href="../../demo1/dist/pages/licenses.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-														<span class="menu-title">Licenses</span>
-													</a>
-													<!--end:Menu link-->
-												</div>
-												<!--end:Menu item-->
-												<!--begin:Menu item-->
-												<div class="menu-item">
-													<!--begin:Menu link-->
-													<a class="menu-link" href="../../demo1/dist/pages/sitemap.html">
-														<span class="menu-bullet">
-															<span class="bullet bullet-dot"></span>
-														</span>
-														<span class="menu-title">Sitemap</span>
+														<span class="menu-title">Kwitansi</span>
 													</a>
 													<!--end:Menu link-->
 												</div>

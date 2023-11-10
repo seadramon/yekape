@@ -82,8 +82,8 @@ class SuratPesananController extends Controller
 
         $jenis = [
             "" => '-Pilih Jenis-',
-            "UMUM" => "UMUM",
-            "KARYAWAN" => "KARYAWAN",
+            "RUMAH" => "RUMAH",
+            "RUSUNAMI" => "RUSUNAMI",
             "RUKO" => "RUKO"
         ];
 
