@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Css rotate texts</title>
+<title>KWITANSI KWT</title>
 <!-- <link rel="stylesheet" href="style.css"> -->
 <style type="text/css">
 	body {
@@ -44,38 +44,73 @@
 	<td width="80%" style="vertical-align: top;padding-left: 10px;padding-right: 10px;font-size: 16px;">
 	 	<table border="0" width="100%" style="font-size: 16px; font-family: Arial, Helvetica, sans-serif;">
 	 		<tr>
-	 			<td style="font-weight: bold;text-align: left;vertical-align: top;font-size: 21px;">Kwitansi No : 92/KWT/IV/23</td>
+	 			<td style="font-weight: bold;text-align: left;vertical-align: top;font-size: 21px;">Kwitansi No : {{ $data->nomor }}</td>
 	 			<td style="text-align: right;">
-	 				SP. NO 057/BP/R/V/2023<br>
-	 				Tgl 02 May 2023, 120 bln, INHOUSE
+	 				SP. NO {{$spr->no_sp}}<br>
+	 				Tgl {{ date('j F Y', strtotime($spr->created_at)) }}, {{ $spr->lm_angsuran }} bln, {{ $spr->tipe_pembelian }}
 	 			</td>
 	 		</tr>
 	 	</table>
 	 	<table width="100%" border="0" style="font-size: 16px; font-family: Arial, Helvetica, sans-serif;">
 	 		<tr>
-	 			<td width="29%">Sudah terima dari </td>
-	 			<td width="1%">:</td>
-	 			<td width="70%" style="border-bottom: 1px solid #000;">NESTI ARIMBI WIDODO</td>
+	 			<td width="29%" style="vertical-align:top;">Sudah terima dari </td>
+	 			<td width="1%" style="vertical-align:top;">:</td>
+	 			<td width="70%">
+	 				{{$data->nama}}
+	 				<hr style="border-top:1px dotted #000">
+	 				{{ $data->alamat }}
+	 				<hr style="border-top: 1px dotted #000;">
+	 			</td>
 	 		</tr>
 	 		<tr>
 	 			<td><i>Terbilang</i></td>
 	 			<td>:</td>
-	 			<td><i>--- Enam Puluh Juta Rupiah ---</i></td>
+	 			<td><i>--- {{ucwords(terbilang($data->jumlah)) . ' Rupiah'}} ---</i></td>
 	 		<tr>
 	 			<td colspan="3">&nbsp;</td>
 	 		</tr>
 	 		<tr>
 	 			<td>Dibayarkan dengan</td>
 	 			<td>:</td>
-	 			<td>Transfer dari bank BNI Tgl Transfer : 27-04-2023</td>
+	 			<td>
+	 				@if ($data->tipe_bayar == 'transfer')
+	 					{{ 'Transfer dari bank '. strtoupper($data->bank).' Tgl Transfer : '. date('d-m-Y', strtotime($data->tanggal_transfer))}}
+	 				@else
+	 					{{ $data->tipe_bayar }}
+	 				@endif
+	 			</td>
 	 		</tr>
 	 		<tr>
 	 			<td>Untuk Pembayaran</td>
 	 			<td>:</td>
-	 			<td style="border-bottom: 1px solid #000;">SETORAN ANGSURAN UANG MUKA PEMBELIAN RUMAH</td>
+	 			<td>
+	 				{{ !empty($data->keterangan)?strtoupper(substr($data->keterangan, 0, 56)):'' }}
+	 				<hr style="border-bottom: 1px dotted #000;margin-bottom:1px;margin-top:1px">
+	 			</td>
 	 		</tr>
 	 		<tr>
-	 			<td colspan="3" style="border-bottom: 1px solid #000;">di PRAMBON ASRI BLOK D NO.04 GRESIK</td>
+	 			<td colspan="3">
+	 				@if (!empty($data->keterangan))
+	 					@if (strlen($data->keterangan) > 56)
+	 						{{ strtoupper(substr($data->keterangan, 56, 80)) }}
+	 					@else
+	 						&nbsp;
+	 					@endif
+	 				@else
+	 					&nbsp;
+	 				@endif
+	 				<hr style="border-bottom: 1px dotted #000;margin-bottom:1px;margin-top:1px">
+	 				@if (!empty($data->keterangan))
+	 					@if (strlen($data->keterangan) > 136)
+	 						{{ strtoupper(substr($data->keterangan, 136)) }}
+	 					@else
+	 						&nbsp;
+	 					@endif
+	 				@else
+	 					&nbsp;
+	 				@endif
+	 				<hr style="border-bottom: 1px dotted #000;margin-bottom:1px;margin-top:1px">
+	 			</td>
 	 		</tr>
 	 	</table>
 
@@ -129,21 +164,21 @@
 	 				*) Pembayaran dengan transfer dianggap sah jika uang telah diterima dan masuk di rekening PT. Yekape Surabaya
 	 			</td>
 	 			<td width="25%" style="vertical-align: top;text-align: right;">
-	 				<span style="text-align: right;">Surabaya, 27 April 2023</span>
-	 				<hr style="border-top: 1px solid #000;margin-top: 1px;">
+	 				<span style="text-align: right;">Surabaya, {{ date('j F Y', strtotime($spr->created_at)) }}</span>
+	 				<hr style="border-top: 1px dotted #000;margin-top: 1px;">
 	 			</td>
 	 		</tr>
 	 		<tr>
 	 			<td width="25%" style="text-align: center;vertical-align: bottom;">
 	 				<span>ARIFIANTO</span>
-	 				<hr style="border-top: 1px solid #000;margin-top: 1px;">
+	 				<hr style="border-top: 1px dotted #000;margin-top: 1px;">
 	 			</td>
 	 		</tr>
 	 	</table>
 	</td>
   </tr>
 </table>
-<span><i>print by : DAMAR 24-05-2023 11:08:00 (TSI01)</i></span>
+<span><i>print by : {{!empty($data->created_by)?$data->created_by:'KASIR'}} {{ date('d/m/Y', strtotime($data->created_at)) }} (PCKASIR{{ sprintf('%02d', $data->counter) }})</i></span>
 
 </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Kwitansi extends Model
 {
@@ -33,5 +34,10 @@ class Kwitansi extends Model
             $counter,
             sprintf('%03d', $counter) . "/" . $jenis . "/" . getRomawiBulan($month) . "/" . $year
         ];
+    }
+
+    public function source(): MorphTo
+    {
+        return $this->morphTo();
     }
 }
