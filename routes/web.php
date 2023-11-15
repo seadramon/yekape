@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\BookingFeeController;
 use Illuminate\Support\Facades\Route;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 use App\Http\Controllers\TanahKavlingController;
 use App\Http\Controllers\TanahMentahController;
@@ -112,20 +111,10 @@ Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){
 
 
 Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
-
-	Route::get('/print', function () {
-	    $pdf = Pdf::loadView('prints.kwitansi');
-
-	    $filename = "Kwitansi";
-
-	    $customPaper = [0, 0, 16.5, 21.5];
-	    return $pdf->setPaper('a4', 'landscape')
-	        ->stream($filename . '.pdf');
-	});
-	
 	Route::get('/data', [KwitansiController::class, 'data'])->name('data');
 	Route::get('/create-{tipe}', [KwitansiController::class, 'create'])->name('create');
 	// Route::get('/create/kwu', [KwitansiController::class, 'createKwu'])->name('create-kwu');
+	Route::get('/cetak/{id}', 	[KwitansiController::class, 'cetak'])->name('cetak');
 	Route::post('/destroy', [KwitansiController::class, 'destroy'])->name('destroy');
 	Route::resource('/', KwitansiController::class)->except(['destroy', 'create'])->parameters(['' => 'kwitansi']);
 });
