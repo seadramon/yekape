@@ -9,6 +9,7 @@ use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\Keuangan\ValidasiSprController;
 use App\Http\Controllers\KwitansiController;
 use App\Http\Controllers\NupController;
 use App\Http\Controllers\SuratPesananController;
@@ -115,4 +116,13 @@ Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
 	// Route::get('/create/kwu', [KwitansiController::class, 'createKwu'])->name('create-kwu');
 	Route::post('/destroy', [KwitansiController::class, 'destroy'])->name('destroy');
 	Route::resource('/', KwitansiController::class)->except(['destroy', 'create'])->parameters(['' => 'kwitansi']);
+});
+
+Route::group(['prefix' => '/keuangan', 'as' => 'keuangan.'], function(){
+
+	Route::group(['prefix' => '/validasi-spr', 'as' => 'validasi-spr.'], function(){
+        Route::get('/loadData', [ValidasiSprController::class, 'loadData'])->name('data');
+		Route::get('{id}/validasi', [ValidasiSprController::class, 'validasi'])->name('validasi');
+		Route::resource('/', ValidasiSprController::class)->except(['destroy'])->parameters(['' => 'spr']);
+	});
 });
