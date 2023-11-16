@@ -109,11 +109,13 @@ Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){
 	Route::post('/destroy', [KaryawanController::class, 'destroy'])->name('destroy');
 	Route::resource('/', KaryawanController::class)->except(['destroy'])->parameters(['' => 'karyawan']);
 });
-Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
 
+
+Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
 	Route::get('/data', [KwitansiController::class, 'data'])->name('data');
 	Route::get('/create-{tipe}', [KwitansiController::class, 'create'])->name('create');
 	// Route::get('/create/kwu', [KwitansiController::class, 'createKwu'])->name('create-kwu');
+	Route::get('/cetak/{id}', 	[KwitansiController::class, 'cetak'])->name('cetak');
 	Route::post('/destroy', [KwitansiController::class, 'destroy'])->name('destroy');
 	Route::resource('/', KwitansiController::class)->except(['destroy', 'create'])->parameters(['' => 'kwitansi']);
 });
