@@ -35,7 +35,7 @@
                                 @else
                                     NUP / Bookin Fee
                                     @php
-                                        $attr = ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'spr']
+                                        $attr = ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'nup']
                                     @endphp
                                 @endif
                             </label>
@@ -85,8 +85,12 @@
                                 {!! Form::text('dpp', null, ['class'=>'form-control currency', 'id'=>'dpp', 'autocomplete'=>'off']) !!}
                             </div>
                             <div class="fv-row form-group col-lg-6 mb-3">
-                                <label class="form-label">PPN</label>
-                                {!! Form::text('ppn', null, ['class'=>'form-control currency', 'id'=>'ppn', 'autocomplete'=>'off']) !!}
+                                <label class="form-label">Tipe Bayar</label>
+                                {!! Form::select('ppn', $ppn, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'ppn']) !!}
+                            </div>
+                            <div class="fv-row form-group col-lg-6 mb-3">
+                                <label class="form-label">PPN Nilai</label>
+                                {!! Form::text('ppn_rp', null, ['class'=>'form-control currency', 'id'=>'ppn_rp', 'autocomplete'=>'off', 'readonly']) !!}
                             </div>
                             <div class="fv-row form-group col-lg-6 mb-3">
                                 <label class="form-label">Sanksi/Denda</label>
@@ -122,7 +126,24 @@
 <script src="{{ asset('assets/plugins/custom/formrepeater/formrepeater.bundle.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-
+        var blockUI = new KTBlockUI(document.querySelector("#kt_content_container"));
+        $("#spr").on('change', function(){
+            blockUI.block();
+            $.get("{{ route('kwitansi.source-data') }}", { source: 'spr', source_id: $(this).val() }).done(function(result){
+                // $("#body-arrival").html(result);
+                $("#nama").val(result.data.terima_dari);
+                $("#alamat").val(result.data.alamat);
+                $("#jumlah").val(result.data.jumlah);
+                $("#ppn").val(result.data.ppn).trigger('change');
+                
+                blockUI.release();
+            });
+        });
+        $("#ppn").on('change', function(){
+            var jml = parseFloat($("#jumlah").val());
+            var ppn = parseInt($("#ppn").val());
+            $("#ppn_rp").val(jml * ppn / 100);
+        });
     });
 
     

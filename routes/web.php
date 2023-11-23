@@ -86,6 +86,8 @@ Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
 		Route::get('cetakppjb/{id?}', 	[SuratPesananController::class, 'cetakppjb'])->name('cetakppjb');
 		Route::get('{id}/revisi', 	[SuratPesananController::class, 'revisi'])->name('revisi');
 		Route::put('{id}/revisi', 	[SuratPesananController::class, 'revisiStore'])->name('revisi-store');
+		Route::get('{id}/upload', 	[SuratPesananController::class, 'upload'])->name('upload');
+		Route::put('{id}/upload', 	[SuratPesananController::class, 'uploadStore'])->name('upload-store');
 		Route::resource('/', SuratPesananController::class)->except(['destroy'])->parameters(['' => 'spr']);
 	});
 
@@ -117,6 +119,7 @@ Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
 	// Route::get('/create/kwu', [KwitansiController::class, 'createKwu'])->name('create-kwu');
 	Route::get('/cetak/{id}', 	[KwitansiController::class, 'cetak'])->name('cetak');
 	Route::post('/destroy', [KwitansiController::class, 'destroy'])->name('destroy');
+	Route::get('/source-data', [KwitansiController::class, 'sourceData'])->name('source-data');
 	Route::resource('/', KwitansiController::class)->except(['destroy', 'create'])->parameters(['' => 'kwitansi']);
 });
 

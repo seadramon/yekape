@@ -30,6 +30,10 @@
                         @endforeach
                     @endif
                     <div class="row">
+                        <div class="fv-row form-group col-lg-12 mb-3">
+                            <label class="form-label">Booking Fee</label>
+                            {!! Form::select('booking', $booking, $data->booking_fee_id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'booking']) !!}
+                        </div>
                         <div class="fv-row form-group col-lg-6 mb-3 @if(!isset($data)) hidden @endif">
                             <label class="form-label">Nomor SP</label>
                             {!! Form::text('no_sp', null, ['class'=>'form-control', 'id'=>'no_sp', 'autocomplete'=>'off', 'required', 'readonly' => 'readonly']) !!}

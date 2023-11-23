@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Keuangan;
 
+use App\Models\BookingFee;
 use Illuminate\Http\Request;
 use Flasher\Prime\FlasherInterface;
 use App\Models\Kavling;
@@ -95,8 +96,14 @@ class ValidasiSprController extends Controller
                 return [$item->id => $item->nama];
             })->all();
         $customer = ["" => "-Pilih Customer-"] + $customer;
+        $booking = BookingFee::select('id', 'nomor')
+            ->get()
+            ->mapWithKeys(function($item){
+                return [$item->id => $item->nomor];
+            })->all();
+        $booking = ["" => "-Pilih booking fee-"] + $booking;
 
-        return view('keuangan.validasi_spr.validasi', compact('data', 'kavling', 'customer', 'tipe', 'jenis'));
+        return view('keuangan.validasi_spr.validasi', compact('data', 'kavling', 'customer', 'tipe', 'jenis', 'booking'));
     }
 
     public function store(Request $request, FlasherInterface $flasher)

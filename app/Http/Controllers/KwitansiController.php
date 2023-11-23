@@ -89,6 +89,11 @@ class KwitansiController extends Controller
             'cash' => 'Cash',
             'transfer' => 'Transfer'
         ];
+        $ppn = [
+            '11' => 'PPN 11%',
+            '10' => 'PPN 10%',
+            '0' => 'Tanpa PPN'
+        ];
         $bank = [
             '' => 'Pilih Bank',
             'bni' => 'BNI',
@@ -104,6 +109,7 @@ class KwitansiController extends Controller
             'tipe'             => $tipe,
             'bank'             => $bank,
             'data'             => $data,
+            'ppn'              => $ppn,
         ]);
     }
 
@@ -242,6 +248,24 @@ class KwitansiController extends Controller
 
             return response()->json(['result' => $e->getMessage()])->setStatusCode(500, 'ERROR');
         }
+    }
+    
+    public function sourceData(Request $request)
+    {
+        $data = [];
+        if($request->source == 'spr'){
+            $source  = SuratPesananRumah::find($request->source_id);
+            $data = [
+                'terima_dari' => $source->customer->nama,
+                'alamat' => $source->customer->alamat,
+                'jumlah' => $source->rp_angsuran,
+                'ppn' => $source->ppn ?? 0,
+            ];
+        }else{
+            $source  = Nup::find($request->source_id) ?? BookingFee::find($request->source_id);
+        }
+        
+        return response()->json(['result' => 'success', 'data' => $data])->setStatusCode(200, 'OK');
     }
 
     public function cetak($id)
