@@ -15,6 +15,8 @@ use Yajra\DataTables\Facades\DataTables;
 use Elibyy\TCPDF\Facades\TCPDF as PDF;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SprExport;
 
 class SuratPesananController extends Controller
 {
@@ -60,6 +62,7 @@ class SuratPesananController extends Controller
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.upload', ['id' => $model->id]) .'" target="_blank">Upload File</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank">Cetak PPJB</a></li>
+                            <li><a class="dropdown-item exportSpr" href="javascript:void(0)" data-id="' .$model->id. '" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a></li>
                         </ul>
                     </div>';
 
@@ -321,5 +324,17 @@ class SuratPesananController extends Controller
             'customer' => $customer,
             'booking'  => $booking,
         ];
+    }
+
+    public function exportExcel(Request $request)
+    {
+        $id = $request->id;
+        $periode = $request->periode;
+        $lokasi = $request->lokasi;
+
+        $res = date_create_from_format('Ym', $periode);
+        $labelPeriode = date_format($res, "F Y");
+
+        return Excel::download(new SprExport($id, $periode, $lokasi, $labelPeriode), 'SPR.xlsx');
     }
 }

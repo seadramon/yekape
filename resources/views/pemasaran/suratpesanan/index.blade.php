@@ -63,6 +63,37 @@
     	</div>
   	</div>
 </div>
+
+<!-- EXPORT -->
+<div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<h5 class="modal-title" id="exampleModalLabel">Export to Excel</h5>
+        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      		</div>
+      		<div class="modal-body">
+      			<input type="hidden" name="id" id="idspr">
+        		<div class="mb-3">
+        		  	<label for="periode" class="form-label">Periode</label>
+        		  	<input type="text" name="periode" class="form-control" id="periode">
+        		</div>
+        		<div class="mb-3">
+        		  	<label for="lokasi" class="form-label">Lokasi</label>
+        		  	<select class="form-select" name="lokasi" id="lokasi">
+					  	<option value="">Pilih Lokasi</option>
+					  	<option value="surabaya">Surabaya</option>
+					  	<option value="gresik">Gresik</option>
+					</select>
+        		</div>
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-success" id="exportBtn">Export</button>
+        		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      		</div>
+    	</div>
+  	</div>
+</div>
 @endsection
 @section('css')
 <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css"/>
@@ -76,10 +107,12 @@
         margin-bottom: 0px;
     }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 @endsection
 @section('js')
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
 	"use strict";
 
@@ -146,6 +179,29 @@
         // alert(url);
 		$('#tabel_master_driver').DataTable().ajax.url(url).load();
     });
+
+    $("#periode").datepicker({
+        format: "yyyymm",
+        viewMode: "months", 
+        minViewMode: "months"
+    });
+
+    $('#exportBtn').on('click', function (e) {
+    	e.preventDefault()
+
+    	let id = $("#idspr").val()
+    	let periode = $("#periode").val()
+    	let lokasi = $("#lokasi").val()
+
+    	let exportExcelUrl = "{{ URL::to('pemasaran/suratpesanan/exportExcel') }}?id=" + id + '&periode=' + periode + '&lokasi=' + lokasi;
+    	window.open(exportExcelUrl, '_blank');
+    });
+
+    $('body').on('click', '.exportSpr', function () {
+    	var id = $(this).data('id')
+
+    	$("#idspr").val(id)
+    })
 
 	$('body').on('click', '.delete', function () {
 		if (confirm("Delete Record?") == true) {
