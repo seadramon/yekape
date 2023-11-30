@@ -1,0 +1,224 @@
+{
+    "karyawan": [
+        {
+         "No.": 1,
+         "Nama": "Catur Hadi Nurcahya, SH",
+         "Jabatan": 1
+        },
+        {
+         "No.": 2,
+         "Nama": "Kun Djatiaju, SH",
+         "Jabatan": 3
+        },
+        {
+         "No.": 3,
+         "Nama": "Lika Trisnawati, SH",
+         "Jabatan": 2
+        },
+        {
+         "No.": 4,
+         "Nama": "Susila Andayani",
+         "Jabatan": 6
+        },
+        {
+         "No.": 5,
+         "Nama": "Rahmat Hidayat, S. ST",
+         "Jabatan": 7
+        },
+        {
+         "No.": 6,
+         "Nama": "Erry Himawan",
+         "Jabatan": 7
+        },
+        {
+         "No.": 7,
+         "Nama": "Ali Hendro Santoso",
+         "Jabatan": 4
+        },
+        {
+         "No.": 8,
+         "Nama": "Kurnia Widyaningtias",
+         "Jabatan": 7
+        },
+        {
+         "No.": 9,
+         "Nama": "Yuni Siswati, SE",
+         "Jabatan": 33
+        },
+        {
+         "No.": 10,
+         "Nama": "Joko Purnomo, ST. MM",
+         "Jabatan": 28
+        },
+        {
+         "No.": 11,
+         "Nama": "Hermanto, ST",
+         "Jabatan": 29
+        },
+        {
+         "No.": 12,
+         "Nama": "Alfan Wachid",
+         "Jabatan": 30
+        },
+        {
+         "No.": 13,
+         "Nama": "Hendris Sugiarto",
+         "Jabatan": 32
+        },
+        {
+         "No.": 14,
+         "Nama": "Indar Sulistyo",
+         "Jabatan": 32
+        },
+        {
+         "No.": 15,
+         "Nama": "Jarwita",
+         "Jabatan": 32
+        },
+        {
+         "No.": 16,
+         "Nama": "Ahmad Yusuf Maryanto",
+         "Jabatan": 32
+        },
+        {
+         "No.": 17,
+         "Nama": "Afdinal Ramadhan",
+         "Jabatan": 32
+        },
+        {
+         "No.": 18,
+         "Nama": "Anang Heru Widodo, ST",
+         "Jabatan": 20
+        },
+        {
+         "No.": 19,
+         "Nama": "Suparman, ST",
+         "Jabatan": 21
+        },
+        {
+         "No.": 20,
+         "Nama": "Sujono",
+         "Jabatan": 22
+        },
+        {
+         "No.": 21,
+         "Nama": "Heny Purwoko, ST",
+         "Jabatan": 23
+        },
+        {
+         "No.": 22,
+         "Nama": "Suwito, SE",
+         "Jabatan": 25
+        },
+        {
+         "No.": 23,
+         "Nama": "Arif Harjanto, ST",
+         "Jabatan": 25
+        },
+        {
+         "No.": 24,
+         "Nama": "Ris Sundawan",
+         "Jabatan": 25
+        },
+        {
+         "No.": 25,
+         "Nama": "Aqib Hidayah, ST",
+         "Jabatan": 24
+        },
+        {
+         "No.": 26,
+         "Nama": "Hari Mujianto",
+         "Jabatan": 27
+        },
+        {
+         "No.": 27,
+         "Nama": "Andika Zakynur P",
+         "Jabatan": 25
+        },
+        {
+         "No.": 28,
+         "Nama": "Fitrian Handaja Mukti, ST",
+         "Jabatan": 8
+        },
+        {
+         "No.": 29,
+         "Nama": "Dimas Arifbudianto, SH",
+         "Jabatan": 9
+        },
+        {
+         "No.": 30,
+         "Nama": "Tzisa Nurrachmi",
+         "Jabatan": 10
+        },
+        {
+         "No.": 31,
+         "Nama": "Siti Rahmah",
+         "Jabatan": 11
+        },
+        {
+         "No.": 32,
+         "Nama": "Eddy Hidajat P, S. Sos",
+         "Jabatan": 11
+        },
+        {
+         "No.": 33,
+         "Nama": "Padmi Nurhayati",
+         "Jabatan": 11
+        },
+        {
+         "No.": 34,
+         "Nama": "Warta Kusuma",
+         "Jabatan": 12
+        },
+        {
+         "No.": 35,
+         "Nama": "Rena Zubaidah",
+         "Jabatan": 12
+        },
+        {
+         "No.": 36,
+         "Nama": "Nesti Arimni Widodo",
+         "Jabatan": 11
+        },
+        {
+         "No.": 37,
+         "Nama": "Yeanny L. Harwati, SE",
+         "Jabatan": 13
+        },
+        {
+         "No.": 38,
+         "Nama": "Irta Wahyuni, SE",
+         "Jabatan": 14
+        },
+        {
+         "No.": 39,
+         "Nama": "Emye Krisnawati, SE",
+         "Jabatan": 15
+        },
+        {
+         "No.": 40,
+         "Nama": "Yefta Rinaldi Yusak, SE",
+         "Jabatan": 16
+        },
+        {
+         "No.": 41,
+         "Nama": "Arifianto",
+         "Jabatan": 18
+        },
+        {
+         "No.": 42,
+         "Nama": "Ach. Rofiq",
+         "Jabatan": 17
+        },
+        {
+         "No.": 43,
+         "Nama": "De Is Ariani Tanti",
+         "Jabatan": 16
+        },
+        {
+         "No.": 44,
+         "Nama": "Wahyu Nugroho, SE",
+         "Jabatan": 38
+        }
+       ]
+}
