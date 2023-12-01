@@ -18,7 +18,7 @@
 	.table {
 		width: 100%;
 		margin-bottom: 1rem;
-		color: #464E5F; 
+		color: #464E5F;
 		border-collapse: collapse;}
 	.table th,
 	.table td {
@@ -114,7 +114,7 @@
 			<td style="font-size: 12px; text-align: center;">{{$data->no_sp}}</td>
 		</tr>
 	</table>
-	
+
 	<br><br>
 
 	<table border="0">
@@ -235,7 +235,7 @@
 			<td style="width: 3%">3.</td>
 			<td style="width: 28%">Diangsur Selama</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->lama_angsuran}} Bulan</td>
+			<td style="width: 59%">{{$data->lm_angsuran}} Bulan</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>

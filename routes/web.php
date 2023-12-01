@@ -82,6 +82,7 @@ Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
 
 	Route::group(['prefix' => '/suratpesanan', 'as' => 'suratpesanan.'], function(){
         Route::get('/loadData', [SuratPesananController::class, 'loadData'])->name('data');
+        Route::get('/exportExcel', [SuratPesananController::class, 'exportExcel'])->name('export-excel');
 		Route::post('/destroy', [SuratPesananController::class, 'destroy'])->name('destroy');
 		Route::get('cetak/{id}', 	[SuratPesananController::class, 'cetak'])->name('cetak');
 		Route::get('cetakppjb/{id?}', 	[SuratPesananController::class, 'cetakppjb'])->name('cetakppjb');
