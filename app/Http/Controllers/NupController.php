@@ -61,7 +61,7 @@ class NupController extends Controller
         $kavlings = Kavling::with('cluster')
             ->get()
             ->mapWithKeys(function ($item) {
-                return [$item->id => $item->cluster->nama . " | " . implode('-', [$item->nama, $item->blok, $item->nomor, $item->letak])];
+                return [$item->id => ($item->cluster->nama ?? 'Unknown') . " | " . implode('-', [$item->nama, $item->blok, $item->nomor, $item->letak])];
             })
             ->all();
         $kavlings = ['' => 'Pilih Kavling'] + $kavlings;

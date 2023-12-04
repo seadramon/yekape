@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookingFee;
 use Illuminate\Http\Request;
 use Flasher\Prime\FlasherInterface;
 use App\Models\Kavling;
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Yajra\DataTables\Facades\DataTables;
 use Elibyy\TCPDF\Facades\TCPDF as PDF;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SprExport;
 
 class SuratPesananController extends Controller
 {
@@ -54,8 +59,10 @@ class SuratPesananController extends Controller
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Perubahan</a></li>
+                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.upload', ['id' => $model->id]) .'" target="_blank">Upload File</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank">Cetak PPJB</a></li>
+                            <li><a class="dropdown-item exportSpr" href="javascript:void(0)" data-id="' .$model->id. '" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a></li>
                         </ul>
                     </div>';
 
@@ -67,41 +74,12 @@ class SuratPesananController extends Controller
 
     public function create($id = null)
     {
-        $data = null;
-
+        $data = $this->prepareData();
+        $data['data'] = null;
         if ($id) {
-            $data = SuratPesananRumah::find($id);
+            $data['data'] = SuratPesananRumah::find($id);
         }
-
-        $tipe = [
-            "" => '-Pilih Tipe-',
-            "KPR" => "KPR",
-            "TUNAI" => "TUNAI",
-            "INHOUSE" => "INHOUSE"
-        ];
-
-        $jenis = [
-            "" => '-Pilih Jenis-',
-            "RUMAH" => "RUMAH",
-            "RUSUNAMI" => "RUSUNAMI",
-            "RUKO" => "RUKO"
-        ];
-
-        $kavling = Kavling::select('id', 'nama')
-            ->get()
-            ->mapWithKeys(function($item){
-                return [$item->id => $item->nama];
-            })->all();
-        $kavling = ["" => "-Pilih Kavling-"] + $kavling;
-
-        $customer = Customer::select('id', 'nama')
-            ->get()
-            ->mapWithKeys(function($item){
-                return [$item->id => $item->nama];
-            })->all();
-        $customer = ["" => "-Pilih Customer-"] + $customer;
-
-        return view('pemasaran.suratpesanan.create', compact('data', 'kavling', 'customer', 'tipe', 'jenis'));
+        return view('pemasaran.suratpesanan.create', $data);
     }
 
     public function store(Request $request, FlasherInterface $flasher)
@@ -115,6 +93,9 @@ class SuratPesananController extends Controller
                 $data = new SuratPesananRumah;
             }
 
+            if($request->booking != ''){
+                $data->booking_fee_id = $request->booking;
+            }
             $data->tgl_sp = date('Y-m-d', strtotime($request->tgl_sp));
             $data->tipe_pembelian = $request->tipe_pembelian;
             $data->jenis_pembeli = $request->jenis_pembeli;
@@ -154,37 +135,10 @@ class SuratPesananController extends Controller
 
     public function revisi($id = null)
     {
-        $data = SuratPesananRumah::find($id);
+        $data = $this->prepareData();
+        $data['data'] = SuratPesananRumah::find($id);
 
-        $tipe = [
-            "" => '-Pilih Tipe-',
-            "KPR" => "KPR",
-            "TUNAI" => "TUNAI",
-            "INHOUSE" => "INHOUSE"
-        ];
-
-        $jenis = [
-            "" => '-Pilih Jenis-',
-            "UMUM" => "UMUM",
-            "KARYAWAN" => "KARYAWAN",
-            "RUKO" => "RUKO"
-        ];
-
-        $kavling = Kavling::select('id', 'nama')
-            ->get()
-            ->mapWithKeys(function($item){
-                return [$item->id => $item->nama];
-            })->all();
-        $kavling = ["" => "-Pilih Kavling-"] + $kavling;
-
-        $customer = Customer::select('id', 'nama')
-            ->get()
-            ->mapWithKeys(function($item){
-                return [$item->id => $item->nama];
-            })->all();
-        $customer = ["" => "-Pilih Customer-"] + $customer;
-
-        return view('pemasaran.suratpesanan.create', compact('data', 'kavling', 'customer', 'tipe', 'jenis'));
+        return view('pemasaran.suratpesanan.create', $data);
     }
 
     public function revisiStore($spr, Request $request, FlasherInterface $flasher)
@@ -198,6 +152,53 @@ class SuratPesananController extends Controller
             $spr_baru->save();
 
             $data->status = "revised";
+            $data->save();
+
+            DB::commit();
+
+            $flasher->addSuccess('Data has been saved successfully!');
+            return redirect()->route('pemasaran.suratpesanan.index');
+        } catch(Exception $e) {
+            DB::rollback();
+
+            $flasher->addError($e->getMessage());
+            return redirect()->back();
+        }
+    }
+
+    public function show($id = null)
+    {
+        $data = $this->prepareData();
+        $data['data'] = SuratPesananRumah::find($id);
+        $data['mode'] = 'show';
+
+        return view('pemasaran.suratpesanan.show', $data);
+    }
+
+    public function upload($id = null)
+    {
+        $data = $this->prepareData();
+        $data['data'] = SuratPesananRumah::find($id);
+        $data['mode'] = 'upload';
+
+        return view('pemasaran.suratpesanan.show', $data);
+    }
+
+    public function uploadStore($spr, Request $request, FlasherInterface $flasher)
+    {
+        DB::beginTransaction();
+        try {
+            $data = SuratPesananRumah::find($spr);
+
+            if ($request->hasFile('upload_file')) {
+                $file = $request->file('upload_file');
+
+                $dir = "spr/" . $data->id;
+                $filename = 'upload.' . $file->getClientOriginalExtension();
+
+                Storage::put($dir . '/' . $filename, File::get($file));
+            }
+
             $data->save();
 
             DB::commit();
@@ -279,5 +280,61 @@ class SuratPesananController extends Controller
         PDF::writeHTML(view('pemasaran.suratpesanan.pdf_ppjb',['data' => $data])->render(), true, false, false, false, '');
 
         return Response::make(PDF::Output('SuratPPJB.pdf', 'I'), 200, array('Content-Type' => 'application/pdf'));
+    }
+
+    private function prepareData(){
+        $tipe = [
+            "" => '-Pilih Tipe-',
+            "KPR" => "KPR",
+            "TUNAI" => "TUNAI",
+            "INHOUSE" => "INHOUSE"
+        ];
+
+        $jenis = [
+            "" => '-Pilih Jenis-',
+            "UMUM" => "UMUM",
+            "KARYAWAN" => "KARYAWAN",
+            "RUKO" => "RUKO"
+        ];
+
+        $kavling = Kavling::select('id', 'nama')
+            ->get()
+            ->mapWithKeys(function($item){
+                return [$item->id => $item->nama];
+            })->all();
+        $kavling = ["" => "-Pilih Kavling-"] + $kavling;
+
+        $customer = Customer::select('id', 'nama')
+            ->get()
+            ->mapWithKeys(function($item){
+                return [$item->id => $item->nama];
+            })->all();
+        $customer = ["" => "-Pilih Customer-"] + $customer;
+        $booking = BookingFee::select('id', 'nomor')
+            ->get()
+            ->mapWithKeys(function($item){
+                return [$item->id => $item->nomor];
+            })->all();
+        $booking = ["" => "-Pilih booking fee-"] + $booking;
+
+        return [
+            'tipe'     => $tipe,
+            'jenis'    => $jenis,
+            'kavling'  => $kavling,
+            'customer' => $customer,
+            'booking'  => $booking,
+        ];
+    }
+
+    public function exportExcel(Request $request)
+    {
+        $id = $request->id;
+        $periode = $request->periode;
+        $lokasi = $request->lokasi;
+
+        $res = date_create_from_format('Ym', $periode);
+        $labelPeriode = date_format($res, "F Y");
+
+        return Excel::download(new SprExport($id, $periode, $lokasi, $labelPeriode), 'SPR.xlsx');
     }
 }

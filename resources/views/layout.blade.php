@@ -404,6 +404,18 @@
 														</span>
 														<span class="menu-title">Kwitansi</span>
 													</a>
+													<a class="menu-link" href="{{ route('keuangan.validasi-spr.index') }}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+														<span class="menu-title">Validasi SPR</span>
+													</a>
+													<a class="menu-link" href="{{ route('keuangan.ssh.index') }}">
+														<span class="menu-bullet">
+															<span class="bullet bullet-dot"></span>
+														</span>
+														<span class="menu-title">SSH</span>
+													</a>
 													<!--end:Menu link-->
 												</div>
 												<!--end:Menu item-->

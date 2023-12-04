@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class KwitansiController extends Controller
 {
@@ -39,9 +40,10 @@ class KwitansiController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
+                            <li>
+                            <a class="dropdown-item" target="_blank" href="'.route('kwitansi.cetak', ['id' => $model->id]).'">Cetak</a></li>
                         </ul>
                         </div>';
-                        // <li><a class="dropdown-item" href="'.route('kwitansi.edit', ['kwitansi' => $model->id]).'">Edit</a></li>
                         // <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="'.$model->id.'" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
 
                 return $column;
@@ -87,6 +89,11 @@ class KwitansiController extends Controller
             'cash' => 'Cash',
             'transfer' => 'Transfer'
         ];
+        $ppn = [
+            '11' => 'PPN 11%',
+            '10' => 'PPN 10%',
+            '0' => 'Tanpa PPN'
+        ];
         $bank = [
             '' => 'Pilih Bank',
             'bni' => 'BNI',
@@ -102,6 +109,7 @@ class KwitansiController extends Controller
             'tipe'             => $tipe,
             'bank'             => $bank,
             'data'             => $data,
+            'ppn'              => $ppn,
         ]);
     }
 
@@ -240,5 +248,40 @@ class KwitansiController extends Controller
 
             return response()->json(['result' => $e->getMessage()])->setStatusCode(500, 'ERROR');
         }
+    }
+    
+    public function sourceData(Request $request)
+    {
+        $data = [];
+        if($request->source == 'spr'){
+            $source  = SuratPesananRumah::find($request->source_id);
+            $data = [
+                'terima_dari' => $source->customer->nama,
+                'alamat' => $source->customer->alamat,
+                'jumlah' => $source->rp_angsuran,
+                'ppn' => $source->ppn ?? 0,
+            ];
+        }else{
+            $source  = Nup::find($request->source_id) ?? BookingFee::find($request->source_id);
+        }
+        
+        return response()->json(['result' => 'success', 'data' => $data])->setStatusCode(200, 'OK');
+    }
+
+    public function cetak($id)
+    {
+        $data = Kwitansi::find($id);
+        $spr = $data->source;
+        
+        $pdf = Pdf::loadView('prints.kwitansi-' . strtolower($data->jenis_kwitansi), [
+            'data' => $data,
+            'spr' => $spr
+        ]);
+        $filename = "Kwitansi";
+
+        $customPaper = [0, 0, 16.5, 21.5];
+
+        return $pdf->setPaper('a4', 'landscape')
+            ->stream($filename . '.pdf');
     }
 }

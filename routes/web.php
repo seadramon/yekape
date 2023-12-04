@@ -9,6 +9,8 @@ use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\Keuangan\SshController;
+use App\Http\Controllers\Keuangan\ValidasiSprController;
 use App\Http\Controllers\KwitansiController;
 use App\Http\Controllers\NupController;
 use App\Http\Controllers\SuratPesananController;
@@ -81,11 +83,14 @@ Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
 
 	Route::group(['prefix' => '/suratpesanan', 'as' => 'suratpesanan.'], function(){
         Route::get('/loadData', [SuratPesananController::class, 'loadData'])->name('data');
+        Route::get('/exportExcel', [SuratPesananController::class, 'exportExcel'])->name('export-excel');
 		Route::post('/destroy', [SuratPesananController::class, 'destroy'])->name('destroy');
 		Route::get('cetak/{id}', 	[SuratPesananController::class, 'cetak'])->name('cetak');
 		Route::get('cetakppjb/{id?}', 	[SuratPesananController::class, 'cetakppjb'])->name('cetakppjb');
 		Route::get('{id}/revisi', 	[SuratPesananController::class, 'revisi'])->name('revisi');
 		Route::put('{id}/revisi', 	[SuratPesananController::class, 'revisiStore'])->name('revisi-store');
+		Route::get('{id}/upload', 	[SuratPesananController::class, 'upload'])->name('upload');
+		Route::put('{id}/upload', 	[SuratPesananController::class, 'uploadStore'])->name('upload-store');
 		Route::resource('/', SuratPesananController::class)->except(['destroy'])->parameters(['' => 'spr']);
 	});
 
@@ -109,11 +114,29 @@ Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){
 	Route::post('/destroy', [KaryawanController::class, 'destroy'])->name('destroy');
 	Route::resource('/', KaryawanController::class)->except(['destroy'])->parameters(['' => 'karyawan']);
 });
-Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
 
+
+Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
 	Route::get('/data', [KwitansiController::class, 'data'])->name('data');
 	Route::get('/create-{tipe}', [KwitansiController::class, 'create'])->name('create');
 	// Route::get('/create/kwu', [KwitansiController::class, 'createKwu'])->name('create-kwu');
+	Route::get('/cetak/{id}', 	[KwitansiController::class, 'cetak'])->name('cetak');
 	Route::post('/destroy', [KwitansiController::class, 'destroy'])->name('destroy');
+	Route::get('/source-data', [KwitansiController::class, 'sourceData'])->name('source-data');
 	Route::resource('/', KwitansiController::class)->except(['destroy', 'create'])->parameters(['' => 'kwitansi']);
+});
+
+Route::group(['prefix' => '/keuangan', 'as' => 'keuangan.'], function(){
+
+	Route::group(['prefix' => '/validasi-spr', 'as' => 'validasi-spr.'], function(){
+        Route::get('/loadData', [ValidasiSprController::class, 'loadData'])->name('data');
+		Route::get('{id}/validasi', [ValidasiSprController::class, 'validasi'])->name('validasi');
+		Route::resource('/', ValidasiSprController::class)->except(['destroy'])->parameters(['' => 'spr']);
+	});
+	
+	Route::group(['prefix' => '/ssh', 'as' => 'ssh.'], function(){
+		Route::get('/data', [SshController::class, 'data'])->name('data');
+		Route::post('/destroy', [SshController::class, 'destroy'])->name('destroy');
+		Route::resource('/', SshController::class)->except(['destroy'])->parameters(['' => 'ssh']);
+	});
 });

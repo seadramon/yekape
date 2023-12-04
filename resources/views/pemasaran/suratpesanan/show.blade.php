@@ -7,17 +7,15 @@
     <div class="row g-5 g-xl-8">
         <!--begin::Col-->
         <div class="col-12 mb-md-5 mb-xl-10">
-            @if (isset($data))
-                {!! Form::model($data, ['route' => ['pemasaran.suratpesanan.revisi-store', $data->id], 'class' => 'form', 'id' => "form-spr", 'enctype' => 'multipart/form-data']) !!}
+            @if ($mode == 'upload')
+                {!! Form::model($data, ['route' => ['pemasaran.suratpesanan.upload-store', $data->id], 'class' => 'form', 'id' => "form-spr", 'enctype' => 'multipart/form-data']) !!}
                 {!! Form::hidden('id', $data->id) !!}
                 @method("PUT")
-            @else
-                {!! Form::open(['url' => route('pemasaran.suratpesanan.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-spr", 'enctype' => 'multipart/form-data']) !!}
             @endif
-
+            
             <div class="card shadow-sm">
                 <div class="card-header">
-                    <h3 class="card-title">@if (isset($data))Edit @else Tambah @endif Surat Pesanan</h3>
+                    <h3 class="card-title">Upload File Surat Pesanan</h3>
                 </div>
 
                 <div class="card-body">
@@ -32,88 +30,101 @@
                     <div class="row">
                         <div class="fv-row form-group col-lg-12 mb-3">
                             <label class="form-label">Booking Fee</label>
-                            {!! Form::select('booking', $booking, $data->booking_fee_id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'booking']) !!}
+                            {!! Form::select('booking', $booking, $data->booking_fee_id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'booking', 'readonly']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 @if(!isset($data)) hidden @endif">
                             <label class="form-label">Nomor SP</label>
-                            {!! Form::text('no_sp', null, ['class'=>'form-control', 'id'=>'no_sp', 'autocomplete'=>'off', 'required', 'readonly' => 'readonly']) !!}
+                            {!! Form::text('no_sp', null, ['class'=>'form-control', 'id'=>'no_sp', 'autocomplete'=>'off', 'readonly']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tanggal SP</label>
-                            {!! Form::text('tgl_sp', date('Y-m-d'), ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('tgl_sp', date('Y-m-d'), ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'readonly']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tipe Pembelian</label>
-                            {!! Form::select('tipe_pembelian', $tipe, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'tipe_pembelian']) !!}
+                            {!! Form::select('tipe_pembelian', $tipe, null, ['class'=>'form-control form-select-solid', 'readonly', 'data-control'=>'select2', 'id'=>'tipe_pembelian']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Jenis</label>
-                            {!! Form::select('jenis_pembeli', $jenis, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'jenis_pembeli']) !!}
+                            {!! Form::select('jenis_pembeli', $jenis, null, ['class'=>'form-control form-select-solid', 'readonly', 'data-control'=>'select2', 'id'=>'jenis_pembeli']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Customer</label>
-                            {!! Form::select('customer_id', $customer, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'customer_id']) !!}
+                            {!! Form::select('customer_id', $customer, null, ['class'=>'form-control form-select-solid', 'readonly', 'data-control'=>'select2', 'id'=>'customer_id']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Kavling</label>
-                            {!! Form::select('kavling_id', $kavling, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'kavling_id']) !!}
+                            {!! Form::select('kavling_id', $kavling, null, ['class'=>'form-control form-select-solid', 'readonly', 'data-control'=>'select2', 'id'=>'kavling_id']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Bank Pemberi KPR</label>
-                            {!! Form::text('bank_kpr', null, ['class'=>'form-control', 'id'=>'bank_kpr', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('bank_kpr', null, ['class'=>'form-control', 'id'=>'bank_kpr', 'autocomplete'=>'off', 'readonly']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Harga Jual</label>
-                            {!! Form::text('harga_jual', null, ['class'=>'form-control currency', 'id'=>'harga_jual', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('harga_jual', null, ['class'=>'form-control currency', 'id'=>'harga_jual', 'autocomplete'=>'off', 'readonly']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Total Uang Muka</label>
-                            {!! Form::text('rp_uangmuka', null, ['class'=>'form-control currency', 'id'=>'rp_uangmuka', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('rp_uangmuka', null, ['class'=>'form-control currency', 'id'=>'rp_uangmuka', 'autocomplete'=>'off', 'readonly']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Pembayaran UM 1</label>
-                            {!! Form::text('rp_angsuran', null, ['class'=>'form-control currency', 'id'=>'rp_angsuran', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('rp_angsuran', null, ['class'=>'form-control currency', 'id'=>'rp_angsuran', 'autocomplete'=>'off', 'readonly']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Lama Angsuran UM</label>
-                            {!! Form::text('lm_angsuran', null, ['class'=>'form-control currency', 'id'=>'lm_angsuran', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('lm_angsuran', null, ['class'=>'form-control currency', 'id'=>'lm_angsuran', 'autocomplete'=>'off', 'readonly']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">No SPPPK</label>
-                            {!! Form::text('no_sppk', null, ['class'=>'form-control', 'id'=>'no_sppk', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('no_sppk', null, ['class'=>'form-control', 'id'=>'no_sppk', 'autocomplete'=>'off', 'readonly']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Rencana Realisasi</label>
-                            {!! Form::text('rencana_ajb', null, ['class'=>'form-control kt-datepicker', 'id'=>'rencana_ajb', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('rencana_ajb', null, ['class'=>'form-control kt-datepicker', 'id'=>'rencana_ajb', 'autocomplete'=>'off', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Lama Pembangunan</label>
-                            {!! Form::text('masa_bangun', null, ['class'=>'form-control', 'id'=>'masa_bangun', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('masa_bangun', null, ['class'=>'form-control', 'id'=>'masa_bangun', 'autocomplete'=>'off', 'readonly']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Mulai/Selesai Pembangunan</label>
-                            {!! Form::text('range_pembangunan', null, ['class'=>'form-control kt-daterangepicker', 'id'=>'range_pembangunan', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('range_pembangunan', null, ['class'=>'form-control kt-daterangepicker', 'id'=>'range_pembangunan', 'autocomplete'=>'off', 'disabled']) !!}
                         </div>
                     </div>
+                    @if ($mode == 'upload')
+                        <h3>Upload File</h3>
+                        <div class="row">
+                            <div class="fv-row form-group col-lg-6 mb-3">
+                                <label class="form-label">
+                                    Upload file
+                                </label>
+                                {!! Form::file('upload_file', ['class' => 'form-control', 'id' => 'upload_file']) !!}
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="card-footer" style="text-align: right;">
                     <a href="{{ route('pemasaran.suratpesanan.index') }}" class="btn btn-light btn-active-light-primary me-2">Kembali</a>
-                    <input type="submit" class="btn btn-success" id="btn-submit" value="Simpan">
+                    @if ($mode == 'upload')
+                        <input type="submit" class="btn btn-success" id="btn-submit" value="Simpan">
+                    @endif
                 </div>
             </div>
         </div>
