@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('ppn', 14, 2)->nullable();
             $table->string('satuan', 150)->nullable();
             $table->string('tahun', 6)->nullable();
+            $table->string('tipe', 50)->nullable();
             $table->string('status', 50)->nullable();
             $table->softDeletes();
             $table->timestamps();

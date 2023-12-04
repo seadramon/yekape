@@ -47,6 +47,10 @@
                             {!! Form::select('ppn', $ppn_list, $data ? strval(intval($data->ppn)) : null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'ppn']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Tipe Ssh</label>
+                            {!! Form::select('tipe', $tipe, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tipe']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tahun</label>
                             {!! Form::select('tahun', $tahun, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tahun']) !!}
                         </div>

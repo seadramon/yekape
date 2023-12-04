@@ -63,6 +63,7 @@ class SshController extends Controller
                 'nama' => 'required',
                 'harga' => 'required',
                 'tahun' => 'required',
+                'tipe' => 'required',
             ])->validate();
 
             $temp = new Ssh;
@@ -71,6 +72,7 @@ class SshController extends Controller
             $temp->satuan = $request->satuan;
             $temp->tahun = $request->tahun;
             $temp->ppn = $request->ppn;
+            $temp->tipe = $request->tipe;
             $temp->harga = str_replace(',', '.', str_replace('.', '', $request->harga));
             $temp->status = 'rkap';
             $temp->save();
@@ -116,6 +118,7 @@ class SshController extends Controller
             $temp->tahun = $request->tahun;
             $temp->ppn = $request->ppn;
             $temp->harga = str_replace(',', '.', str_replace('.', '', $request->harga));
+            $temp->tipe = $request->tipe;
             // $temp->status = 'rkap';
             $temp->save();
 
@@ -165,9 +168,15 @@ class SshController extends Controller
             $temp = date('Y', strtotime($i . ' years'));
             $tahun[$temp] = $temp;
         }
+        $tipe = [
+            '' => 'Pilih Tipe',
+            "bahan" => "Bahan",
+            "upah" => "Upah"
+        ];
         return [
             'ppn_list' => $ppn,
             'tahun' => $tahun,
+            'tipe' => $tipe,
         ];
     }
 }
