@@ -17,7 +17,7 @@ class SshController extends Controller
     //
     public function index(Request $request)
     {
-        return view('keuangan.ssh.index');
+        return view('perencanaan.ssh.index');
     }
 
     public function data(Request $request)
@@ -35,7 +35,7 @@ class SshController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="' . route('keuangan.ssh.edit', $model->id) . '">Edit</a></li>
+                            <li><a class="dropdown-item" href="' . route('perencanaan.ssh.edit', $model->id) . '">Edit</a></li>
                         </ul>
                         </div>';
 
@@ -48,9 +48,9 @@ class SshController extends Controller
     public function create()
     {
         $data = null;
-        
-        
-        return view('keuangan.ssh.create', ['data' => $data] + $this->prepareData());
+
+
+        return view('perencanaan.ssh.create', ['data' => $data] + $this->prepareData());
     }
 
 
@@ -81,7 +81,7 @@ class SshController extends Controller
 
             $flasher->addSuccess('Data has been saved successfully!');
 
-            return redirect()->route('keuangan.ssh.index');
+            return redirect()->route('perencanaan.ssh.index');
         } catch (Exception $e) {
             DB::rollback();
 
@@ -95,9 +95,9 @@ class SshController extends Controller
     public function edit($ssh)
     {
         $data = Ssh::find($ssh);
-        
-        
-        return view('keuangan.ssh.create', ['data' => $data] + $this->prepareData());
+
+
+        return view('perencanaan.ssh.create', ['data' => $data] + $this->prepareData());
     }
 
     public function update(Request $request, FlasherInterface $flasher, $ssh)
@@ -126,7 +126,7 @@ class SshController extends Controller
 
             $flasher->addSuccess('Data has been saved successfully!');
 
-            return redirect()->route('keuangan.ssh.index');
+            return redirect()->route('perencanaan.ssh.index');
         } catch (Exception $e) {
             DB::rollback();
 
@@ -164,7 +164,7 @@ class SshController extends Controller
         $tahun = [
             '' => 'Pilih Tahun'
         ];
-        for ($i=-3; $i < 4; $i++) { 
+        for ($i=-3; $i < 4; $i++) {
             $temp = date('Y', strtotime($i . ' years'));
             $tahun[$temp] = $temp;
         }

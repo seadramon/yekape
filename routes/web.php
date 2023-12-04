@@ -133,10 +133,12 @@ Route::group(['prefix' => '/keuangan', 'as' => 'keuangan.'], function(){
 		Route::get('{id}/validasi', [ValidasiSprController::class, 'validasi'])->name('validasi');
 		Route::resource('/', ValidasiSprController::class)->except(['destroy'])->parameters(['' => 'spr']);
 	});
-	
-	Route::group(['prefix' => '/ssh', 'as' => 'ssh.'], function(){
-		Route::get('/data', [SshController::class, 'data'])->name('data');
-		Route::post('/destroy', [SshController::class, 'destroy'])->name('destroy');
-		Route::resource('/', SshController::class)->except(['destroy'])->parameters(['' => 'ssh']);
-	});
+
+});
+Route::group(['prefix' => '/perencanaan', 'as' => 'perencanaan.'], function(){
+    Route::group(['prefix' => '/ssh', 'as' => 'ssh.'], function(){
+        Route::get('/data', [SshController::class, 'data'])->name('data');
+        Route::post('/destroy', [SshController::class, 'destroy'])->name('destroy');
+        Route::resource('/', SshController::class)->except(['destroy'])->parameters(['' => 'ssh']);
+    });
 });
