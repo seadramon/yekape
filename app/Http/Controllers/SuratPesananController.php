@@ -53,7 +53,7 @@ class SuratPesananController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Revisi</a></li>
+                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Perubahan</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank">Cetak PPJB</a></li>
                         </ul>

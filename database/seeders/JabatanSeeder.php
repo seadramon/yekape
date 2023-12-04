@@ -19,8 +19,9 @@ class JabatanSeeder extends Seeder
         foreach ($jabatan as $item) {
             $jabatan = Jabatan::firstOrNew([
                 'nama' => $item->jabatan,
+                'bagian_id' => $bagian[$item->kode_bagian]->first()->id,
             ]);
-            $jabatan->bagian_id = $bagian[$item->kode_bagian]->first()->id;
+            // $jabatan->bagian_id = $bagian[$item->kode_bagian]->first()->id;
             $jabatan->level = $item->level;
             $jabatan->save();
         }

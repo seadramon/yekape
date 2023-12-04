@@ -10,37 +10,37 @@
           "id": "2",
           "kode_bagian": "SKP",
           "jabatan": "SPV SDM & TATA USAHA",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "3",
           "kode_bagian": "SKP",
           "jabatan": "SPV HUKUM, HUMAS, KERJASAMA, & RUMAH TANGGA",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "4",
           "kode_bagian": "SKP",
           "jabatan": "SPV TSI & INVENTARISASI ASET",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "5",
           "kode_bagian": "SKP",
           "jabatan": "STAFF SDM & TATA USAHA",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "6",
           "kode_bagian": "SKP",
           "jabatan": "STAFF HUKUM, HUMAS, KERJASAMA, & RUMAH TANGGA",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "7",
           "kode_bagian": "SKP",
           "jabatan": "STAFF TSI & INVENTARISASI ASET",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "8",
@@ -52,25 +52,25 @@
           "id": "9",
           "kode_bagian": "PMS",
           "jabatan": "SPV PROMOSI & PELAYANAN KONSUMEN",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "10",
           "kode_bagian": "PMS",
           "jabatan": "SPV PENJUALAN",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "11",
           "kode_bagian": "PMS",
           "jabatan": "STAFF PROMOSI & PELAYANAN KONSUMEN",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "12",
           "kode_bagian": "PMS",
           "jabatan": "STAFF PENJUALAN",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "13",
@@ -82,37 +82,37 @@
           "id": "14",
           "kode_bagian": "KEU",
           "jabatan": "SPV ANGGARAN",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "15",
           "kode_bagian": "KEU",
           "jabatan": "SPV KAS",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "16",
           "kode_bagian": "KEU",
           "jabatan": "SPV AKUNTANSI",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "17",
           "kode_bagian": "KEU",
           "jabatan": "STAFF ANGGARAN",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "18",
           "kode_bagian": "KEU",
           "jabatan": "STAFF KAS",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "19",
           "kode_bagian": "KEU",
           "jabatan": "STAFF AKUNTANSI",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "20",
@@ -124,43 +124,43 @@
           "id": "21",
           "kode_bagian": "PMB",
           "jabatan": "SPV KELOLA PEMBANGUNAN",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "22",
           "kode_bagian": "PMB",
           "jabatan": "SPV FISIK & PRASARANA",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "23",
           "kode_bagian": "PMB",
           "jabatan": "SPV PEMELIHARAAN KAWASAN",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "24",
           "kode_bagian": "PMB",
           "jabatan": "ADMIN PEMBANGUNAN",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "25",
           "kode_bagian": "PMB",
           "jabatan": "STAFF KELOLA PEMBANGUNAN",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "26",
           "kode_bagian": "PMB",
           "jabatan": "STAFF FISIK & PRASARANA",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "27",
           "kode_bagian": "PMB",
           "jabatan": "STAFF PEMELIHARAAN KAWASAN",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "28",
@@ -172,25 +172,25 @@
           "id": "29",
           "kode_bagian": "PRC",
           "jabatan": "SPV PERENCANAAN TEKNIS",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "30",
           "kode_bagian": "PRC",
           "jabatan": "SPV PENGEMBANGAN BISNIS",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "31",
           "kode_bagian": "PRC",
           "jabatan": "STAFF PERENCANAAN TEKNIS",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "32",
           "kode_bagian": "PRC",
           "jabatan": "STAFF PENGEMBANGAN BISNIS",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "33",
@@ -202,25 +202,25 @@
           "id": "34",
           "kode_bagian": "SPI",
           "jabatan": "SPV PENGAWASAN OPERASIONAL",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "35",
           "kode_bagian": "SPI",
           "jabatan": "SPV PENGAWASAN KEUANGAN & TUJUAN TERTENTU",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "36",
           "kode_bagian": "SPI",
           "jabatan": "STAFF PENGAWASAN OPERASIONAL",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "37",
           "kode_bagian": "SPI",
           "jabatan": "STAFF PENGAWASAN KEUANGAN & TUJUAN TERTENTU",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "38",
@@ -232,25 +232,25 @@
           "id": "39",
           "kode_bagian": "GRH",
           "jabatan": "SPV PROMOSI & PELAYANAN KONSUMEN",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "40",
           "kode_bagian": "GRH",
           "jabatan": "SPV HUMAS & OPERASIONAL",
-          "level": "manajer"
+          "level": "spv"
         },
         {
           "id": "41",
           "kode_bagian": "SKP",
           "jabatan": "CLEANING SERVICES",
-          "level": "manajer"
+          "level": "staff"
         },
         {
           "id": "42",
           "kode_bagian": "SKP",
           "jabatan": "SATPAM",
-          "level": "manajer"
+          "level": "staff"
         }
     ]
 }
