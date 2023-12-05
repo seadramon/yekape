@@ -15,6 +15,8 @@ use Yajra\DataTables\Facades\DataTables;
 use Elibyy\TCPDF\Facades\TCPDF as PDF;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SprExport;
 
 class SuratPesananController extends Controller
 {
@@ -56,10 +58,12 @@ class SuratPesananController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Revisi</a></li>
+                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.show', $model->id) .'" target="_blank">Lihat</a></li>
+                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Perubahan</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.upload', ['id' => $model->id]) .'" target="_blank">Upload File</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank">Cetak PPJB</a></li>
+                            <li><a class="dropdown-item exportSpr" href="javascript:void(0)" data-id="' .$model->id. '" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a></li>
                         </ul>
                     </div>';
 
@@ -166,7 +170,7 @@ class SuratPesananController extends Controller
     public function show($id = null)
     {
         $data = $this->prepareData();
-        $data['data'] = SuratPesananRumah::find($id);
+        $data['data'] = SuratPesananRumah::with('parent')->find($id);
         $data['mode'] = 'show';
 
         return view('pemasaran.suratpesanan.show', $data);
@@ -189,13 +193,13 @@ class SuratPesananController extends Controller
 
             if ($request->hasFile('upload_file')) {
                 $file = $request->file('upload_file');
-                
+
                 $dir = "spr/" . $data->id;
                 $filename = 'upload.' . $file->getClientOriginalExtension();
-                
+
                 Storage::put($dir . '/' . $filename, File::get($file));
             }
-            
+
             $data->save();
 
             DB::commit();
@@ -321,5 +325,17 @@ class SuratPesananController extends Controller
             'customer' => $customer,
             'booking'  => $booking,
         ];
+    }
+
+    public function exportExcel(Request $request)
+    {
+        $id = $request->id;
+        $periode = $request->periode;
+        $lokasi = $request->lokasi;
+
+        $res = date_create_from_format('Ym', $periode);
+        $labelPeriode = date_format($res, "F Y");
+
+        return Excel::download(new SprExport($id, $periode, $lokasi, $labelPeriode), 'SPR.xlsx');
     }
 }

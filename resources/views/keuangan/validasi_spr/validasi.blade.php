@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="fv-row form-group col-lg-12 mb-3">
                             <label class="form-label">Booking Fee</label>
-                            {!! Form::select('booking', $booking, $data->booking_fee_id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'booking']) !!}
+                            {!! Form::select('booking', $booking, $data->booking_fee_id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'booking', 'disabled']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 @if(!isset($data)) hidden @endif">
                             <label class="form-label">Nomor SP</label>
@@ -35,72 +35,72 @@
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tanggal SP</label>
-                            {!! Form::text('tgl_sp', date('Y-m-d'), ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('tgl_sp', date('Y-m-d'), ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tipe Pembelian</label>
-                            {!! Form::select('tipe_pembelian', $tipe, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'tipe_pembelian', 'readonly']) !!}
+                            {!! Form::select('tipe_pembelian', $tipe, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'tipe_pembelian', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Jenis</label>
-                            {!! Form::select('jenis_pembeli', $jenis, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'jenis_pembeli', 'readonly']) !!}
+                            {!! Form::select('jenis_pembeli', $jenis, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'jenis_pembeli', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Customer</label>
-                            {!! Form::select('customer_id', $customer, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'customer_id', 'readonly']) !!}
+                            {!! Form::select('customer_id', $customer, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'customer_id', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Kavling</label>
-                            {!! Form::select('kavling_id', $kavling, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'kavling_id', 'readonly']) !!}
+                            {!! Form::select('kavling_id', $kavling, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'kavling_id', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Bank Pemberi KPR</label>
-                            {!! Form::text('bank_kpr', null, ['class'=>'form-control', 'id'=>'bank_kpr', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('bank_kpr', null, ['class'=>'form-control', 'id'=>'bank_kpr', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Harga Jual</label>
-                            {!! Form::text('harga_jual', null, ['class'=>'form-control currency', 'id'=>'harga_jual', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('harga_jual', null, ['class'=>'form-control currency', 'id'=>'harga_jual', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Total Uang Muka</label>
-                            {!! Form::text('rp_uangmuka', null, ['class'=>'form-control currency', 'id'=>'rp_uangmuka', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('rp_uangmuka', null, ['class'=>'form-control currency', 'id'=>'rp_uangmuka', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Pembayaran UM 1</label>
-                            {!! Form::text('rp_angsuran', null, ['class'=>'form-control currency', 'id'=>'rp_angsuran', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('rp_angsuran', null, ['class'=>'form-control currency', 'id'=>'rp_angsuran', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Lama Angsuran UM</label>
-                            {!! Form::text('lm_angsuran', null, ['class'=>'form-control currency', 'id'=>'lm_angsuran', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('lm_angsuran', null, ['class'=>'form-control currency', 'id'=>'lm_angsuran', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">No SPPPK</label>
-                            {!! Form::text('no_sppk', null, ['class'=>'form-control', 'id'=>'no_sppk', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('no_sppk', null, ['class'=>'form-control', 'id'=>'no_sppk', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Rencana Realisasi</label>
-                            {!! Form::text('rencana_ajb', null, ['class'=>'form-control kt-datepicker', 'id'=>'rencana_ajb', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('rencana_ajb', null, ['class'=>'form-control kt-datepicker', 'id'=>'rencana_ajb', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Lama Pembangunan</label>
-                            {!! Form::text('masa_bangun', null, ['class'=>'form-control', 'id'=>'masa_bangun', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('masa_bangun', null, ['class'=>'form-control', 'id'=>'masa_bangun', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Mulai/Selesai Pembangunan</label>
-                            {!! Form::text('range_pembangunan', null, ['class'=>'form-control kt-daterangepicker', 'id'=>'range_pembangunan', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                            {!! Form::text('range_pembangunan', null, ['class'=>'form-control kt-daterangepicker', 'id'=>'range_pembangunan', 'autocomplete'=>'off', 'required', 'disabled']) !!}
                         </div>
                     </div>
                 </div>

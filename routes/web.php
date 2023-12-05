@@ -9,6 +9,7 @@ use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\Keuangan\SshController;
 use App\Http\Controllers\Keuangan\ValidasiSprController;
 use App\Http\Controllers\KwitansiController;
 use App\Http\Controllers\NupController;
@@ -26,7 +27,8 @@ use App\Http\Controllers\SuratPesananController;
 */
 
 Route::get('/', function () {
-    return view('template');
+    // return view('template');
+    return redirect()->route('dashboard.index');
 });
 Route::get('template', function () {
     return view('template');
@@ -81,6 +83,7 @@ Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
 
 	Route::group(['prefix' => '/suratpesanan', 'as' => 'suratpesanan.'], function(){
         Route::get('/loadData', [SuratPesananController::class, 'loadData'])->name('data');
+        Route::get('/exportExcel', [SuratPesananController::class, 'exportExcel'])->name('export-excel');
 		Route::post('/destroy', [SuratPesananController::class, 'destroy'])->name('destroy');
 		Route::get('cetak/{id}', 	[SuratPesananController::class, 'cetak'])->name('cetak');
 		Route::get('cetakppjb/{id?}', 	[SuratPesananController::class, 'cetakppjb'])->name('cetakppjb');
@@ -130,4 +133,12 @@ Route::group(['prefix' => '/keuangan', 'as' => 'keuangan.'], function(){
 		Route::get('{id}/validasi', [ValidasiSprController::class, 'validasi'])->name('validasi');
 		Route::resource('/', ValidasiSprController::class)->except(['destroy'])->parameters(['' => 'spr']);
 	});
+
+});
+Route::group(['prefix' => '/perencanaan', 'as' => 'perencanaan.'], function(){
+    Route::group(['prefix' => '/ssh', 'as' => 'ssh.'], function(){
+        Route::get('/data', [SshController::class, 'data'])->name('data');
+        Route::post('/destroy', [SshController::class, 'destroy'])->name('destroy');
+        Route::resource('/', SshController::class)->except(['destroy'])->parameters(['' => 'ssh']);
+    });
 });
