@@ -58,7 +58,8 @@ class SuratPesananController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Revisi</a></li>
+                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.show', $model->id) .'" target="_blank">Lihat</a></li>
+                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Perubahan</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.upload', ['id' => $model->id]) .'" target="_blank">Upload File</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank">Cetak PPJB</a></li>
@@ -169,7 +170,7 @@ class SuratPesananController extends Controller
     public function show($id = null)
     {
         $data = $this->prepareData();
-        $data['data'] = SuratPesananRumah::find($id);
+        $data['data'] = SuratPesananRumah::with('parent')->find($id);
         $data['mode'] = 'show';
 
         return view('pemasaran.suratpesanan.show', $data);
@@ -192,13 +193,13 @@ class SuratPesananController extends Controller
 
             if ($request->hasFile('upload_file')) {
                 $file = $request->file('upload_file');
-                
+
                 $dir = "spr/" . $data->id;
                 $filename = 'upload.' . $file->getClientOriginalExtension();
-                
+
                 Storage::put($dir . '/' . $filename, File::get($file));
             }
-            
+
             $data->save();
 
             DB::commit();

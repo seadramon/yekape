@@ -8,17 +8,17 @@
         <!--begin::Col-->
         <div class="col-12 mb-md-5 mb-xl-10">
             @if (isset($data))
-                {!! Form::model($data, ['route' => ['keuangan.ssh.update', $data->id], 'class' => 'form', 'id' => "form-ssh",]) !!}
+                {!! Form::model($data, ['route' => ['perencanaan.ssh.update', $data->id], 'class' => 'form', 'id' => "form-ssh",]) !!}
                 {!! Form::hidden('id', $data->id) !!}
                 @method('PUT')
             @else
-                {!! Form::open(['url' => route('keuangan.ssh.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-ssh"]) !!}
+                {!! Form::open(['url' => route('perencanaan.ssh.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-ssh"]) !!}
             @endif
             <div class="card shadow-sm">
                 <div class="card-header">
                     <h3 class="card-title">@if (isset($data))Edit @else Tambah @endif SSH</h3>
                 </div>
-            
+
                 <div class="card-body">
                     @if (count($errors) > 0)
                         @foreach($errors->all() as $error)
@@ -56,9 +56,9 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="card-footer" style="text-align: right;">
-                    <a href="{{ route('keuangan.ssh.index') }}" class="btn btn-light btn-active-light-primary me-2">Kembali</a>
+                    <a href="{{ route('perencanaan.ssh.index') }}" class="btn btn-light btn-active-light-primary me-2">Kembali</a>
                     <input type="submit" class="btn btn-success" id="btn-submit" value="Simpan">
                 </div>
             </div>
@@ -79,9 +79,9 @@
 <script src="{{ asset('assets/plugins/custom/formrepeater/formrepeater.bundle.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        
+
     });
 
-    
+
 </script>
 @endsection

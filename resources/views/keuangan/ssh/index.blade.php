@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Data SSH</h3>
                     <div class="card-toolbar">
-                        <a href="{{route('keuangan.ssh.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
+                        <a href="{{route('perencanaan.ssh.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -46,7 +46,7 @@
         display: flex;
     }
     .custom-label {
-        display: flex; 
+        display: flex;
         align-items: center;
         margin-bottom: 0px;
     }
@@ -87,7 +87,7 @@
 	            serverSide: true,
 	            order: [[0, 'desc']],
 	            stateSave: true,
-	            ajax: "{{ route('keuangan.ssh.data') }}",
+	            ajax: "{{ route('perencanaan.ssh.data') }}",
 	            columns: [
 	                {data: 'tahun', name: 'tahun', defaultContent: '-'},
 	                {data: 'nama', name: 'nama', defaultContent: '-', orderable: false, searchable: false},
@@ -99,7 +99,7 @@
 
 	        table = dt.$;
 	    }
-	    
+
 	    // Public methods
 	    return {
 	        init: function () {
@@ -120,13 +120,13 @@
 			// ajax
 			$.ajax({
 				type:"post",
-				url: "{{ route('keuangan.ssh.destroy') }}",
+				url: "{{ route('perencanaan.ssh.destroy') }}",
 				data: {id : id, _token: "{{ csrf_token() }}"},
 				success: function(res){
 					if (res.result == 'success') {
 						flasher.success("Data has been deleted successfully!");
 
-						$('#tabel_teacher').DataTable().ajax.url("{{ route('keuangan.ssh.data') }}").load();
+						$('#tabel_teacher').DataTable().ajax.url("{{ route('perencanaan.ssh.data') }}").load();
 					}
 				}
 			});
@@ -139,7 +139,7 @@
 	  	var button = event.relatedTarget
 	  	var title = button.getAttribute('data-bs-title')
 	  	var image = button.getAttribute('data-bs-image')
-	  
+
 	  	var modalTitle = exampleModal.querySelector('.modal-title')
 	  	var modalBodyInput = exampleModal.querySelector('.modal-body img')
 
