@@ -311,6 +311,6 @@ class KwitansiController extends Controller
         /*$res = date_create_from_format('Ym', $periode);
         $labelPeriode = date_format($res, "F Y");*/
 
-        return Excel::download(new KwitansiExport($params), 'SPR.xlsx');
+        return Excel::download(new KwitansiExport($params), 'Rekap-Kwitansi.xlsx');
     }
 }
