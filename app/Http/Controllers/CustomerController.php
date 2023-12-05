@@ -175,4 +175,20 @@ class CustomerController extends Controller
             return response()->json(['result' => $e->getMessage()])->setStatusCode(500, 'ERROR');
         }
     }
+
+    public function searchCustomer(Request $request)
+    {
+        $search = $request->search;
+        $result = null;
+
+        $data = Customer::select('id', 'nama');
+
+        if ($search) {
+            $data->where(DB::raw("LOWER(nama)"), 'LIKE', '%'. strtolower($search) . '%');
+        }
+
+        $result = $data->orderBy('nama', 'asc')->get();
+
+        return $result;
+    }
 }
