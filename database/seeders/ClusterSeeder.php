@@ -15,13 +15,14 @@ class ClusterSeeder extends Cluster
     public function run(): void
     {
         $cluster = json_decode(file_get_contents(public_path('migrations/cluster.json')))->cluster;
-        $mentah = TanahMentah::all();
         foreach ($cluster as $item) {
+            $mentah = TanahMentah::where('id', $item->mentah_id)->first();
             $comm = Cluster::firstOrNew([
                 'tanah_mentah_id' => $mentah[$item->mentah_id]->first()->id,
             ]);
             $comm->nama = $item->nama;
             $comm->lokasi = $item->lokasi;
+            $comm->tanah_mentah_id = $mentah->id;
             $comm->save();
         }
     }
