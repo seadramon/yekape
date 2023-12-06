@@ -63,7 +63,6 @@ class SshController extends Controller
                 'nama' => 'required',
                 'harga' => 'required',
                 'tahun' => 'required',
-                'tipe' => 'required',
             ])->validate();
 
             $temp = new Ssh;
