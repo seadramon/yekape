@@ -1,0 +1,46 @@
+{
+    "cluster": [
+        {
+            "id": "1",
+            "nama": "THE GREEN LEAF REGENCY",
+            "lokasi": "SURABAYA",
+            "mentah_id": "18"
+          },
+          {
+            "id": "2",
+            "nama": "TAMAN RIVERA REGENCY",
+            "lokasi": "SURABAYA",
+            "mentah_id": "23"
+          },
+          {
+            "id": "3",
+            "nama": "ECO MEDAYU",
+            "lokasi": "SURABAYA",
+            "mentah_id": "1"
+          },
+          {
+            "id": "4",
+            "nama": "VILLA EIDELWEIS",
+            "lokasi": "SURABAYA",
+            "mentah_id": "17"
+          },
+          {
+            "id": "5",
+            "nama": "PANDUGO 1",
+            "lokasi": "SURABAYA",
+            "mentah_id": "19"
+          },
+          {
+            "id": "6",
+            "nama": "PRAMBON ASRI",
+            "lokasi": "GRESIK",
+            "mentah_id": "17"
+          },
+          {
+            "id": "7",
+            "nama": "ECO WONOSAKTI",
+            "lokasi": "SURABAYA",
+            "mentah_id": "6"
+          }
+    ]
+}
