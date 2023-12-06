@@ -18,7 +18,7 @@ class ClusterSeeder extends Cluster
         foreach ($cluster as $item) {
             $mentah = TanahMentah::where('id', $item->mentah_id)->first();
             $comm = Cluster::firstOrNew([
-                'tanah_mentah_id' => $mentah[$item->mentah_id]->first()->id,
+                'id' => $item->id,
             ]);
             $comm->nama = $item->nama;
             $comm->lokasi = $item->lokasi;
