@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Flasher\Prime\FlasherInterface;
 use App\Models\Customer;
-
+use Exception;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 use Yajra\DataTables\Facades\DataTables;
-use DB;
-use File;
-use Storage;
 
 class CustomerController extends Controller
 {
@@ -31,11 +31,11 @@ class CustomerController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File KTP Suami" data-bs-image="'. asset($model->file_ktp_suami) .'">Show KTP Suami</a></li>
-                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File KTP Istri" data-bs-image="'. asset($model->file_ktp_istri) .'">Show KTP Istri</a></li>
-                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File KK" data-bs-image="'. asset($model->file_kk) .'">Show KK</a></li>
-                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File NPWP" data-bs-image="'. asset($model->file_npwp) .'">Show NPWP</a></li>
-                            <li><a href="javascript:void(0)" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-title="File SK" data-bs-image="'. asset($model->file_sk) .'">Show SK</a></li>
+                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_ktp_suami ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show KTP Suami</a></li>
+                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_ktp_istri ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show KTP Istri</a></li>
+                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_kk ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show KK</a></li>
+                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_npwp ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show NPWP</a></li>
+                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_sk ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show SK</a></li>
                             <li><a class="dropdown-item" href="' . route('master.customer.create', ['id' => $model->id]) . '">Edit</a></li>
                             <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$model->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
                         </ul>
@@ -119,32 +119,23 @@ class CustomerController extends Controller
 	        	'file_sk'
 	        ];
 
-            $customerFile = Customer::find($id);
             $countFile = 0;
 
 	        foreach ($files as $postFile) {
 		        if ($request->hasFile($postFile)) {
-		        	$save_path = storage_path('app/public/customers/'. $id);
-		        	if (!file_exists($save_path)) {
-			            mkdir($save_path, 775, true);
-			        }
-
-		            $extension = $request->file($postFile)->getClientOriginalExtension();
-		            $file = Image::make($request->file($postFile));
-		            $file->resize(300, null, function ($constraint) {
-		                $constraint->aspectRatio();
-		            });
-                    $filename = $postFile.'.'. $extension;
-		            $file->save(storage_path('app/public/customers/'. $id .'/'.$filename));
-
-                    $customerFile->$postFile = 'storage/customers/' . $id . '/' . $filename;
-
+                    $file = $request->file($postFile);
+        
+                    $dir = "customer/" . $id;
+                    $filename = $postFile . '.' . $file->getClientOriginalExtension();
+                    $path = $dir . '/' . $filename;
+                    Storage::put($path, File::get($file));
+                    $data->$postFile = $path;
                     $countFile++;
 		        }
 	        }
 
             if ($countFile > 0) {
-                $customerFile->save();
+                $data->save();
                 DB::commit();
             }
 
