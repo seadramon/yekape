@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\KwitansiExport;
 
 class KwitansiController extends Controller
 {
@@ -283,5 +285,32 @@ class KwitansiController extends Controller
 
         return $pdf->setPaper('a4', 'landscape')
             ->stream($filename . '.pdf');
+    }
+
+    public function exportExcel(Request $request)
+    {
+        $start = "";
+        $end = "";
+        $periode = $request->periode;
+        if (!empty($periode)) {
+            $arr = explode(" to ", $periode);
+            $start = $arr[0];
+            $end = $arr[1];
+        }
+
+        $params = [
+            'periode' => $periode,
+            'start' => $start,
+            'end' => $end,
+            'jenis_kwitansi' => $request->jenis,
+            'jenis_penerimaan' => $request->jenispenerimaan,
+            'jenis_pembayaran' => $request->jenispembayaran,
+            'customer_id' => $request->customer
+        ];
+
+        /*$res = date_create_from_format('Ym', $periode);
+        $labelPeriode = date_format($res, "F Y");*/
+
+        return Excel::download(new KwitansiExport($params), 'Rekap-Kwitansi.xlsx');
     }
 }

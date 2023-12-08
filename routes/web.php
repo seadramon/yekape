@@ -55,6 +55,7 @@ Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 
 		Route::get('/', 			[CustomerController::class, 'index'])->name('index');
 		Route::get('loadData', 		[CustomerController::class, 'loadData'])->name('data');
+		Route::get('search', 		[CustomerController::class, 'searchCustomer'])->name('search');
 		Route::get('create/{id?}', 	[CustomerController::class, 'create'])->name('create');
 		Route::post('store', 		[CustomerController::class, 'store'])->name('store');
 		Route::post('/destroy', 	[CustomerController::class, 'destroy'])->name('destroy');
@@ -118,6 +119,7 @@ Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){
 
 Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
 	Route::get('/data', [KwitansiController::class, 'data'])->name('data');
+	Route::get('/exportExcel', [KwitansiController::class, 'exportExcel'])->name('export-excel');
 	Route::get('/create-{tipe}', [KwitansiController::class, 'create'])->name('create');
 	// Route::get('/create/kwu', [KwitansiController::class, 'createKwu'])->name('create-kwu');
 	Route::get('/cetak/{id}', 	[KwitansiController::class, 'cetak'])->name('cetak');
