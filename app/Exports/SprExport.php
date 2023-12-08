@@ -11,8 +11,7 @@ use DB;
 
 class SprExport implements FromView
 {
-	function __construct($id, $periode, $lokasi,$labelPeriode) {
-        $this->id = $id;
+	function __construct($periode, $lokasi,$labelPeriode) {
         $this->periode = $periode;
         $this->lokasi = $lokasi;
         $this->labelPeriode = $labelPeriode;
@@ -31,7 +30,6 @@ class SprExport implements FromView
 
         return view('report.spr-excel', [
             'datas' => $datas, 
-            'id' => $this->id,
             'periode' => $this->periode,
             'labelPeriode' => $this->labelPeriode,
             'lokasi' => $this->lokasi
