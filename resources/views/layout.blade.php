@@ -75,8 +75,8 @@
 						<!--end::Sidebar mobile toggle-->
 						<!--begin::Mobile logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-							<a href="../../demo1/dist/index.html" class="d-lg-none">
-								<img alt="Logo" src="{{ asset('assets/media/logos/default-small.svg') }}" class="h-30px" />
+							<a href="{{ url('/') }}" class="d-lg-none">
+								<img alt="Logo" src="{{ asset('content/yekpae-logo-low.png') }}" class="h-55px" />
 							</a>
 						</div>
 						<!--end::Mobile logo-->
@@ -120,9 +120,9 @@
 												<!--end::Avatar-->
 												<!--begin::Username-->
 												<div class="d-flex flex-column">
-													<div class="fw-bold d-flex align-items-center fs-5">Robert Fox
-													<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span></div>
-													<a href="#" class="fw-semibold text-muted text-hover-primary fs-7">robert@kt.com</a>
+													<div class="fw-bold d-flex align-items-center fs-5">{{ Auth::user()->name }}</div>
+													<div class="fw-bold d-flex align-items-center fs-9">{{ Auth::user()->karyawan->jabatan->nama }}</div>
+													<a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{ Auth::user()->email }}</a>
 												</div>
 												<!--end::Username-->
 											</div>
@@ -211,7 +211,7 @@
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
-											<a href="../../demo1/dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
+											<a href="{{ route('logout') }}" class="menu-link px-5">Sign Out</a>
 										</div>
 										<!--end::Menu item-->
 									</div>
@@ -246,9 +246,9 @@
 						<!--begin::Logo-->
 						<div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 							<!--begin::Logo image-->
-							<a href="../../demo1/dist/index.html">
-								<img alt="Logo" src="{{ asset('assets/media/logos/default-dark.svg') }}" class="h-25px app-sidebar-logo-default" />
-								<img alt="Logo" src="{{ asset('assets/media/logos/default-small.svg') }}" class="h-20px app-sidebar-logo-minimize" />
+							<a href="{{ url('/') }}">
+								<img alt="Logo" src="{{ asset('content/yekpae-logo-medium.png') }}" class="h-75px app-sidebar-logo-default" />
+								<img alt="Logo" src="{{ asset('content/yekpae-logo-low.png') }}" class="h-40px app-sidebar-logo-minimize" />
 							</a>
 							<!--end::Logo image-->
 							<!--begin::Sidebar toggle-->

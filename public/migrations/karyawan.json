@@ -1,224 +1,268 @@
 {
     "karyawan": [
         {
-         "No.": 1,
-         "Nama": "Catur Hadi Nurcahya, SH",
-         "Jabatan": 1
+         "no": 1,
+         "kode": "YKP001",
+         "nama": "Catur Hadi Nurcahya, SH",
+         "jabatan": 1
         },
         {
-         "No.": 2,
-         "Nama": "Kun Djatiaju, SH",
-         "Jabatan": 3
+         "no": 2,
+         "kode": "YKP002",
+         "nama": "Kun Djatiaju, SH",
+         "jabatan": 3
         },
         {
-         "No.": 3,
-         "Nama": "Lika Trisnawati, SH",
-         "Jabatan": 2
+         "no": 3,
+         "kode": "YKP003",
+         "nama": "Lika Trisnawati, SH",
+         "jabatan": 2
         },
         {
-         "No.": 4,
-         "Nama": "Susila Andayani",
-         "Jabatan": 6
+         "no": 4,
+         "kode": "YKP004",
+         "nama": "Susila Andayani",
+         "jabatan": 6
         },
         {
-         "No.": 5,
-         "Nama": "Rahmat Hidayat, S. ST",
-         "Jabatan": 7
+         "no": 5,
+         "kode": "YKP005",
+         "nama": "Rahmat Hidayat, S. ST",
+         "jabatan": 7
         },
         {
-         "No.": 6,
-         "Nama": "Erry Himawan",
-         "Jabatan": 7
+         "no": 6,
+         "kode": "YKP006",
+         "nama": "Erry Himawan",
+         "jabatan": 7
         },
         {
-         "No.": 7,
-         "Nama": "Ali Hendro Santoso",
-         "Jabatan": 4
+         "no": 7,
+         "kode": "YKP007",
+         "nama": "Ali Hendro Santoso",
+         "jabatan": 4
         },
         {
-         "No.": 8,
-         "Nama": "Kurnia Widyaningtias",
-         "Jabatan": 7
+         "no": 8,
+         "kode": "YKP008",
+         "nama": "Kurnia Widyaningtias",
+         "jabatan": 7
         },
         {
-         "No.": 9,
-         "Nama": "Yuni Siswati, SE",
-         "Jabatan": 33
+         "no": 9,
+         "kode": "YKP009",
+         "nama": "Yuni Siswati, SE",
+         "jabatan": 33
         },
         {
-         "No.": 10,
-         "Nama": "Joko Purnomo, ST. MM",
-         "Jabatan": 28
+         "no": 10,
+         "kode": "YKP010",
+         "nama": "Joko Purnomo, ST. MM",
+         "jabatan": 28
         },
         {
-         "No.": 11,
-         "Nama": "Hermanto, ST",
-         "Jabatan": 29
+         "no": 11,
+         "kode": "YKP011",
+         "nama": "Hermanto, ST",
+         "jabatan": 29
         },
         {
-         "No.": 12,
-         "Nama": "Alfan Wachid",
-         "Jabatan": 30
+         "no": 12,
+         "kode": "YKP012",
+         "nama": "Alfan Wachid",
+         "jabatan": 30
         },
         {
-         "No.": 13,
-         "Nama": "Hendris Sugiarto",
-         "Jabatan": 32
+         "no": 13,
+         "kode": "YKP013",
+         "nama": "Hendris Sugiarto",
+         "jabatan": 32
         },
         {
-         "No.": 14,
-         "Nama": "Indar Sulistyo",
-         "Jabatan": 32
+         "no": 14,
+         "kode": "YKP014",
+         "nama": "Indar Sulistyo",
+         "jabatan": 32
         },
         {
-         "No.": 15,
-         "Nama": "Jarwita",
-         "Jabatan": 32
+         "no": 15,
+         "kode": "YKP015",
+         "nama": "Jarwita",
+         "jabatan": 32
         },
         {
-         "No.": 16,
-         "Nama": "Ahmad Yusuf Maryanto",
-         "Jabatan": 32
+         "no": 16,
+         "kode": "YKP016",
+         "nama": "Ahmad Yusuf Maryanto",
+         "jabatan": 32
         },
         {
-         "No.": 17,
-         "Nama": "Afdinal Ramadhan",
-         "Jabatan": 32
+         "no": 17,
+         "kode": "YKP017",
+         "nama": "Afdinal Ramadhan",
+         "jabatan": 32
         },
         {
-         "No.": 18,
-         "Nama": "Anang Heru Widodo, ST",
-         "Jabatan": 20
+         "no": 18,
+         "kode": "YKP018",
+         "nama": "Anang Heru Widodo, ST",
+         "jabatan": 20
         },
         {
-         "No.": 19,
-         "Nama": "Suparman, ST",
-         "Jabatan": 21
+         "no": 19,
+         "kode": "YKP019",
+         "nama": "Suparman, ST",
+         "jabatan": 21
         },
         {
-         "No.": 20,
-         "Nama": "Sujono",
-         "Jabatan": 22
+         "no": 20,
+         "kode": "YKP020",
+         "nama": "Sujono",
+         "jabatan": 22
         },
         {
-         "No.": 21,
-         "Nama": "Heny Purwoko, ST",
-         "Jabatan": 23
+         "no": 21,
+         "kode": "YKP021",
+         "nama": "Heny Purwoko, ST",
+         "jabatan": 23
         },
         {
-         "No.": 22,
-         "Nama": "Suwito, SE",
-         "Jabatan": 25
+         "no": 22,
+         "kode": "YKP022",
+         "nama": "Suwito, SE",
+         "jabatan": 25
         },
         {
-         "No.": 23,
-         "Nama": "Arif Harjanto, ST",
-         "Jabatan": 25
+         "no": 23,
+         "kode": "YKP023",
+         "nama": "Arif Harjanto, ST",
+         "jabatan": 25
         },
         {
-         "No.": 24,
-         "Nama": "Ris Sundawan",
-         "Jabatan": 25
+         "no": 24,
+         "kode": "YKP024",
+         "nama": "Ris Sundawan",
+         "jabatan": 25
         },
         {
-         "No.": 25,
-         "Nama": "Aqib Hidayah, ST",
-         "Jabatan": 24
+         "no": 25,
+         "kode": "YKP025",
+         "nama": "Aqib Hidayah, ST",
+         "jabatan": 24
         },
         {
-         "No.": 26,
-         "Nama": "Hari Mujianto",
-         "Jabatan": 27
+         "no": 26,
+         "kode": "YKP026",
+         "nama": "Hari Mujianto",
+         "jabatan": 27
         },
         {
-         "No.": 27,
-         "Nama": "Andika Zakynur P",
-         "Jabatan": 25
+         "no": 27,
+         "kode": "YKP027",
+         "nama": "Andika Zakynur P",
+         "jabatan": 25
         },
         {
-         "No.": 28,
-         "Nama": "Fitrian Handaja Mukti, ST",
-         "Jabatan": 8
+         "no": 28,
+         "kode": "YKP028",
+         "nama": "Fitrian Handaja Mukti, ST",
+         "jabatan": 8
         },
         {
-         "No.": 29,
-         "Nama": "Dimas Arifbudianto, SH",
-         "Jabatan": 9
+         "no": 29,
+         "kode": "YKP029",
+         "nama": "Dimas Arifbudianto, SH",
+         "jabatan": 9
         },
         {
-         "No.": 30,
-         "Nama": "Tzisa Nurrachmi",
-         "Jabatan": 10
+         "no": 30,
+         "kode": "YKP030",
+         "nama": "Tzisa Nurrachmi",
+         "jabatan": 10
         },
         {
-         "No.": 31,
-         "Nama": "Siti Rahmah",
-         "Jabatan": 11
+         "no": 31,
+         "kode": "YKP031",
+         "nama": "Siti Rahmah",
+         "jabatan": 11
         },
         {
-         "No.": 32,
-         "Nama": "Eddy Hidajat P, S. Sos",
-         "Jabatan": 11
+         "no": 32,
+         "kode": "YKP032",
+         "nama": "Eddy Hidajat P, S. Sos",
+         "jabatan": 11
         },
         {
-         "No.": 33,
-         "Nama": "Padmi Nurhayati",
-         "Jabatan": 11
+         "no": 33,
+         "kode": "YKP033",
+         "nama": "Padmi Nurhayati",
+         "jabatan": 11
         },
         {
-         "No.": 34,
-         "Nama": "Warta Kusuma",
-         "Jabatan": 12
+         "no": 34,
+         "kode": "YKP034",
+         "nama": "Warta Kusuma",
+         "jabatan": 12
         },
         {
-         "No.": 35,
-         "Nama": "Rena Zubaidah",
-         "Jabatan": 12
+         "no": 35,
+         "kode": "YKP035",
+         "nama": "Rena Zubaidah",
+         "jabatan": 12
         },
         {
-         "No.": 36,
-         "Nama": "Nesti Arimni Widodo",
-         "Jabatan": 11
+         "no": 36,
+         "kode": "YKP036",
+         "nama": "Nesti Arimni Widodo",
+         "jabatan": 11
         },
         {
-         "No.": 37,
-         "Nama": "Yeanny L. Harwati, SE",
-         "Jabatan": 13
+         "no": 37,
+         "kode": "YKP037",
+         "nama": "Yeanny L. Harwati, SE",
+         "jabatan": 13
         },
         {
-         "No.": 38,
-         "Nama": "Irta Wahyuni, SE",
-         "Jabatan": 14
+         "no": 38,
+         "kode": "YKP038",
+         "nama": "Irta Wahyuni, SE",
+         "jabatan": 14
         },
         {
-         "No.": 39,
-         "Nama": "Emye Krisnawati, SE",
-         "Jabatan": 15
+         "no": 39,
+         "kode": "YKP039",
+         "nama": "Emye Krisnawati, SE",
+         "jabatan": 15
         },
         {
-         "No.": 40,
-         "Nama": "Yefta Rinaldi Yusak, SE",
-         "Jabatan": 16
+         "no": 40,
+         "kode": "YKP040",
+         "nama": "Yefta Rinaldi Yusak, SE",
+         "jabatan": 16
         },
         {
-         "No.": 41,
-         "Nama": "Arifianto",
-         "Jabatan": 18
+         "no": 41,
+         "kode": "YKP041",
+         "nama": "Arifianto",
+         "jabatan": 18
         },
         {
-         "No.": 42,
-         "Nama": "Ach. Rofiq",
-         "Jabatan": 17
+         "no": 42,
+         "kode": "YKP042",
+         "nama": "Ach. Rofiq",
+         "jabatan": 17
         },
         {
-         "No.": 43,
-         "Nama": "De Is Ariani Tanti",
-         "Jabatan": 16
+         "no": 43,
+         "kode": "YKP043",
+         "nama": "De Is Ariani Tanti",
+         "jabatan": 16
         },
         {
-         "No.": 44,
-         "Nama": "Wahyu Nugroho, SE",
-         "Jabatan": 38
+         "no": 44,
+         "kode": "YKP044",
+         "nama": "Wahyu Nugroho, SE",
+         "jabatan": 38
         }
        ]
 }

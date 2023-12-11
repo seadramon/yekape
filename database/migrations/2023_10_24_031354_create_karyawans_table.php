@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
-            $table->string('nik', 50);
-            $table->string('nama', 200);
-            $table->string('jenis_kelamin', 2);
-            $table->string('tempat_lahir', 50);
-            $table->date('tgl_lahir');
-            $table->string('no_hp', 50);
-            $table->string('alamat_ktp', 50);
-            $table->string('alamat_domisili', 50);
+            $table->string('kode', 50);
+            $table->string('nik', 50)->nullable();
+            $table->string('nama', 200)->nullable();
+            $table->string('jenis_kelamin', 2)->nullable();
+            $table->string('tempat_lahir', 50)->nullable();
+            $table->date('tgl_lahir')->nullable();
+            $table->string('no_hp', 50)->nullable();
+            $table->string('alamat_ktp', 50)->nullable();
+            $table->string('alamat_domisili', 50)->nullable();
             $table->foreignId('jabatan_id')->constrained();
             $table->softDeletes();
             $table->timestamps();
