@@ -11,6 +11,8 @@
                     <h3 class="card-title">Surat Pesanan Rumah</h3>
                     <div class="card-toolbar">
                         <a href="{{route('pemasaran.suratpesanan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
+                        &nbsp;
+                        <a href="javascript:void(0)" class="btn btn-light-success" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a>
                     </div>
                 </div>
 
@@ -66,33 +68,33 @@
 
 <!-- EXPORT -->
 <div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  	<div class="modal-dialog">
-    	<div class="modal-content">
-      		<div class="modal-header">
-        		<h5 class="modal-title" id="exampleModalLabel">Export to Excel</h5>
-        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      		</div>
-      		<div class="modal-body">
-      			<input type="hidden" name="id" id="idspr">
-        		<div class="mb-3">
-        		  	<label for="periode" class="form-label">Periode</label>
-        		  	<input type="text" name="periode" class="form-control" id="periode">
-        		</div>
-        		<div class="mb-3">
-        		  	<label for="lokasi" class="form-label">Lokasi</label>
-        		  	<select class="form-select" name="lokasi" id="lokasi">
-					  	<option value="">Pilih Lokasi</option>
-					  	<option value="surabaya">Surabaya</option>
-					  	<option value="gresik">Gresik</option>
-					</select>
-        		</div>
-      		</div>
-      		<div class="modal-footer">
-        		<button type="button" class="btn btn-success" id="exportBtn">Export</button>
-        		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      		</div>
-    	</div>
-  	</div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Export to Excel</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- <input type="hidden" name="id" id="idspr"> -->
+                <div class="mb-3">
+                    <label for="periode" class="form-label">Periode</label>
+                    <input type="text" name="periode" class="form-control" id="periode">
+                </div>
+                <div class="mb-3">
+                    <label for="lokasi" class="form-label">Lokasi</label>
+                    <select class="form-select" name="lokasi" id="lokasi">
+                        <option value="">Pilih Lokasi</option>
+                        <option value="surabaya">Surabaya</option>
+                        <option value="gresik">Gresik</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="exportBtn">Export</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 @section('css')
@@ -189,11 +191,10 @@
     $('#exportBtn').on('click', function (e) {
     	e.preventDefault()
 
-    	let id = $("#idspr").val()
     	let periode = $("#periode").val()
     	let lokasi = $("#lokasi").val()
 
-    	let exportExcelUrl = "{{ URL::to('pemasaran/suratpesanan/exportExcel') }}?id=" + id + '&periode=' + periode + '&lokasi=' + lokasi;
+    	let exportExcelUrl = "{{ URL::to('pemasaran/suratpesanan/exportExcel') }}?periode=" + periode + '&lokasi=' + lokasi;
     	window.open(exportExcelUrl, '_blank');
     });
 

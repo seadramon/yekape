@@ -53,6 +53,7 @@
                 <td style="border: 1px solid #000000; width: 350%;">{{ $data->kavling->nomor }}</td>
                 <td style="border: 1px solid #000000; width: 350%;">{{ $data->tipe_pembelian }}</td>
                 <td style="border: 1px solid #000000; width: 650%;">{{ 'Rp. ' . number_format($data->harga_jual, 0, ".", ",") }}</td>
+                <td style="border: 1px solid #000000; width: 650%;">{{ 'Rp. ' . number_format($data->harga_jual, 0, ".", ",") }}</td>
                 <td style="border: 1px solid #000000; width: 200%;">{{ !empty($data->rencana_ajb)?date('d-m-Y', strtotime($data->rencana_ajb)):"" }}</td>
                 <td style="border: 1px solid #000000; width: 200%;">{{ 'tenaga pemasaran' }}</td>
             </tr>
