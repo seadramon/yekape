@@ -104,6 +104,8 @@ class SuratPesananController extends Controller
             $data->kavling_id = $request->kavling_id;
             $data->bank_kpr = $request->bank_kpr;
             $data->harga_jual = str_replace('.', '', $request->harga_jual);
+            $data->harga_dasar = str_replace('.', '', $request->harga_dasar);
+            $data->ppn = str_replace('.', '', $request->ppn);
             $data->rp_uangmuka = str_replace('.', '', $request->rp_uangmuka);
             $data->rp_angsuran = str_replace('.', '', $request->rp_angsuran);
             $data->lm_angsuran = str_replace('.', '', $request->lm_angsuran);
@@ -295,7 +297,6 @@ class SuratPesananController extends Controller
             "" => '-Pilih Jenis-',
             "UMUM" => "UMUM",
             "KARYAWAN" => "KARYAWAN",
-            "RUKO" => "RUKO"
         ];
 
         $kavling = Kavling::select('id', 'nama')
