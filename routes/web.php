@@ -13,6 +13,7 @@ use App\Http\Controllers\Keuangan\SshController;
 use App\Http\Controllers\Keuangan\ValidasiSprController;
 use App\Http\Controllers\KwitansiController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ManajemenUser\RoleController;
 use App\Http\Controllers\NupController;
 use App\Http\Controllers\SuratPesananController;
 
@@ -147,6 +148,18 @@ Route::middleware('auth')->group(function () {
 			Route::get('/data', [SshController::class, 'data'])->name('data');
 			Route::post('/destroy', [SshController::class, 'destroy'])->name('destroy');
 			Route::resource('/', SshController::class)->except(['destroy'])->parameters(['' => 'ssh']);
+		});
+	});
+
+	Route::group(['prefix' => '/manajemen-user', 'as' => 'manajemen-user.'], function(){
+		Route::group(['prefix' => '/role', 'as' => 'role.'], function(){
+			Route::get('/data', [RoleController::class, 'data'])->name('data');
+			Route::post('/destroy', [RoleController::class, 'destroy'])->name('destroy');
+			Route::get('/setting-menu/{id}', [RoleController::class, 'settingMenu'])->name('setting-menu');
+			Route::post('/setting-menu-update', [RoleController::class, 'settingMenuUpdate'])->name('setting-menu.update');
+			Route::post('/setting-menu-tree-data', [RoleController::class, 'settingMenuTreeData'])->name('setting-menu.tree-data');
+			Route::get('/setting-menu-delete/{id}', [RoleController::class, 'settingMenuDelete'])->name('setting-menu.delete');
+			Route::resource('/', RoleController::class)->except(['destroy'])->parameters(['' => 'role']);
 		});
 	});
 });
