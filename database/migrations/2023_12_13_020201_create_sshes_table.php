@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('ssh', function (Blueprint $table) {
             $table->id();
+            $table->string('kode', 250);
             $table->string('nama', 250);
             $table->string('keterangan', 400)->nullable();
             $table->decimal('harga', 14, 2);

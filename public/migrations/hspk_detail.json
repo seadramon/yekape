@@ -1,0 +1,364 @@
+{
+  "hspk_detail": [
+    {
+      "id_hspk": "a.0001",
+      "nama_hspk": "Pek. Pembersihan kavling ",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.05,
+      "harga": 92287.5,
+      "total": 4614.375
+    },
+    {
+      "id_hspk": "a.0001",
+      "nama_hspk": "Pek. Pembersihan kavling ",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.001,
+      "harga": 159965,
+      "total": 159.965
+    },
+    {
+      "id_hspk": "a.0002",
+      "nama_hspk": "Pasangan Bouwplank (RMH)",
+      "id_member": "bn.0464",
+      "nama_member": "Kayu Meranti Papan",
+      "volume": 0.003,
+      "harga": 2544900,
+      "total": 7634.7
+    },
+    {
+      "id_hspk": "a.0002",
+      "nama_hspk": "Pasangan Bouwplank (RMH)",
+      "id_member": "bn.0463",
+      "nama_member": "Kayu Meranti Balok",
+      "volume": 0.0005,
+      "harga": 3401700,
+      "total": 1700.85
+    },
+    {
+      "id_hspk": "a.0002",
+      "nama_hspk": "Pasangan Bouwplank (RMH)",
+      "id_member": "bn.0548",
+      "nama_member": "Paku Usuk ",
+      "volume": 0.02,
+      "harga": 49000,
+      "total": 980
+    },
+    {
+      "id_hspk": "a.0002",
+      "nama_hspk": "Pasangan Bouwplank (RMH)",
+      "id_member": "up.0009",
+      "nama_member": "Tukang Kayu",
+      "volume": 0.06,
+      "harga": 147660,
+      "total": 8859.6
+    },
+    {
+      "id_hspk": "a.0002",
+      "nama_hspk": "Pasangan Bouwplank (RMH)",
+      "id_member": "up.0002",
+      "nama_member": "Kepala Tukang Kayu",
+      "volume": 0.0063,
+      "harga": 147660,
+      "total": 930.258
+    },
+    {
+      "id_hspk": "a.0002",
+      "nama_hspk": "Pasangan Bouwplank (RMH)",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.04,
+      "harga": 92287.5,
+      "total": 3691.5
+    },
+    {
+      "id_hspk": "a.0002",
+      "nama_hspk": "Pasangan Bouwplank (RMH)",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.002,
+      "harga": 159965,
+      "total": 319.93
+    },
+    {
+      "id_hspk": "b.0001",
+      "nama_hspk": "Pek. Galian tanah biasa",
+      "id_member": "up.0013",
+      "nama_member": "Tukang Gali",
+      "volume": 0.5,
+      "harga": 110745,
+      "total": 55372.5
+    },
+    {
+      "id_hspk": "b.0001",
+      "nama_hspk": "Pek. Galian tanah biasa",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.01,
+      "harga": 159965,
+      "total": 1599.65
+    },
+    {
+      "id_hspk": "b.0002",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 3m",
+      "id_member": "up.0003",
+      "nama_member": "Kepala Tukang Batu",
+      "volume": 0.025,
+      "harga": 135355,
+      "total": 3383.875
+    },
+    {
+      "id_hspk": "b.0002",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 3m",
+      "id_member": "up.0010",
+      "nama_member": "Tukang Batu",
+      "volume": 0.35,
+      "harga": 123050,
+      "total": 43067.5
+    },
+    {
+      "id_hspk": "b.0002",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 3m",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.67,
+      "harga": 92287.5,
+      "total": 61832.62500000001
+    },
+    {
+      "id_hspk": "b.0002",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 3m",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.025,
+      "harga": 159965,
+      "total": 3999.125
+    },
+    {
+      "id_hspk": "b.0002",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 3m",
+      "id_member": "bn.0026",
+      "nama_member": "Alat bantu strous pile",
+      "volume": 0.35,
+      "harga": 33660,
+      "total": 11781
+    },
+    {
+      "id_hspk": "b.0003",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 2m",
+      "id_member": "up.0003",
+      "nama_member": "Kepala Tukang Batu",
+      "volume": 0.025,
+      "harga": 135355,
+      "total": 3383.875
+    },
+    {
+      "id_hspk": "b.0003",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 2m",
+      "id_member": "up.0010",
+      "nama_member": "Tukang Batu",
+      "volume": 0.35,
+      "harga": 123050,
+      "total": 43067.5
+    },
+    {
+      "id_hspk": "b.0003",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 2m",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.57,
+      "harga": 92287.5,
+      "total": 52603.87499999999
+    },
+    {
+      "id_hspk": "b.0003",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 2m",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.025,
+      "harga": 159965,
+      "total": 3999.125
+    },
+    {
+      "id_hspk": "b.0003",
+      "nama_hspk": "Galian Lubang Strouspile diameter 30cm kedalaman 2m",
+      "id_member": "bn.0026",
+      "nama_member": "Alat bantu strous pile",
+      "volume": 0.25,
+      "harga": 33660,
+      "total": 8415
+    },
+    {
+      "id_hspk": "b.0004",
+      "nama_hspk": "Pek. Urugan tanah kembali",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.3,
+      "harga": 92287.5,
+      "total": 27686.25
+    },
+    {
+      "id_hspk": "b.0004",
+      "nama_hspk": "Pek. Urugan tanah kembali",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.01,
+      "harga": 159965,
+      "total": 1599.65
+    },
+    {
+      "id_hspk": "b.0005",
+      "nama_hspk": "Pek. Urugan tanah ",
+      "id_member": "bn.0807",
+      "nama_member": "Tanah Urug",
+      "volume": 1.2,
+      "harga": 55000,
+      "total": 66000
+    },
+    {
+      "id_hspk": "b.0005",
+      "nama_hspk": "Pek. Urugan tanah ",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.3,
+      "harga": 92287.5,
+      "total": 27686.25
+    },
+    {
+      "id_hspk": "b.0005",
+      "nama_hspk": "Pek. Urugan tanah ",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.01,
+      "harga": 159965,
+      "total": 1599.65
+    },
+    {
+      "id_hspk": "b.0006",
+      "nama_hspk": "Pek. Urugan sirtu",
+      "id_member": "bn.0772",
+      "nama_member": "Sirtu (tk)",
+      "volume": 1.2,
+      "harga": 187000.00000000003,
+      "total": 224400.00000000003
+    },
+    {
+      "id_hspk": "b.0006",
+      "nama_hspk": "Pek. Urugan sirtu",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.3,
+      "harga": 92287.5,
+      "total": 27686.25
+    },
+    {
+      "id_hspk": "b.0006",
+      "nama_hspk": "Pek. Urugan sirtu",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.01,
+      "harga": 159965,
+      "total": 1599.65
+    },
+    {
+      "id_hspk": "b.0007",
+      "nama_hspk": "Pek. Urugan limestone ",
+      "id_member": "bn.0516",
+      "nama_member": "Limestone",
+      "volume": 1.2,
+      "harga": 115000,
+      "total": 138000
+    },
+    {
+      "id_hspk": "b.0007",
+      "nama_hspk": "Pek. Urugan limestone ",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.3,
+      "harga": 92287.5,
+      "total": 27686.25
+    },
+    {
+      "id_hspk": "b.0007",
+      "nama_hspk": "Pek. Urugan limestone ",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.01,
+      "harga": 159965,
+      "total": 1599.65
+    },
+    {
+      "id_hspk": "b.0008",
+      "nama_hspk": "Pek. Pemadatan dan perataan",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.25,
+      "harga": 92287.5,
+      "total": 23071.875
+    },
+    {
+      "id_hspk": "b.0008",
+      "nama_hspk": "Pek. Pemadatan dan perataan",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.01,
+      "harga": 159965,
+      "total": 1599.65
+    },
+    {
+      "id_hspk": "b.0009",
+      "nama_hspk": "Pek. Urugan pasir ",
+      "id_member": "bn.0570",
+      "nama_member": "Pasir Urug",
+      "volume": 1.1,
+      "harga": 181500.00000000003,
+      "total": 199650.00000000006
+    },
+    {
+      "id_hspk": "b.0009",
+      "nama_hspk": "Pek. Urugan pasir ",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.05,
+      "harga": 92287.5,
+      "total": 4614.375
+    },
+    {
+      "id_hspk": "b.0009",
+      "nama_hspk": "Pek. Urugan pasir ",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.01,
+      "harga": 159965,
+      "total": 1599.65
+    },
+    {
+      "id_hspk": "b.0010",
+      "nama_hspk": "Pek. Urugan paras",
+      "id_member": "bn.0808",
+      "nama_member": "Tanah Paras (tk)",
+      "volume": 1.2,
+      "harga": 95000,
+      "total": 114000
+    },
+    {
+      "id_hspk": "b.0010",
+      "nama_hspk": "Pek. Urugan paras",
+      "id_member": "up.0020",
+      "nama_member": "Pekerja",
+      "volume": 0.3,
+      "harga": 92287.5,
+      "total": 27686.25
+    },
+    {
+      "id_hspk": "b.0010",
+      "nama_hspk": "Pek. Urugan paras",
+      "id_member": "up.0001",
+      "nama_member": "Mandor",
+      "volume": 0.01,
+      "harga": 159965,
+      "total": 1599.65
+    }
+  ]
+}

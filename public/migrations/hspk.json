@@ -1,0 +1,1780 @@
+{
+  "hspk": [
+    {
+      "nama": "Pek. Pembersihan kavling ",
+      "satuan": "M2",
+      "harga": 4774.34,
+      "id": "a.0001",
+      "urutan": "A",
+      "jenis": "PEKERJAAN PERSIAPAN AWAL"
+    },
+    {
+      "nama": "Pasangan Bouwplank (RMH)",
+      "satuan": "M",
+      "harga": 24116.838000000003,
+      "id": "a.0002",
+      "urutan": "A",
+      "jenis": "PEKERJAAN PERSIAPAN AWAL"
+    },
+    {
+      "nama": "Pek. Galian tanah biasa",
+      "satuan": "M3",
+      "harga": 56972.15,
+      "id": "b.0001",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Galian Lubang Strouspile diameter 30cm kedalaman 3m",
+      "satuan": "Ttk",
+      "harga": 124064.125,
+      "id": "b.0002",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Galian Lubang Strouspile diameter 30cm kedalaman 2m",
+      "satuan": "Ttk",
+      "harga": 111469.375,
+      "id": "b.0003",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Pek. Urugan tanah kembali",
+      "satuan": "M3",
+      "harga": 29285.9,
+      "id": "b.0004",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Pek. Urugan tanah ",
+      "satuan": "M3",
+      "harga": 95285.9,
+      "id": "b.0005",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Pek. Urugan sirtu",
+      "satuan": "M3",
+      "harga": 253685.90000000002,
+      "id": "b.0006",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Pek. Urugan limestone ",
+      "satuan": "M3",
+      "harga": 167285.9,
+      "id": "b.0007",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Pek. Pemadatan dan perataan",
+      "satuan": "M3",
+      "harga": 24671.525,
+      "id": "b.0008",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Pek. Urugan pasir ",
+      "satuan": "M3",
+      "harga": 205864.02500000005,
+      "id": "b.0009",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Pek. Urugan paras",
+      "satuan": "M3",
+      "harga": 143285.9,
+      "id": "b.0010",
+      "urutan": "B",
+      "jenis": "PEKERJAAN  TANAH"
+    },
+    {
+      "nama": "Pek. Pasangan batu kosong",
+      "satuan": "M3",
+      "harga": 378213,
+      "id": "c.0001",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pasangan Roster kayu",
+      "satuan": "M2",
+      "harga": 390028.875,
+      "id": "c.0002",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pasangan Batu kali (1:4)",
+      "satuan": "M3",
+      "harga": 604273.85,
+      "id": "c.0003",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pasangan Batu kali (1:5)",
+      "satuan": "M3",
+      "harga": 585475.1,
+      "id": "c.0004",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pasangan Batu kali (1:6)",
+      "satuan": "M3",
+      "harga": 571206.3500000001,
+      "id": "c.0005",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. PasanganBatu kumbung 25x25 cm",
+      "satuan": "M",
+      "harga": 65249.162500000006,
+      "id": "c.0006",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pasangan Batu kumbung 25x25 cm 2 lapis",
+      "satuan": "M",
+      "harga": 130498.32500000001,
+      "id": "c.0007",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pas Trasram bata merah (1:2) lt.1",
+      "satuan": "M2",
+      "harga": 126559.45,
+      "id": "c.0008",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pas Trasram bata merah (1:2) lt.2",
+      "satuan": "M2",
+      "harga": 135788.19999999998,
+      "id": "c.0009",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pas Bata merah dibawah 3m (1:5)",
+      "satuan": "M2",
+      "harga": 105975.52500000001,
+      "id": "c.0010",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pas Bata merah diatas 3m (1:5)",
+      "satuan": "M2",
+      "harga": 123109.27500000001,
+      "id": "c.0011",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pas Bata merah diatas 7m (1:5)",
+      "satuan": "M2",
+      "harga": 144643.025,
+      "id": "c.0012",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pas Bata merah diatas 10 m (1:5)",
+      "satuan": "M2",
+      "harga": 188402.2,
+      "id": "c.0013",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pas Bata Rolag",
+      "satuan": "M",
+      "harga": 38954.37,
+      "id": "c.0014",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Bongkar Dinding",
+      "satuan": "M2",
+      "harga": 111015.71,
+      "id": "c.0015",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Bongkar Dinding untuk kolom ",
+      "satuan": "M",
+      "harga": 129473.21,
+      "id": "c.0016",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Bongkar Pondasi",
+      "satuan": "M3",
+      "harga": 206724,
+      "id": "c.0017",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Bongkar Corcoran beton",
+      "satuan": "M3",
+      "harga": 251022,
+      "id": "c.0018",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Plesteran (1:2)",
+      "satuan": "M2",
+      "harga": 36561.682499999995,
+      "id": "c.0019",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Plesteran (1:2) Lt.2",
+      "satuan": "M2",
+      "harga": 42420.91333333332,
+      "id": "c.0020",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Plesteran (1:2) Lt.3",
+      "satuan": "M2",
+      "harga": 56784.950000000004,
+      "id": "c.0021",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Plesteran (1:5) Lt.1",
+      "satuan": "M2",
+      "harga": 33779.182499999995,
+      "id": "c.0022",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Plesteran (1:5) Lt.2",
+      "satuan": "M2",
+      "harga": 42283.98833333333,
+      "id": "c.0023",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Plesteran (1:5) Lt.3",
+      "satuan": "M2",
+      "harga": 56051.2325,
+      "id": "c.0024",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Plesteran (1:6)",
+      "satuan": "M2",
+      "harga": 28118.4325,
+      "id": "c.0025",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Pepalihan (1:6)",
+      "satuan": "M2",
+      "harga": 32585.212499999998,
+      "id": "c.0026",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Acian ",
+      "satuan": "M2",
+      "harga": 21708.26666666667,
+      "id": "c.0027",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Benangan",
+      "satuan": "M",
+      "harga": 22134.196428571428,
+      "id": "c.0028",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Rooster kaca 20x20",
+      "satuan": "M2",
+      "harga": 622618.65,
+      "id": "c.0029",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pek. Rooster Kayu 20x20",
+      "satuan": "M2",
+      "harga": 473868.64999999997,
+      "id": "c.0030",
+      "urutan": "C",
+      "jenis": "PEKERJAAN PASANGAN DAN PLESTERAN"
+    },
+    {
+      "nama": "Pekerjaan Beton (k.125)",
+      "satuan": "M3",
+      "harga": 1022113.7314285714,
+      "id": "d.0001",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pekerjaan Beton (k.150)",
+      "satuan": "M3",
+      "harga": 1036295.8742857142,
+      "id": "d.0002",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pekerjaan Beton (k.175)",
+      "satuan": "M3",
+      "harga": 1070990.517142857,
+      "id": "d.0003",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pekerjaan Beton (k.200)",
+      "satuan": "M3",
+      "harga": 1101420.16,
+      "id": "d.0004",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pekerjaan Beton (k.225)",
+      "satuan": "M3",
+      "harga": 1124022.4814285713,
+      "id": "d.0005",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pekerjaan Beton (k.250)",
+      "satuan": "M3",
+      "harga": 1137754.4457142856,
+      "id": "d.0006",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pekerjaan Beton (k.275)",
+      "satuan": "M3",
+      "harga": 1165130.5171428572,
+      "id": "d.0007",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pekerjaan Beton (k.300)",
+      "satuan": "M3",
+      "harga": 1173066.41,
+      "id": "d.0008",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pekerjaan Lantai Kerja Beton (k.100)",
+      "satuan": "M3",
+      "harga": 913920.3571428572,
+      "id": "d.0009",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pek. Beton rabat (1:3:5)",
+      "satuan": "M3",
+      "harga": 758069.75,
+      "id": "d.0010",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pek. Beton rabat Carport Halus(1:3:5)",
+      "satuan": "M2",
+      "harga": 89521.25,
+      "id": "d.0011",
+      "urutan": "D",
+      "jenis": "PEKERJAAN BETON"
+    },
+    {
+      "nama": "Pek. Pas. Atap Genteng Flat Munier",
+      "satuan": "M2",
+      "harga": 116930.59999999999,
+      "id": "e.0001",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Pas. Genteng Akhiran Samping Munier",
+      "satuan": "M",
+      "harga": 93930.59999999999,
+      "id": "e.0002",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Pas. Bubungan Genteng Munier",
+      "satuan": "M",
+      "harga": 138801.09999999998,
+      "id": "e.0003",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Pas. Atap Genteng Cahaya Purnama",
+      "satuan": "M2",
+      "harga": 95600.59999999999,
+      "id": "e.0004",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Pas. Bubungan Akhiran Cahaya Purnama",
+      "satuan": "Bh",
+      "harga": 22503.5275,
+      "id": "e.0005",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Pas. Bubungan Genteng Cahaya Purnama",
+      "satuan": "M'",
+      "harga": 120801.1,
+      "id": "e.0006",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Ongkos Pas. Atap Genteng ",
+      "satuan": "M2",
+      "harga": 40668.025,
+      "id": "e.0007",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek.Pas. Atap Genteng Kodok Karangpilang ",
+      "satuan": "M2",
+      "harga": 158330.6,
+      "id": "e.0008",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Pas. Bubungan Genteng kodok Karangpilang",
+      "satuan": "M'",
+      "harga": 147291.09999999998,
+      "id": "e.0009",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Pas. Usuk",
+      "satuan": "M2",
+      "harga": 32742.566249999996,
+      "id": "e.0010",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Pas. Reng",
+      "satuan": "M2",
+      "harga": 26912.851499999997,
+      "id": "e.0011",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Skur kayu 6/12",
+      "satuan": "M3",
+      "harga": 15697385,
+      "id": "e.0012",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Kuda-Kuda",
+      "satuan": "M3",
+      "harga": 6046910,
+      "id": "e.0013",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Papan Ram (ListPlank)",
+      "satuan": "M",
+      "harga": 190420.81,
+      "id": "e.0014",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Rangka Atap Galvalum C 80 tb.0,75 reng 30 tb,0,4 ",
+      "satuan": "M2",
+      "harga": 215418.625,
+      "id": "e.0015",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Rangka Gelagar Galvalum Usuk 0,08 tinggi 60 cm",
+      "satuan": "M",
+      "harga": 107519.8875,
+      "id": "e.0016",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Rangka Galvalum Usuk 80 mm",
+      "satuan": "M",
+      "harga": 30297.425000000047,
+      "id": "e.0017",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pas, Rangka Atap Besi Hollow 50/50mm tebal1,6mm jarak 1x1,5m",
+      "satuan": "M2",
+      "harga": 549208,
+      "id": "e.0018",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pas, Rangka Atap Besi Hollow 100/50mm tebal1,6mm",
+      "satuan": "M2",
+      "harga": 783848,
+      "id": "e.0019",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pas. Penutup Atap Rooftop",
+      "satuan": "M2",
+      "harga": 222984.79545454544,
+      "id": "e.0020",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Atap Carport Rooftop + Rangka Besi Hollow",
+      "satuan": "M2",
+      "harga": 765000,
+      "id": "e.0021",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Talang Galvalum 0,08",
+      "satuan": "M",
+      "harga": 188488.625,
+      "id": "e.0022",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pas. talang Galvalum+Rangka Holow 4/2",
+      "satuan": "M",
+      "harga": 1381222,
+      "id": "e.0023",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Penggantung Gording Ø12mm",
+      "satuan": "M",
+      "harga": 59006.5,
+      "id": "e.0024",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Atap Asbes gelombang Besar",
+      "satuan": "M",
+      "harga": 95638.125,
+      "id": "e.0025",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Pas. Atap Genteng Beton",
+      "satuan": "M2",
+      "harga": 91010.59999999999,
+      "id": "e.0026",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Atap Spandek tebal 0,3mm",
+      "satuan": "M2",
+      "harga": 59113.5625,
+      "id": "e.0027",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Atap Spandek tebal 1 mm",
+      "satuan": "M",
+      "harga": 226249.125,
+      "id": "e.0028",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Cat Genteng",
+      "satuan": "M2",
+      "harga": 98734.3625,
+      "id": "e.0029",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Bongkar Atap Genteng ",
+      "satuan": "M2",
+      "harga": 35930.6,
+      "id": "e.0030",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Bongkar Rangka Atap Kayu",
+      "satuan": "M2",
+      "harga": 56787.575000000004,
+      "id": "e.0031",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Bongkar Bubungan Genteng kodok Karangpilang",
+      "satuan": "M",
+      "harga": 45959.174999999996,
+      "id": "e.0032",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. Ongkos Pasang Bubungan Genteng Karangpilang",
+      "satuan": "M",
+      "harga": 96801.09999999999,
+      "id": "e.0033",
+      "urutan": "E",
+      "jenis": "PEKERJAAN  ATAP / KAP"
+    },
+    {
+      "nama": "Pek. ListPlank GRC (Besar)",
+      "satuan": "M",
+      "harga": 288233.55,
+      "id": "f.0001",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. ListPlank GRC (Kecil)",
+      "satuan": "M",
+      "harga": 199876.05,
+      "id": "f.0002",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Kalsiplang Lb 20 cm Polos",
+      "satuan": "M",
+      "harga": 114081.06,
+      "id": "f.0003",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Kalsiplang Miring Lb 25 cm Polos",
+      "satuan": "M",
+      "harga": 131581.06,
+      "id": "f.0004",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Pilar GRC ",
+      "satuan": "Bh",
+      "harga": 1150665.3357142857,
+      "id": "f.0005",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Mahkota GRC ",
+      "satuan": "Bh",
+      "harga": 1148848.55,
+      "id": "f.0006",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Pilar pagar dan Kotak surat GRC ",
+      "satuan": "Bh",
+      "harga": 680593.55,
+      "id": "f.0007",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. List GRC / Bending",
+      "satuan": "M",
+      "harga": 105870.05,
+      "id": "f.0008",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. GRC Garis-garis 1 cm",
+      "satuan": "M2",
+      "harga": 249283.55,
+      "id": "f.0009",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Pas. Conwood lap Siding BG 6\"",
+      "satuan": "M2",
+      "harga": 501680.72777777776,
+      "id": "f.0010",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pas. rangka hollow 4/4 untuk Conwood",
+      "satuan": "M2",
+      "harga": 254929.575,
+      "id": "f.0011",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Flexitile Facebrick A",
+      "satuan": "M2",
+      "harga": 372792.82499999995,
+      "id": "f.0012",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Flexitile Arcilla Slate",
+      "satuan": "M2",
+      "harga": 372792.82499999995,
+      "id": "f.0013",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Flexitile Flexiwood",
+      "satuan": "M2",
+      "harga": 471716.57499999995,
+      "id": "f.0014",
+      "urutan": "F",
+      "jenis": "PEKERJAAN BETON GRC "
+    },
+    {
+      "nama": "Pek. Kolom Baja 2C 100x50x20x1.6",
+      "satuan": "1 M",
+      "harga": 525282.7200000001,
+      "id": "g.0001",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Aluminium Composite Panel",
+      "satuan": "1 m2",
+      "harga": 852941.0788000001,
+      "id": "g.0002",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Gording Kanal C 100x50x20x1.6",
+      "satuan": "1 M",
+      "harga": 118616.04562500001,
+      "id": "g.0003",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Baja Siku 50,50,5",
+      "satuan": "1 M",
+      "harga": 0,
+      "id": "g.0004",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Baja Siku 40,40,4",
+      "satuan": "1 M",
+      "harga": 213491.9715,
+      "id": "g.0005",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Baja WF 250,175,7,11",
+      "satuan": "1 M",
+      "harga": 1985374.0950000002,
+      "id": "g.0006",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Baja WF 200,150,6,9",
+      "satuan": "1 M",
+      "harga": 1410594.6282,
+      "id": "g.0007",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Baja Siku 60,60,6",
+      "satuan": "1 M",
+      "harga": 329299.9638,
+      "id": "g.0008",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Bondek tebal 0,75 mm",
+      "satuan": "1 M2",
+      "harga": 182881.5,
+      "id": "g.0009",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Stainless Hollow 80x80 tebal 1,2 mm ",
+      "satuan": "1 M2",
+      "harga": 389949,
+      "id": "g.0010",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Stainless Hollow 40x40 tebal 1,2 mm ",
+      "satuan": "1 M2",
+      "harga": 353154,
+      "id": "g.0011",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Huruf timbul Acrylic + Stainless Steel ( menyala depan) tinggi 80cm ",
+      "satuan": "1 unit",
+      "harga": 2224000,
+      "id": "g.0012",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Huruf timbul Acrylic + Stainless Steel ( menyala depan) tinggi 50cm ",
+      "satuan": "1 unit",
+      "harga": 1474000,
+      "id": "g.0013",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. ACP ex. Seven Exterior",
+      "satuan": "M",
+      "harga": 700430.25,
+      "id": "g.0014",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. ACP ex. Seven Exterior + Rangka besi hollow 40x20",
+      "satuan": "M",
+      "harga": 2205349.75,
+      "id": "g.0015",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Rangka Besi ACP Hollow 40x20mm",
+      "satuan": "1 M2",
+      "harga": 2072329.5,
+      "id": "g.0016",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Plat Strip stainless 3mmx100mm",
+      "satuan": "M",
+      "harga": 350754.75,
+      "id": "g.0017",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pas. List Stainless 20,20,3 u/sudut pas. Keramik",
+      "satuan": "M",
+      "harga": 67503.62500000009,
+      "id": "g.0018",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Stainless Plat tebal 1,2 mm ",
+      "satuan": "M2",
+      "harga": 389388,
+      "id": "g.0019",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pas. List Stainless 2, 20,20,3 u/penjepit kaca",
+      "satuan": "M",
+      "harga": 120984.8750000002,
+      "id": "g.0020",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pas. Stainless Hollow 20,20,1,2mm",
+      "satuan": "M",
+      "harga": 41621.125000000044,
+      "id": "g.0021",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Besi Hollow 100/50mm tebal1,8mm",
+      "satuan": "M",
+      "harga": 332090,
+      "id": "g.0022",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Besi Hollow 40/60mm tebal 2mm",
+      "satuan": "M",
+      "harga": 352960.6666666667,
+      "id": "g.0023",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Besi Hollow 40/20mm tebal 1,4mm",
+      "satuan": "M",
+      "harga": 153821.83333333334,
+      "id": "g.0024",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pas, Besi Hollow pagar 20/40mm",
+      "satuan": "1 M2",
+      "harga": 78845.0833333334,
+      "id": "g.0025",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Tutup tandon plat bordes 60x60cm 6mm",
+      "satuan": "1 Unt",
+      "harga": 775923.4875,
+      "id": "g.0026",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek.Tutup bak sampah plat bordess 3mm",
+      "satuan": "1 Unt",
+      "harga": 290133.7375,
+      "id": "g.0027",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pas, Pintu Besi Minimalis ,bingkai 50/100, pembagi 20/40 (jarak=7cm)",
+      "satuan": "1 M2",
+      "harga": 4013209.75,
+      "id": "g.0028",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pas, Pagar Besi Minimalis ,bingkai 50/100, pembagi 20/40 (jarak=7cm)",
+      "satuan": "1 M2",
+      "harga": 3991279.75,
+      "id": "g.0029",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pas, Pintu PagarTunggal BRC Ukuran 100x152cm",
+      "satuan": "1 M2",
+      "harga": 2023102,
+      "id": "g.0030",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pas, Tralis Besi Ø12mm",
+      "satuan": "1 M2",
+      "harga": 586631.375,
+      "id": "g.0031",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pas, Pipa Besi 4\" 4,2mmx6m medium",
+      "satuan": "1 M1",
+      "harga": 248940.5,
+      "id": "g.0032",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Besi Hollow tebal 1,6 mm ",
+      "satuan": "1 M1",
+      "harga": 79837.45,
+      "id": "g.0033",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Plat tebal 3mm",
+      "satuan": "1 M2",
+      "harga": 388151.5,
+      "id": "g.0034",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Plat Strip  3x30 mm",
+      "satuan": "1 M",
+      "harga": 38621.35000000001,
+      "id": "g.0035",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Kawat Nyamuk Aluminium",
+      "satuan": "1 M",
+      "harga": 95503.85,
+      "id": "g.0036",
+      "urutan": "G",
+      "jenis": "PEKERJAAN ACP, KONSTRUKSI BAJA DAN STAINLESS"
+    },
+    {
+      "nama": "Pek. Kusen Kamper (6x15)",
+      "satuan": "1 M3",
+      "harga": 11775382.5,
+      "id": "h.0001",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kusen Aluminium Coating 4\" (Putih) ex.Alexindo",
+      "satuan": "1 M",
+      "harga": 102107.66083333334,
+      "id": "h.0002",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Jendela Aluminium Coating (Putih) ex.Alexindo",
+      "satuan": "1 M",
+      "harga": 138827.3635,
+      "id": "h.0003",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kusen Aluminium Coating 4\" (Brown) ex.Alexindo",
+      "satuan": "M",
+      "harga": 93265.7875,
+      "id": "h.0004",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Jendela Aluminium Coating (Brown) ex.Alexindo",
+      "satuan": "M",
+      "harga": 122095.30750000001,
+      "id": "h.0005",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kusen Aluminium Coating 3 \"(Putih) ex.Alco",
+      "satuan": "M",
+      "harga": 68457.52750000001,
+      "id": "h.0006",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Jendela Aluminium Coating (Putih) ex.Alco",
+      "satuan": "M",
+      "harga": 112023.545394737,
+      "id": "h.0007",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Aluminium Coating (Putih) ex.Alexindo",
+      "satuan": "M",
+      "harga": 157306.7035,
+      "id": "h.0008",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Aluminium Coating (Brown) ex.Alexindo",
+      "satuan": "M",
+      "harga": 157306.7035,
+      "id": "h.0009",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Aluminium Coating (Brown) ex.Alco",
+      "satuan": "M",
+      "harga": 95478.3875,
+      "id": "h.0010",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Km Aluminium Willmore PP 02",
+      "satuan": "Unit",
+      "harga": 2742223.9250000003,
+      "id": "h.0011",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel 80x210 cm Knox ln 803",
+      "satuan": "1 Unt",
+      "harga": 1192511.725,
+      "id": "h.0012",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel 2.10x0.92 (ex. Duma) BB.20",
+      "satuan": "1 Unt",
+      "harga": 1799011.725,
+      "id": "h.0013",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel 2.10x0.92 (ex. Duma) BB.3",
+      "satuan": "1 Unt",
+      "harga": 1799011.725,
+      "id": "h.0014",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel 2.10x0.92 (ex. Duma) BB.9",
+      "satuan": "1 Unt",
+      "harga": 1799011.725,
+      "id": "h.0015",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel 2.10x0.82 (ex. Duma) BB.21",
+      "satuan": "1 Unt",
+      "harga": 1554211.725,
+      "id": "h.0016",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel 2.10x0.62 (ex. Duma) BB.21",
+      "satuan": "1 Unt",
+      "harga": 957511.725,
+      "id": "h.0017",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel 2.10x0.82 (ex. Duma) BB.20",
+      "satuan": "1 Unt",
+      "harga": 1554211.725,
+      "id": "h.0018",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel 2.10x0.82 (ex. Duma) BB.3",
+      "satuan": "1 Unt",
+      "harga": 1554211.725,
+      "id": "h.0019",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel 2.10x0.82 (ex. Duma) BB.9",
+      "satuan": "1 Unt",
+      "harga": 1554211.725,
+      "id": "h.0020",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Max Door 72x210 t=0.3 duco",
+      "satuan": "1 Unt",
+      "harga": 1294111.725,
+      "id": "h.0021",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Max Door 72x210 t=0.5 duco",
+      "satuan": "1 Unt",
+      "harga": 1487911.725,
+      "id": "h.0022",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Max Door 82x210 t=0.3 duco",
+      "satuan": "1 Unt",
+      "harga": 1396111.725,
+      "id": "h.0023",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Max Door 92x210 t=0.3 duco",
+      "satuan": "1 Unt",
+      "harga": 1467511.725,
+      "id": "h.0024",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Max Door 82x210 t=0.5 duco",
+      "satuan": "1 Unt",
+      "harga": 1528711.725,
+      "id": "h.0025",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Max Door 92x210 t=0.5 duco",
+      "satuan": "1 Unt",
+      "harga": 1661311.725,
+      "id": "h.0026",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Max Door 82x240 t=0.5 duco",
+      "satuan": "1 Unt",
+      "harga": 1640911.725,
+      "id": "h.0027",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Max Door 92x240 t=0.5 duco",
+      "satuan": "1 Unt",
+      "harga": 1773511.725,
+      "id": "h.0028",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu Max Door 72x240 t=0.5 duco",
+      "satuan": "1 Unt",
+      "harga": 1600111.725,
+      "id": "h.0029",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 800) 73x206 Forte Bello",
+      "satuan": "Unit",
+      "harga": 1863271.725,
+      "id": "h.0030",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 800) 73x216 Forte Bello",
+      "satuan": "Unit",
+      "harga": 1975879.725,
+      "id": "h.0031",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 900) 83x206 Forte Bello",
+      "satuan": "Unit",
+      "harga": 1919575.725,
+      "id": "h.0032",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 900) 83x216 Forte Bello",
+      "satuan": "Unit",
+      "harga": 2010151.725,
+      "id": "h.0033",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (Big Size) 93x206 Forte Bello",
+      "satuan": "Unit",
+      "harga": 1974655.725,
+      "id": "h.0034",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (Big Size) 93x216 Forte Bello",
+      "satuan": "Unit",
+      "harga": 2046871.725,
+      "id": "h.0035",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 700) 63x236 Forte Bello",
+      "satuan": "1 Unt",
+      "harga": 2070127.725,
+      "id": "h.0036",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 800) 73x236 Forte Bello",
+      "satuan": "1 Unt",
+      "harga": 2120311.725,
+      "id": "h.0037",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 900) 83x236 Forte Bello",
+      "satuan": "1 Unt",
+      "harga": 2154583.725,
+      "id": "h.0038",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (Big Size) 93x236 Forte Bello",
+      "satuan": "1 Unt",
+      "harga": 2187631.725,
+      "id": "h.0039",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 800) 73x206 Premium Deco",
+      "satuan": "1 Unt",
+      "harga": 2094607.725,
+      "id": "h.0040",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 800) 73x216 Premium Deco",
+      "satuan": "1 Unt",
+      "harga": 2187631.725,
+      "id": "h.0041",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 900) 83x206 Premium Deco",
+      "satuan": "1 Unt",
+      "harga": 2155807.725,
+      "id": "h.0042",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (SPD 900) 83x216 Premium Deco",
+      "satuan": "1 Unt",
+      "harga": 2253727.725,
+      "id": "h.0043",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (Big Size) 93x206 Premium Deco",
+      "satuan": "1 Unt",
+      "harga": 2235367.725,
+      "id": "h.0044",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu S-Plus (Big Size) 93x216 Premium Deco",
+      "satuan": "1 Unt",
+      "harga": 2319823.725,
+      "id": "h.0045",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Pintu Panel",
+      "satuan": "1 Unt",
+      "harga": 941341.725,
+      "id": "h.0046",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Pas. Daun Pintu Plywood+Aluminium",
+      "satuan": "1 Unt",
+      "harga": 377589.9125,
+      "id": "h.0047",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Pas. Daun Pintu  Double triplek ",
+      "satuan": "1 Unt",
+      "harga": 403797.725,
+      "id": "h.0048",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pintu PVC",
+      "satuan": "1 Unt",
+      "harga": 918529.2999999999,
+      "id": "h.0049",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Kunci Tanam pintu Kamar Ex. Solid/Gradino",
+      "satuan": "Bh",
+      "harga": 401134.3,
+      "id": "h.0050",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Kunci Tanam Pintu Utama Ex. Solid/Gradino",
+      "satuan": "Bh",
+      "harga": 817345.2999999999,
+      "id": "h.0051",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Kunci Tanam Pintu Km/wc Ex. Solid LV 605",
+      "satuan": "Bh",
+      "harga": 249154.30000000002,
+      "id": "h.0052",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kunci Pintu Aluminium ex.Solid LC 507 AL-30",
+      "satuan": "Bh",
+      "harga": 325934.85000000003,
+      "id": "h.0053",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Handle Pintu Utama Ex. Solid",
+      "satuan": "Bh",
+      "harga": 689029.2999999999,
+      "id": "h.0054",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Handle Pintu Utama Ex. Solid P64,08",
+      "harga": 625363.6,
+      "satuan": "Bh",
+      "id": "h.0055",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Pull Handle Pintu Aluminium  Ex. Solid P61,47",
+      "satuan": "Bh",
+      "harga": 426363.6,
+      "id": "h.0056",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Engsel Besar unt.Pintu (3 Bh/pintu)",
+      "satuan": "Stel",
+      "harga": 117814.03749999999,
+      "id": "h.0057",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Engsel Pintu Kaca Patch Fitting ex.Solid",
+      "satuan": "Bh",
+      "harga": 1953338.125,
+      "id": "h.0058",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Engsel +kunci pintu Kaca ex.solid/Patch Fitting",
+      "satuan": "Bh",
+      "harga": 4281454.25,
+      "id": "h.0059",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Engsel Kecil unt.Jendela (2 Bj)",
+      "satuan": "Stel",
+      "harga": 158629.30000000002,
+      "id": "h.0060",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Hak Angin",
+      "satuan": "Stel",
+      "harga": 117150.761,
+      "id": "h.0061",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Springknite",
+      "satuan": "Bh",
+      "harga": 33569.825,
+      "id": "h.0062",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Pagar Besi",
+      "satuan": "1 M2",
+      "harga": 477191.2,
+      "id": "h.0063",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Daun Jendela Kaca",
+      "satuan": "M2",
+      "harga": 590551,
+      "id": "h.0064",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kaca Mati",
+      "satuan": "M2",
+      "harga": 121993.71425000002,
+      "id": "h.0065",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kaca Riben 5mm",
+      "satuan": "M2",
+      "harga": 119243.71425000002,
+      "id": "h.0066",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kaca Es",
+      "satuan": "M2",
+      "harga": 163243.71425,
+      "id": "h.0067",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kaca bening polos 10mm",
+      "satuan": "M2",
+      "harga": 356268.4,
+      "id": "h.0068",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pasang Kaca 5mm+ scotlight",
+      "satuan": "M2",
+      "harga": 297002.325,
+      "id": "h.0069",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kaca Bending/Curve Tempered 12mm",
+      "satuan": "M2",
+      "harga": 789055.75,
+      "id": "h.0070",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Kaca Tempered 8mm",
+      "satuan": "M2",
+      "harga": 701055.75,
+      "id": "h.0071",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Pasang scotlight",
+      "satuan": "M",
+      "harga": 101177.325,
+      "id": "h.0072",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pasang Arcrylic tebal 5mm",
+      "satuan": "M",
+      "harga": 742895.1025641025,
+      "id": "h.0073",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Rel Pintu Geser ISSI ( Dorong 1 pintu )",
+      "satuan": "Set",
+      "harga": 3164402.5,
+      "id": "h.0074",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Rel Pintu model Foldaside ( Dorong salip)",
+      "satuan": "Set",
+      "harga": 2986082.5,
+      "id": "h.0075",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Rel Pintu Geser model Cornaway ( Dorong tikus)",
+      "satuan": "Set",
+      "harga": 8720720,
+      "id": "h.0076",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Rel Pintu model Foldaside ( Dorong Lipat)",
+      "satuan": "Set",
+      "harga": 5504076.25,
+      "id": "h.0077",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Rel Pintu model Foldaside ( Dorong Lipat) 2 daun pintu",
+      "satuan": "Set",
+      "harga": 2751356.25,
+      "id": "h.0078",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Rel Pintu model Foldaside ( Dorong Lipat) 3 daun pintu",
+      "satuan": "Set",
+      "harga": 2698936.25,
+      "id": "h.0079",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Rel Pintu Sliding  Solid",
+      "satuan": "Set",
+      "harga": 684166,
+      "id": "h.0080",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Dinding Partisi",
+      "satuan": "1 M2",
+      "harga": 277831.91500000004,
+      "id": "h.0081",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Jalusi Aluminium Coating ( brown )",
+      "satuan": "M",
+      "harga": 23869.887500000008,
+      "id": "h.0082",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Jalusi Aluminium Coating ex.Alexindo Putih",
+      "satuan": "M",
+      "harga": 65064.8875000001,
+      "id": "h.0083",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Secondary skin Aluminium Coating 3x5 cm (Brown)",
+      "satuan": "M",
+      "harga": 76269.1375,
+      "id": "h.0084",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pas, Ornamen ACP Laser cutting Tebal 4 mm ukuran 110x210 ",
+      "satuan": "Lbr",
+      "harga": 1923085.84,
+      "id": "h.0085",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    },
+    {
+      "nama": "Pek. Isian Pintu Km/wc Spandrel Coating ex.Alexindo Putih",
+      "satuan": "M",
+      "harga": 51782.38750000008,
+      "id": "h.0086",
+      "urutan": "H",
+      "jenis": "PEKERJAAN KUSEN PINTU, JENDELA DAN ORNAMENT"
+    }
+  ]
+}

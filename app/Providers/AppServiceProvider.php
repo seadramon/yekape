@@ -74,7 +74,7 @@ class AppServiceProvider extends ServiceProvider
             foreach ($menu->childmenus as $ch) {
                 $child .= $this->generate($ch);
             }
-            $parent = '<div data-kt-menu-trigger="{default: \'click\', lg: \'hover\'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion menu-sub-lg-down-indention">
+            $parent = '<div data-kt-menu-trigger="{default: \'click\', lg: \'hover\'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention">
                 <span class="menu-link">
                     <span class="menu-icon">
                         <i class="' . $menu->icon . '"></i>

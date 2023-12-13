@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Keuangan;
+namespace App\Http\Controllers\Perencanaan;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ssh;
@@ -73,7 +73,7 @@ class SshController extends Controller
             $temp->ppn = $request->ppn;
             $temp->tipe = $request->tipe;
             $temp->harga = str_replace(',', '.', str_replace('.', '', $request->harga));
-            $temp->status = 'rkap';
+            $temp->status = 'active';
             $temp->save();
 
             DB::commit();
@@ -170,7 +170,8 @@ class SshController extends Controller
         $tipe = [
             '' => 'Pilih Tipe',
             "bahan" => "Bahan",
-            "upah" => "Upah"
+            "upah" => "Upah",
+            "umum" => "Umum",
         ];
         return [
             'ppn_list' => $ppn,
