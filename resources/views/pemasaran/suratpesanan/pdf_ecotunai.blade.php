@@ -5,6 +5,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<!-- <link href="{{asset('assets/css/demo1/style.bundle.css')}}" rel="stylesheet" type="text/css" /> -->
 </head>
+<style type="text/css">
+	table {
+		margin: 0;
+		font-family: Verdana, Geneva, Tahoma, sans-serif!important;
+		font-size: 10px;
+		line-height: 1.5;
+		/*color: #464E5F;*/
+		color: #3a3a3a;
+		text-align: left;
+		background-color: #ffffff; 
+	}
+</style>
 <!-- <style type="text/css">
 	body {
 		margin: 0;
@@ -103,7 +115,7 @@
 
 	<br><br>
 
-	<table>
+	<table style="font-family: 'Times New Roman', Times, serif">
 		<tr>
 			<td style="font-weight: bold; font-size: 14px; text-align: center; text-decoration: underline;" >SURAT PESANAN RUMAH</td>
 		</tr>

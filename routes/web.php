@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function () {
 			Route::get('loadData', 		[CustomerController::class, 'loadData'])->name('data');
 			Route::get('create/{id?}', 	[CustomerController::class, 'create'])->name('create');
 			Route::post('store', 		[CustomerController::class, 'store'])->name('store');
+			Route::get('search', 		[CustomerController::class, 'searchCustomer'])->name('search');
 			Route::post('/destroy', 	[CustomerController::class, 'destroy'])->name('destroy');
 		});
 	
