@@ -48,7 +48,11 @@
                             <label class="form-label">Harga</label>
                             {!! Form::text('harga', $data ? number_format($data->harga, 2, ',', '.') : null, ['class'=>'form-control currency', 'id'=>'harga', 'autocomplete'=>'off', 'required']) !!}
                         </div>
-                        <div class="fv-row form-group col-lg-12 mb-3">
+                        <div class="form-group col-lg-6">
+                            <label class="form-label">Jenis</label>
+                            {!! Form::select('jenis', $jenis, $data->jenis_id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-12 mb-3 mt-2">
                             <button type="button" class="btn btn-light-primary" id="add-member">
                                 <i class="la la-plus"></i>Tambah Member
                             </button>
@@ -69,12 +73,12 @@
                                     @if (isset($data))
                                         @foreach ($data->detail as $item)
                                             <tr>
-                                                <td><input name="member_id[]" class="member_id" type="hidden" value="{{ $item->member_id }}">{{ $data->member->kode }}|{{ $data->member->nama }}</td> 
-                                                <td><input name="satuan[]" class="satuan" type="hidden" value="{{ $item->member->satuan }}">{{ $item->member->satuan }}</td> 
-                                                <td><input name="hargasatuan[]" class="hargasatuan" type="hidden" value="{{ $item->harga_satuan }}">{{ $item->harga_satuan }}</td> 
-                                                <td><input name="volume[]" class="volume" type="hidden" value="{{ $item->volume }}">{{ $item->volume }}</td> 
-                                                <td><input name="total[]" class="total" type="hidden" value="{{ $item->total }}">{{ number_format($item->total) }}</td> 
-                                                <td><button class="btn btn-danger btn-sm delete_member me-1 mb-1" style="padding: 5px 6px;"><span class="bi bi-trash"></span></button><button class="btn btn-warning btn-sm edit_member" style="padding: 5px 6px;"><span class="bi bi-pencil-square"></span></button></td>
+                                                <td><input name="member_id[]" class="member_id" type="hidden" value="{{ $item->member_id }}">{{ $item->member->kode }}|{{ $item->member->nama }}</td> 
+                                                <td><input name="satuan_d[]" class="satuan" type="hidden" value="{{ $item->member->satuan }}">{{ $item->member->satuan }}</td> 
+                                                <td><input name="hargasatuan[]" class="hargasatuan" type="hidden" value="{{ str_replace('.', ',', $item->harga_satuan) }}">{{ number_format($item->harga_satuan, 2, ',', '.') }}</td> 
+                                                <td><input name="volume[]" class="volume" type="hidden" value="{{ str_replace('.', ',', $item->volume) }}">{{ number_format($item->volume, 2, ',', '.') }}</td> 
+                                                <td><input name="total[]" class="total" type="hidden" value="{{ str_replace('.', ',', $item->total) }}">{{ number_format($item->total, 2, ',', '.') }}</td> 
+                                                <td><button class="btn btn-danger btn-sm delete_member me-1 mb-1" style="padding: 5px 6px;"><span class="bi bi-trash"></span></button><button class="btn btn-warning btn-sm edit_member me-1 mb-1" style="padding: 5px 6px;"><span class="bi bi-pencil-square"></span></button></td>
                                             </tr>
                                         @endforeach
                                     @endif              
@@ -127,7 +131,7 @@
         $("#modal_for").val("edit");
         $("#modal_member_btn").text("Edit");
 
-        $("#modal_member").val($(this).parent().parent().find("input.member_id").val()).trigger("change");
+        $("#modal_member_id").val($(this).parent().parent().find("input.member_id").val()).trigger("change");
         $("#modal_satuan").val($(this).parent().parent().find("input.satuan").val());
         $("#modal_hargasatuan").val($(this).parent().parent().find("input.hargasatuan").val());
         $("#modal_volume").val($(this).parent().parent().find("input.volume").val());
@@ -143,5 +147,64 @@
         $("#modal_member_btn").text("Tambah");
     }
 
+</script>
+
+{{-- for modal --}}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.form-select-modal-solid').select2({
+            dropdownParent: $("#modal_member")
+        });
+    });
+    $('#modal_member_id').on('change', function(e){
+        $("#modal_satuan").val($("#modal_member option:selected").attr('data-satuan'));
+        $("#modal_hargasatuan").val($("#modal_member option:selected").attr('data-hargasatuan'));
+        $("#modal_hargasatuan").trigger('keyup');
+    });
+
+    $('#modal_member_submit').on('click', function(e){
+        e.preventDefault();
+        var data_ = modalMemberData();
+        // kd_jmember
+        var table_row = "<td><input name=\"member_id[]\" class=\"member_id\" type=\"hidden\" value=\"" + data_.member + "\">" + data_.member_teks + "</td>" + 
+            "<td><input name=\"satuan_d[]\" class=\"satuan\" type=\"hidden\" value=\"" + data_.satuan + "\">" + data_.satuan + "</td>" + 
+            "<td><input name=\"hargasatuan[]\" class=\"hargasatuan\" type=\"hidden\" value=\"" + data_.hargasatuan + "\">" + data_.hargasatuan + "</td>" + 
+            "<td><input name=\"volume[]\" class=\"volume\" type=\"hidden\" value=\"" + data_.volume + "\">" + data_.volume + "</td>" + 
+            "<td><input name=\"total[]\" class=\"total\" type=\"hidden\" value=\"" + data_.total + "\">" + data_.total + "</td>" + 
+            "<td><button class=\"btn btn-danger btn-sm delete_member me-1 mb-1\" style=\"padding: 5px 6px;\"><span class=\"bi bi-trash\"></span></button><button class=\"btn btn-warning btn-sm edit_member\" style=\"padding: 5px 6px;\"><span class=\"bi bi-pencil-square\"></span></button></td>";
+        
+        if($("#modal_for").val() == "add"){
+            $("#tbody-member").append(
+                "<tr>" + table_row + "</tr>"
+            );
+        }else{
+            $(".editing").html(table_row);
+            $(".editing").removeClass("editing");
+        }
+        // calculateTotal();
+        $('#modal_member').modal('toggle');
+    });
+
+    function modalMemberData(){
+        var member = $("#modal_member_id").val();
+        var satuan = $("#modal_satuan").val();
+        var hargasatuan = $("#modal_hargasatuan").val();
+        var volume = $("#modal_volume").val();
+        var member_teks = $("#modal_member option:selected").text();
+
+        var harsat = parseFloat(hargasatuan.replaceAll('.', '').replaceAll(',', '.'));
+        var vol = parseFloat(volume.replaceAll('.', '').replaceAll(',', '.'));
+        // var jumlah = harsat.replace(/[^0-9\.]/g,'') * vol_btg.replace(/[^0-9\.]/g,'');
+        
+        return {
+            member: member,
+            member_teks: member_teks,
+            satuan: satuan,
+            hargasatuan: hargasatuan,
+            volume: volume,
+            total: formatRupiah((harsat * vol).toString()),
+        };
+    }
 </script>
 @endsection

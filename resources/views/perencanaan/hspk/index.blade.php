@@ -20,6 +20,7 @@
                             <tr class="fw-semibold fs-6 text-muted">
 								<th>Kode</th>
 								<th>Nama</th>
+								<th>Jenis</th>
                                 <th>Satuan</th>
                                 <th>Harga</th>
                                 <th>Menu</th>
@@ -91,6 +92,7 @@
 	            columns: [
 	                {data: 'kode', name: 'kode', defaultContent: '-'},
 	                {data: 'nama', name: 'nama', defaultContent: '-'},
+	                {data: 'jenis.nama', name: 'jenis.nama', defaultContent: '-'},
 	                {data: 'satuan', name: 'satuan', defaultContent: '-'},
 	                {data: 'harga', name: 'harga', defaultContent: '-'},
 	                {data: 'menu', orderable: false, searchable: false}

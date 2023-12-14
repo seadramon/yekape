@@ -11,12 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('jenis_hspk', function (Blueprint $table) {
+            $table->id();
+            $table->string('kode', 5);
+            $table->string('nama', 250);
+            $table->softDeletes();
+            $table->timestamps();
+        });
+
         Schema::create('hspk', function (Blueprint $table) {
             $table->id();
             $table->string('kode', 50);
             $table->string('nama', 250);
             $table->string('satuan', 250);
             $table->decimal('harga', 14, 2);
+            $table->foreignId('jenis_id')->constrained('jenis_hspk');
             $table->decimal('ppn', 14, 2)->nullable();
             $table->string('tipe', 50)->nullable();
             $table->string('tahun', 6)->nullable();
@@ -46,5 +55,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('hspk_details');
         Schema::dropIfExists('hspk');
+        Schema::dropIfExists('jenis_hspk');
     }
 };

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Perencanaan;
 use App\Http\Controllers\Controller;
 use App\Models\Hspk;
 use App\Models\HspkDetail;
+use App\Models\JenisHspk;
 use App\Models\Ssh;
 use Exception;
 use Flasher\Prime\FlasherInterface;
@@ -24,7 +25,7 @@ class HspkController extends Controller
 
     public function data(Request $request)
     {
-        $query = Hspk::select('*');
+        $query = Hspk::with('jenis')->select('*');
 
         return (new DataTables)->eloquent($query)
             ->editColumn('harga', function ($model) {
@@ -58,12 +59,14 @@ class HspkController extends Controller
 
     public function store(Request $request, FlasherInterface $flasher)
     {
-        try {
+        // return response()->json($request->all());
+        // try {
             DB::beginTransaction();
 
             Validator::make($request->all(), [
                 'nama' => 'required',
                 'satuan' => 'required',
+                'jenis' => 'required',
             ])->validate();
 
             $temp = new Hspk;
@@ -71,6 +74,7 @@ class HspkController extends Controller
             $temp->nama = $request->nama;
             $temp->satuan = $request->satuan;
             $temp->harga = str_replace(',', '.', str_replace('.', '', $request->harga));
+            $temp->jenis_id = $request->jenis;
             $temp->status = 'active';
             $temp->save();
 
@@ -92,20 +96,19 @@ class HspkController extends Controller
             $flasher->addSuccess('Data has been saved successfully!');
 
             return redirect()->route('perencanaan.hspk.index');
-        } catch (Exception $e) {
-            DB::rollback();
+        // } catch (Exception $e) {
+        //     DB::rollback();
 
-            Log::error('Error - Save data HSPK '.$e->getMessage());
-            $flasher->addError($e->getMessage(), 'Error Validation', ['timer' => 10000]);
+        //     Log::error('Error - Save data HSPK '.$e->getMessage());
+        //     $flasher->addError($e->getMessage(), 'Error Validation', ['timer' => 10000]);
 
-            return redirect()->back();
-        }
+        //     return redirect()->back();
+        // }
     }
 
     public function edit($ssh)
     {
-        $data = Ssh::find($ssh);
-
+        $data = Hspk::with('detail')->find($ssh);
 
         return view('perencanaan.hspk.create', ['data' => $data] + $this->prepareData());
     }
@@ -117,7 +120,8 @@ class HspkController extends Controller
 
             Validator::make($request->all(), [
                 'nama' => 'required',
-                'satuan' => 'required'
+                'satuan' => 'required',
+                'jenis' => 'required'
             ])->validate();
 
             $temp = Hspk::find($hspk);
@@ -125,7 +129,8 @@ class HspkController extends Controller
             $temp->nama = $request->nama;
             $temp->satuan = $request->satuan;
             $temp->harga = str_replace(',', '.', str_replace('.', '', $request->harga));
-            // $temp->status = 'active';
+            $temp->jenis_id = $request->jenis;
+            $temp->status = 'active';
             $temp->save();
             
             $temp->detail()->delete();
@@ -192,20 +197,25 @@ class HspkController extends Controller
 
         $ssh = Ssh::get();
         $member = $ssh->mapWithKeys(function($item){
-            return [$item->id => $item->produk->nama];
+            return [$item->id => $item->kode . ' | ' . $item->nama];
         })->all();
 
         $member = ["" => "---Pilih---"] + $member;
         $opt_member = $ssh->mapWithKeys(function($item){ 
-            return [$item->id => ['data-nama' => $item->nama, 'data-satuan' => $item->satuan, 'data-hargasatuan' => $item->hargasatuan]];
+            return [$item->id => ['data-nama' => $item->nama, 'data-satuan' => $item->satuan, 'data-hargasatuan' => $item->harga]];
         })
         ->all();
         
+        $jenis = JenisHspk::all()->mapWithKeys(function($item){
+            return [$item->id => $item->kode . ' | ' . $item->nama];
+        })->all();
+        $jenis = ["" => "---Pilih---"] + $jenis;
         return [
             'ppn_list' => $ppn,
             'tahun' => $tahun,
             'member' => $member,
             'opt_member' => $opt_member,
+            'jenis' => $jenis,
         ];
     }
 }

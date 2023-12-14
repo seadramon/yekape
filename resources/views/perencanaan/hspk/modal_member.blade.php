@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <label class="form-label">Member</label>
-                        {!! Form::select('modal_member', $member, null, ['class'=>'form-control form-select-modal-solid modal-select2', 'data-control'=>'select2', 'id'=>'modal_member'], $opt_member) !!}
+                        {!! Form::select('modal_member_id', $member, null, ['class'=>'form-control form-select-modal-solid modal-select2', 'data-control'=>'select2', 'id'=>'modal_member_id'], $opt_member) !!}
                     </div>
                     <div class="form-group col-lg-6">
                         <label class="form-label">Satuan</label>
@@ -66,54 +66,3 @@
     </div>
     <!--end::Modal dialog-->
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.form-select-modal-solid').select2({
-            dropdownParent: $("#modal_member")
-        });
-    });
-    $('#modal_member_submit').on('click', function(e){
-        e.preventDefault();
-        var data_ = modalMemberData();
-        // kd_jmember
-        var table_row = "<td><input name=\"member_id[]\" class=\"member_id\" type=\"hidden\" value=\"" + data_.member + "\">" + data_.member_teks + "</td>" + 
-            "<td><input name=\"satuan[]\" class=\"satuan\" type=\"hidden\" value=\"" + data_.satuan + "\">" + data_.satuan + "</td>" + 
-            "<td><input name=\"hargasatuan[]\" class=\"hargasatuan\" type=\"hidden\" value=\"" + data_.hargasatuan + "\">" + data_.hargasatuan + "</td>" + 
-            "<td><input name=\"volume[]\" class=\"volume\" type=\"hidden\" value=\"" + data_.volume + "\">" + data_.volume + "</td>" + 
-            "<td><input name=\"total[]\" class=\"total\" type=\"hidden\" value=\"" + data_.total + "\">" + data_.total + "</td>" + 
-            "<td><button class=\"btn btn-danger btn-sm delete_member me-1 mb-1\" style=\"padding: 5px 6px;\"><span class=\"bi bi-trash\"></span></button><button class=\"btn btn-warning btn-sm edit_member\" style=\"padding: 5px 6px;\"><span class=\"bi bi-pencil-square\"></span></button></td>";
-        
-        if($("#modal_for").val() == "add"){
-            $("#tbody-member").append(
-                "<tr>" + table_row + "</tr>"
-            );
-        }else{
-            $(".editing").html(table_row);
-            $(".editing").removeClass("editing");
-        }
-        // calculateTotal();
-        $('#modal_member').modal('toggle');
-    });
-
-    function modalMemberData(){
-        var member = $("#modal_member").val();
-        var satuan = $("#modal_satuan").val();
-        var hargasatuan = $("#modal_hargasatuan").val();
-        var volume = $("#modal_volume").val();
-        var member_teks = $("#modal_member option:selected").text();
-
-        var harsat = parseFloat(hargasatuan.replace('.', '').replace(',', '.'));
-        var vol = parseFloat(volume.replace('.', '').replace(',', '.'));
-        // var jumlah = harsat.replace(/[^0-9\.]/g,'') * vol_btg.replace(/[^0-9\.]/g,'');
-        
-        return {
-            member: member,
-            member_teks: member_teks,
-            satuan: satuan,
-            hargasatuan: hargasatuan,
-            volume: volume,
-            total: (harsat * vol).toFixed(2),
-        };
-    }
-</script>

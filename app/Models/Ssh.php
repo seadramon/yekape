@@ -28,14 +28,14 @@ class Ssh extends Model
     public static function generate_kode($ssh)
     {
         $max_code = explode('.', Ssh::whereTipe($ssh->tipe)->max('kode'));
-        $counter = intval($max_code[1]) + 1;
+        $counter = intval($max_code[1] ?? 0) + 1;
         $prefix = "um";
         if($ssh->tipe == 'bahan'){
             $prefix = "bn";
         }elseif($ssh->tipe == 'upah'){
             $prefix = "up";
         }
-        return $prefix . "." . $counter;
+        return $prefix . "." . sprintf('%04d', $counter);
     }
 
     public function members(): MorphMany
