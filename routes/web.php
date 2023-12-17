@@ -15,7 +15,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManajemenUser\RoleController;
 use App\Http\Controllers\NupController;
 use App\Http\Controllers\Perencanaan\HspkController;
+use App\Http\Controllers\Perencanaan\MisiController;
 use App\Http\Controllers\Perencanaan\SshController;
+use App\Http\Controllers\Perencanaan\VisiController;
 use App\Http\Controllers\SuratPesananController;
 
 /*
@@ -151,10 +153,23 @@ Route::middleware('auth')->group(function () {
 			Route::post('/destroy', [SshController::class, 'destroy'])->name('destroy');
 			Route::resource('/', SshController::class)->except(['destroy'])->parameters(['' => 'ssh']);
 		});
+
 		Route::group(['prefix' => '/hspk', 'as' => 'hspk.'], function(){
 			Route::get('/data', [HspkController::class, 'data'])->name('data');
 			Route::post('/destroy', [HspkController::class, 'destroy'])->name('destroy');
 			Route::resource('/', HspkController::class)->except(['destroy'])->parameters(['' => 'ssh']);
+		});
+
+		Route::group(['prefix' => '/visi', 'as' => 'visi.'], function(){
+			Route::get('/data', [VisiController::class, 'data'])->name('data');
+			Route::post('/destroy', [VisiController::class, 'destroy'])->name('destroy');
+			Route::resource('/', VisiController::class)->except(['destroy'])->parameters(['' => 'visi']);
+		});
+
+		Route::group(['prefix' => '/misi', 'as' => 'misi.'], function(){
+			Route::get('/data', [MisiController::class, 'data'])->name('data');
+			Route::post('/destroy', [MisiController::class, 'destroy'])->name('destroy');
+			Route::resource('/', MisiController::class)->except(['destroy'])->parameters(['' => 'misi']);
 		});
 	});
 

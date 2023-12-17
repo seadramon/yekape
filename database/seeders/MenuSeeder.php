@@ -131,6 +131,27 @@ class MenuSeeder extends Seeder
                 'sequence' => '0510'
             ],
             [
+                'name' => 'HSPK',
+                'route_name' => 'perencanaan.hspk.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0520'
+            ],
+            [
+                'name' => 'Visi',
+                'route_name' => 'perencanaan.visi.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0530'
+            ],
+            [
+                'name' => 'Misi',
+                'route_name' => 'perencanaan.misi.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0540'
+            ],
+            [
                 'name' => 'Manajemen User',
                 'route_name' => '#',
                 'icon' => 'fas fa-clipboard-list fs-3',
