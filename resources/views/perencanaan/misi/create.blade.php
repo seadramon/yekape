@@ -30,12 +30,10 @@
                     @endif
 
                     <div class="row">
-                        @if (isset($data))
-                            <div class="fv-row form-group col-lg-6 mb-3">
-                                <label class="form-label">Kode</label>
-                                {!! Form::text('kode', null, ['class'=>'form-control', 'id'=>'kode', 'autocomplete'=>'off', 'readonly']) !!}
-                            </div>
-                        @endif
+                        <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Visi</label>
+                            {!! Form::select('visi_id', $visi, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'visi']) !!}
+                        </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Nama</label>
                             {!! Form::text('nama', null, ['class'=>'form-control', 'id'=>'nama', 'autocomplete'=>'off', 'required']) !!}
@@ -43,10 +41,6 @@
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tahun</label>
                             {!! Form::select('tahun', $tahun, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tahun']) !!}
-                        </div>
-                        <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Visi</label>
-                            {!! Form::select('visi_id', $visi, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'visi']) !!}
                         </div>
                     </div>
                 </div>

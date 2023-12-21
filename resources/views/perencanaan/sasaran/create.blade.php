@@ -8,15 +8,15 @@
         <!--begin::Col-->
         <div class="col-12 mb-md-5 mb-xl-10">
             @if (isset($data))
-                {!! Form::model($data, ['route' => ['perencanaan.visi.update', $data->id], 'class' => 'form', 'id' => "form-visi",]) !!}
+                {!! Form::model($data, ['route' => ['perencanaan.sasaran.update', $data->id], 'class' => 'form', 'id' => "form-sasaran",]) !!}
                 {!! Form::hidden('id', $data->id) !!}
                 @method('PUT')
             @else
-                {!! Form::open(['url' => route('perencanaan.visi.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-visi"]) !!}
+                {!! Form::open(['url' => route('perencanaan.sasaran.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-sasaran"]) !!}
             @endif
             <div class="card shadow-sm">
                 <div class="card-header">
-                    <h3 class="card-title">@if (isset($data))Edit @else Tambah @endif Visi</h3>
+                    <h3 class="card-title">@if (isset($data))Edit @else Tambah @endif Sasaran</h3>
                 </div>
 
                 <div class="card-body">
@@ -31,6 +31,10 @@
 
                     <div class="row">
                         <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Misi</label>
+                            {!! Form::select('misi_id', $misi, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'misi']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Nama</label>
                             {!! Form::text('nama', null, ['class'=>'form-control', 'id'=>'nama', 'autocomplete'=>'off', 'required']) !!}
                         </div>
@@ -42,7 +46,7 @@
                 </div>
 
                 <div class="card-footer" style="text-align: right;">
-                    <a href="{{ route('perencanaan.visi.index') }}" class="btn btn-light btn-active-light-primary me-2">Kembali</a>
+                    <a href="{{ route('perencanaan.sasaran.index') }}" class="btn btn-light btn-active-light-primary me-2">Kembali</a>
                     <input type="submit" class="btn btn-success" id="btn-submit" value="Simpan">
                 </div>
             </div>

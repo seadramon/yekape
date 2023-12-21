@@ -152,6 +152,20 @@ class MenuSeeder extends Seeder
                 'sequence' => '0540'
             ],
             [
+                'name' => 'Sasaran',
+                'route_name' => 'perencanaan.sasaran.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0550'
+            ],
+            [
+                'name' => 'Program',
+                'route_name' => 'perencanaan.program.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0560'
+            ],
+            [
                 'name' => 'Manajemen User',
                 'route_name' => '#',
                 'icon' => 'fas fa-clipboard-list fs-3',

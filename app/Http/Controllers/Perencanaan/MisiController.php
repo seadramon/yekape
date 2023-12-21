@@ -105,7 +105,7 @@ class MisiController extends Controller
                 'visi_id' => 'required',
             ])->validate();
 
-            $temp = Ssh::find($misi);
+            $temp = Misi::find($misi);
 
             $temp->nama = $request->nama;
             $temp->tahun = $request->tahun;

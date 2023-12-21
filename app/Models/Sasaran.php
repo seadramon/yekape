@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Sasaran extends Model
 {
@@ -11,4 +12,9 @@ class Sasaran extends Model
 
     protected $table = 'sasaran';
     protected $guarded = [];
+
+    public function misi(): BelongsTo
+    {
+        return $this->belongsTo(Misi::class, 'misi_id');
+    }
 }

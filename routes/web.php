@@ -16,6 +16,8 @@ use App\Http\Controllers\ManajemenUser\RoleController;
 use App\Http\Controllers\NupController;
 use App\Http\Controllers\Perencanaan\HspkController;
 use App\Http\Controllers\Perencanaan\MisiController;
+use App\Http\Controllers\Perencanaan\ProgramController;
+use App\Http\Controllers\Perencanaan\SasaranController;
 use App\Http\Controllers\Perencanaan\SshController;
 use App\Http\Controllers\Perencanaan\VisiController;
 use App\Http\Controllers\SuratPesananController;
@@ -170,6 +172,16 @@ Route::middleware('auth')->group(function () {
 			Route::get('/data', [MisiController::class, 'data'])->name('data');
 			Route::post('/destroy', [MisiController::class, 'destroy'])->name('destroy');
 			Route::resource('/', MisiController::class)->except(['destroy'])->parameters(['' => 'misi']);
+		});
+		Route::group(['prefix' => '/sasaran', 'as' => 'sasaran.'], function(){
+			Route::get('/data', [SasaranController::class, 'data'])->name('data');
+			Route::post('/destroy', [SasaranController::class, 'destroy'])->name('destroy');
+			Route::resource('/', SasaranController::class)->except(['destroy'])->parameters(['' => 'sasaran']);
+		});
+		Route::group(['prefix' => '/program', 'as' => 'program.'], function(){
+			Route::get('/data', [ProgramController::class, 'data'])->name('data');
+			Route::post('/destroy', [ProgramController::class, 'destroy'])->name('destroy');
+			Route::resource('/', ProgramController::class)->except(['destroy'])->parameters(['' => 'program']);
 		});
 	});
 
