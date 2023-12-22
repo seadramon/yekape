@@ -16,6 +16,7 @@ use App\Http\Controllers\ManajemenUser\RoleController;
 use App\Http\Controllers\NupController;
 use App\Http\Controllers\Perencanaan\HspkController;
 use App\Http\Controllers\Perencanaan\KegiatanController;
+use App\Http\Controllers\Perencanaan\KegiatanDetailController;
 use App\Http\Controllers\Perencanaan\MisiController;
 use App\Http\Controllers\Perencanaan\ProgramController;
 use App\Http\Controllers\Perencanaan\SasaranController;
@@ -188,6 +189,11 @@ Route::middleware('auth')->group(function () {
 			Route::get('/data', [KegiatanController::class, 'data'])->name('data');
 			Route::post('/destroy', [KegiatanController::class, 'destroy'])->name('destroy');
 			Route::resource('/', KegiatanController::class)->except(['destroy'])->parameters(['' => 'kegiatan']);
+		});
+		Route::group(['prefix' => 'rincian-kegiatan', 'as' => 'kegiatan-detail.'], function(){
+			Route::get('/data', [KegiatanDetailController::class, 'data'])->name('data');
+			Route::post('/destroy', [KegiatanDetailController::class, 'destroy'])->name('destroy');
+			Route::resource('/', KegiatanDetailController::class)->except(['destroy', 'create', 'store'])->parameters(['' => 'kegiatan-detail']);
 		});
 	});
 

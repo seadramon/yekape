@@ -173,6 +173,13 @@ class MenuSeeder extends Seeder
                 'sequence' => '0570'
             ],
             [
+                'name' => 'Rincian Kegiatan',
+                'route_name' => 'perencanaan.kegiatan-detail.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0580'
+            ],
+            [
                 'name' => 'Manajemen User',
                 'route_name' => '#',
                 'icon' => 'fas fa-clipboard-list fs-3',

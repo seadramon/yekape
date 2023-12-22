@@ -205,6 +205,7 @@ class HspkController extends Controller
             return [$item->id => ['data-nama' => $item->nama, 'data-satuan' => $item->satuan, 'data-hargasatuan' => $item->harga]];
         })
         ->all();
+        $opt_member = ["" => ['data-hargasatuan' => 0]] + $opt_member;
         
         $jenis = JenisHspk::all()->mapWithKeys(function($item){
             return [$item->id => $item->kode . ' | ' . $item->nama];

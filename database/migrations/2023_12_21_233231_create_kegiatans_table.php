@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama', 250);
             $table->string('tahun', 6)->nullable();
-            $table->foreignId('program_id')->constrained('program');
-            $table->foreignId('bagian_id')->constrained('bagians');
+            $table->foreignId('program_id')->nullable()->constrained('program');
+            $table->foreignId('bagian_id')->nullable()->constrained('bagians');
             $table->decimal('saldo', 12, 2)->nullable();
             $table->decimal('serapan', 12, 2)->nullable();
             $table->string('status', 50)->nullable();
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
         });
         Schema::create('kegiatan_detail', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
             $table->foreignId('kegiatan_id')->constrained('kegiatan');
             $table->string('kode_perkiraan', 250);
             $table->nullableMorphs('komponen');
@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('status_anggaran', 50)->nullable();
             $table->softDeletes();
             $table->timestamps();
+            $table->primary('id');            
         });
     }
 

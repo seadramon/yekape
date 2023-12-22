@@ -159,7 +159,7 @@
     });
     $('#modal_member_id').on('change', function(e){
         $("#modal_satuan").val($("#modal_member option:selected").attr('data-satuan'));
-        $("#modal_hargasatuan").val($("#modal_member option:selected").attr('data-hargasatuan'));
+        $("#modal_hargasatuan").val($("#modal_member option:selected").attr('data-hargasatuan').replaceAll('.', ','));
         $("#modal_hargasatuan").trigger('keyup');
     });
 
@@ -191,7 +191,7 @@
         var satuan = $("#modal_satuan").val();
         var hargasatuan = $("#modal_hargasatuan").val();
         var volume = $("#modal_volume").val();
-        var member_teks = $("#modal_member option:selected").text();
+        var member_teks = $("#modal_member_id option:selected").text();
 
         var harsat = parseFloat(hargasatuan.replaceAll('.', '').replaceAll(',', '.'));
         var vol = parseFloat(volume.replaceAll('.', '').replaceAll(',', '.'));

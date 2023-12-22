@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Menu;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -22,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Relation::enforceMorphMap([
+            'ssh' => 'App\Models\Ssh'
+        ]);
         View::composer('layout', function($view)
         {
             $menus = Menu::with(['childmenus' => function($sql){

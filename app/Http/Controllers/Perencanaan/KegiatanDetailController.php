@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Bagian;
 use App\Models\Misi;
 use App\Models\Kegiatan;
+use App\Models\KegiatanDetail;
+use App\Models\Perkiraan;
 use App\Models\Program;
+use App\Models\Ssh;
 use Exception;
 use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
@@ -15,12 +18,12 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
-class KegiatanController extends Controller
+class KegiatanDetailController extends Controller
 {
     //
     public function index(Request $request)
     {
-        return view('perencanaan.kegiatan.index');
+        return view('perencanaan.kegiatan-detail.index');
     }
 
     public function data(Request $request)
@@ -35,7 +38,7 @@ class KegiatanController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="' . route('perencanaan.kegiatan.edit', $model->id) . '">Edit</a></li>
+                            <li><a class="dropdown-item" href="' . route('perencanaan.kegiatan-detail.edit', $model->id) . '">Rincian</a></li>
                         </ul>
                         </div>';
 
@@ -50,7 +53,7 @@ class KegiatanController extends Controller
         $data = null;
 
 
-        return view('perencanaan.kegiatan.create', ['data' => $data] + $this->prepareData());
+        return view('perencanaan.kegiatan-detail.create', ['data' => $data] + $this->prepareData());
     }
 
 
@@ -78,7 +81,7 @@ class KegiatanController extends Controller
 
             $flasher->addSuccess('Data has been saved successfully!');
 
-            return redirect()->route('perencanaan.kegiatan.index');
+            return redirect()->route('perencanaan.kegiatan-detail.index');
         } catch (Exception $e) {
             DB::rollback();
 
@@ -91,45 +94,55 @@ class KegiatanController extends Controller
 
     public function edit($misi)
     {
-        $data = Kegiatan::find($misi);
+        $data = Kegiatan::with('detail')->find($misi);
 
 
-        return view('perencanaan.kegiatan.create', ['data' => $data] + $this->prepareData());
+        return view('perencanaan.kegiatan-detail.create', ['data' => $data] + $this->prepareData());
     }
 
     public function update(Request $request, FlasherInterface $flasher, $misi)
     {
-        try {
+        // return response()->json($request->all());
+        // try {
             DB::beginTransaction();
 
-            Validator::make($request->all(), [
-                'nama' => 'required',
-                'tahun' => 'required',
-                'program_id' => 'required',
-                'bagian_id' => 'required',
-            ])->validate();
+            $kegiatan = Kegiatan::find($request->id);
+            $kegiatan->detail()->delete();
 
-            $temp = Kegiatan::find($misi);
+            foreach ($request->detail_id as $index => $id) {
+                if($id == '0'){
+                    $detail = new KegiatanDetail;
+                }else{
+                    $detail = KegiatanDetail::withTrashed()->find($id);
+                    $detail->restore();
+                }
+                $detail->kegiatan_id = $kegiatan->id;
+                $detail->kode_perkiraan = $request->perkiraan[$index];
+                $detail->komponen_type = strtolower($request->komponen_tipe[$index]);
+                $detail->komponen_id = $request->komponen[$index];
+                $detail->harga_satuan = str_replace(',', '.', str_replace('.', '', $request->hargasatuan[$index]));
+                $detail->volume = str_replace(',', '.', str_replace('.', '', $request->volume[$index]));
+                $detail->ppn = $request->ppn[$index];
+                $detail->keterangan = $request->keterangan[$index];
+                $detail->status = 'draft';
+                $detail->status_anggaran = 'rkap';
+                $detail->save();
+            }
 
-            $temp->nama = $request->nama;
-            $temp->tahun = $request->tahun;
-            $temp->program_id = $request->program_id;
-            $temp->bagian_id = $request->bagian_id;
-            $temp->save();
 
             DB::commit();
 
             $flasher->addSuccess('Data has been saved successfully!');
 
-            return redirect()->route('perencanaan.kegiatan.index');
-        } catch (Exception $e) {
-            DB::rollback();
+            return redirect()->route('perencanaan.kegiatan-detail.index');
+        // } catch (Exception $e) {
+        //     DB::rollback();
 
-            Log::error('Error - Save data '.$e->getMessage());
-            $flasher->addError($e->getMessage(), 'Error Validation', ['timer' => 10000]);
+        //     Log::error('Error - Save data '.$e->getMessage());
+        //     $flasher->addError($e->getMessage(), 'Error Validation', ['timer' => 10000]);
 
-            return redirect()->back();
-        }
+        //     return redirect()->back();
+        // }
     }
 
     public function destroy(Request $request)
@@ -151,7 +164,11 @@ class KegiatanController extends Controller
     }
 
     protected function prepareData(){
-        
+        $ppn = [
+            '' => 'Pilih PPN',
+            '0' => '0%',
+            '11' => '11%',
+        ];
         $tahun = [
             '' => 'Pilih Tahun'
         ];
@@ -163,14 +180,38 @@ class KegiatanController extends Controller
             return [$item->id => $item->nama];
         })->all();
         $program = ["" => "---Pilih Program---"] + $program;
+        
         $bagian = Bagian::all()->mapWithKeys(function($item){
             return [$item->id => $item->nama];
         })->all();
         $bagian = ["" => "---Pilih Bagian---"] + $bagian;
+        
+        $perkiraan = Perkiraan::all()->mapWithKeys(function($item){
+            return [$item->kd_perkiraan => $item->kd_perkiraan . ' | ' . $item->keterangan];
+        })->all();
+        $perkiraan = ["" => "---Pilih Perkiraan---"] + $perkiraan;
+
+        $ssh = Ssh::get();
+        $komponen = $ssh->mapWithKeys(function($item){
+            return [$item->id => $item->kode . ' | ' . $item->nama];
+        })->all();
+        $komponen = ["" => "---Pilih---"] + $komponen;
+
+        $opt_komponen = $ssh->mapWithKeys(function($item){ 
+            return [$item->id => ['data-tipe' => 'SSH', 'data-nama' => $item->nama, 'data-hargasatuan' => $item->harga]];
+        })
+        ->all();
+        $opt_komponen = ["" => ['data-hargasatuan' => 0]] + $opt_komponen;
+        
+        
         return [
+            'ppn' => $ppn,
             'tahun' => $tahun,
             'program' => $program,
             'bagian' => $bagian,
+            'perkiraan' => $perkiraan,
+            'komponen' => $komponen,
+            'opt_komponen' => $opt_komponen,
         ];
     }
 }

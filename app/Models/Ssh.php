@@ -12,6 +12,7 @@ class Ssh extends Model
 
     protected $table = 'ssh';
     protected $guarded = [];
+    protected $morphClass = 'ssh';
 
     protected static function booted()
     {
@@ -41,5 +42,10 @@ class Ssh extends Model
     public function members(): MorphMany
     {
         return $this->morphMany(HspkDetail::class, 'member');
+    }
+
+    public function komponen(): MorphMany
+    {
+        return $this->morphMany(KegiatanDetail::class, 'komponen');
     }
 }
