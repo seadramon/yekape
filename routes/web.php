@@ -15,6 +15,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManajemenUser\RoleController;
 use App\Http\Controllers\NupController;
 use App\Http\Controllers\Perencanaan\HspkController;
+use App\Http\Controllers\Perencanaan\KegiatanController;
 use App\Http\Controllers\Perencanaan\MisiController;
 use App\Http\Controllers\Perencanaan\ProgramController;
 use App\Http\Controllers\Perencanaan\SasaranController;
@@ -182,6 +183,11 @@ Route::middleware('auth')->group(function () {
 			Route::get('/data', [ProgramController::class, 'data'])->name('data');
 			Route::post('/destroy', [ProgramController::class, 'destroy'])->name('destroy');
 			Route::resource('/', ProgramController::class)->except(['destroy'])->parameters(['' => 'program']);
+		});
+		Route::group(['prefix' => 'kegiatan', 'as' => 'kegiatan.'], function(){
+			Route::get('/data', [KegiatanController::class, 'data'])->name('data');
+			Route::post('/destroy', [KegiatanController::class, 'destroy'])->name('destroy');
+			Route::resource('/', KegiatanController::class)->except(['destroy'])->parameters(['' => 'kegiatan']);
 		});
 	});
 

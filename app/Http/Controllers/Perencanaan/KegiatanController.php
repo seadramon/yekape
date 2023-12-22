@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Perencanaan;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bagian;
 use App\Models\Misi;
+use App\Models\Kegiatan;
 use App\Models\Program;
-use App\Models\Sasaran;
 use Exception;
 use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
@@ -14,17 +15,17 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
-class ProgramController extends Controller
+class KegiatanController extends Controller
 {
     //
     public function index(Request $request)
     {
-        return view('perencanaan.program.index');
+        return view('perencanaan.kegiatan.index');
     }
 
     public function data(Request $request)
     {
-        $query = Program::with('sasaran')->select('*');
+        $query = Kegiatan::with('program')->select('*');
 
         return (new DataTables)->eloquent($query)
             ->addColumn('menu', function ($model) {
@@ -34,7 +35,7 @@ class ProgramController extends Controller
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="' . route('perencanaan.program.edit', $model->id) . '">Edit</a></li>
+                            <li><a class="dropdown-item" href="' . route('perencanaan.kegiatan.edit', $model->id) . '">Edit</a></li>
                         </ul>
                         </div>';
 
@@ -49,7 +50,7 @@ class ProgramController extends Controller
         $data = null;
 
 
-        return view('perencanaan.program.create', ['data' => $data] + $this->prepareData());
+        return view('perencanaan.kegiatan.create', ['data' => $data] + $this->prepareData());
     }
 
 
@@ -60,14 +61,16 @@ class ProgramController extends Controller
 
             Validator::make($request->all(), [
                 'nama' => 'required',
-                'sasaran_id' => 'required',
+                'program_id' => 'required',
+                'bagian_id' => 'required',
                 'tahun' => 'required',
             ])->validate();
 
-            $temp = new Program;
+            $temp = new Kegiatan;
 
             $temp->nama = $request->nama;
-            $temp->sasaran_id = $request->sasaran_id;
+            $temp->program_id = $request->program_id;
+            $temp->bagian_id = $request->bagian_id;
             $temp->tahun = $request->tahun;
             $temp->save();
 
@@ -75,7 +78,7 @@ class ProgramController extends Controller
 
             $flasher->addSuccess('Data has been saved successfully!');
 
-            return redirect()->route('perencanaan.program.index');
+            return redirect()->route('perencanaan.kegiatan.index');
         } catch (Exception $e) {
             DB::rollback();
 
@@ -88,10 +91,10 @@ class ProgramController extends Controller
 
     public function edit($misi)
     {
-        $data = Program::find($misi);
+        $data = Kegiatan::find($misi);
 
 
-        return view('perencanaan.program.create', ['data' => $data] + $this->prepareData());
+        return view('perencanaan.kegiatan.create', ['data' => $data] + $this->prepareData());
     }
 
     public function update(Request $request, FlasherInterface $flasher, $misi)
@@ -102,21 +105,23 @@ class ProgramController extends Controller
             Validator::make($request->all(), [
                 'nama' => 'required',
                 'tahun' => 'required',
-                'sasaran_id' => 'required',
+                'program_id' => 'required',
+                'bagian_id' => 'required',
             ])->validate();
 
-            $temp = Program::find($misi);
+            $temp = Kegiatan::find($misi);
 
             $temp->nama = $request->nama;
             $temp->tahun = $request->tahun;
-            $temp->sasaran_id = $request->sasaran_id;
+            $temp->program_id = $request->program_id;
+            $temp->bagian_id = $request->bagian_id;
             $temp->save();
 
             DB::commit();
 
             $flasher->addSuccess('Data has been saved successfully!');
 
-            return redirect()->route('perencanaan.program.index');
+            return redirect()->route('perencanaan.kegiatan.index');
         } catch (Exception $e) {
             DB::rollback();
 
@@ -132,7 +137,7 @@ class ProgramController extends Controller
         DB::beginTransaction();
 
         try {
-            $data = Program::find($request->id);
+            $data = Kegiatan::find($request->id);
             $data->delete();
 
             DB::commit();
@@ -154,13 +159,18 @@ class ProgramController extends Controller
             $temp = date('Y', strtotime($i . ' years'));
             $tahun[$temp] = $temp;
         }
-        $sasaran = Sasaran::all()->mapWithKeys(function($item){
+        $program = Program::all()->mapWithKeys(function($item){
             return [$item->id => $item->nama];
         })->all();
-        $sasaran = ["" => "---Pilih sasaran---"] + $sasaran;
+        $program = ["" => "---Pilih Program---"] + $program;
+        $bagian = Bagian::all()->mapWithKeys(function($item){
+            return [$item->id => $item->nama];
+        })->all();
+        $bagian = ["" => "---Pilih Bagian---"] + $bagian;
         return [
             'tahun' => $tahun,
-            'sasaran' => $sasaran,
+            'program' => $program,
+            'bagian' => $bagian,
         ];
     }
 }

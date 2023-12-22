@@ -8,9 +8,9 @@
         <div class="col-12 mb-md-5 mb-xl-10">
             <div class="card shadow-sm">
                 <div class="card-header">
-                    <h3 class="card-title">Data HSPK</h3>
+                    <h3 class="card-title">Data Kegiatan</h3>
                     <div class="card-toolbar">
-                        <a href="{{route('perencanaan.hspk.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
+                        <a href="{{route('perencanaan.kegiatan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
                     </div>
                 </div>
 
@@ -18,11 +18,10 @@
                     <table id="tabel_master_driver" class="table table-row-bordered gy-5" style="vertical-align: middle;">
                         <thead>
                             <tr class="fw-semibold fs-6 text-muted">
-								<th>Kode</th>
+                                <th>Tahun</th>
 								<th>Nama</th>
-								<th>Jenis</th>
-                                <th>Satuan</th>
-                                <th>Harga</th>
+								<th>Program</th>
+								<th>Bagian</th>
                                 <th>Menu</th>
                             </tr>
                         </thead>
@@ -88,13 +87,12 @@
 	            serverSide: true,
 	            order: [[0, 'desc']],
 	            stateSave: true,
-	            ajax: "{{ route('perencanaan.hspk.data') }}",
+	            ajax: "{{ route('perencanaan.kegiatan.data') }}",
 	            columns: [
-	                {data: 'kode', name: 'kode', defaultContent: '-'},
+	                {data: 'tahun', name: 'tahun', defaultContent: '-'},
 	                {data: 'nama', name: 'nama', defaultContent: '-'},
-	                {data: 'jenis.nama', name: 'jenis.nama', defaultContent: '-'},
-	                {data: 'satuan', name: 'satuan', defaultContent: '-'},
-	                {data: 'harga', name: 'harga', defaultContent: '-'},
+	                {data: 'program.nama', name: 'program.nama', defaultContent: '-'},
+	                {data: 'bagian.nama', name: 'bagian.nama', defaultContent: '-'},
 	                {data: 'menu', orderable: false, searchable: false}
 	            ],
 	        });
@@ -122,13 +120,13 @@
 			// ajax
 			$.ajax({
 				type:"post",
-				url: "{{ route('perencanaan.hspk.destroy') }}",
+				url: "{{ route('perencanaan.kegiatan.destroy') }}",
 				data: {id : id, _token: "{{ csrf_token() }}"},
 				success: function(res){
 					if (res.result == 'success') {
 						flasher.success("Data has been deleted successfully!");
 
-						$('#tabel_teacher').DataTable().ajax.url("{{ route('perencanaan.hspk.data') }}").load();
+						$('#tabel_teacher').DataTable().ajax.url("{{ route('perencanaan.kegiatan.data') }}").load();
 					}
 				}
 			});
