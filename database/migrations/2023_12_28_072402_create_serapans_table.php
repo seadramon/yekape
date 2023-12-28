@@ -11,32 +11,30 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kegiatan', function (Blueprint $table) {
+        Schema::create('serapan', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 250);
-            $table->string('tahun', 6)->nullable();
-            $table->foreignId('program_id')->nullable()->constrained('program');
+            $table->string('kode', 250);
             $table->foreignId('bagian_id')->nullable()->constrained('bagians');
-            $table->decimal('saldo', 12, 2)->nullable();
-            $table->decimal('serapan', 12, 2)->nullable();
+            $table->string('metode', 50)->nullable();
+            $table->string('jenis', 50)->nullable();
+            $table->string('jenis_lelang', 50)->nullable();
+            $table->string('jenis_bayar', 50)->nullable();
+            $table->date('costing_date')->nullable();
+            $table->string('tahun', 6)->nullable();
             $table->string('status', 50)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
-        Schema::create('kegiatan_detail', function (Blueprint $table) {
+        Schema::create('serapan_detail', function (Blueprint $table) {
             $table->uuid('id');
-            $table->foreignId('kegiatan_id')->constrained('kegiatan');
-            $table->string('kode_perkiraan', 250);
-            $table->nullableMorphs('komponen');
+            $table->foreignId('serapan_id')->constrained('serapan');
+            $table->foreignUuid('kegiatan_detail_id')->constrained('kegiatan_detail');
             $table->decimal('harga_satuan', 14, 2);
             $table->decimal('volume', 14, 2);
             $table->decimal('ppn', 14, 2);
             $table->decimal('ppn_rp', 14, 2);
             $table->decimal('total', 14, 2);
-            $table->decimal('serapan', 14, 2)->nullable();
-            $table->string('keterangan', 250)->nullable();
-            $table->string('status', 50)->nullable();
-            $table->string('status_anggaran', 50)->nullable();
             $table->softDeletes();
             $table->timestamps();
             $table->primary('id');            
@@ -48,7 +46,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kegiatan_detail');
-        Schema::dropIfExists('kegiatan');
+        Schema::dropIfExists('serapan_detail');
+        Schema::dropIfExists('serapan');
     }
 };

@@ -47,6 +47,13 @@ class MenuSeeder extends Seeder
                 'sequence' => '0220'
             ],
             [
+                'name' => 'Pengajuan Kegiatan',
+                'route_name' => 'keuangan.pengajuan-kegiatan.index',
+                'icon' => 'fas fa-truck-front fs-3',
+                'level' => '2',
+                'sequence' => '0230'
+            ],
+            [
                 'name' => 'Sekretariat Perusahaan',
                 'route_name' => '#',
                 'icon' => 'fas fa-clipboard-check fs-3',

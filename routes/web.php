@@ -9,6 +9,7 @@ use App\Http\Controllers\ClusterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\Keuangan\PengajuanKegiatanController;
 use App\Http\Controllers\Keuangan\ValidasiSprController;
 use App\Http\Controllers\KwitansiController;
 use App\Http\Controllers\LoginController;
@@ -148,6 +149,12 @@ Route::middleware('auth')->group(function () {
 			Route::get('/loadData', [ValidasiSprController::class, 'loadData'])->name('data');
 			Route::get('{id}/validasi', [ValidasiSprController::class, 'validasi'])->name('validasi');
 			Route::resource('/', ValidasiSprController::class)->except(['destroy'])->parameters(['' => 'spr']);
+		});
+
+		Route::group(['prefix' => 'pengajuan-kegiatan', 'as' => 'pengajuan-kegiatan.'], function(){
+			Route::get('/data', [PengajuanKegiatanController::class, 'data'])->name('data');
+			Route::post('/destroy', [PengajuanKegiatanController::class, 'destroy'])->name('destroy');
+			Route::resource('/', PengajuanKegiatanController::class)->except(['destroy'])->parameters(['' => 'pengajuan-kegiatan']);
 		});
 	
 	});

@@ -9,24 +9,20 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class KegiatanDetail extends Model
+class SerapanDetail extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
 
-    protected $table = 'kegiatan_detail';
+    protected $table = 'serapan_detail';
     protected $guarded = [];
 
-    public function komponen(): MorphTo
+    public function kegiatan_detail(): BelongsTo
     {
-        return $this->morphTo();
+        return $this->belongsTo(KegiatanDetail::class, 'kegiatan_detail_id');
     }
 
-    public function perkiraan(): BelongsTo
+    public function serapan(): BelongsTo
     {
-        return $this->belongsTo(Perkiraan::class, 'kode_perkiraan', 'kd_perkiraan');
-    }
-    public function kegiatan(): BelongsTo
-    {
-        return $this->belongsTo(Kegiatan::class, 'kegiatan_id');
+        return $this->belongsTo(Serapan::class, 'kegiatan_id');
     }
 }

@@ -103,7 +103,7 @@ class KegiatanDetailController extends Controller
     public function update(Request $request, FlasherInterface $flasher, $misi)
     {
         // return response()->json($request->all());
-        // try {
+        try {
             DB::beginTransaction();
 
             $kegiatan = Kegiatan::find($request->id);
@@ -135,14 +135,14 @@ class KegiatanDetailController extends Controller
             $flasher->addSuccess('Data has been saved successfully!');
 
             return redirect()->route('perencanaan.kegiatan-detail.index');
-        // } catch (Exception $e) {
-        //     DB::rollback();
+        } catch (Exception $e) {
+            DB::rollback();
 
-        //     Log::error('Error - Save data '.$e->getMessage());
-        //     $flasher->addError($e->getMessage(), 'Error Validation', ['timer' => 10000]);
+            Log::error('Error - Save data '.$e->getMessage());
+            $flasher->addError($e->getMessage(), 'Error Validation', ['timer' => 10000]);
 
-        //     return redirect()->back();
-        // }
+            return redirect()->back();
+        }
     }
 
     public function destroy(Request $request)
