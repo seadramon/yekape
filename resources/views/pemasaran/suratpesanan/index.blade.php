@@ -153,7 +153,7 @@
 	                {data: 'tgl_sp', name: 'tgl_sp', defaultContent: '-'},
 	                {data: 'tipe_pembelian', name: 'tipe_pembelian', defaultContent: '-'},
 	                {data: 'customer.nama', name: 'customer.nama', defaultContent: '-'},
-	                {data: 'kavling.nama', name: 'kavling.nama', defaultContent: '-'},
+	                {data: 'kavling.kode_kavling', name: 'kavling.nama', defaultContent: '-'},
 	                {data: 'status', orderable: false, searchable: false},
 	                {data: 'menu', orderable: false, searchable: false}
 	            ],

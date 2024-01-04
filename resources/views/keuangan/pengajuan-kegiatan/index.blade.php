@@ -9,6 +9,9 @@
             <div class="card shadow-sm">
                 <div class="card-header">
                     <h3 class="card-title">Data Pengajuan Kegiatan</h3>
+					<div class="card-toolbar">
+                        <a href="{{route('keuangan.pengajuan-kegiatan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Pengajuan</a>
+                    </div>
                 </div>
 
                 <div class="card-body py-5">
