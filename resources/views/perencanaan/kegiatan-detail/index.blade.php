@@ -19,6 +19,9 @@
 								<th>Nama</th>
 								<th>Program</th>
 								<th>Bagian</th>
+                                <th>Total Anggaran</th>
+                                <th>Serapan</th>
+                                <th>Saldo</th>
                                 <th>Menu</th>
                             </tr>
                         </thead>
@@ -90,6 +93,9 @@
 	                {data: 'nama', name: 'nama', defaultContent: '-'},
 	                {data: 'program.nama', name: 'program.nama', defaultContent: '-'},
 	                {data: 'bagian.nama', name: 'bagian.nama', defaultContent: '-'},
+                    {data: 'anggaran', name: 'anggaran', defaultContent: '-'},
+                    {data: 'serapan', name: 'serapan', defaultContent: '-'},
+                    {data: 'saldo', name: 'saldo', defaultContent: '-'},
 	                {data: 'menu', orderable: false, searchable: false}
 	            ],
 	        });
