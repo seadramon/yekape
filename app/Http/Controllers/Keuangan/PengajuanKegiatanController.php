@@ -82,7 +82,7 @@ class PengajuanKegiatanController extends Controller
             $serapan->tahun = $request->tahun;
             $serapan->save();
             
-            foreach ($request->komponen_kegiatan as $index => $kegiatan) {
+            foreach (($request->komponen_kegiatan ?? []) as $index => $kegiatan) {
                 $detail = new SerapanDetail;
                 $detail->serapan_id = $serapan->id;
                 $detail->kegiatan_detail_id = $kegiatan;
@@ -137,7 +137,7 @@ class PengajuanKegiatanController extends Controller
             $serapan->tahun = $request->tahun;
             $serapan->detail()->delete();
 
-            foreach ($request->komponen_kegiatan as $index => $kegiatan) {
+            foreach (($request->komponen_kegiatan ?? []) as $index => $kegiatan) {
                 if($request->detail_id[$index] == '0'){
                     $detail = new SerapanDetail;
                 }else{
