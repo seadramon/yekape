@@ -28,7 +28,7 @@ class KegiatanDetailController extends Controller
 
     public function data(Request $request)
     {
-        $query = Kegiatan::with('program', 'bagian')->select('*');
+        $query = Kegiatan::with('program', 'bagian')->select('*',  DB::raw('0 as anggaran, 0 as serapan, 0 as saldo'));
 
         return (new DataTables)->eloquent($query)
             ->addColumn('menu', function ($model) {
@@ -180,12 +180,12 @@ class KegiatanDetailController extends Controller
             return [$item->id => $item->nama];
         })->all();
         $program = ["" => "---Pilih Program---"] + $program;
-        
+
         $bagian = Bagian::all()->mapWithKeys(function($item){
             return [$item->id => $item->nama];
         })->all();
         $bagian = ["" => "---Pilih Bagian---"] + $bagian;
-        
+
         $perkiraan = Perkiraan::all()->mapWithKeys(function($item){
             return [$item->kd_perkiraan => $item->kd_perkiraan . ' | ' . $item->keterangan];
         })->all();
@@ -197,13 +197,13 @@ class KegiatanDetailController extends Controller
         })->all();
         $komponen = ["" => "---Pilih---"] + $komponen;
 
-        $opt_komponen = $ssh->mapWithKeys(function($item){ 
+        $opt_komponen = $ssh->mapWithKeys(function($item){
             return [$item->id => ['data-tipe' => 'SSH', 'data-nama' => $item->nama, 'data-hargasatuan' => $item->harga]];
         })
         ->all();
         $opt_komponen = ["" => ['data-hargasatuan' => 0]] + $opt_komponen;
-        
-        
+
+
         return [
             'ppn' => $ppn,
             'tahun' => $tahun,
