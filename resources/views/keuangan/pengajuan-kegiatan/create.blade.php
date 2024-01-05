@@ -42,23 +42,23 @@
                             <label class="form-label">Jenis</label>
                             {!! Form::select('jenis', $jenis, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis']) !!}
                         </div>
-                        <div class="fv-row form-group col-lg-6 mb-3">
+                        <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
                             <label class="form-label">Jenis Pembayaran</label>
                             {!! Form::select('jenis_bayar', $jenis_bayar, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis_bayar']) !!}
                         </div>
-                        <div class="fv-row form-group col-lg-6 mb-3">
+                        <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
                             <label class="form-label">Jenis Lelang</label>
                             {!! Form::select('jenis_lelang', $jenis_lelang, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis_lelang']) !!}
                         </div>
-                        <div class="fv-row form-group col-lg-6 mb-3">
+                        <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
                             <label class="form-label">Metode Pengadaan</label>
                             {!! Form::select('metode', $metode, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'metode']) !!}
                         </div>
-                        <div class="fv-row form-group col-lg-6 mb-3">
+                        <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
                             <label class="form-label">Tanggal Costing</label>
                             {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off']) !!}
                         </div>
-                        <div class="fv-row form-group col-lg-6 mb-3">
+                        <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
                             <label class="form-label">Tahun</label>
                             {!! Form::select('tahun', $tahun, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tahun']) !!}
                         </div>
@@ -128,7 +128,13 @@
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-
+        $("#jenis").change(function(){
+            if($("#jenis").val() == 'BS'){
+                $(".optional").addClass('hidden');
+            }else{
+                $(".optional").removeClass('hidden');
+            }
+        })
     });
 
     $('#add-kegiatan-detail').on('click', function(){

@@ -68,7 +68,7 @@ class PengajuanKegiatanController extends Controller
             Validator::make($request->all(), [
                 'nama' => 'required',
                 'bagian_id' => 'required',
-                'tahun' => 'required',
+                'jenis' => 'required',
             ])->validate();
 
             $serapan = new Serapan;
@@ -79,7 +79,7 @@ class PengajuanKegiatanController extends Controller
             $serapan->jenis_bayar = $request->jenis_bayar;
             $serapan->jenis_lelang = $request->jenis_lelang;
             $serapan->costing_date = $request->costing_date;
-            $serapan->tahun = $request->tahun;
+            $serapan->tahun = $request->tahun ?? date('Y');
             $serapan->save();
             
             foreach (($request->komponen_kegiatan ?? []) as $index => $kegiatan) {
@@ -124,7 +124,7 @@ class PengajuanKegiatanController extends Controller
             Validator::make($request->all(), [
                 'nama' => 'required',
                 'bagian_id' => 'required',
-                'tahun' => 'required',
+                'jenis' => 'required',
             ])->validate();
             $serapan = Serapan::find($request->id);
             $serapan->nama = $request->nama;
@@ -134,7 +134,7 @@ class PengajuanKegiatanController extends Controller
             $serapan->jenis_bayar = $request->jenis_bayar;
             $serapan->jenis_lelang = $request->jenis_lelang;
             $serapan->costing_date = $request->costing_date;
-            $serapan->tahun = $request->tahun;
+            $serapan->tahun = $request->tahun ?? date('Y');
             $serapan->detail()->delete();
 
             foreach (($request->komponen_kegiatan ?? []) as $index => $kegiatan) {

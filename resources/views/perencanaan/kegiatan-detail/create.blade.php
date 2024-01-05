@@ -80,13 +80,18 @@
                                                 <td><input name="volume[]" class="volume" type="hidden" value="{{ number_format($item->volume, 0, ',', '.') }}">{{ number_format($item->volume, 0, ',', '.') }}</td>
                                                 <td><input name="ppn[]" class="ppn" type="hidden" value="{{ number_format($item->ppn, 0) }}">{{ number_format($item->ppn, 0) }}%</td>
                                                 <td style="text-align: right;"><input name="nilaippn[]" class="nilaippn" type="hidden" value="{{ number_format($nilai_ppn, 2, ',', '.') }}">{{ number_format($nilai_ppn, 2, ',', '.') }}</td>
-                                                <td style="text-align: right;"><input name="total[]" class="total" type="hidden" value="">{{ number_format($total + $nilai_ppn, 2, ',', '.') }}</td>
+                                                <td style="text-align: right;"><input name="total[]" class="total" type="hidden" value="{{ number_format($total + $nilai_ppn, 2, ',', '.') }}">{{ number_format($total + $nilai_ppn, 2, ',', '.') }}</td>
                                                 <td><input name="keterangan[]" class="keterangan" type="hidden" value="{{ $item->keterangan }}">{{ $item->keterangan }}</td>
                                                 <td><button class="btn btn-danger btn-sm delete_kegiatan_detail me-1 mb-1" style="padding: 5px 6px;"><span class="bi bi-trash"></span></button><button class="btn btn-warning btn-sm edit_kegiatan_detail me-1 mb-1" style="padding: 5px 6px;"><span class="bi bi-pencil-square"></span></button></td>
                                             </tr>
                                         @endforeach
                                     @endif              
                                 </tbody>
+                                <tfoot style="text-align: right; font-weight: bold;">
+                                    <th colspan="6" style="">TOTAL</th>
+                                    <th id="grand-total"></th>
+                                    <th colspan="2">&nbsp;</th>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -114,7 +119,7 @@
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-
+        calculateTotal();
     });
 
     $('#add-kegiatan-detail').on('click', function(){
@@ -156,6 +161,13 @@
         $("#modal_for").val("add");
         $("#modal_id").val("0");
         $("#modal_kegiatan_detail_btn").text("Tambah");
+    }
+    function calculateTotal(){
+        var total = 0;
+        $('.total').each(function(i, obj) {
+            total += parseFloat($(obj).val().replaceAll('.', '').replaceAll(',', '.'));
+        });
+        $("#grand-total").text(formatRupiah(total.toString().replaceAll('.', ',')));
     }
 </script>
 <script type="text/javascript">

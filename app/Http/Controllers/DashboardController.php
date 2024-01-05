@@ -44,7 +44,12 @@ class DashboardController extends Controller
                 "#6e4ff5"
             ];
         });
-        return response()->json(collect($data)->merge($spr_map->values()));
+        if($spr_map->count() == 0){
+            $data_spr = [['Jan', 0, "#6e4ff5"]];
+        }else{
+            $data_spr = $spr_map->values();
+        }
+        return response()->json(collect($data)->merge($data_spr));
     }
 
    

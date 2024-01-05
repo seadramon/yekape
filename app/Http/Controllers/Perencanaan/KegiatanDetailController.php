@@ -28,17 +28,33 @@ class KegiatanDetailController extends Controller
 
     public function data(Request $request)
     {
-        $query = Kegiatan::with('program', 'bagian')->select('*',  DB::raw('0 as anggaran, 0 as serapan, 0 as saldo'));
+        $query = Kegiatan::with('program', 'bagian', 'detail.serapan')->select('kegiatan.*');
 
         return (new DataTables)->eloquent($query)
-            ->addColumn('menu', function ($model) {
-            // <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$model->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
+            ->addColumn('anggaran', function ($kegiatan) {
+                return number_format($kegiatan->detail->sum('total'), 2, ',', '.');
+            })
+            ->addColumn('serapan', function ($kegiatan) {
+                $total = $kegiatan->detail->sum(function($detail){
+                    $detail->serapan->sum('total');
+                });
+                return number_format($total, 2, ',', '.');
+            })
+            ->addColumn('saldo', function ($kegiatan) {
+                $anggaran = $kegiatan->detail->sum('total');
+                $serapan = $kegiatan->detail->sum(function($detail){
+                    $detail->serapan->sum('total');
+                });
+                return number_format($anggaran - $serapan, 2, ',', '.');
+            })
+            ->addColumn('menu', function ($kegiatan) {
+            // <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$kegiatan->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="' . route('perencanaan.kegiatan-detail.edit', $model->id) . '">Rincian</a></li>
+                            <li><a class="dropdown-item" href="' . route('perencanaan.kegiatan-detail.edit', $kegiatan->id) . '">Rincian</a></li>
                         </ul>
                         </div>';
 
