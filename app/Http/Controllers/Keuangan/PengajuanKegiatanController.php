@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PengajuanKegiatanController extends Controller
 {
@@ -41,6 +42,7 @@ class PengajuanKegiatanController extends Controller
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="' . route('keuangan.pengajuan-kegiatan.edit', $model->id) . '">Edit</a></li>
+                            <li><a class="dropdown-item" target="_blank" href="' . route('keuangan.pengajuan-kegiatan.cetak', $model->id) . '">Cetak</a></li>
                         </ul>
                         </div>';
 
@@ -253,5 +255,20 @@ class PengajuanKegiatanController extends Controller
             'komponen_kegiatan' => $komponen_kegiatan,
             'opt_komponen_kegiatan' => $opt_komponen_kegiatan,
         ];
+    }
+
+    public function cetak($id)
+    {
+        $data = Serapan::find($id);
+        
+        $pdf = Pdf::loadView('keuangan.pengajuan-kegiatan.cetak-'.strtolower($data->jenis), [
+            'data' => $data
+        ]);
+        $filename = "pengajuan-pengadaan-barang-jasa";
+
+        $customPaper = [0, 0, 16.5, 21.5];
+
+        return $pdf->setPaper('a4', 'portrait')
+            ->stream($filename . '.pdf');
     }
 }
