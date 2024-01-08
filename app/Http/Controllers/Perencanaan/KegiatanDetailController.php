@@ -36,14 +36,14 @@ class KegiatanDetailController extends Controller
             })
             ->addColumn('serapan', function ($kegiatan) {
                 $total = $kegiatan->detail->sum(function($detail){
-                    $detail->serapan->sum('total');
+                    return $detail->serapan->sum('total');
                 });
                 return number_format($total, 2, ',', '.');
             })
             ->addColumn('saldo', function ($kegiatan) {
                 $anggaran = $kegiatan->detail->sum('total');
                 $serapan = $kegiatan->detail->sum(function($detail){
-                    $detail->serapan->sum('total');
+                    return $detail->serapan->sum('total');
                 });
                 return number_format($anggaran - $serapan, 2, ',', '.');
             })

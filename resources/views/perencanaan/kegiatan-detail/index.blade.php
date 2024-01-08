@@ -93,9 +93,9 @@
 	                {data: 'nama', name: 'nama', defaultContent: '-'},
 	                {data: 'program.nama', name: 'program.nama', defaultContent: '-'},
 	                {data: 'bagian.nama', name: 'bagian.nama', defaultContent: '-'},
-                    {data: 'anggaran', name: 'anggaran', defaultContent: '-'},
-                    {data: 'serapan', name: 'serapan', defaultContent: '-'},
-                    {data: 'saldo', name: 'saldo', defaultContent: '-'},
+                    {data: 'anggaran', name: 'anggaran', defaultContent: '-', orderable: false, searchable: false},
+                    {data: 'serapan', name: 'serapan', defaultContent: '-', orderable: false, searchable: false},
+                    {data: 'saldo', name: 'saldo', defaultContent: '-', orderable: false, searchable: false},
 	                {data: 'menu', orderable: false, searchable: false}
 	            ],
 	        });
