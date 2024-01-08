@@ -8,13 +8,13 @@
 <style type="text/css">
 	table {
 		margin: 0;
-		font-family: Verdana, Geneva, Tahoma, sans-serif!important;
+		font-family: Arial, Helvetica, sans-serif!important;
 		font-size: 10px;
 		line-height: 1.5;
 		/*color: #464E5F;*/
 		color: #3a3a3a;
 		text-align: left;
-		background-color: #ffffff; 
+		background-color: #ffffff;
 	}
 </style>
 <!-- <style type="text/css">
@@ -88,7 +88,7 @@
 
 	<table border="0" style="font-size: 9px">
 		<tr>
-			<td style="width: 70%; font-weight: bold;">PT. YEKAPE SURABAYA</td>
+			<td style="width: 70%; font-weight: bold;">PT. YEKAPE SURABAYA -</td>
 			<!-- td style="width: 13%">Nomor Dokumen</td>
 			<td style="width: 2%">:</td>
 			<td style="width: 15%">SOP PMS AP 01</td> -->

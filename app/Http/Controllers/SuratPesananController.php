@@ -236,6 +236,7 @@ class SuratPesananController extends Controller
     public function cetak($id)
     {
         $data = SuratPesananRumah::with('customer')->find($id);
+        return view('pemasaran.suratpesanan.pdf_ecotunai',['data' => $data]);
 
         PDF::SetTitle('Surat Pesanan Rumah');
         PDF::SetPrintHeader(false);
@@ -247,6 +248,7 @@ class SuratPesananController extends Controller
         PDF::AddPage('P', 'A4');
         // PDF::SetFont('times', '', 9, '', false);
         PDF::writeHTML(view('pemasaran.suratpesanan.pdf_ecotunai',['data' => $data])->render(), true, false, false, false, '');
+
 
         // return Response::make(PDF::Output('SuratPesanan.pdf', 'I'), 200, array('Content-Type' => 'application/pdf'));
         return Response::make(PDF::Output('SuratPesanan.pdf', 'I'), 200, array('Content-Type' => 'application/pdf'));
