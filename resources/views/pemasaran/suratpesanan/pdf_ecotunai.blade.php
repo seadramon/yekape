@@ -4,15 +4,17 @@
 	<title>Surat Pesanan</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<!-- <link href="{{asset('assets/css/demo1/style.bundle.css')}}" rel="stylesheet" type="text/css" /> -->
+	<link href="https://fonts.cdnfonts.com/css/dot-matrix" rel="stylesheet">
 </head>
 <style type="text/css">
+	@import url('https://fonts.cdnfonts.com/css/dot-matrix');
 	table {
 		margin: 0;
-		font-family: Verdana, Geneva, Tahoma, sans-serif!important;
+		font-family: 'Dot Matrix', sans-serif!important;
 		font-size: 10px;
 		line-height: 1.5;
 		/*color: #464E5F;*/
-		color: #3a3a3a;
+		color: black;
 		text-align: left;
 		background-color: #ffffff; 
 	}
@@ -115,7 +117,7 @@
 
 	<br><br>
 
-	<table style="font-family: 'Times New Roman', Times, serif">
+	<table width="100%">
 		<tr>
 			<td style="font-weight: bold; font-size: 14px; text-align: center; text-decoration: underline;" >SURAT PESANAN RUMAH</td>
 		</tr>
@@ -129,84 +131,84 @@
 
 	<br><br>
 
-	<table border="0">
+	<table border="0" width="100%">
 		<tr>
 			<td style="width: 5%"></td>
-			<td style="width: 95%">Yang bertanda tangan di bawah ini :</td>
+			<td style="width: 95%" colspan="7">Yang bertanda tangan di bawah ini :</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
-			<td style="width: 31%">Nama</td>
+			<td style="width: 31%" colspan="2">Nama</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 36%">{{$data->customer->nama}}</td>
+			<td style="width: 36%" colspan="2">{{$data->customer->nama}}</td>
 			<td style="width: 23%">No HP. : {{$data->customer->telp_1}}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
-			<td style="width: 31%">Kartu / No. Identitas / NPWP </td>
+			<td style="width: 31%" colspan="2">Kartu / No. Identitas / NPWP </td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">KTP / {{$data->customer->no_ktp}} / {{$data->customer->no_npwp}} </td>
+			<td style="width: 59%" colspan="3">KTP / {{$data->customer->no_ktp}} / {{$data->customer->no_npwp}} </td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
-			<td style="width: 31%">Tempat, Tanggal Lahir / Kewarganegaraan </td>
+			<td style="width: 31%" colspan="2">Tempat, Tanggal Lahir / Kewarganegaraan </td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->customer->tempat_lahir}} / {{$data->customer->tanggal_lahir}} / {{$data->customer->kewarganegaraan}} </td>
+			<td style="width: 59%" colspan="3">{{$data->customer->tempat_lahir}} / {{$data->customer->tanggal_lahir}} / {{$data->customer->kewarganegaraan}} </td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
-			<td style="width: 31%">Alamat Identitas</td>
+			<td style="width: 31%" colspan="2">Alamat Identitas</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->customer->alamat}}</td>
+			<td style="width: 59%" colspan="3">{{$data->customer->alamat}}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
-			<td style="width: 31%">Alamat Domisili</td>
+			<td style="width: 31%" colspan="2">Alamat Domisili</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->customer->alamat_domisili}}</td>
+			<td style="width: 59%" colspan="3">{{$data->customer->alamat_domisili}}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
-			<td style="width: 31%">Pekerjaan</td>
+			<td style="width: 31%" colspan="2">Pekerjaan</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->customer->pekerjaan}}</td>
+			<td style="width: 59%" colspan="3">{{$data->customer->pekerjaan}}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
-			<td style="width: 31%">Sumber Dana</td>
+			<td style="width: 31%" colspan="2">Sumber Dana</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->sumber_dana}}</td>
+			<td style="width: 59%" colspan="3">{{$data->sumber_dana}}</td>
 		</tr>
-		<tr> <td style="width: 5%"></td> </tr>
+		<tr> <td style="width: 100%"  colspan="8"></td> </tr>
 		<tr>
 			<td style="width: 5%"></td>
-			<td style="width: 95%">Dengan ini Konsumen membeli rumah di PT. YEKAPE SURABAYA untuk dipergunakan sendiri, dengan lokasi persil :</td>
+			<td style="width: 95%"  colspan="7">Dengan ini Konsumen membeli rumah di PT. YEKAPE SURABAYA untuk dipergunakan sendiri, dengan lokasi persil :</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%; font-weight: bold">I.</td>
-			<td style="width: 31% ; font-weight: bold">Lokasi Persil</td>
+			<td style="width: 31% ; font-weight: bold" colspan="2">Lokasi Persil</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->lokasi_rmh}} {{strtoupper($data->kavling->kota)}}</td>
+			<td style="width: 59%" colspan="3">{{$data->lokasi_rmh}} {{strtoupper($data->kavling->kota)}}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%; font-weight: bold"></td>
-			<td style="width: 31%">Luas Tanah dan Bangunan</td>
+			<td style="width: 31%" colspan="2">Luas Tanah dan Bangunan</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->type_rmh}}</td>
+			<td style="width: 59%" colspan="3">{{$data->type_rmh}}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%; font-weight: bold">II.</td>
-			<td style="width: 31% ; font-weight: bold">Harga Jual</td>
+			<td style="width: 31% ; font-weight: bold" colspan="2">Harga Jual</td>
 			<td style="width: 2%">:</td>
 			<td style="width: 3%">Rp.</td>
 			<td style="width: 12% ; text-align: right; font-weight: bold">{{number_format($data->harga_jual,2) }}</td>
@@ -215,7 +217,7 @@
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%; font-weight: bold">III.</td>
-			<td style="width: 31% ; font-weight: bold">Total Uang Muka</td>
+			<td style="width: 31% ; font-weight: bold" colspan="2">Total Uang Muka</td>
 			<td style="width: 2%">:</td>
 			<td style="width: 3%">Rp.</td>
 			<td style="width: 12% ; text-align: right;font-weight: bold">{{number_format($data->rp_uangmuka,2)}}</td>
@@ -247,7 +249,7 @@
 			<td style="width: 3%">3.</td>
 			<td style="width: 28%">Diangsur Selama</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->lm_angsuran}} Bulan</td>
+			<td style="width: 59%" colspan="3">{{$data->lm_angsuran}} Bulan</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
@@ -255,7 +257,7 @@
 			<td style="width: 3%">4.</td>
 			<td style="width: 28%">Periode Angsuran</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->p_angsuran_awal}} s/d {{$data->p_angsuran_akhir}}</td>
+			<td style="width: 59%" colspan="3">{{$data->p_angsuran_awal}} s/d {{$data->p_angsuran_akhir}}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
@@ -270,9 +272,9 @@
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%; font-weight: bold">IV.</td>
-			<td style="width: 31% ; font-weight: bold">Nilai KPR dari Bank</td>
+			<td style="width: 31% ; font-weight: bold" colspan="2">Nilai KPR dari Bank</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%"></td>
+			<td style="width: 59%" colspan="3"></td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
@@ -280,7 +282,7 @@
 			<td style="width: 3%">1.</td>
 			<td style="width: 28%">No. SPPK</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{$data->no_sppk}}</td>
+			<td style="width: 59%" colspan="3">{{$data->no_sppk}}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
@@ -288,12 +290,12 @@
 			<td style="width: 3%">2.</td>
 			<td style="width: 28%">Rencana Realisasi</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{ date('d/m/Y', strtotime($data->rencana_ajb)) }}</td>
+			<td style="width: 59%" colspan="3">{{ date('d/m/Y', strtotime($data->rencana_ajb)) }}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%; font-weight: bold">V.</td>
-			<td style="width: 91% ; font-weight: bold">Pembangunan Rumah</td>
+			<td style="width: 91% ; font-weight: bold" colspan="6">Pembangunan Rumah</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
@@ -301,7 +303,7 @@
 			<td style="width: 3%">1.</td>
 			<td style="width: 28%">Jangka waktu pembangunan rumah</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">12 bulan</td>
+			<td style="width: 59%" colspan="3">12 bulan</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
@@ -309,7 +311,7 @@
 			<td style="width: 3%">2.</td>
 			<td style="width: 28%">Rencana mulai pembangunan rumah</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{ date('M Y', strtotime($data->mulai_bangun)) }}</td>
+			<td style="width: 59%" colspan="3">{{ date('M Y', strtotime($data->mulai_bangun)) }}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
@@ -317,18 +319,18 @@
 			<td style="width: 3%">3.</td>
 			<td style="width: 28%">Rencana pembangunan selesai</td>
 			<td style="width: 2%">:</td>
-			<td style="width: 59%">{{ date('M Y', strtotime($data->selesai_bangun)) }}</td>
+			<td style="width: 59%" colspan="3">{{ date('M Y', strtotime($data->selesai_bangun)) }}</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%; font-weight: bold">VI.</td>
-			<td style="width: 91% ; font-weight: bold">Keterangan Lain-lain</td>
+			<td style="width: 91% ; font-weight: bold" colspan="6">Keterangan Lain-lain</td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
 			<td style="width: 3%">1.</td>
-			<td style="width: 84% ; text-align: justify;">
+			<td style="width: 84% ; text-align: justify;" colspan="5">
 				Harga rumah sudah termasuk Bangunan Standart (tanpa pagar), Sertifikat HGB, IMB, PDAM, PLN 2200 Watt (Prabayar), PPN, PBB s/d Penyerahan Rumah.
 			</td>
 		</tr>
@@ -336,7 +338,7 @@
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
 			<td style="width: 3%">2.</td>
-			<td style="width: 84%; font-weight: bold ; text-align: justify">
+			<td style="width: 84%; font-weight: bold ; text-align: justify" colspan="5">
 				Harga tidak termasuk biaya BPHTB, AJB, BBN.
 			</td>
 		</tr>
@@ -344,7 +346,7 @@
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
 			<td style="width: 3%">3.</td>
-			<td style="width: 84% ; text-align: justify">
+			<td style="width: 84% ; text-align: justify" colspan="5">
 				Apabila pembayaran angsuran perbulan terjadi keterlambatan, maka akan dikenakan tambahan denda sebesar 5% dari kekurangan angsuran yang harus dibayar tiap bulannya, keterlambatan pembayaran tiga bulan berturut turut, maka pembelian rumah ini menjadi batal dengan sendirinya.
 			</td>
 		</tr>
@@ -352,7 +354,7 @@
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
 			<td style="width: 3%">4.</td>
-			<td style="width: 84% ; text-align: justify">
+			<td style="width: 84% ; text-align: justify" colspan="5">
 				Pembatalan pembelian rumah oleh karena sebab apapun, maka uang muka yang telah disetor akan dikembalikan sebesar 75%.
 			</td>
 		</tr>
@@ -360,7 +362,7 @@
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
 			<td style="width: 3%">5.</td>
-			<td style="width: 84% ; text-align: justify">
+			<td style="width: 84% ; text-align: justify" colspan="5">
 				Apabila dalam waktu tiga (3) hari kerja, semenjak ditanda tangani Surat Pembelian ini, konsumen tidak melaksanakan penandatanganan PPJB yang diterbitkan oleh PT Yekape Surabaya, maka konsuman dianggap membatalkan pembelian rumah dan surat pembelian ini dinyatakan Batal dan dengan sendirinya tidak berlaku lagi.
 			</td>
 		</tr>
@@ -368,7 +370,7 @@
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
 			<td style="width: 3%">6.</td>
-			<td style="width: 84% ; text-align: justify">
+			<td style="width: 84% ; text-align: justify" colspan="5">
 				Sebelum pelaksanaan tanda tangan AJB (sesuai dalam pasal 12 PPJB), konsumen harus sudah menyelesaikan semua pembayaran biaya-biaya yang timbul dari transaksi jual beli rumah.
 			</td>
 		</tr>
@@ -376,20 +378,18 @@
 			<td style="width: 5%"></td>
 			<td style="width: 3%"></td>
 			<td style="width: 3%"></td>
-			<td style="width: 84%"></td>
+			<td style="width: 84%" colspan="5"></td>
 		</tr>
 		<tr>
 			<td style="width: 5%"></td>
-			<td style="width: 3%"></td>
-			<td style="width: 3%"></td>
-			<td style="width: 84% ">
-				Dengan ini kami selaku pembeli rumah memahami dan akan mentaati ketentuan tersebut di atas.
+			<td style="width: 95%"  colspan="7">Dengan ini kami selaku pembeli rumah memahami dan akan mentaati ketentuan tersebut di atas.</td>
+				
 			</td>
 		</tr>
 	</table>
 
 	<br><br>
-	<table>
+	<table width="100%" border="0">
 		<br><br>
 		<tr>
 			<td style="width: 5%;"></td>
@@ -405,7 +405,9 @@
 			<td style="width: 30%; text-align: center;">Pembeli</td>
 			<td style="width: 5%;"></td>
 		</tr>
-		<br><br><br><br>
+		<tr>
+			<td colspan="5" style="width: 100%;"><br><br><br><br><br><br></td>
+		</tr>
 		<tr>
 			<td style="width: 5%;"></td>
 			<td style="width: 30%; text-align: center; font-weight: bold;">Ir. HERMIEN ROOSITA, MM.</td>

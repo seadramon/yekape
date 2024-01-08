@@ -236,6 +236,7 @@ class SuratPesananController extends Controller
     public function cetak($id)
     {
         $data = SuratPesananRumah::with('customer')->find($id);
+        return view('pemasaran.suratpesanan.pdf_ecotunai',['data' => $data]);
 
         PDF::SetTitle('Surat Pesanan Rumah');
         PDF::SetPrintHeader(false);
