@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cluster;
 use Illuminate\Http\Request;
 use Flasher\Prime\FlasherInterface;
 
@@ -16,22 +17,31 @@ class TanahKavlingController extends Controller
     //
     public function index()
     {
-        $perkiraan = Perkiraan::get()
+        $lokasi = [
+        	"" => "Semua Lokasi",
+        	"surabaya" => "Surabaya",
+        	"gresik" => "Gresik"
+        ];
+
+        $cluster = Cluster::get()
             ->mapWithKeys(function($item){
-                return [$item->id => $item->keterangan];
+                return [$item->id => $item->nama];
             })
             ->all();
-        $perkiraan = ["" => "Semua"] + $perkiraan;
+        $cluster = ["" => "Semua Cluster"] + $cluster;
 
-    	return view('master.tanah-kavling.index', compact('perkiraan'));
+    	return view('master.tanah-kavling.index', compact('lokasi', 'cluster'));
     }
 
     public function loadData(Request $request)
     {
     	$query = Kavling::with('perkiraan');
 
-        if (!empty($request->perkiraan_id)) {
-            $query->where('perkiraan_id', $request->perkiraan_id);
+        if (!empty($request->lokasi)) {
+            $query->where('kota', $request->lokasi);
+        }
+        if (!empty($request->cluster)) {
+            $query->where('cluster_id', $request->cluster);
         }
 
     	return DataTables::eloquent($query)
