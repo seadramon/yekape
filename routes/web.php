@@ -153,6 +153,7 @@ Route::middleware('auth')->group(function () {
 
 		Route::group(['prefix' => 'pengajuan-kegiatan', 'as' => 'pengajuan-kegiatan.'], function(){
 			Route::get('/data', [PengajuanKegiatanController::class, 'data'])->name('data');
+			Route::get('/cetak/{id}', 	[PengajuanKegiatanController::class, 'cetak'])->name('cetak');
 			Route::post('/destroy', [PengajuanKegiatanController::class, 'destroy'])->name('destroy');
 			Route::resource('/', PengajuanKegiatanController::class)->except(['destroy'])->parameters(['' => 'pengajuan-kegiatan']);
 		});
