@@ -240,13 +240,14 @@ class SuratPesananController extends Controller
 
         PDF::SetTitle('Surat Pesanan Rumah');
         PDF::SetPrintHeader(false);
+        PDF::SetFont('helvetica', '', 12, '');
         PDF::SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
         PDF::SetMargins(2, 4, 2, 2); //left,top,right,bottom-
         PDF::SetAutoPageBreak(TRUE, 10);
         PDF::setImageScale(PDF_IMAGE_SCALE_RATIO);
 
         PDF::AddPage('P', 'A4');
-        // PDF::SetFont('times', '', 9, '', false);
+
         PDF::writeHTML(view('pemasaran.suratpesanan.pdf_ecotunai',['data' => $data])->render(), true, false, false, false, '');
 
 
