@@ -3,11 +3,13 @@
 <head>
 	<title>Surat Pesanan</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<!-- <link href="{{asset('assets/css/demo1/style.bundle.css')}}" rel="stylesheet" type="text/css" /> -->
-	<link href="https://fonts.cdnfonts.com/css/dot-matrix" rel="stylesheet">
+	 {{-- <link href="{{asset('assets/css/demo1/style.bundle.css')}}" rel="stylesheet" type="text/css" />  --}}
+	{{-- <link href="https://fonts.cdnfonts.com/css/dot-matrix" rel="stylesheet"> --}}
+    <link href="https://www.cdnfonts.com/led-dot-matrix" rel="stylesheet">
 </head>
 <style type="text/css">
-	@import url('https://fonts.cdnfonts.com/css/dot-matrix');
+	/* @import url('https://fonts.cdnfonts.com/css/dot-matrix'); */
+    @import url('https://www.cdnfonts.com/led-dot-matrix');
 	table {
 		margin: 0;
 		font-family: 'Dot Matrix', sans-serif!important;
