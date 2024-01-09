@@ -174,10 +174,10 @@
 
             </tr>
             {{-- <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <div style="text-align:center;padding-top:10px;margin-bottom:150px;">
                         Mengetahui :<br>
-                        Manajer Keuangan
+                        Direktur
                     </div>
 
                     <div style="text-align:center;">
