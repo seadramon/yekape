@@ -7,7 +7,7 @@ use App\Models\Cluster;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ClusterSeeder extends Cluster
+class ClusterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
