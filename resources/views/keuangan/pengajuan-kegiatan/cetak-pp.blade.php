@@ -140,7 +140,17 @@
 
         <table width="100%" border="1" cellspacing="0">
             <tr>
-                <td width="50%">
+                <td width="34%" >
+                    <div style="text-align:center;padding-top:10px;margin-bottom:80px;">
+                        Diteliti dan Dicatat oleh :<br>
+                        Manajer Keuangan
+                    </div>
+
+                    <div style="text-align:center;">
+                        <b><u>.....................</u></b><br>
+                    </div>
+                </td>
+                <td width="33%">
                     <div style="text-align:center;padding-top:10px;margin-bottom:80px;">
                         Disetujui oleh :<br>
                         Manajer/Sekretaris Perusahaan
@@ -150,19 +160,20 @@
                         <b><u>...................</u></b><br>
                     </div>
                 </td>
-                <td width="50%" >
+                <td width="33%" >
                     Surabaya, 25 Sept 2023
                     <div style="text-align:center;margin-bottom:80px;">
                         Dibuat dan diajukan oleh :<br>
-                        Supervisor
+                        Supervisor/PPK
                     </div>
 
                     <div style="text-align:center;">
                         <b><u>.....................</u></b><br>
                     </div>
                 </td>
+
             </tr>
-            <tr>
+            {{-- <tr>
                 <td colspan="2">
                     <div style="text-align:center;padding-top:10px;margin-bottom:150px;">
                         Mengetahui :<br>
@@ -173,7 +184,7 @@
                         <b><u>...................</u></b><br>
                     </div>
                 </td>
-            </tr>
+            </tr> --}}
         </table>
     </body>
 </html>

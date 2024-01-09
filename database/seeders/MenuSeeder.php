@@ -47,11 +47,18 @@ class MenuSeeder extends Seeder
                 'sequence' => '0220'
             ],
             [
+                'name' => 'Rincian Kegiatan',
+                'route_name' => 'perencanaan.kegiatan-detail.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0230'
+            ],
+            [
                 'name' => 'Pengajuan Kegiatan',
                 'route_name' => 'keuangan.pengajuan-kegiatan.index',
                 'icon' => 'fas fa-truck-front fs-3',
                 'level' => '2',
-                'sequence' => '0230'
+                'sequence' => '0240'
             ],
             [
                 'name' => 'Sekretariat Perusahaan',
@@ -130,61 +137,56 @@ class MenuSeeder extends Seeder
                 'level' => '1',
                 'sequence' => '0500'
             ],
-            [
-                'name' => 'SSH',
-                'route_name' => 'perencanaan.ssh.index',
-                'icon' => 'fas fa-file fs-3',
-                'level' => '2',
-                'sequence' => '0510'
-            ],
-            [
-                'name' => 'HSPK',
-                'route_name' => 'perencanaan.hspk.index',
-                'icon' => 'fas fa-file fs-3',
-                'level' => '2',
-                'sequence' => '0520'
-            ],
+
             [
                 'name' => 'Visi',
                 'route_name' => 'perencanaan.visi.index',
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
-                'sequence' => '0530'
+                'sequence' => '0510'
             ],
             [
                 'name' => 'Misi',
                 'route_name' => 'perencanaan.misi.index',
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
-                'sequence' => '0540'
+                'sequence' => '0520'
             ],
             [
                 'name' => 'Sasaran',
                 'route_name' => 'perencanaan.sasaran.index',
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
-                'sequence' => '0550'
+                'sequence' => '0530'
             ],
             [
                 'name' => 'Program',
                 'route_name' => 'perencanaan.program.index',
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
-                'sequence' => '0560'
+                'sequence' => '0540'
             ],
             [
                 'name' => 'Kegiatan',
                 'route_name' => 'perencanaan.kegiatan.index',
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
-                'sequence' => '0570'
+                'sequence' => '0550'
             ],
+
             [
-                'name' => 'Rincian Kegiatan',
-                'route_name' => 'perencanaan.kegiatan-detail.index',
+                'name' => 'SSH',
+                'route_name' => 'perencanaan.ssh.index',
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
-                'sequence' => '0580'
+                'sequence' => '0560'
+            ],
+            [
+                'name' => 'HSPK',
+                'route_name' => 'perencanaan.hspk.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0570'
             ],
             [
                 'name' => 'Manajemen User',
