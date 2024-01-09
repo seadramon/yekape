@@ -16,9 +16,17 @@
 
                 <div class="card-body py-5">
                 	<div class="row">
-                		<div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Perkiraan</label>
-                            {!! Form::select('perkiraan_id', $perkiraan, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'perkiraan_id']) !!}
+                		<div class="fv-row form-group col-lg-3 mb-3">
+                            <label class="form-label">Lokasi</label>
+                            {!! Form::select('lokasi', $lokasi, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'lokasi']) !!}
+                        </div>
+                		<div class="fv-row form-group col-lg-3 mb-3">
+                            <label class="form-label">Cluster</label>
+                            {!! Form::select('cluster', $cluster, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'cluster']) !!}
+                        </div>
+                		<div class="fv-row form-group col-lg-1 mb-3">
+                            <label class="form-label">&nbsp;</label>
+                            <button class="btn btn-light-dark form-control " id="filter">Filter</button>
                         </div>
                 	</div>
                     <table id="tabel_master_driver" class="table table-row-bordered gy-5" style="vertical-align: middle;">
@@ -131,9 +139,9 @@
 	    KTDatatablesServerSide.init();
 	});
 
-	$("#perkiraan_id").change(function(){
+	$("#filter").click(function(){
         var id = $('#perkiraan_id option:selected').val();
-        var url = "{{ url('master/tanah-kavling/loadData') }}?perkiraan_id=" + id;
+        var url = "{{ route('master.tanah-kavling.data') }}?" + getParam();
         // alert(url);
 		$('#tabel_master_driver').DataTable().ajax.url(url).load();
     });
@@ -157,5 +165,10 @@
 			});
 		}
 	});
+	function getParam(){
+        var lokasi = $("#lokasi").val();
+        var cluster = $("#cluster").val();
+        return $.param({lokasi, cluster});
+    }
 </script>
 @endsection
