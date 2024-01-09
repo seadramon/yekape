@@ -12,14 +12,14 @@
             }
 
             table.content {
-                table-layout: auto; 
+                table-layout: auto;
                 width:100%;
                 border-collapse: collapse;
             }
 
             .content table, .content th, .content td {
                 border: 1px solid;
-                padding-left: 5px: 
+                padding-left: 5px:
             }
             @page { margin:20px 25px 60px 25px; }
             header { margin-bottom: 10px; }
@@ -84,15 +84,15 @@
                 <td width="19%" class="tengah">Jumlah</td>
             </tr>
             @if (count($data->detail) > 0)
-                <?php 
-                $i = 1; 
+                <?php
+                $i = 1;
                 $jumlah = 0;
                 $ppn = 0;
                 $ppnPercent = 0;
                 $total = 0;
                 ?>
                 @foreach($data->detail as $row)
-                    <?php 
+                    <?php
                     $harsat = (int)$row->harga_satuan;
                     $subtotal = (int)$row->volume * $harsat;
                     $jumlah += $subtotal;
@@ -108,7 +108,7 @@
                     </tr>
                     <?php $i++; ?>
                 @endforeach
-                <?php 
+                <?php
                 if ($ppnPercent > 0) {
                     $ppn = round($jumlah * $ppnPercent / 100, 2);
                 }
@@ -143,24 +143,34 @@
                 <td width="50%">
                     <div style="text-align:center;padding-top:10px;margin-bottom:80px;">
                         Disetujui oleh :<br>
-                        Manajer Senior Kelola Keuangan
+                        Manajer/Sekretaris Perusahaan
                     </div>
 
                     <div style="text-align:center;">
-                        <b><u>Priyo Adi Nugroho.SE</u></b><br>
-                        NIP.1.06.01367
+                        <b><u>...................</u></b><br>
                     </div>
                 </td>
-                <td width="50%">
+                <td width="50%" >
                     Surabaya, 25 Sept 2023
                     <div style="text-align:center;margin-bottom:80px;">
-                        Dibuat dan ditetapkan oleh :<br>
-                        Pejabat Pembuat Komitmen
+                        Dibuat dan diajukan oleh :<br>
+                        Supervisor
                     </div>
 
                     <div style="text-align:center;">
-                        <b><u>Priyo Adi Nugroho.SE</u></b><br>
-                        NIP.1.06.01367
+                        <b><u>.....................</u></b><br>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div style="text-align:center;padding-top:10px;margin-bottom:150px;">
+                        Mengetahui :<br>
+                        Manajer Keuangan
+                    </div>
+
+                    <div style="text-align:center;">
+                        <b><u>...................</u></b><br>
                     </div>
                 </td>
             </tr>
