@@ -17,13 +17,28 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\RincianKegiatanExport;
 
 class KegiatanDetailController extends Controller
 {
     //
     public function index(Request $request)
     {
-        return view('perencanaan.kegiatan-detail.index');
+        $tahun = [
+            '' => 'Pilih Tahun'
+        ];
+        for ($i=-3; $i < 4; $i++) {
+            $temp = date('Y', strtotime($i . ' years'));
+            $tahun[$temp] = $temp;
+        }
+
+        $bagian = Bagian::all()->mapWithKeys(function($item){
+            return [$item->id => $item->nama];
+        })->all();
+        $bagian = ["" => "---Pilih Bagian---"] + $bagian;
+
+        return view('perencanaan.kegiatan-detail.index', compact('tahun', 'bagian'));
     }
 
     public function data(Request $request)
@@ -229,5 +244,14 @@ class KegiatanDetailController extends Controller
             'komponen' => $komponen,
             'opt_komponen' => $opt_komponen,
         ];
+    }
+
+    public function exportExcel(Request $request)
+    {
+        $tahun = $request->tahun;
+        $bagian = $request->bagian;
+        $bagianLabel = $request->bagianLabel;
+
+        return Excel::download(new RincianKegiatanExport($tahun, $bagian, $bagianLabel), 'Rincian-Kegiatan.xlsx');
     }
 }
