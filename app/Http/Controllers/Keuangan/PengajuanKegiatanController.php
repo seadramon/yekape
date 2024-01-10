@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class PengajuanKegiatanController extends Controller
 {
@@ -31,7 +32,11 @@ class PengajuanKegiatanController extends Controller
 
     public function data(Request $request)
     {
+        
         $query = Serapan::with('bagian')->select('*');
+        if(session('BAGIAN') != "KEU"){
+            $query->whereBagianId(session('BAGIAN_ID'));
+        }
 
         return (new DataTables)->eloquent($query)
             ->addColumn('menu', function ($model) {
@@ -220,7 +225,7 @@ class PengajuanKegiatanController extends Controller
             $tahun[$temp] = $temp;
         }
         
-        $bagian = Bagian::all()->mapWithKeys(function($item){
+        $bagian = Bagian::whereId(session('BAGIAN_ID'))->get()->mapWithKeys(function($item){
             return [$item->id => $item->nama];
         })->all();
         $bagian = ["" => "---Pilih Bagian---"] + $bagian;

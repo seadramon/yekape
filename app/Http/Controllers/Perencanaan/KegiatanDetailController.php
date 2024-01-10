@@ -45,6 +45,10 @@ class KegiatanDetailController extends Controller
     {
         $query = Kegiatan::with('program', 'bagian', 'detail.serapan')->select('kegiatan.*');
 
+        if(session('BAGIAN') != "KEU"){
+            $query->whereBagianId(session('BAGIAN_ID'));
+        }
+
         return (new DataTables)->eloquent($query)
             ->addColumn('anggaran', function ($kegiatan) {
                 return number_format($kegiatan->detail->sum('total'), 2, ',', '.');
@@ -212,7 +216,7 @@ class KegiatanDetailController extends Controller
         })->all();
         $program = ["" => "---Pilih Program---"] + $program;
 
-        $bagian = Bagian::all()->mapWithKeys(function($item){
+        $bagian = Bagian::whereId(session('BAGIAN_ID'))->get()->mapWithKeys(function($item){
             return [$item->id => $item->nama];
         })->all();
         $bagian = ["" => "---Pilih Bagian---"] + $bagian;
