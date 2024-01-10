@@ -200,6 +200,7 @@ Route::middleware('auth')->group(function () {
 		});
 		Route::group(['prefix' => 'rincian-kegiatan', 'as' => 'kegiatan-detail.'], function(){
 			Route::get('/data', [KegiatanDetailController::class, 'data'])->name('data');
+			Route::get('/exportExcel', [KegiatanDetailController::class, 'exportExcel'])->name('export-excel');
 			Route::post('/destroy', [KegiatanDetailController::class, 'destroy'])->name('destroy');
 			Route::resource('/', KegiatanDetailController::class)->except(['destroy', 'create', 'store'])->parameters(['' => 'kegiatan-detail']);
 		});

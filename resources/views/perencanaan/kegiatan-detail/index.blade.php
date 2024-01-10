@@ -9,6 +9,9 @@
             <div class="card shadow-sm">
                 <div class="card-header">
                     <h3 class="card-title">Data Rincian Kegiatan</h3>
+                    <div class="card-toolbar">
+                        <a href="javascript:void(0)" class="btn btn-light-success me-2" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a>
+                    </div>
                 </div>
 
                 <div class="card-body py-5">
@@ -37,6 +40,38 @@
         <!--end::Col-->
     </div>
     <!--end::Row-->
+</div>
+
+<!-- EXPORT -->
+<div class="modal fade" id="exportModal" aria-labelledby="exportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exportModalLabel">Rekap Monitoring Anggaran</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            	<div class="alert alert-danger" role="alert" id="errMsg">
+				  	
+				</div>
+
+            	<div class="row">
+            		<div class="fv-row form-group col-lg-12 mb-3">
+	                    <label for="tahun" class="form-label">Tahun</label>
+	                    {!! Form::select('tahun', $tahun, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tahun']) !!}
+	                </div>
+	                <div class="fv-row form-group col-lg-12 mb-3">
+	                    <label for="jenispembayaran" class="form-label">Bagian</label>
+	                    {!! Form::select('bagian_id', $bagian, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'bagian']) !!}
+	                </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="exportBtn">Export to Excel</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 @section('css')
@@ -114,7 +149,30 @@
 	// On document ready
 	KTUtil.onDOMContentLoaded(function () {
 	    KTDatatablesServerSide.init();
+	    $("#errMsg").hide()
 	});
+
+	$('#exportBtn').on('click', function (e) {
+    	e.preventDefault()
+
+    	let tahun = $("#tahun").val()
+    	let bagian = $("#bagian").val()
+    	let bagianLabel = $("#bagian option:selected").text()
+
+    	console.log(bagianLabel)
+
+    	if (tahun != '' && bagian != '') {
+	    	let exportExcelUrl = "{{ URL::to('perencanaan/rincian-kegiatan/exportExcel') }}?tahun=" + tahun + '&bagian=' + bagian + '&bagianLabel=' + bagianLabel;
+	    	window.open(exportExcelUrl, '_blank');
+    	} else {
+    		$("#errMsg").show()
+    		$("#errMsg").text('Mohon lengkapi filter terlebih dahulu')
+
+    		setTimeout(() => {
+                $("#errMsg").hide()
+            }, 2000)
+    	}
+    });
 
 	$('body').on('click', '.delete', function () {
 		if (confirm("Are You sure want to delete this Record?") == true) {
@@ -136,7 +194,7 @@
 		}
 	});
 
-	var exampleModal = document.getElementById('imageModal')
+	/*var exampleModal = document.getElementById('imageModal')
 	exampleModal.addEventListener('show.bs.modal', function (event) {
 
 	  	var button = event.relatedTarget
@@ -148,7 +206,7 @@
 
 	  	modalTitle.textContent = title
 	  	$('#fileImage').attr('src', image)
-	})
+	})*/
 
 </script>
 @endsection
