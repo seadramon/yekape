@@ -32,11 +32,9 @@
 		<td rowspan="2" style="font-weight: bold;text-align: center;vertical-align: middle;">RKAP TAHUN {{ $tahun }}</td>
 		<td colspan="4" style="font-weight: bold;text-align: center;vertical-align: middle;">PROGRESS SERAPAN</td>
 		<td rowspan="2" style="font-weight: bold;text-align: center;vertical-align: middle;">Jumlah Serapan + BS</td>
-		<td rowspan="2" style="font-weight: bold;text-align: center;vertical-align: middle;">Jurnal Koreksi / Jurnal Penyesuaian (dg Lap Keuangan)</td>
 		<td rowspan="2" style="font-weight: bold;text-align: center;vertical-align: middle;">SISA ANGGARAN<br>BELUM<br>TERSERAP </td>
 		<td rowspan="2" style="font-weight: bold;text-align: center;vertical-align: middle;">SISA ANGGARAN<br>BELUM<br>TERSERAP (+BS) </td>
-		<td colspan="3" style="font-weight: bold;text-align: center;vertical-align: middle;">REALISASI PEMBAYARAN / SPMU</td>
-
+		
 		<td rowspan="3">&nbsp;</td>
 		<td rowspan="2" style="font-weight: bold;text-align: center;vertical-align: middle;">Bon<br>Sementara</td>
 	</tr>
@@ -46,16 +44,9 @@
 		<td style="font-weight: bold;text-align: center;vertical-align: middle;">Proses<br>Pelaksanaan<br>(SPK)</td>
 		<td style="font-weight: bold;text-align: center;vertical-align: middle;">Pengajuan<br>non SPK / PL</td>
 		<td style="font-weight: bold;text-align: center;vertical-align: middle;">Jumlah<br>Serapan</td>
-		<td style="font-weight: bold;text-align: center;vertical-align: middle;">NON SPK</td>
-		<td style="font-weight: bold;text-align: center;vertical-align: middle;">SPK</td>
-		<td style="font-weight: bold;text-align: center;vertical-align: middle;">Jumlah<br>Pembayaran</td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td style="text-align: center;">Rp</td>
-		<td style="text-align: center;">Rp</td>
-		<td style="text-align: center;">Rp</td>
-		<td style="text-align: center;">Rp</td>
 		<td style="text-align: center;">Rp</td>
 		<td style="text-align: center;">Rp</td>
 		<td style="text-align: center;">Rp</td>
@@ -70,7 +61,7 @@
 	<?php $total = 0; ?>
 	@foreach($datas as $header)
 		<?php 
-		$total += $header->detail_sum_harga_satuan;
+		$total += $header->detail->sum('total');
 		?>
 		<tr>
 			<td>&nbsp;</td>
@@ -79,7 +70,7 @@
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;font-weight: bold;">{{ $header->nama }}</td>
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-			<td style="border-bottom: 1px solid black;border-left: 1px solid black;font-weight: bold;text-align: right;">{{ number_format($header->detail_sum_harga_satuan, '0', '.', ',') }}</td>
+			<td style="border-bottom: 1px solid black;border-left: 1px solid black;font-weight: bold;text-align: right;">{{ number_format($header->detail->sum('total'), '0', '.', ',') }}</td>
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
@@ -87,10 +78,6 @@
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-			<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-			<td style="border-bottom: 1px solid black;border-left: 1px solid black;border-right: 1px solid black">-</td>
 
 			<td>&nbsp;</td>
 			<td style="border-bottom: 1px solid black;border-left: 1px solid black;border-right: 1px solid black">-</td>
@@ -101,21 +88,17 @@
 				<td>&nbsp;</td>
 				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">{{ $header->bagian->nama }}</td>
 				<td style="border-bottom: 1px solid black;border-left: 1px solid black;text-align: center;">{{ $row->kode_perkiraan }}</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">{{ $header->nama }}</td>
+				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">{{ $row->komponen->nama }}</td>
 				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
 				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;text-align: right;">{{ number_format($row->harga_satuan, '0', '.', ',') }}</td>
+				<td style="border-bottom: 1px solid black;border-left: 1px solid black;text-align: right;">{{ number_format($row->total, '0', '.', ',') }}</td>
+				<td style="border-bottom: 1px solid black;border-left: 1px solid black;text-align: right;">{{ number_format($row->serapan->sum('total'), '0', '.', ',') }}</td>
 				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
 				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;">-</td>
-				<td style="border-bottom: 1px solid black;border-left: 1px solid black;border-right: 1px solid black;">-</td>
+				<td style="border-bottom: 1px solid black;border-left: 1px solid black;text-align: right;">{{ number_format($row->serapan->sum('total'), '0', '.', ',') }}</td>
+				<td style="border-bottom: 1px solid black;border-left: 1px solid black;text-align: right;">{{ number_format($row->serapan->sum('total'), '0', '.', ',') }}</td>
+				<td style="border-bottom: 1px solid black;border-left: 1px solid black;text-align: right;">{{ number_format($row->total - $row->serapan->sum('total'), '0', '.', ',') }}</td>
+				<td style="border-bottom: 1px solid black;border-left: 1px solid black;text-align: right;">{{ number_format($row->total - $row->serapan->sum('total'), '0', '.', ',') }}</td>
 
 				<td>&nbsp;</td>
 				<td style="border-bottom: 1px solid black;border-left: 1px solid black;border-right: 1px solid black">-</td>
@@ -138,10 +121,6 @@
 		<td style="background-color: coral;border-bottom: 1px solid black;border-left: 1px solid black;"></td>
 		<td style="background-color: coral;border-bottom: 1px solid black;border-left: 1px solid black;"></td>
 		<td style="background-color: coral;border-bottom: 1px solid black;border-left: 1px solid black;"></td>
-		<td style="background-color: coral;border-bottom: 1px solid black;border-left: 1px solid black;"></td>
-		<td style="background-color: coral;border-bottom: 1px solid black;border-left: 1px solid black;"></td>
-		<td style="background-color: coral;border-bottom: 1px solid black;border-left: 1px solid black;"></td>
-		<td style="background-color: coral;border-bottom: 1px solid black;border-left: 1px solid black;border-right: 1px solid black;"></td>
 
 		<td>&nbsp;</td>
 		<td style="background-color: coral;border-bottom: 1px solid black;border-left: 1px solid black;border-right: 1px solid black"></td>

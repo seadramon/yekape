@@ -16,6 +16,8 @@ use DB;
 
 class RincianKegiatanExport implements FromView, WithStyles, ShouldAutoSize
 {
+    protected $tahun, $bagian, $bagianLabel, $jml;
+
     function __construct($tahun, $bagian, $bagianLabel) {
         $this->tahun = $tahun;
         $this->bagian = $bagian;
@@ -50,7 +52,7 @@ class RincianKegiatanExport implements FromView, WithStyles, ShouldAutoSize
 
     public function styles(Worksheet $sheet)
     {
-        $sheet->getStyle('B6:R8')->applyFromArray([
+        $sheet->getStyle('B6:N8')->applyFromArray([
             'borders' => [
                 'allBorders' => [
                     'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
@@ -59,7 +61,7 @@ class RincianKegiatanExport implements FromView, WithStyles, ShouldAutoSize
             ],
         ]);
 
-        $sheet->getStyle('T6:T8')->applyFromArray([
+        $sheet->getStyle('P6:P8')->applyFromArray([
             'borders' => [
                 'allBorders' => [
                     'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
