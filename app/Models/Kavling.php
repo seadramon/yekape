@@ -24,4 +24,8 @@ class Kavling extends Model
     {
         return $this->belongsTo(Cluster::class, 'cluster_id', 'id');
     }
+
+    public function spr(){
+        return $this->belongsTo('App\Models\SuratPesananRumah', 'id', 'kavling_id');
+    }
 }

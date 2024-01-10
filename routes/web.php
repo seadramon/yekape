@@ -24,6 +24,7 @@ use App\Http\Controllers\Perencanaan\SasaranController;
 use App\Http\Controllers\Perencanaan\SshController;
 use App\Http\Controllers\Perencanaan\VisiController;
 use App\Http\Controllers\SuratPesananController;
+use App\Http\Controllers\StokKavlingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -215,6 +216,15 @@ Route::middleware('auth')->group(function () {
 			Route::post('/setting-menu-tree-data', [RoleController::class, 'settingMenuTreeData'])->name('setting-menu.tree-data');
 			Route::get('/setting-menu-delete/{id}', [RoleController::class, 'settingMenuDelete'])->name('setting-menu.delete');
 			Route::resource('/', RoleController::class)->except(['destroy'])->parameters(['' => 'role']);
+		});
+	});
+
+	Route::group(['prefix' => '/monitoring', 'as' => 'monitoring.'], function(){
+		Route::group(['prefix' => '/stokkavling', 'as' => 'stokkavling.'], function(){
+		
+			Route::get('/data', [StokKavlingController::class, 'data'])->name('data');
+			Route::post('/destroy', [StokKavlingController::class, 'destroy'])->name('destroy');
+			Route::resource('/', StokKavlingController::class)->except(['destroy'])->parameters(['' => 'stokkavling']);
 		});
 	});
 });
