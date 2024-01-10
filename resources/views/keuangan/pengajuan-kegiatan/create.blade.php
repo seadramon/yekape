@@ -128,18 +128,20 @@
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#jenis").change(function(){
-            if($("#jenis").val() == 'BS'){
-                $(".optional").addClass('hidden');
-            }else{
-                $(".optional").removeClass('hidden');
-            }
-        })
+        $("#jenis").trigger('change');
     });
 
     $('#add-kegiatan-detail').on('click', function(){
         resetModalKegiatanDetail()
         $('#modal_kegiatan_detail').modal('toggle');
+    });
+
+    $(document).on('change', '#jenis', function(event){
+        if($("#jenis").val() == 'BS'){
+            $(".optional").addClass('hidden');
+        }else{
+            $(".optional").removeClass('hidden');
+        }
     });
     $(document).on('click', '.delete_kegiatan_detail', function(event){
         event.preventDefault();
