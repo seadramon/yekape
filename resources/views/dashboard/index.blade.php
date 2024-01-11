@@ -14,7 +14,32 @@
                     </div> --}}
                 </div>
                 <div class="card-body py-5">
-					<div id="kt_docs_google_chart_column"></div>
+					<div class="row">
+						<div class="col-12">
+							<div id="kt_docs_google_chart_column"></div>
+						</div>
+						<div class="col-6">
+							<div id="kavling1"></div>
+						</div>
+						<div class="col-6">
+							<div id="kavling2"></div>
+						</div>
+						<div class="col-6">
+							<div id="kavling3"></div>
+						</div>
+						<div class="col-6">
+							<div id="kavling4"></div>
+						</div>
+						<div class="col-6">
+							<div id="kavling5"></div>
+						</div>
+						<div class="col-6">
+							<div id="kavling6"></div>
+						</div>
+						<div class="col-6">
+							<div id="kavling7"></div>
+						</div>
+					</div>
                 </div>
                 <div class="card-footer">
                 </div>
@@ -48,24 +73,52 @@
 	$(document).ready(function () {
 		div1.block();
 		$.get("{{ route('dashboard.spr-monthly') }}", { }).done(function(result){
-            generateChart(result);
+            generateChart(result, 'kt_docs_google_chart_column');
+			div1.release();
+        });
+		$.get("{{ route('dashboard.kavling-per-cluster') }}", { cluster: 1 }).done(function(result){
+            generatePieChart(result, 'kavling1');
+			div1.release();
+        });
+		$.get("{{ route('dashboard.kavling-per-cluster') }}", { cluster: 2 }).done(function(result){
+            generatePieChart(result, 'kavling2');
+			div1.release();
+        });
+		$.get("{{ route('dashboard.kavling-per-cluster') }}", { cluster: 3 }).done(function(result){
+            generatePieChart(result, 'kavling3');
+			div1.release();
+        });
+		$.get("{{ route('dashboard.kavling-per-cluster') }}", { cluster: 4 }).done(function(result){
+            generatePieChart(result, 'kavling4');
+			div1.release();
+        });
+		$.get("{{ route('dashboard.kavling-per-cluster') }}", { cluster: 5 }).done(function(result){
+            generatePieChart(result, 'kavling5');
+			div1.release();
+        });
+		$.get("{{ route('dashboard.kavling-per-cluster') }}", { cluster: 6 }).done(function(result){
+            generatePieChart(result, 'kavling6');
+			div1.release();
+        });
+		$.get("{{ route('dashboard.kavling-per-cluster') }}", { cluster: 7 }).done(function(result){
+            generatePieChart(result, 'kavling7');
 			div1.release();
         });
 	});
 
-	function generateChart(data_){
+	function generateChart(data_, element){
 		// GOOGLE CHARTS INIT
 		google.load('visualization', '1', {
 			packages: ['corechart', 'bar', 'line']
 		});
 
 		google.setOnLoadCallback(function () {
-			var data = google.visualization.arrayToDataTable(data_);
+			var data = google.visualization.arrayToDataTable(data_.result);
 
 			var view = new google.visualization.DataView(data);
 
 			var options = {
-				title: "Data Spr Per bulan di Tahun 2023",
+				title: data_.title,
 				focusTarget: 'category',
 				height: 400,
 				hAxis: {
@@ -82,9 +135,30 @@
 				colors: ['#6e4ff5', '#fe3995']
 			};
 
-			var chart = new google.visualization.ColumnChart(document.getElementById('kt_docs_google_chart_column'));
+			var chart = new google.visualization.ColumnChart(document.getElementById(element));
 			
 			chart.draw(view, options);
+		});
+	}
+	
+	function generatePieChart(data_, element){
+		// GOOGLE CHARTS INIT
+		google.load('visualization', '1', {
+			packages: ['corechart', 'bar', 'line']
+		});
+
+		google.setOnLoadCallback(function () {
+			var data = google.visualization.arrayToDataTable(data_.result);
+
+			var view = new google.visualization.DataView(data);
+
+			var options = {
+				title: data_.title,
+				colors: ['#fe3995', '#f6aa33', '#6e4ff5', '#2abe81', '#c7d2e7', '#8b0a50']
+			};
+
+			var chart = new google.visualization.PieChart(document.getElementById(element));
+			chart.draw(data, options);
 		});
 	}
 </script>

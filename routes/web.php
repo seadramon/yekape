@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
 	
 	Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.'], function(){
 		Route::get('spr-monthly', [DashboardController::class, 'sprMonthly'])->name('spr-monthly');
+		Route::get('kavling-per-cluster', [DashboardController::class, 'kavlingPerCluster'])->name('kavling-per-cluster');
 		Route::resource('/', DashboardController::class)->only(['index'])->parameters(['' => 'id']);
 	});
 	
