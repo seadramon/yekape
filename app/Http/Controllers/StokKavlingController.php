@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kavling;
-use App\Models\CLuster;
+use App\Models\Cluster;
 use Carbon\Carbon;
 use Exception;
 use Flasher\Prime\FlasherInterface;
