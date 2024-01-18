@@ -24,6 +24,7 @@ use App\Http\Controllers\Perencanaan\SasaranController;
 use App\Http\Controllers\Perencanaan\SshController;
 use App\Http\Controllers\Perencanaan\VisiController;
 use App\Http\Controllers\SuratPesananController;
+use App\Http\Controllers\StokKavlingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,7 @@ Route::middleware('auth')->group(function () {
 	
 	Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.'], function(){
 		Route::get('spr-monthly', [DashboardController::class, 'sprMonthly'])->name('spr-monthly');
+		Route::get('kavling-per-cluster', [DashboardController::class, 'kavlingPerCluster'])->name('kavling-per-cluster');
 		Route::resource('/', DashboardController::class)->only(['index'])->parameters(['' => 'id']);
 	});
 	
@@ -200,6 +202,7 @@ Route::middleware('auth')->group(function () {
 		});
 		Route::group(['prefix' => 'rincian-kegiatan', 'as' => 'kegiatan-detail.'], function(){
 			Route::get('/data', [KegiatanDetailController::class, 'data'])->name('data');
+			Route::get('/exportExcel', [KegiatanDetailController::class, 'exportExcel'])->name('export-excel');
 			Route::post('/destroy', [KegiatanDetailController::class, 'destroy'])->name('destroy');
 			Route::resource('/', KegiatanDetailController::class)->except(['destroy', 'create', 'store'])->parameters(['' => 'kegiatan-detail']);
 		});
@@ -214,6 +217,15 @@ Route::middleware('auth')->group(function () {
 			Route::post('/setting-menu-tree-data', [RoleController::class, 'settingMenuTreeData'])->name('setting-menu.tree-data');
 			Route::get('/setting-menu-delete/{id}', [RoleController::class, 'settingMenuDelete'])->name('setting-menu.delete');
 			Route::resource('/', RoleController::class)->except(['destroy'])->parameters(['' => 'role']);
+		});
+	});
+
+	Route::group(['prefix' => '/monitoring', 'as' => 'monitoring.'], function(){
+		Route::group(['prefix' => '/stokkavling', 'as' => 'stokkavling.'], function(){
+		
+			Route::get('/data', [StokKavlingController::class, 'data'])->name('data');
+			Route::post('/destroy', [StokKavlingController::class, 'destroy'])->name('destroy');
+			Route::resource('/', StokKavlingController::class)->except(['destroy'])->parameters(['' => 'stokkavling']);
 		});
 	});
 });

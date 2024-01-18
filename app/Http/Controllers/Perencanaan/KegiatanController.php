@@ -27,6 +27,10 @@ class KegiatanController extends Controller
     {
         $query = Kegiatan::with('program', 'bagian')->select('*');
 
+        if(session('BAGIAN') != "KEU"){
+            $query->whereBagianId(session('BAGIAN_ID'));
+        }
+
         return (new DataTables)->eloquent($query)
             ->addColumn('menu', function ($model) {
             // <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$model->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
@@ -163,10 +167,12 @@ class KegiatanController extends Controller
             return [$item->id => $item->nama];
         })->all();
         $program = ["" => "---Pilih Program---"] + $program;
-        $bagian = Bagian::all()->mapWithKeys(function($item){
+        
+        $bagian = Bagian::whereId(session('BAGIAN_ID'))->get()->mapWithKeys(function($item){
             return [$item->id => $item->nama];
         })->all();
         $bagian = ["" => "---Pilih Bagian---"] + $bagian;
+        
         return [
             'tahun' => $tahun,
             'program' => $program,
