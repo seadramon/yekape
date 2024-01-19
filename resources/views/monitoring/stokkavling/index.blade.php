@@ -8,9 +8,9 @@
         <div class="col-12 mb-md-5 mb-xl-10">
             <div class="card shadow-sm">
                 <div class="card-header">
-                    <h3 class="card-title">Data Karyawan</h3>
+                    <h3 class="card-title">Monitoring Kavling</h3>
                     <div class="card-toolbar">
-                        
+
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -65,7 +65,7 @@
         display: flex;
     }
     .custom-label {
-        display: flex; 
+        display: flex;
         align-items: center;
         margin-bottom: 0px;
     }
@@ -122,7 +122,7 @@
 
 	        table = dt.$;
 	    }
-	    
+
 	    // Public methods
 	    return {
 	        init: function () {
@@ -189,7 +189,7 @@
 	  	var button = event.relatedTarget
 	  	var title = button.getAttribute('data-bs-title')
 	  	var image = button.getAttribute('data-bs-image')
-	  
+
 	  	var modalTitle = exampleModal.querySelector('.modal-title')
 	  	var modalBodyInput = exampleModal.querySelector('.modal-body img')
 
