@@ -14,6 +14,7 @@ use App\Http\Controllers\Keuangan\ValidasiSprController;
 use App\Http\Controllers\KwitansiController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManajemenUser\RoleController;
+use App\Http\Controllers\ManajemenUser\UserController;
 use App\Http\Controllers\NupController;
 use App\Http\Controllers\Perencanaan\HspkController;
 use App\Http\Controllers\Perencanaan\KegiatanController;
@@ -54,6 +55,7 @@ Route::middleware('auth')->group(function () {
 	Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.'], function(){
 		Route::get('spr-monthly', [DashboardController::class, 'sprMonthly'])->name('spr-monthly');
 		Route::get('kavling-per-cluster', [DashboardController::class, 'kavlingPerCluster'])->name('kavling-per-cluster');
+		Route::get('tanah-mentah-per-kota', [DashboardController::class, 'tanahMentahPerKota'])->name('tanah-mentah-per-kota');
 		Route::resource('/', DashboardController::class)->only(['index'])->parameters(['' => 'id']);
 	});
 	
@@ -217,6 +219,13 @@ Route::middleware('auth')->group(function () {
 			Route::post('/setting-menu-tree-data', [RoleController::class, 'settingMenuTreeData'])->name('setting-menu.tree-data');
 			Route::get('/setting-menu-delete/{id}', [RoleController::class, 'settingMenuDelete'])->name('setting-menu.delete');
 			Route::resource('/', RoleController::class)->except(['destroy'])->parameters(['' => 'role']);
+		});
+		Route::group(['prefix' => '/user', 'as' => 'user.'], function(){
+			Route::get('/data', [UserController::class, 'data'])->name('data');
+			Route::get('/ganti-password/{id}', [UserController::class, 'gantiPasswordLink'])->name('ganti-password');
+			Route::post('/ganti-password/{id}', [UserController::class, 'gantiPasswordStore'])->name('ganti-password');
+			Route::post('/destroy', [UserController::class, 'destroy'])->name('destroy');
+			Route::resource('/', UserController::class)->except(['destroy'])->parameters(['' => 'user']);
 		});
 	});
 
