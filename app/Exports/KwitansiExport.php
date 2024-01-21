@@ -21,7 +21,10 @@ class KwitansiExport implements FromView, WithStyles, ShouldAutoSize
 
     public function view(): View
     {
-        $customerId = $this->params['customer_id'];
+        $customerId = "";
+        if (!empty($this->params['customer_id']) && $this->params['customer_id'] != "null") {
+            $customerId = $this->params['customer_id'];
+        }
 
         if (!empty($this->params['start'])) {
             $res = date_create_from_format('Y-m-d', $this->params['start']);
