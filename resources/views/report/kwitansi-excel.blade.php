@@ -29,7 +29,9 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td colspan="5" style="text-align: center;font-size: 12px;">
-            Periode : {{$labelStart}} s/d {{$labelEnd}}
+            @if (!empty($periode))
+                Periode : {{$labelStart}} s/d {{$labelEnd}}
+            @endif
         </td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>

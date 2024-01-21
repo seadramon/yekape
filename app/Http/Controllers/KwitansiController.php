@@ -291,7 +291,7 @@ class KwitansiController extends Controller
     {
         $start = "";
         $end = "";
-        $periode = $request->periode;
+        $periode = !empty($request->periode)?$request->periode:"";
         if (!empty($periode)) {
             $arr = explode(" to ", $periode);
             $start = $arr[0];
@@ -302,10 +302,10 @@ class KwitansiController extends Controller
             'periode' => $periode,
             'start' => $start,
             'end' => $end,
-            'jenis_kwitansi' => $request->jenis,
-            'jenis_penerimaan' => $request->jenispenerimaan,
-            'jenis_pembayaran' => $request->jenispembayaran,
-            'customer_id' => $request->customer
+            'jenis_kwitansi' => !empty($request->jenis)?$request->jenis:"",
+            'jenis_penerimaan' => !empty($request->jenispenerimaan)?$request->jenispenerimaan:"",
+            'jenis_pembayaran' => !empty($request->jenispembayaran)?$request->jenispembayaran:"",
+            'customer_id' => !empty($request->customer)?$request->customer:""
         ];
 
         /*$res = date_create_from_format('Ym', $periode);
