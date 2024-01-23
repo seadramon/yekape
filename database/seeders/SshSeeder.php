@@ -25,7 +25,8 @@ class SshSeeder extends Seeder
             $temp->satuan = strtolower($item->satuan);
             $temp->tipe = $item->jenis;
             $temp->status = "active";
-            $temp->tahun = "2023";
+            $temp->tahun = "2024";
+            $temp->jenis = $item->tipe;
             $temp->ppn = 11;
             $temp->save();
         }

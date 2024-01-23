@@ -201,6 +201,13 @@ class MenuSeeder extends Seeder
                 'level' => '2',
                 'sequence' => '0610'
             ],
+            [
+                'name' => 'User',
+                'route_name' => 'manajemen-user.user.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0620'
+            ],
         ];
 
         $parent0 = null;

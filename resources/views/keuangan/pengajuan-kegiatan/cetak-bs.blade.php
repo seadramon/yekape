@@ -12,14 +12,14 @@
             }
 
             table.content {
-                table-layout: auto; 
+                table-layout: auto;
                 width:100%;
                 border-collapse: collapse;
             }
 
             .content table, .content th, .content td {
                 border: 1px solid;
-                padding-left: 5px: 
+                padding-left: 5px:
             }
             @page { margin:20px 25px 60px 25px; }
             header { margin-bottom: 10px; }
@@ -36,7 +36,7 @@
             SIFAT : BON SEMENTARA
         </div>
 
-        <?php 
+        <?php
         $total = 0;
         if (count($data->detail) > 0) {
             foreach($data->detail as $row) {
@@ -57,7 +57,7 @@
                 </td>
                 <td width="2%">:</td>
                 <td width="68%">
-                    Diperintahkan oleh : 
+                    Diperintahkan oleh :
                 </td>
             </tr>
             <tr>
@@ -112,14 +112,14 @@
             </tr>
             <tr>
                 <td colspan="2" style="vertical-align:top;">
-                    Ketentuan : 
+                    Ketentuan :
                 </td>
                 <td>
                     <table>
                         <tr>
                             <td style="vertical-align:top;">1.</td>
                             <td>
-                                Pertanggung jawaban Bon Sementara in supaya diselesaikan paling lambat 14 (empat belas) Hari Kerja (21 Hari Kalender) terhitung sejak tanggal penerimaan Dana dari Kas PT. YEKAPE SURABAYA 
+                                Pertanggung jawaban Bon Sementara in supaya diselesaikan paling lambat 14 (empat belas) Hari Kerja (21 Hari Kalender) terhitung sejak tanggal penerimaan Dana dari Kas PT. YEKAPE SURABAYA
                             </td>
                         </tr>
                         <tr>
@@ -165,7 +165,7 @@
         </table>
 
         <hr style="border-top:1px solid #0000;">
-        
+
         <table width="100%" cellspacing="0" style="margin-top:20px;margin-bottom:15px;">
             <tr>
                 <td style="text-align:center;">
@@ -185,9 +185,9 @@
 
         <table width="100%" cellspacing="0" style="margin-top:20px;margin-bottom:10px;">
             <tr>
-                <td width="25%">
+                <td width="34%">
                     <div style="text-align:center;margin-bottom:70px;">
-                        Dicatat Oleh : 
+                        Dicatat Oleh :
                     </div>
 
                     <div style="text-align:center;">
@@ -197,9 +197,9 @@
                     </div>
                 </td>
 
-                <td width="25%">
+                <td width="33%">
                     <div style="text-align:center;margin-bottom:70px;">
-                        Dibukukan Oleh : 
+                        Dibukukan dan Dibayarkan Oleh :
                     </div>
 
                     <div style="text-align:center;">
@@ -209,9 +209,9 @@
                     </div>
                 </td>
 
-                <td width="25%">
+                {{-- <td width="25%">
                     <div style="text-align:center;margin-bottom:70px;">
-                        Yang membayar : 
+                        Yang membayar :
                     </div>
 
                     <div style="text-align:center;">
@@ -219,15 +219,15 @@
                         Supervisor Kas <br>
                         Tgl.
                     </div>
-                </td>
+                </td> --}}
 
-                <td width="25%">
+                <td width="33%">
                     <div style="text-align:center;margin-bottom:70px;">
-                        Yang menerima : 
+                        Yang menerima :
                     </div>
 
                     <div style="text-align:center;">
-                        (........................................)<br>
+                        (........................................)<br> <br>
                         Tgl.
                     </div>
                 </td>
