@@ -44,6 +44,11 @@
             }
         }
         ?>
+        @php
+            $kode_perkiraan = $data->detail->map(function($d){
+                return $d->kegiatan_detail->kode_perkiraan;
+            })->join(', ');
+        @endphp
 
         <table width="100%" cellspacing="0">
             <tr>
@@ -84,7 +89,7 @@
                 </td>
                 <td>:</td>
                 <td>
-                    -
+                    {{ $kode_perkiraan }}
                 </td>
             </tr>
             <tr>
