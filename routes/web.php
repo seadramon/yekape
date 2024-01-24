@@ -46,7 +46,7 @@ Route::get('template', function () {
 	return view('template');
 });
 
-// Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
 	Route::get('/', function () {
 		// return view('template');
 		return redirect()->route('dashboard.index');
@@ -238,4 +238,4 @@ Route::get('template', function () {
 			Route::resource('/', StokKavlingController::class)->except(['destroy'])->parameters(['' => 'stokkavling']);
 		});
 	});
-// });
+});
