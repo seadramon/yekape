@@ -31,18 +31,18 @@ class AppServiceProvider extends ServiceProvider
         {
             $menus = Menu::with(['childmenus' => function($sql){
                     $sql->whereHas('roles', function($sql){
-                        $sql->where('roles.id', '1');
+                        $sql->where('roles.id', Auth::user()->role_id);
                     });
                     $sql->orderBy('seq', 'asc');
                     $sql->with(['childmenus' => function($sql){
                         $sql->whereHas('roles', function($sql){
-                            $sql->where('roles.id', '1');
+                            $sql->where('roles.id', Auth::user()->role_id);
                         });
                         $sql->orderBy('seq', 'asc');
                     }]);
                 }])
                 ->whereHas('roles', function($sql){
-                    $sql->where('roles.id', '1');
+                    $sql->where('roles.id', Auth::user()->role_id);
                 })
                 ->whereIn('level', [0, 1])
                 ->orderBy('seq', 'asc')
