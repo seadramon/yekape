@@ -64,7 +64,7 @@
 						</a>
 						<!--end::Logo-->
 						<!--begin::Title-->
-						<h2 class="text-white fw-normal m-0">Real Estate with 30 years Experience</h2>
+						<h2 class="text-white fw-normal m-0">Real Estate with 30 years Experience2</h2>
 						<!--end::Title-->
 					</div>
 					<!--begin::Aside-->
