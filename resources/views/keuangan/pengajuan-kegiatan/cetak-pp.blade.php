@@ -31,6 +31,11 @@
     </head>
 
     <body>
+        @php
+            $kode_perkiraan = $data->detail->map(function($d){
+                return $d->kegiatan_detail->kode_perkiraan;
+            })->join(', ');
+        @endphp
         <div class="tengah" style="margin-bottom:30px">
             <u>PENGAJUAN PENGADAAN BARANG / JASA</u>
         </div>
@@ -52,7 +57,7 @@
             </tr>
             <tr>
                 <td colspan="3" style="text-align:right;font-weight:bold;padding-right:20%;">
-                    No.Perkiraan : {{$data->kode}}
+                    No.Perkiraan : {{ $kode_perkiraan }}
                 </td>
             </tr>
             <tr>
