@@ -120,9 +120,9 @@
 												<!--end::Avatar-->
 												<!--begin::Username-->
 												<div class="d-flex flex-column">
-													<div class="fw-bold d-flex align-items-center fs-5">{{ 'name' }}</div>
-													<div class="fw-bold d-flex align-items-center fs-9">{{ 'karyawan->jabatan->nama' }}</div>
-													<a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{ '->email' }}</a>
+													<div class="fw-bold d-flex align-items-center fs-5">{{ Auth::user()->name }}</div>
+													<div class="fw-bold d-flex align-items-center fs-9">{{ Auth::user()->karyawan->jabatan->nama }}</div>
+													<a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{ Auth::user()->email }}</a>
 												</div>
 												<!--end::Username-->
 											</div>
