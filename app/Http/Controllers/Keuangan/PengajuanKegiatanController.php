@@ -32,7 +32,7 @@ class PengajuanKegiatanController extends Controller
 
     public function data(Request $request)
     {
-        
+
         $query = Serapan::with('bagian')->select('*');
         if(session('BAGIAN') != "KEU"){
             $query->whereBagianId(session('BAGIAN_ID'));
@@ -88,7 +88,7 @@ class PengajuanKegiatanController extends Controller
             $serapan->costing_date = $request->costing_date;
             $serapan->tahun = $request->tahun ?? date('Y');
             $serapan->save();
-            
+
             foreach (($request->komponen_kegiatan ?? []) as $index => $kegiatan) {
                 $detail = new SerapanDetail;
                 $detail->serapan_id = $serapan->id;
@@ -197,14 +197,17 @@ class PengajuanKegiatanController extends Controller
     protected function prepareData(){
         $jenis = [
             'BS' => 'Bon Sementara',
-            'PP' => 'Pengajuan Pengadaan',
+            'PB' => 'Pengajuan Pengadaan Barang',
+            'PJ' => 'Pengajuan Pengadaan Jasa',
         ];
         $jenis_lelang = [
-            'umum' => 'Umum',
+            'langsung' => 'Pengadaan Langsung',
             'pl' => 'Penunjukan Langsung',
+            'td' => 'Tender',
         ];
         $metode = [
-            'spk' => 'SPK',
+            'spk' => 'Surat Perjanjian Kerja',
+            'sp'    => 'Surat Perintah Kerja',
             'non-spk' => 'Non SPK',
         ];
         $jenis_bayar = [
@@ -224,12 +227,12 @@ class PengajuanKegiatanController extends Controller
             $temp = date('Y', strtotime($i . ' years'));
             $tahun[$temp] = $temp;
         }
-        
+
         $bagian = Bagian::whereId(session('BAGIAN_ID'))->get()->mapWithKeys(function($item){
             return [$item->id => $item->nama];
         })->all();
         $bagian = ["" => "---Pilih Bagian---"] + $bagian;
-        
+
         $kegiatan_detail = KegiatanDetail::with('komponen', 'kegiatan')->get();
         $komponen_kegiatan = $kegiatan_detail->mapWithKeys(function($item){
             return [$item->id => $item->kode_perkiraan . ' | ' . $item->komponen->kode . ' | ' . $item->komponen->nama];
@@ -242,13 +245,13 @@ class PengajuanKegiatanController extends Controller
         // })->all();
         // $komponen = ["" => "---Pilih---"] + $komponen;
 
-        $opt_komponen_kegiatan = $kegiatan_detail->mapWithKeys(function($item){ 
+        $opt_komponen_kegiatan = $kegiatan_detail->mapWithKeys(function($item){
             return [$item->id => ['data-kegiatan' => $item->kegiatan->nama, 'data-hargasatuan' => $item->harga_satuan, 'data-volume' => $item->volume, 'data-ppn' => intval($item->ppn)]];
         })
         ->all();
         $opt_komponen_kegiatan = ["" => ['data-hargasatuan' => 0, 'data-volume' => 0, 'data-kegiatan' => '', 'data-ppn' => 0]] + $opt_komponen_kegiatan;
-        
-        
+
+
         return [
             'jenis' => $jenis,
             'jenis_bayar' => $jenis_bayar,
@@ -265,7 +268,7 @@ class PengajuanKegiatanController extends Controller
     public function cetak($id)
     {
         $data = Serapan::find($id);
-        
+
         $pdf = Pdf::loadView('keuangan.pengajuan-kegiatan.cetak-'.strtolower($data->jenis), [
             'data' => $data
         ]);

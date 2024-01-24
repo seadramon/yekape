@@ -39,28 +39,28 @@
                             {!! Form::text('nama', null, ['class'=>'form-control', 'id'=>'nama', 'autocomplete'=>'off', 'required']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Jenis</label>
+                            <label class="form-label">Jenis  Pengajuan</label>
                             {!! Form::select('jenis', $jenis, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
-                            <label class="form-label">Jenis Pembayaran</label>
-                            {!! Form::select('jenis_bayar', $jenis_bayar, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis_bayar']) !!}
-                        </div>
-                        <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
-                            <label class="form-label">Jenis Lelang</label>
+                            <label class="form-label">Metode Pengadaan</label>
                             {!! Form::select('jenis_lelang', $jenis_lelang, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis_lelang']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
-                            <label class="form-label">Metode Pengadaan</label>
+                            <label class="form-label">Bentuk Kontrak</label>
                             {!! Form::select('metode', $metode, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'metode']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
-                            <label class="form-label">Tanggal Costing</label>
-                            {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off']) !!}
+                            <label class="form-label">Metode Pembayaran</label>
+                            {!! Form::select('jenis_bayar', $jenis_bayar, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis_bayar']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
                             <label class="form-label">Tahun</label>
                             {!! Form::select('tahun', $tahun, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tahun']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
+                            <label class="form-label">Tanggal Verifikasi</label>
+                            {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-12 mb-3 mt-2">
                             <button type="button" class="btn btn-light-primary" id="add-kegiatan-detail">
@@ -99,7 +99,7 @@
                                                 <td><button class="btn btn-danger btn-sm delete_kegiatan_detail me-1 mb-1" style="padding: 5px 6px;"><span class="bi bi-trash"></span></button><button class="btn btn-warning btn-sm edit_kegiatan_detail me-1 mb-1" style="padding: 5px 6px;"><span class="bi bi-pencil-square"></span></button></td>
                                             </tr>
                                         @endforeach
-                                    @endif              
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -200,7 +200,7 @@
         var ppn = parseFloat($("#modal_ppn").val().replaceAll('.', '').replaceAll(',', '.'));
         var total = harsat * vol;
         var nilai_ppn = (total * ppn / 100).toFixed(2).replaceAll('.', ',');
-        
+
         $("#modal_nilaippn").val(nilai_ppn);
         $("#modal_nilaippn").trigger('keyup');
         // calculateTotal();
@@ -210,15 +210,15 @@
         e.preventDefault();
         var data_ = modalKegiatanDetailData();
         // kd_jmember
-        var table_row = "<td><input name=\"detail_id[]\" class=\"detail_id\" type=\"hidden\" value=\"" + data_.detail_id + "\">" + data_.kegiatan + "</td>" + 
-            "<td><input name=\"komponen_kegiatan[]\" class=\"komponen_kegiatan\" type=\"hidden\" value=\"" + data_.komponen + "\">" + data_.komponen_teks + "</td>" + 
-            "<td style=\"text-align: right;\"><input name=\"hargasatuan[]\" class=\"hargasatuan\" type=\"hidden\" value=\"" + data_.hargasatuan + "\">" + data_.hargasatuan + "</td>" + 
-            "<td><input name=\"volume[]\" class=\"volume\" type=\"hidden\" value=\"" + data_.volume + "\">" + data_.volume + "</td>" + 
-            "<td><input name=\"ppn[]\" class=\"ppn\" type=\"hidden\" value=\"" + data_.ppn + "\">" + data_.ppn_teks + "</td>" + 
-            "<td style=\"text-align: right;\"><input name=\"nilaippn[]\" class=\"nilaippn\" type=\"hidden\" value=\"" + data_.nilaippn + "\">" + data_.nilaippn + "</td>" + 
-            "<td style=\"text-align: right;\"><input name=\"total[]\" class=\"total\" type=\"hidden\" value=\"" + data_.total + "\">" + data_.total + "</td>" + 
+        var table_row = "<td><input name=\"detail_id[]\" class=\"detail_id\" type=\"hidden\" value=\"" + data_.detail_id + "\">" + data_.kegiatan + "</td>" +
+            "<td><input name=\"komponen_kegiatan[]\" class=\"komponen_kegiatan\" type=\"hidden\" value=\"" + data_.komponen + "\">" + data_.komponen_teks + "</td>" +
+            "<td style=\"text-align: right;\"><input name=\"hargasatuan[]\" class=\"hargasatuan\" type=\"hidden\" value=\"" + data_.hargasatuan + "\">" + data_.hargasatuan + "</td>" +
+            "<td><input name=\"volume[]\" class=\"volume\" type=\"hidden\" value=\"" + data_.volume + "\">" + data_.volume + "</td>" +
+            "<td><input name=\"ppn[]\" class=\"ppn\" type=\"hidden\" value=\"" + data_.ppn + "\">" + data_.ppn_teks + "</td>" +
+            "<td style=\"text-align: right;\"><input name=\"nilaippn[]\" class=\"nilaippn\" type=\"hidden\" value=\"" + data_.nilaippn + "\">" + data_.nilaippn + "</td>" +
+            "<td style=\"text-align: right;\"><input name=\"total[]\" class=\"total\" type=\"hidden\" value=\"" + data_.total + "\">" + data_.total + "</td>" +
             "<td><button class=\"btn btn-danger btn-sm delete_kegiatan_detail me-1 mb-1\" style=\"padding: 5px 6px;\"><span class=\"bi bi-trash\"></span></button><button class=\"btn btn-warning btn-sm edit_kegiatan_detail me-1 mb-1\" style=\"padding: 5px 6px;\"><span class=\"bi bi-pencil-square\"></span></button></td>";
-        
+
         if($("#modal_for").val() == "add"){
             $("#tbody-kegiatan-detail").append(
                 "<tr style=\"text-align: center; vertical-align: middle;\">" + table_row + "</tr>"
@@ -241,11 +241,11 @@
         var ppn = $("#modal_ppn").val();
         var ppn_teks = $("#modal_ppn option:selected").text();
         var nilaippn = $("#modal_nilaippn").val();
-        
+
         var harsat = parseFloat(hargasatuan.replaceAll('.', '').replaceAll(',', '.'));
         var vol = parseFloat(volume.replaceAll('.', '').replaceAll(',', '.'));
         var n_ppn = parseFloat(nilaippn.replaceAll('.', '').replaceAll(',', '.'));
-        
+
         return {
             detail_id: detail_id,
             komponen: komponen,
