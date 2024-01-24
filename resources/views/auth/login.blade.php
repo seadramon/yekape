@@ -64,7 +64,7 @@
 						</a>
 						<!--end::Logo-->
 						<!--begin::Title-->
-						<h2 class="text-white fw-normal m-0">Branding tools designed for your business</h2>
+						<h2 class="text-white fw-normal m-0">Real Estate with 30 years Experience</h2>
 						<!--end::Title-->
 					</div>
 					<!--begin::Aside-->
