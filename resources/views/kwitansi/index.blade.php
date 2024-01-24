@@ -232,13 +232,13 @@
 			// ajax
 			$.ajax({
 				type:"post",
-				url: "{{ route('karyawan.destroy') }}",
+				url: "{{ route('kwitansi.destroy') }}",
 				data: {id : id, _token: "{{ csrf_token() }}"},
 				success: function(res){
 					if (res.result == 'success') {
 						flasher.success("Data has been deleted successfully!");
 
-						$('#tabel_teacher').DataTable().ajax.url("{{ route('karyawan.data') }}").load();
+						$('#tabel_master_driver').DataTable().ajax.url("{{ route('kwitansi.data') }}").load();
 					}
 				}
 			});

@@ -7,7 +7,13 @@
     <div class="row g-5 g-xl-8">
         <!--begin::Col-->
         <div class="col-12 mb-md-5 mb-xl-10">
-            {!! Form::open(['url' => route('kwitansi.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-kwitansi"]) !!}
+            @if ($data)
+                {!! Form::model($data, ['route' => ['kwitansi.update', $data->id], 'class' => 'form', 'id' => "form-kavling", 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
+                @method('PUT')
+                {!! Form::hidden('id', $data->id) !!}
+            @else
+                {!! Form::open(['url' => route('kwitansi.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-kwitansi"]) !!}
+            @endif
             {!! Form::hidden('jenis_kwitansi', $tipe) !!}
             <div class="card shadow-sm">
                 <div class="card-header">
@@ -39,7 +45,7 @@
                                     @endphp
                                 @endif
                             </label>
-                            {!! Form::select('spr', $spr, null, $attr) !!}
+                            {!! Form::select('spr', $spr, !empty($data)?$data->source_id:null, $attr) !!}
                         </div>
                     </div>
                     <div class="row">

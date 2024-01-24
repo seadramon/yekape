@@ -63,7 +63,7 @@
                 <td style="border-left: 1px solid #000000;border-right: 1px solid #000000;border-bottom: 1px solid #000000;">{{$data->tanggal}}</td>
                 <td colspan="2" style="border-right: 1px solid #000000;border-bottom: 1px solid #000000;">{{$data->nomor}}</td>
                 <td colspan="4" style="border-right: 1px solid #000000;border-bottom: 1px solid #000000;">
-                    {{$data->source->customer->nama}} / {{ $data->source->no_sp }}
+                    {{!empty($data->source->customer)?$data->source->customer->nama:"-"}} / {{ !empty($data->source)?$data->source->no_sp:"-" }}
                 </td>
                 <td colspan="5" style="border-right: 1px solid #000000;border-bottom: 1px solid #000000;">
                     {{ $data->keterangan }}
@@ -83,7 +83,7 @@
                 Uang Muka
             </td>
             <td colspan="3" style="font-weight: bold;text-align: center;">
-                {{number_format($data->source->rp_uangmuka, 2, ',', '.')}}
+                {{!empty($data->source->rp_uangmuka)?number_format($data->source->rp_uangmuka, 2, ',', '.'):0}}
             </td>
             <td>
                 Pembayaran
@@ -96,7 +96,10 @@
             <td colspan="12" style="text-align: right;">Kekurangan Pembayaran</td>
             <td style="border-right: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px solid #000000;text-align: right;font-weight: bold;">
                 <?php 
-                $kurang = $data->source->rp_uangmuka - $jml;
+                $kurang = $jml;
+                if ($data->source->rp_uangmuka > 0) {
+                    $kurang = $data->source->rp_uangmuka - $jml;
+                }
                 ?>
                 {{ number_format($kurang, '2', ',', '.') }}
             </td>

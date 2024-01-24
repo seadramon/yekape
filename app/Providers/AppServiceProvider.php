@@ -24,24 +24,25 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Relation::enforceMorphMap([
-            'ssh' => 'App\Models\Ssh'
+            'ssh' => 'App\Models\Ssh',
+            'spr' => 'App\Models\SuratPesananRumah'
         ]);
         View::composer('layout', function($view)
         {
             $menus = Menu::with(['childmenus' => function($sql){
                     $sql->whereHas('roles', function($sql){
-                        $sql->where('roles.id', Auth::user()->role_id);
+                        $sql->where('roles.id', '1');
                     });
                     $sql->orderBy('seq', 'asc');
                     $sql->with(['childmenus' => function($sql){
                         $sql->whereHas('roles', function($sql){
-                            $sql->where('roles.id', Auth::user()->role_id);
+                            $sql->where('roles.id', '1');
                         });
                         $sql->orderBy('seq', 'asc');
                     }]);
                 }])
                 ->whereHas('roles', function($sql){
-                    $sql->where('roles.id', Auth::user()->role_id);
+                    $sql->where('roles.id', '1');
                 })
                 ->whereIn('level', [0, 1])
                 ->orderBy('seq', 'asc')

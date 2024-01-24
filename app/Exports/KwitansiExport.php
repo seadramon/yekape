@@ -12,6 +12,7 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use App\Models\Kwitansi;
 use App\Models\SuratPesananRumah;
 use DB;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class KwitansiExport implements FromView, WithStyles, ShouldAutoSize
 {
@@ -26,11 +27,13 @@ class KwitansiExport implements FromView, WithStyles, ShouldAutoSize
             $customerId = $this->params['customer_id'];
         }
 
+        $labelStart = "";
         if (!empty($this->params['start'])) {
             $res = date_create_from_format('Y-m-d', $this->params['start']);
             $labelStart = date_format($res, "j F Y");
         }
 
+        $labelEnd = "";
         if (!empty($this->params['end'])) {
             $res = date_create_from_format('Y-m-d', $this->params['end']);
             $labelEnd = date_format($res, "j F Y");
@@ -38,6 +41,7 @@ class KwitansiExport implements FromView, WithStyles, ShouldAutoSize
 
         $datas = Kwitansi::select('*');
 
+        // filter untuk customer id jadi tidak bisa, sebelum ditambah enforceMorphMap masih bisa
         if (!empty($customerId)) {
             $datas = $datas->whereHasMorph('source', 
                 [SuratPesananRumah::class], function($query) use($customerId){
@@ -68,6 +72,7 @@ class KwitansiExport implements FromView, WithStyles, ShouldAutoSize
             'periode' => $this->params['periode'],
             'labelStart' => $labelStart,
             'labelEnd' => $labelEnd,
+            'customerId' => $customerId
             // 'lokasi' => $this->lokasi
         ]);
     }
