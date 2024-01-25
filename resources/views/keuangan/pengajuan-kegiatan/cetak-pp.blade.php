@@ -65,7 +65,7 @@
                     No./TANGGAL RAB
                 </td>
                 <td width="5%" style="font-weight:bold;">:</td>
-                <td width="70%">{{ '- / '.date('d M Y', strtotime($data->costing_date)) }}</td>
+                <td width="70%">{{ $data->kode . ' / ' . date('d M Y', strtotime($data->costing_date)) }}</td>
             </tr>
             <tr>
                 <td width="25%" style="font-weight:bold;">

@@ -10,6 +10,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\Keuangan\PengajuanKegiatanController;
+use App\Http\Controllers\Keuangan\ValidasiKegiatanDetailController;
 use App\Http\Controllers\Keuangan\ValidasiSprController;
 use App\Http\Controllers\KwitansiController;
 use App\Http\Controllers\LoginController;
@@ -161,6 +162,13 @@ Route::middleware('auth')->group(function () {
 			Route::get('/cetak/{id}', 	[PengajuanKegiatanController::class, 'cetak'])->name('cetak');
 			Route::post('/destroy', [PengajuanKegiatanController::class, 'destroy'])->name('destroy');
 			Route::resource('/', PengajuanKegiatanController::class)->except(['destroy'])->parameters(['' => 'pengajuan-kegiatan']);
+		});
+
+		Route::group(['prefix' => 'validasi-rincian-kegiatan', 'as' => 'validasi-kegiatan-detail.'], function(){
+			Route::get('/data', [ValidasiKegiatanDetailController::class, 'data'])->name('data');
+			Route::get('/exportExcel', [ValidasiKegiatanDetailController::class, 'exportExcel'])->name('export-excel');
+			Route::post('/destroy', [ValidasiKegiatanDetailController::class, 'destroy'])->name('destroy');
+			Route::resource('/', ValidasiKegiatanDetailController::class)->except(['destroy', 'create'])->parameters(['' => 'validasi-kegiatan-detail']);
 		});
 	
 	});
