@@ -208,17 +208,17 @@
     	let jenispembayaran = $("#jenispembayaran").val()
     	let customer = $("#customer").val()
 
-    	if (periode != '' && jeniskwitansi != '' &&  jenispenerimaan != '' && jenispembayaran != '' && customer != '') {
+    	/*if (periode != '' && jeniskwitansi != '' &&  jenispenerimaan != '' && jenispembayaran != '' && customer != '') {*/
 	    	let exportExcelUrl = "{{ URL::to('kwitansi/exportExcel') }}?periode=" + periode + '&jenis=' + jeniskwitansi + '&jenispenerimaan=' + jenispenerimaan + '&jenispembayaran=' + jenispembayaran + '&customer=' + customer;
 	    	window.open(exportExcelUrl, '_blank');
-    	} else {
+    	/*} else {
     		$("#errMsg").show()
     		$("#errMsg").text('Mohon lengkapi filter terlebih dahulu')
 
     		setTimeout(() => {
                 $("#errMsg").hide()
             }, 2000)
-    	}
+    	}*/
     });
 
     $('body').on('click', '.exportSpr', function () {
@@ -232,13 +232,13 @@
 			// ajax
 			$.ajax({
 				type:"post",
-				url: "{{ route('karyawan.destroy') }}",
+				url: "{{ route('kwitansi.destroy') }}",
 				data: {id : id, _token: "{{ csrf_token() }}"},
 				success: function(res){
 					if (res.result == 'success') {
 						flasher.success("Data has been deleted successfully!");
 
-						$('#tabel_teacher').DataTable().ajax.url("{{ route('karyawan.data') }}").load();
+						$('#tabel_master_driver').DataTable().ajax.url("{{ route('kwitansi.data') }}").load();
 					}
 				}
 			});

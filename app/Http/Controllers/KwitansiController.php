@@ -43,10 +43,14 @@ class KwitansiController extends Controller
                         </button>
                         <ul class="dropdown-menu">
                             <li>
-                            <a class="dropdown-item" target="_blank" href="'.route('kwitansi.cetak', ['id' => $model->id]).'">Cetak</a></li>
+                                <a class="dropdown-item" target="_blank" href="'.route('kwitansi.cetak', ['id' => $model->id]).'">Cetak</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="'.route('kwitansi.edit', ['kwitansi' => $model->id]).'">Edit</a>
+                            </li>
+                            <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="'.$model->id.'" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
                         </ul>
                         </div>';
-                        // <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="'.$model->id.'" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
 
                 return $column;
             })
@@ -117,25 +121,67 @@ class KwitansiController extends Controller
 
     public function edit($id)
     {
-        $data = null;
+        $data = Kwitansi::find($id);
+        $tipe = $data->jenis_kwitansi;
 
-        $jabatans = Jabatan::get()
-            ->mapWithKeys(function ($item) {
-                return [$item->id => $item->nama];
-            })
-            ->all();
-        $jabatans = ['' => 'Pilih Jabatan'] + $jabatans;
+        $data->jumlah = !empty($data->jumlah)?number_format($data->jumlah,0,",","."):'';
+        $data->dpp = !empty($data->dpp)?number_format($data->dpp,0,",","."):'';
+        $data->ppn = !empty($data->ppn)?number_format($data->ppn,0,",","."):'';
 
-        $genders = ['L' => 'Laki-Laki', 'P' => 'Perempuan'];
-
-        if ($id) {
-            $data = Karyawan::find($id);
+        if($tipe == 'KWT'){
+            $spr = SuratPesananRumah::get()
+                ->mapWithKeys(function ($item) {
+                    return [$item->id => $item->no_sp];
+                })
+                ->all();
+            $spr = ['' => 'Pilih No SPR'] + $spr;
+            $jenis_penerimaan = [
+                'um' => 'Uang Muka',
+                'tambahan' => 'Tambahan'
+            ];
+        }else{
+            $nup = Nup::get()
+                ->mapWithKeys(function ($item) {
+                    return [$item->id => "NUP-" . $item->id];
+                })
+                ->all();
+            $utj = BookingFee::get()
+                ->mapWithKeys(function ($item) {
+                    return [$item->id => "BookingFee-" . $item->nomor];
+                })
+                ->all();
+            $spr = ['' => 'Pilih NUP/BookingFee'] + $nup + $utj;
+            $jenis_penerimaan = [
+                'nup' => 'NUP',
+                'utj' => 'Booking Fee',
+                'jampel' => 'Jampel'
+            ];
         }
+        $tipe_bayar = [
+            'cash' => 'Cash',
+            'transfer' => 'Transfer'
+        ];
+        $ppn = [
+            '11' => 'PPN 11%',
+            '10' => 'PPN 10%',
+            '0' => 'Tanpa PPN'
+        ];
+        $bank = [
+            '' => 'Pilih Bank',
+            'bni' => 'BNI',
+            'mandiri' => 'Mandiri',
+            'bca' => 'BCA',
+            'bri' => 'BRI',
+        ];
 
-        return view('karyawan.create', [
-            'jabatans' => $jabatans,
-            'genders' => $genders,
-            'data' => $data,
+        return view('kwitansi.create', [
+            'spr'              => $spr,
+            'jenis_penerimaan' => $jenis_penerimaan,
+            'tipe_bayar'       => $tipe_bayar,
+            'tipe'             => $tipe,
+            'bank'             => $bank,
+            'data'             => $data,
+            'ppn'              => $ppn,
         ]);
     }
 
@@ -200,34 +246,49 @@ class KwitansiController extends Controller
             DB::beginTransaction();
 
             Validator::make($request->all(), [
-                'nama' => 'required',
+                'jenis_kwitansi' => 'required',
+                'tanggal' => 'required',
             ])->validate();
 
-            $karyawan = Karyawan::find($request->karyawan);
+            $kwitansi = Kwitansi::find($id);
+            $kwitansi->jenis_kwitansi = $request->jenis_kwitansi;
+            $kwitansi->tanggal = $request->tanggal;
+            $kwitansi->jenis_penerimaan = $request->jenis_penerimaan;
+            $kwitansi->nama = $request->nama;
+            $kwitansi->alamat = $request->alamat;
+            $kwitansi->keterangan = $request->keterangan;
+            $kwitansi->tipe_bayar = $request->tipe_bayar;
+            $kwitansi->bank = $request->bank;
+            $kwitansi->tanggal_transfer = $request->tanggal_transfer;
+            $kwitansi->jumlah = str_replace('.', '', $request->jumlah);
+            
+            if($request->jenis_kwitansi == 'KWT'){
+                $spr = SuratPesananRumah::find($request->spr);
+                $kwitansi->source_type = get_class($spr);
+                $kwitansi->source_id = $spr->id;
 
-            $karyawan->nik = $request->nik;
-            $karyawan->nama = $request->nama;
-            $karyawan->alamat_ktp = $request->alamat_ktp;
-            $karyawan->alamat_domisili = $request->alamat_domisili;
-            $karyawan->tempat_lahir = $request->tempat_lahir;
-            $karyawan->tgl_lahir = $request->tgl_lahir;
-            $karyawan->jabatan_id = $request->jabatan_id;
-            $karyawan->jenis_kelamin = $request->jenis_kelamin;
-            $karyawan->no_hp = $request->no_hp;
-            $karyawan->save();
+                $kwitansi->ppn = str_replace('.', '', $request->ppn);
+                $kwitansi->dpp = str_replace('.', '', $request->dpp);
+                $kwitansi->ppn = str_replace('.', '', $request->ppn);
+            }else{
+                if($request->spr){
+                    $spr = Nup::find($request->spr) ?? BookingFee::find($request->spr);
+                    $kwitansi->source_type = get_class($spr);
+                    $kwitansi->source_id = $spr->id;
+                }
+            }
 
-
-            $karyawan->save();
+            $kwitansi->save();
 
             DB::commit();
 
             $flasher->addSuccess('Data has been saved successfully!');
 
-            return redirect()->route('karyawan.index');
+            return redirect()->route('kwitansi.index');
         } catch (Exception $e) {
             DB::rollback();
 
-            Log::error('Error - Save data Teacher '.$e->getMessage());
+            Log::error('Error - Save data '.$e->getMessage());
             $flasher->addError($e->getMessage(), 'Error Validation', ['timer' => 10000]);
 
             return redirect()->back();
@@ -239,7 +300,7 @@ class KwitansiController extends Controller
         DB::beginTransaction();
 
         try {
-            $data = Karyawan::find($request->id);
+            $data = Kwitansi::find($request->id);
             $data->delete();
 
             DB::commit();
@@ -291,7 +352,7 @@ class KwitansiController extends Controller
     {
         $start = "";
         $end = "";
-        $periode = $request->periode;
+        $periode = !empty($request->periode)?$request->periode:"";
         if (!empty($periode)) {
             $arr = explode(" to ", $periode);
             $start = $arr[0];
@@ -302,10 +363,10 @@ class KwitansiController extends Controller
             'periode' => $periode,
             'start' => $start,
             'end' => $end,
-            'jenis_kwitansi' => $request->jenis,
-            'jenis_penerimaan' => $request->jenispenerimaan,
-            'jenis_pembayaran' => $request->jenispembayaran,
-            'customer_id' => $request->customer
+            'jenis_kwitansi' => !empty($request->jenis)?$request->jenis:"",
+            'jenis_penerimaan' => !empty($request->jenispenerimaan)?$request->jenispenerimaan:"",
+            'jenis_pembayaran' => !empty($request->jenispembayaran)?$request->jenispembayaran:"",
+            'customer_id' => !empty($request->customer)?$request->customer:""
         ];
 
         /*$res = date_create_from_format('Ym', $periode);

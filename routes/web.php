@@ -139,6 +139,7 @@ Route::middleware('auth')->group(function () {
 	
 	Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
 		Route::get('/data', [KwitansiController::class, 'data'])->name('data');
+		Route::get('/exportExcel', [KwitansiController::class, 'exportExcel'])->name('export-excel');
 		Route::get('/create-{tipe}', [KwitansiController::class, 'create'])->name('create');
 		// Route::get('/create/kwu', [KwitansiController::class, 'createKwu'])->name('create-kwu');
 		Route::get('/cetak/{id}', 	[KwitansiController::class, 'cetak'])->name('cetak');
