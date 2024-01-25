@@ -23,6 +23,6 @@ class SerapanDetail extends Model
 
     public function serapan(): BelongsTo
     {
-        return $this->belongsTo(Serapan::class, 'kegiatan_id');
+        return $this->belongsTo(Serapan::class, 'serapan_id');
     }
 }
