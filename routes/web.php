@@ -27,6 +27,7 @@ use App\Http\Controllers\Perencanaan\SshController;
 use App\Http\Controllers\Perencanaan\VisiController;
 use App\Http\Controllers\SuratPesananController;
 use App\Http\Controllers\StokKavlingController;
+use App\Http\Controllers\SerapanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -244,6 +245,11 @@ Route::middleware('auth')->group(function () {
 			Route::get('/data', [StokKavlingController::class, 'data'])->name('data');
 			Route::post('/destroy', [StokKavlingController::class, 'destroy'])->name('destroy');
 			Route::resource('/', StokKavlingController::class)->except(['destroy'])->parameters(['' => 'stokkavling']);
+		});
+
+		Route::group(['prefix' => '/serapan', 'as' => 'serapan.'], function(){
+			Route::get('/', [SerapanController::class, 'index'])->name('index');
+			Route::post('/data', [SerapanController::class, 'data'])->name('data');
 		});
 	});
 });
