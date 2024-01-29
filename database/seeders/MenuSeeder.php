@@ -208,6 +208,27 @@ class MenuSeeder extends Seeder
                 'level' => '2',
                 'sequence' => '0620'
             ],
+            [
+                'name' => 'Monitoring',
+                'route_name' => '#',
+                'icon' => 'fas fa-clipboard-list fs-3',
+                'level' => '1',
+                'sequence' => '0700'
+            ],
+            [
+                'name' => 'Stok Kavling',
+                'route_name' => 'monitoring.stokkavling.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0710'
+            ],
+            [
+                'name' => 'Serapan',
+                'route_name' => 'monitoring.serapan.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0720'
+            ],
         ];
 
         $parent0 = null;

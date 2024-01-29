@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="fv-row form-group col-lg-4 mb-3">
                                         <label class="form-label">PPn</label>
-                                        {!! Form::text('ppn', null, ['class'=>'form-control currency', 'id'=>'ppn', 'autocomplete'=>'off', 'required']) !!}
+                                        {!! Form::select('ppn', $ppn, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'ppn']) !!}
                                     </div>
                                 </div>
                             </li>
@@ -122,19 +122,32 @@
                             </li>
                             <br />
                             <h3> <small class="text-muted">RENCANA PEMBANGUNAN :</small></h3>
-                          </ul>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="fv-row form-group col-lg-6 mb-3">
-                                    <label class="form-label">Lama Pembangunan</label>
-                                    {!! Form::text('masa_bangun', null, ['class'=>'form-control', 'id'=>'masa_bangun', 'autocomplete'=>'off', 'required']) !!}
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="fv-row form-group col-lg-6 mb-3">
+                                        <label class="form-label">Lama Pembangunan</label>
+                                        {!! Form::text('masa_bangun', null, ['class'=>'form-control', 'id'=>'masa_bangun', 'autocomplete'=>'off', 'required']) !!}
+                                    </div>
+                                    <div class="fv-row form-group col-lg-6 mb-3">
+                                        <label class="form-label">Mulai/Selesai Pembangunan</label>
+                                        {!! Form::text('range_pembangunan', null, ['class'=>'form-control kt-daterangepicker', 'id'=>'range_pembangunan', 'autocomplete'=>'off', 'required']) !!}
+                                    </div>
                                 </div>
-                                <div class="fv-row form-group col-lg-6 mb-3">
-                                    <label class="form-label">Mulai/Selesai Pembangunan</label>
-                                    {!! Form::text('range_pembangunan', null, ['class'=>'form-control kt-daterangepicker', 'id'=>'range_pembangunan', 'autocomplete'=>'off', 'required']) !!}
+                            </li>
+                            <h3 class="g-5 g g-5"> <small class="text-muted">Approval :</small></h3>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="fv-row form-group col-lg-6 mb-3">
+                                        <label class="form-label">Approval</label>
+                                        {!! Form::select('approval', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'approval'], $opt_karyawan) !!}
+                                    </div>
+                                    <div class="fv-row form-group col-lg-6 mb-3">
+                                        <label class="form-label">Jabatan</label>
+                                        {!! Form::text('approval_jabatan', null, ['class'=>'form-control', 'id'=>'approval_jabatan', 'autocomplete'=>'off', 'required']) !!}
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <br />
@@ -176,8 +189,18 @@
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script src="{{ asset('assets/plugins/custom/formrepeater/formrepeater.bundle.js') }}"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-
-});
+    $(document).ready(function() {
+        $("#ppn").on('change', function(){
+            var jml = parseFloat($("#harga_dasar").val().replaceAll('.', '').replaceAll(',', '.'));
+            var ppn = parseInt($("#ppn").val());
+            
+            $("#harga_jual").val((jml + (jml * ppn / 100)).toFixed(2).replaceAll('.', ','));
+            $("#harga_jual").trigger('keyup');
+        });
+        $("#approval").on('change', function(){
+            $("#approval_jabatan").val($("#approval option:selected").attr('data-jabatan'));
+            
+        });
+    });
 </script>
 @endsection

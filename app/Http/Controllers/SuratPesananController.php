@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\SprExport;
+use App\Models\Karyawan;
+use Illuminate\Support\Facades\Auth;
 
 class SuratPesananController extends Controller
 {
@@ -118,7 +120,9 @@ class SuratPesananController extends Controller
                 $data->selesai_bangun = date('Y-m-d', strtotime($daterange[1]));
             }
             $data->doc = date('Y-m-d H:i:s');
-            $data->user_entry = "Administrator";
+            $data->user_entry = Auth::user()->id;
+            $data->approval_id = $request->approval;
+            $data->approval_jabatan = $request->approval_jabatan;
             $data->save();
 
             $id = $data->id;
@@ -321,12 +325,31 @@ class SuratPesananController extends Controller
             })->all();
         $booking = ["" => "-Pilih booking fee-"] + $booking;
 
+        $ppn = [
+            '0' => 'Tanpa PPN',
+            '10' => 'PPN 10%',
+            '11' => 'PPN 11%',
+        ];
+
+        $kar = Karyawan::with('jabatan')->get();
+        $karyawan = $kar->mapWithKeys(function($item){
+                return [$item->id => $item->nama];
+            })->all();
+        $karyawan = ["" => "-Pilih Karyawan-"] + $karyawan;
+
+        $opt_karyawan = $kar->mapWithKeys(function($item){
+            return [$item->id => ['data-jabatan' => ($item->jabatan->nama ?? "unknown")]];
+        })
+        ->all();
         return [
-            'tipe'     => $tipe,
-            'jenis'    => $jenis,
-            'kavling'  => $kavling,
-            'customer' => $customer,
-            'booking'  => $booking,
+            'tipe'         => $tipe,
+            'jenis'        => $jenis,
+            'kavling'      => $kavling,
+            'customer'     => $customer,
+            'booking'      => $booking,
+            'ppn'          => $ppn,
+            'karyawan'     => $karyawan,
+            'opt_karyawan' => $opt_karyawan,
         ];
     }
 

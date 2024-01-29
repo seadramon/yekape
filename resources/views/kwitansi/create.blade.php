@@ -45,7 +45,7 @@
                                     @endphp
                                 @endif
                             </label>
-                            {!! Form::select('spr', $spr, !empty($data)?$data->source_id:null, $attr) !!}
+                            {!! Form::select('spr', $spr, !empty($data)?$data->source_id:null, $attr, $opt_spr) !!}
                         </div>
                     </div>
                     <div class="row">
@@ -135,21 +135,25 @@
         var blockUI = new KTBlockUI(document.querySelector("#kt_content_container"));
         $("#spr").on('change', function(){
             blockUI.block();
+            // $("#jumlah").val($("#spr option:selected").attr('data-harga'));
+            // $("#jumlah").trigger('keyup');
             $.get("{{ route('kwitansi.source-data') }}", { source: 'spr', source_id: $(this).val() }).done(function(result){
                 // $("#body-arrival").html(result);
                 $("#nama").val(result.data.terima_dari);
                 $("#alamat").val(result.data.alamat);
                 $("#jumlah").val(result.data.jumlah);
-                $("#ppn").val(result.data.ppn).trigger('change');
+                $("#jumlah").trigger('keyup');
+                // $("#ppn").val(result.data.ppn).trigger('change');
                 
                 blockUI.release();
             });
         });
         $("#ppn").on('change', function(){
-            var jml = parseFloat($("#jumlah").val());
+            var jml = parseFloat($("#jumlah").val().replaceAll('.', '').replaceAll(',', '.'));
             var ppn = parseInt($("#ppn").val());
             $("#ppn_rp").val(jml * ppn / 100);
         });
+        
     });
 
     

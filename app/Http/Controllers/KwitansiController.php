@@ -63,12 +63,17 @@ class KwitansiController extends Controller
         $data = null;
 
         if($tipe == 'KWT'){
-            $spr = SuratPesananRumah::get()
-                ->mapWithKeys(function ($item) {
+            $spr_ = SuratPesananRumah::get();
+            $spr = $spr_->mapWithKeys(function ($item) {
                     return [$item->id => $item->no_sp];
                 })
                 ->all();
             $spr = ['' => 'Pilih No SPR'] + $spr;
+            
+            $opt_spr = $spr_->mapWithKeys(function($item){
+                return [$item->id => ['data-harga' => ($item->harga_jual ?? "unknown")]];
+            })
+            ->all();
             $jenis_penerimaan = [
                 'um' => 'Uang Muka',
                 'tambahan' => 'Tambahan'
@@ -85,6 +90,8 @@ class KwitansiController extends Controller
                 })
                 ->all();
             $spr = ['' => 'Pilih NUP/BookingFee'] + $nup + $utj;
+
+            $opt_spr = [];
             $jenis_penerimaan = [
                 'nup' => 'NUP',
                 'utj' => 'Booking Fee',
@@ -96,9 +103,9 @@ class KwitansiController extends Controller
             'transfer' => 'Transfer'
         ];
         $ppn = [
-            '11' => 'PPN 11%',
+            '0' => 'Tanpa PPN',
             '10' => 'PPN 10%',
-            '0' => 'Tanpa PPN'
+            '11' => 'PPN 11%',
         ];
         $bank = [
             '' => 'Pilih Bank',
@@ -116,6 +123,7 @@ class KwitansiController extends Controller
             'bank'             => $bank,
             'data'             => $data,
             'ppn'              => $ppn,
+            'opt_spr'          => $opt_spr ,
         ]);
     }
 
@@ -321,7 +329,7 @@ class KwitansiController extends Controller
             $data = [
                 'terima_dari' => $source->customer->nama,
                 'alamat' => $source->customer->alamat,
-                'jumlah' => $source->rp_angsuran,
+                'jumlah' => $source->nilai_angsuran,
                 'ppn' => $source->ppn ?? 0,
             ];
         }else{
