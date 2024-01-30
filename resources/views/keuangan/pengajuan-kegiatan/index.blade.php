@@ -19,10 +19,12 @@
                         <thead>
                             <tr class="fw-semibold fs-6 text-muted">
                                 <th>Tahun</th>
+                                <th>Bagian</th>
 								<th>Kode</th>
 								<th>Nama</th>
 								<th>Jenis</th>
-								<th>Bagian</th>
+                                <th>Nilai</th>
+                                <th>Status</th>
                                 <th>Menu</th>
                             </tr>
                         </thead>
@@ -90,11 +92,13 @@
 	            stateSave: true,
 	            ajax: "{{ route('keuangan.pengajuan-kegiatan.data') }}",
 	            columns: [
-	                {data: 'tahun', name: 'tahun', defaultContent: '-'},
+                    {data: 'tahun', name: 'tahun', defaultContent: '-'},
+                    {data: 'bagian.nama', name: 'bagian.nama', defaultContent: '-'},
 	                {data: 'kode', name: 'kode', defaultContent: '-'},
 	                {data: 'nama', name: 'nama', defaultContent: '-'},
 	                {data: 'jenis', name: 'jenis', defaultContent: '-'},
-	                {data: 'bagian.nama', name: 'bagian.nama', defaultContent: '-'},
+                    {data: 'nilai', name: 'nilai', defaultContent: '-'},
+                    {data: 'status', name: 'status', defaultContent: '-'},
 	                {data: 'menu', orderable: false, searchable: false}
 	            ],
 	        });

@@ -39,6 +39,9 @@ class PengajuanKegiatanController extends Controller
         }
 
         return (new DataTables)->eloquent($query)
+            ->addColumn('nilai', function ($serapan) {
+                return number_format($serapan->detail->sum('total'), 2, ',', '.');
+            })
             ->addColumn('menu', function ($model) {
             // <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$model->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
                 $column = '<div class="btn-group">
