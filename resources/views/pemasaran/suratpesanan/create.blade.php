@@ -134,19 +134,6 @@
                                     </div>
                                 </div>
                             </li>
-                            <h3 class="g-5 g g-5"> <small class="text-muted">Approval :</small></h3>
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="fv-row form-group col-lg-6 mb-3">
-                                        <label class="form-label">Approval</label>
-                                        {!! Form::select('approval', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'approval'], $opt_karyawan) !!}
-                                    </div>
-                                    <div class="fv-row form-group col-lg-6 mb-3">
-                                        <label class="form-label">Jabatan</label>
-                                        {!! Form::text('approval_jabatan', null, ['class'=>'form-control', 'id'=>'approval_jabatan', 'autocomplete'=>'off', 'required']) !!}
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -197,10 +184,7 @@
             $("#harga_jual").val((jml + (jml * ppn / 100)).toFixed(2).replaceAll('.', ','));
             $("#harga_jual").trigger('keyup');
         });
-        $("#approval").on('change', function(){
-            $("#approval_jabatan").val($("#approval option:selected").attr('data-jabatan'));
-            
-        });
+        
     });
 </script>
 @endsection

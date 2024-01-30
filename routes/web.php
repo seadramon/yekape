@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\Keuangan\PengajuanKegiatanController;
 use App\Http\Controllers\Keuangan\ValidasiKegiatanDetailController;
+use App\Http\Controllers\Keuangan\ValidasiPengajuanKegiatanController;
 use App\Http\Controllers\Keuangan\ValidasiSprController;
 use App\Http\Controllers\KwitansiController;
 use App\Http\Controllers\LoginController;
@@ -171,7 +172,13 @@ Route::middleware('auth')->group(function () {
 			Route::post('/destroy', [ValidasiKegiatanDetailController::class, 'destroy'])->name('destroy');
 			Route::resource('/', ValidasiKegiatanDetailController::class)->except(['destroy', 'create'])->parameters(['' => 'validasi-kegiatan-detail']);
 		});
-	
+		
+		Route::group(['prefix' => 'validasi-pengajuan-kegiatan', 'as' => 'validasi-pengajuan-kegiatan.'], function(){
+			Route::get('/data', [ValidasiPengajuanKegiatanController::class, 'data'])->name('data');
+			Route::get('/cetak/{id}', 	[ValidasiPengajuanKegiatanController::class, 'cetak'])->name('cetak');
+			Route::post('/destroy', [ValidasiPengajuanKegiatanController::class, 'destroy'])->name('destroy');
+			Route::resource('/', ValidasiPengajuanKegiatanController::class)->except(['destroy'])->parameters(['' => 'validasi-pengajuan-kegiatan']);
+		});
 	});
 	Route::group(['prefix' => '/perencanaan', 'as' => 'perencanaan.'], function(){
 		Route::group(['prefix' => '/ssh', 'as' => 'ssh.'], function(){

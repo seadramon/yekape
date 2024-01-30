@@ -121,8 +121,6 @@ class SuratPesananController extends Controller
             }
             $data->doc = date('Y-m-d H:i:s');
             $data->user_entry = Auth::user()->id;
-            $data->approval_id = $request->approval;
-            $data->approval_jabatan = $request->approval_jabatan;
             $data->save();
 
             $id = $data->id;

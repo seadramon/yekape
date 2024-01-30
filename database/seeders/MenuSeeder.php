@@ -54,6 +54,20 @@ class MenuSeeder extends Seeder
                 'sequence' => '0230'
             ],
             [
+                'name' => 'Validasi Rincian Kegiatan',
+                'route_name' => 'keuangan.validasi-rincian-kegiatan.index',
+                'icon' => 'fas fa-truck-front fs-3',
+                'level' => '2',
+                'sequence' => '0240'
+            ],
+            [
+                'name' => 'Validasi Pengajuan Kegiatan',
+                'route_name' => 'keuangan.validasi-rincian-kegiatan.index',
+                'icon' => 'fas fa-truck-front fs-3',
+                'level' => '2',
+                'sequence' => '0250'
+            ],
+            [
                 'name' => 'Sekretariat Perusahaan',
                 'route_name' => '#',
                 'icon' => 'fas fa-clipboard-check fs-3',
