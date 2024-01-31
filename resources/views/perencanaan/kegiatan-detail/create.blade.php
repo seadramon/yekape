@@ -74,7 +74,7 @@
                                                 $nilai_ppn = $total * $item->ppn / 100;
                                             @endphp
                                             <tr style="text-align: center; vertical-align: middle;">
-                                                <td><input name="detail_id[]" class="detail_id" type="hidden" value="{{ $item->id }}"><input name="perkiraan[]" class="perkiraan" type="hidden" value="{{ $item->kode_perkiraan }}">{{ $item->kode_perkiraan }}<br>{{$item->perkiraan->keterangan}}</td>
+                                                <td><input name="detail_id[]" class="detail_id" type="hidden" value="{{ $item->id }}"><input name="perkiraan[]" class="perkiraan" type="hidden" value="{{ $item->kode_perkiraan }}">{{ $item->kode_perkiraan }}<br>{{$item->perkiraan->keterangan ?? '-'}}</td>
                                                 <td><input name="komponen[]" class="komponen" type="hidden" value="{{ $item->komponen_id }}"><input name="komponen_tipe[]" class="komponen_tipe" type="hidden" value="{{ $item->komponen_type }}">{{ $item->komponen->kode}}<br>{{$item->komponen->nama }}</td>
                                                 <td style="text-align: right;"><input name="hargasatuan[]" class="hargasatuan" type="hidden" value="{{ number_format($item->harga_satuan, 2, ',', '.') }}">{{ number_format($item->harga_satuan, 2, ',', '.') }}</td>
                                                 <td><input name="volume[]" class="volume" type="hidden" value="{{ number_format($item->volume, 0, ',', '.') }}">{{ number_format($item->volume, 0, ',', '.') }}</td>
