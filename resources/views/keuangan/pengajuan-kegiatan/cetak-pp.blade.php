@@ -33,7 +33,7 @@
     <body>
         @php
             $kode_perkiraan = $data->detail->map(function($d){
-                return $d->kegiatan_detail->kode_perkiraan;
+                return $d->kegiatan_detail->kode_perkiraan ?? '-';
             })->join(', ');
         @endphp
         <div class="tengah" style="margin-bottom:30px">
