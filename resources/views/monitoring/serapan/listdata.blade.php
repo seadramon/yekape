@@ -13,8 +13,8 @@
                                 <th class="txtheader pxl-5 b-right" rowspan="3">SUB BAGIAN</th>
                                 <th class="txtheader b-right" rowspan="3">KODE PERKIRAAN</th>
                                 <th class="txtheader b-right" rowspan="3">NAMA PERKIRAAN</th>
-                                <th class="txtheader b-right" rowspan="3">LAP KEU</th>
-                                <th class="txtheader b-right" rowspan="3">KELOMPOK</th>
+                                {{-- <th class="txtheader b-right" rowspan="3">LAP KEU</th> --}}
+                                {{-- <th class="txtheader b-right" rowspan="3">KELOMPOK</th> --}}
                                 <th class="txtheader b-right" rowspan="2">RKAP TAHUN {{ $tahun }}</th>
                                 <th class="txtheader b-right" colspan="4">PROGRESS SERAPAN</th>
                                 <th class="txtheader b-right" rowspan="2">Jumlah Serapan + BS</th>
@@ -44,15 +44,15 @@
                             @if (count($datas) > 0)
                                 <?php $total = 0; ?>
                                 @foreach($datas as $header)
-                                    <?php 
+                                    <?php
                                     $total += $header->detail->sum('total');
                                     ?>
                                     <tr>
                                         <td class="b-right pxl-5"><b>{{ $header->bagian->nama }}</b></td>
                                         <td class="b-right"></td>
                                         <td class="b-right">{{ $header->nama }}</td>
-                                        <td class="b-right">-</td>
-                                        <td class="b-right">-</td>
+                                        {{-- <td class="b-right">-</td> --}}
+                                        {{-- <td class="b-right">-</td> --}}
                                         <td class="b-right txtright">{{ number_format($header->detail->sum('total'), '0', '.', ',') }}</td>
                                         <td class="b-right">-</td>
                                         <td class="b-right">-</td>
@@ -70,8 +70,8 @@
                                             <td class="b-right pxl-5">{{ $header->bagian->nama }}</td>
                                             <td class="b-right">{{ $row->kode_perkiraan }}</td>
                                             <td class="b-right">{{ $row->komponen->nama }}</td>
-                                            <td class="b-right">-</td>
-                                            <td class="b-right">-</td>
+                                            {{-- <td class="b-right">-</td> --}}
+                                            {{-- <td class="b-right">-</td> --}}
                                             <td class="b-right txtright">{{ number_format($row->total, '0', '.', ',') }}</td>
                                             <td class="b-right txtright">{{ number_format($row->serapan->sum('total'), '0', '.', ',') }}</td>
                                             <td class="b-right">-</td>
@@ -85,7 +85,7 @@
                                     @endforeach
                                 @endforeach
                                 <tr>
-                                    <td colspan="5" class="b-right pxl-5"><b>TOTAL</b></td>
+                                    <td colspan="3" class="b-right pxl-5"><b>TOTAL</b></td>
                                     <td class="b-right b-top txtright">{{ number_format($total, '0', '.', ',') }}</td>
                                     <td class="b-right b-top"></td>
                                     <td class="b-right b-top"></td>
@@ -102,8 +102,8 @@
                                 </tr>
                             @endif
                         </tbody>
-            		</table>	
-                    
+            		</table>
+
                 </div>
         	</div>
         </div>
