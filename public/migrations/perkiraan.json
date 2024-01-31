@@ -1,0 +1,5440 @@
+{
+    "perkiraan":[
+     {
+      "kode": 1,
+      "perkiraan": "AKTIVA",
+      "tipe": "H"
+     },
+     {
+      "kode": 11,
+      "perkiraan": "AKTIVA LANCAR",
+      "tipe": "H"
+     },
+     {
+      "kode": 111,
+      "perkiraan": "KAS SETARA KAS",
+      "tipe": "H"
+     },
+     {
+      "kode": 111.001,
+      "perkiraan": "KAS",
+      "tipe": "H"
+     },
+     {
+      "kode": "111.001.001",
+      "perkiraan": "Kas Besar",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.002",
+      "perkiraan": "KAS KECIL YANTO",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.003",
+      "perkiraan": "Kas Kecil Teknik Proyek Sby",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.004",
+      "perkiraan": "KAS KECIL KANTOR",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.005",
+      "perkiraan": "Kas Kecil Perijinan",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.006",
+      "perkiraan": "Kas Kecil Administrasi",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.007",
+      "perkiraan": "Kas Kecil Pembangunan",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.008",
+      "perkiraan": "Kas Kecil Pemasaran",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.009",
+      "perkiraan": "KAS KECIL ME (MANAGEMENT ESTATE)",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.010",
+      "perkiraan": "KAS GRAHA YKP",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.099",
+      "perkiraan": "Kas\/ Bank Instransit",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.100",
+      "perkiraan": "KAS KECIL GUGUS TUGAS",
+      "tipe": "D"
+     },
+     {
+      "kode": 111.002,
+      "perkiraan": "BANK",
+      "tipe": "H"
+     },
+     {
+      "kode": "111.002.001",
+      "perkiraan": "Giro BCA AC No.0101640654",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.002",
+      "perkiraan": "Giro Bank BNI AC No. 0035824698 (Cabang Tanjung Perak)",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.003",
+      "perkiraan": "Giro Bank BNI AC No. 0046219112",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.004",
+      "perkiraan": "Giro Bank BUKOPIN AC No.100.3133.11-3",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.005",
+      "perkiraan": "Giro Bank Mandiri AC No.142-00-3636363-7",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.006",
+      "perkiraan": "GIRO BANK NIAGA AC. 112-01-00014-0-00-3",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.007",
+      "perkiraan": "GIRO BANK BRI AC.00000360-01-000168-30-1",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.008",
+      "perkiraan": "Giro BNI Escrow AC.2335338332",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.009",
+      "perkiraan": "Giro Bank Mandiri Escrow AC No.142-00-0473805-9",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.010",
+      "perkiraan": "Giro BCA AC No.0101641456 (ESCROW)",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.011",
+      "perkiraan": "GIRO BTN SYARIAH AC NO.7031000355",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.012",
+      "perkiraan": "TABUNGAN BUKOPIN AC  NO.1301200044",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.013",
+      "perkiraan": "TABUNGAN BTPN AC NO.0385.0.034752",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.014",
+      "perkiraan": "GIRO BANK BUKOPIN AC NO.100.6040.11.6",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.015",
+      "perkiraan": "GIRO BTN ESCROW AC. 00058-01-32-000005-0",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.016",
+      "perkiraan": "TABUNGAN OCBC NISP ",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.017",
+      "perkiraan": "TABUNGAN BRI",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.018",
+      "perkiraan": "TABUNGAN BTN SYARIAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.019",
+      "perkiraan": "TABUNGAN CIMB NIAGA",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.020",
+      "perkiraan": "TABUNGAN PANIN SYARIAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.021",
+      "perkiraan": "BTN GIRO AC. 0002-01-30-001361-8",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.022",
+      "perkiraan": "BANK BNI AC. 5258999975",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.023",
+      "perkiraan": "TABUNGAN BNI AC. 6677885536",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.024",
+      "perkiraan": "GIRO BSI MUDHARABAH UMUM AC. 5550005877",
+      "tipe": "D"
+     },
+     {
+      "kode": 111.003,
+      "perkiraan": "DEPOSITO",
+      "tipe": "H"
+     },
+     {
+      "kode": "111.003.001",
+      "perkiraan": "Deposito BCA",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.002",
+      "perkiraan": "Deposito Bank BNI",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.003",
+      "perkiraan": "Deposito Bank Bukopin",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.004",
+      "perkiraan": "Deposito Bank Mandiri",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.005",
+      "perkiraan": "Deposito Bank Niaga",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.007",
+      "perkiraan": "Deposito Bank BTN Syariah",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.008",
+      "perkiraan": "DEPOSITO BANK BTPN",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.009",
+      "perkiraan": "DEPOSITO BANK PANIN SYARIAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.010",
+      "perkiraan": "DEPOSITO BANK NISP",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.011",
+      "perkiraan": "DEPOSITO JIWASRAYA",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.012",
+      "perkiraan": "DEPOSITO BANK BRI",
+      "tipe": "D"
+     },
+     {
+      "kode": 112,
+      "perkiraan": "PIUTANG USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 112.001,
+      "perkiraan": "Piutang KPR",
+      "tipe": "H"
+     },
+     {
+      "kode": "112.001.001",
+      "perkiraan": "Piutang KPR BCA",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.002",
+      "perkiraan": "Piutang KPR Bank BNI",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.003",
+      "perkiraan": "Piutang KPR Bank BUKOPIN",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.004",
+      "perkiraan": "Piutang KPR Bank Mandiri",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.005",
+      "perkiraan": "Piutang KPR Bank Niaga",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.006",
+      "perkiraan": "PIUTANG KPR BANK BTN SYARIAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.007",
+      "perkiraan": "PIUTANG KPR BANK JATIM",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.008",
+      "perkiraan": "PIUTANG KPR BANK MUAMALAT",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.009",
+      "perkiraan": "PIUTANG KPR BANK PANIN",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.010",
+      "perkiraan": "PIUTANG KPR BANK STANDARD CHARTERED",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.011",
+      "perkiraan": "PIUTANG KPR BANK BRI",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.012",
+      "perkiraan": "PIUTANG KPR BANK BSI",
+      "tipe": "D"
+     },
+     {
+      "kode": 112.002,
+      "perkiraan": "Piutang Angsuran Rumah",
+      "tipe": "H"
+     },
+     {
+      "kode": "112.002.001",
+      "perkiraan": "PIUTANG ANGSURAN RUMAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.002.002",
+      "perkiraan": "PIUTANG ANGSURAN RUMAH TOKO",
+      "tipe": "D"
+     },
+     {
+      "kode": 112.003,
+      "perkiraan": "Piutang Angsuran Tanah Kavling",
+      "tipe": "H"
+     },
+     {
+      "kode": 112.004,
+      "perkiraan": "Piutang Angsuran Tanah Mentah",
+      "tipe": "H"
+     },
+     {
+      "kode": "112.004.001",
+      "perkiraan": "PIUTANG ANGSURAN TANAH",
+      "tipe": "D"
+     },
+     {
+      "kode": 112.005,
+      "perkiraan": "PIUTANG SEWA",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.001",
+      "perkiraan": "PIUTANG SEWA GEDUNG GRAHA YKP",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.002",
+      "perkiraan": "PIUTANG SEWA KAMAR WISMA WIJAYA KUSUMA",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.003",
+      "perkiraan": "PIUTANG CHARGE SEWA GEDUNG GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.004",
+      "perkiraan": "PIUTANG PENGELOLAAN LAHAN PARKIR",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.005",
+      "perkiraan": "PIUTANG SEWA TANAH DAN ATAU BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": 113,
+      "perkiraan": "PIUTANG LAIN-LAIN",
+      "tipe": "H"
+     },
+     {
+      "kode": "113.000.099",
+      "perkiraan": "Piutang Lainnya",
+      "tipe": "D"
+     },
+     {
+      "kode": "113.001.001",
+      "perkiraan": "Piutang Karyawan",
+      "tipe": "D"
+     },
+     {
+      "kode": "113.001.002",
+      "perkiraan": "Piutang ",
+      "tipe": "D"
+     },
+     {
+      "kode": "113.001.003",
+      "perkiraan": "Piutang ",
+      "tipe": "D"
+     },
+     {
+      "kode": 114,
+      "perkiraan": "UANG MUKA",
+      "tipe": "H"
+     },
+     {
+      "kode": "114.001.001",
+      "perkiraan": "Uang Muka Biaya",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.001.002",
+      "perkiraan": "Uang Muka Pembelian Tanah",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.001.003",
+      "perkiraan": "UANG MUKA PEMBELIAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.001",
+      "perkiraan": "PPh Pasal 25 Badan",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.002",
+      "perkiraan": "PPN Masukan Dapat Dikreditkan",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.003",
+      "perkiraan": "PPn Keluaran",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.004",
+      "perkiraan": "PPh Pasal 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.005",
+      "perkiraan": "PPh Final Jasa Konstruksi",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.006",
+      "perkiraan": "PPh Pasal.29",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.007",
+      "perkiraan": "PPN DN Setor Sendiri",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.008",
+      "perkiraan": "PPN DN DIBAYAR DIMUKA",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.004.001",
+      "perkiraan": "PPh pasal 4 Ayat 2 atas Sewa Tanah dan bangunan",
+      "tipe": "D"
+     },
+     {
+      "kode": 114.02,
+      "perkiraan": "Uang Muka Pajak",
+      "tipe": "H"
+     },
+     {
+      "kode": "114.020.001",
+      "perkiraan": "PPH PASAL 4 AYAT 2 DM",
+      "tipe": "D"
+     },
+     {
+      "kode": 115,
+      "perkiraan": "PERSEDIAAN BAHAN BANGUNAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 115.001,
+      "perkiraan": "Persediaan Bahan Bangunan Gudang SURABAYA",
+      "tipe": "H"
+     },
+     {
+      "kode": 115.002,
+      "perkiraan": "Persediaan Bahan Bangunan Gudang GRESIK",
+      "tipe": "H"
+     },
+     {
+      "kode": 116,
+      "perkiraan": "PERSEDIAAN TANAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 116.001,
+      "perkiraan": "Persediaan Tanah Mentah",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.001.001",
+      "perkiraan": "Tanah Mentah Boboh, Gresik",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.002",
+      "perkiraan": "Tanah Mentah Skodeoarjo",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.003",
+      "perkiraan": "Tanah Mentah Medokan Ayu",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.004",
+      "perkiraan": "Tanah Mentah Wonorejo",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.005",
+      "perkiraan": "Tanah Mentah Gunung Anyar",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.006",
+      "perkiraan": "TANAH MENTAH THE MEDAYU CITY (MA II )",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.007",
+      "perkiraan": "TANAH MENTAH TENGGILIS MEJOYO SELATAN",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.008",
+      "perkiraan": "Tanah Mentah Penjaringan Sari",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.009",
+      "perkiraan": "Tanah Mentah Gresik ?",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.010",
+      "perkiraan": "TANAH MENTAH PANDUGO I",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.011",
+      "perkiraan": "TANAH MENTAH PANDUGO II",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.012",
+      "perkiraan": "TANAH MENTAH GRIYA PESONA ASRI",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": 116.002,
+      "perkiraan": "Persediaan Tanah Dalam Proses",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.002.001",
+      "perkiraan": "Tanah Dalam Proses Boboh, Gresik",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "116.002.002",
+      "perkiraan": "Tanah Dalam Proses Skodeoarjo",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "116.002.003",
+      "perkiraan": "Tanah Dalam Proses Medokan Ayu",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "116.002.004",
+      "perkiraan": "Tanah Dalam Proses Wonorejo  ( Green Leaf)",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": 116.003,
+      "perkiraan": "Persediaan Tanah Kavling",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.003.001",
+      "perkiraan": "Tanah Kavling Griya Kencana Asri",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.002",
+      "perkiraan": "Tanah Kavling Griya Pesona Asri",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.003",
+      "perkiraan": "Tanah Kavling Penjaringan Sari II",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.004",
+      "perkiraan": "Tanah Kavling Taman Rivera Regency",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.005",
+      "perkiraan": "Tanah Kavling Prambon Asri",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.006",
+      "perkiraan": "Tanah Kavling Green Leaf",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.007",
+      "perkiraan": "Tanah Kavling Wonorejo Asri",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.008",
+      "perkiraan": "Tanah Kavling Pandugo I ",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.009",
+      "perkiraan": "Tanah Kavling Pandugo II",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.010",
+      "perkiraan": "Tanah Kavling Penjaringan Sari I",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.011",
+      "perkiraan": "TANAH KAVLING MEDOKAN AYU",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.012",
+      "perkiraan": "TANAH KAVLING GPR",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.013",
+      "perkiraan": "TANAH KAVLING VILLA EDELWEIS",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.014",
+      "perkiraan": "TANAH KAVLING ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.015",
+      "perkiraan": "TANAH KAVLING TENGGILIS MEJOYO SELATAN",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": 116.004,
+      "perkiraan": "PERSEDIAAN PERLENGKAPAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.004.001",
+      "perkiraan": "PERLENGKAPAN",
+      "tipe": "D"
+     },
+     {
+      "kode": 116.999,
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.999.001",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING GKA",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.002",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING GPA",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.003",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING PS.II",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.004",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING TRR",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.005",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING PA",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.006",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING GREEN LEAF",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.007",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING WONOREJO AS",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.008",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING P I",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.009",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING P II",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.010",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING PS II",
+      "tipe": "D"
+     },
+     {
+      "kode": 117,
+      "perkiraan": "PERSEDIAAN RUMAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 117.001,
+      "perkiraan": "Persediaan Rumah Dalam Proses",
+      "tipe": "H"
+     },
+     {
+      "kode": "117.001.001",
+      "perkiraan": "Rumah Dalam Proses Griya Kencana Asri",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.002",
+      "perkiraan": "Rumah Dalam Proses Griya Pesona Asri",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.003",
+      "perkiraan": "Rumah Dalam Proses Penjaringan Sari II",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.004",
+      "perkiraan": "Rumah Dalam Proses Taman Rivera Regency",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.005",
+      "perkiraan": "Rumah Dalam Proses Prambon Asri",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.006",
+      "perkiraan": "Rumah Dalam Proses Pandugo I",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.007",
+      "perkiraan": "Rumah Dalam Proses Wonorejo Asri",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.008",
+      "perkiraan": "Rumah Dalam Proses Pandugo II",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.009",
+      "perkiraan": "Rumah Dalam Proses Wisma Medokan",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.010",
+      "perkiraan": "Rumah Dalam Proses Tenggilis Mejoyo ",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.011",
+      "perkiraan": "Rumah Dalam Proses Green Leaf",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.012",
+      "perkiraan": "Rumah Dalam Proses Penjaringan Sari I",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.013",
+      "perkiraan": "RUMAH DALAM PROSES MEDOKAN AYU III",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.014",
+      "perkiraan": "RUMAH DALAM PROSES GPR",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.015",
+      "perkiraan": "RUMAH DALAM PROSES GRIYA WONOREJO ASRI",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.016",
+      "perkiraan": "RUMAH DALAM PROSES VILLA EkodeELWEIS",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.017",
+      "perkiraan": "RUMAH DALAM PROSES ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.093",
+      "perkiraan": "BIAYA OVERHEAD TAMAN RIVERA REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.094",
+      "perkiraan": "BIAYA OVERHEAD PRAMBON ASRI",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.095",
+      "perkiraan": "BIAYA OVERHEAD PANDUGO I",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.096",
+      "perkiraan": "BIAYA OVERHEAD THE GREEN LEAF REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.097",
+      "perkiraan": "BIAYA OVERHEAD VILLA EDELWEIS",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.098",
+      "perkiraan": "BIAYA OVERHEAD ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.099",
+      "perkiraan": "Rumah Dalam Proses - Biaya Overhead",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.100",
+      "perkiraan": "BIAYA OVERHEAD WONOREJO",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": 117.002,
+      "perkiraan": "Persediaan Rumah Jadi",
+      "tipe": "H"
+     },
+     {
+      "kode": "117.002.001",
+      "perkiraan": "Persediaan Rumah Jadi Griya Kencana Asri",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.002",
+      "perkiraan": "Persediaan Rumah Jadi Griya Pesona Asri",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.003",
+      "perkiraan": "Persediaan Rumah Jadi Penjaringan Sari II",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.004",
+      "perkiraan": "Persediaan Rumah Jadi Taman Rivera Regency",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.005",
+      "perkiraan": "Persediaan Rumah Jadi Prambon Asri",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.006",
+      "perkiraan": "Persediaan Rumah Jadi Green Leaf",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.007",
+      "perkiraan": "Persediaan Rumah Jadi Wonorejo Asri",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.008",
+      "perkiraan": "Persediaan Rumah Jadi Penjaringan Sari I",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.009",
+      "perkiraan": "Persediaan Rumah Jadi Medokan Ayu III",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.010",
+      "perkiraan": "Persediaan Rumah Jadi Pandugo I",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.011",
+      "perkiraan": "Persediaan Rumah Jadi Pandugo II",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.012",
+      "perkiraan": "PERSEDIAAN RUMAH JADI GPR",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.013",
+      "perkiraan": "PERSEDIAAN RUMAH JADI WISMA MEDOKAN",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.014",
+      "perkiraan": "PERSEDIAAN RUMAH JADI VILLA EkodeELWEIS",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.015",
+      "perkiraan": "PERSEDIAAN RUKO TAMAN RIVERA REGENCY",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.016",
+      "perkiraan": "PERSEDIAAN RUMAH JADI ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.017",
+      "perkiraan": "PERSEDIAAN RUKO THE GREEN LEAF REGENCY",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": 117.011,
+      "perkiraan": "PERSEDIAAN RUKO DALAM PROSES",
+      "tipe": "H"
+     },
+     {
+      "kode": "117.011.001",
+      "perkiraan": "RUKO DALAM PROSES TAMAN RIVERA REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.002",
+      "perkiraan": "RUKO DALAM PROSES ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.003",
+      "perkiraan": "CLUB HOUSE DALAM PROSES THE MEDAYU CITY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.004",
+      "perkiraan": "RUKO DALAM PROSES THE GREEN LEAF REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.098",
+      "perkiraan": "BIAYA OVERHEAD RUKO THE GREEN LEAF REGEN",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.099",
+      "perkiraan": "BIAYA OVERHEAD RUKO TAMAN RIVERA REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": 12,
+      "perkiraan": "AKTIVA TkodeAK LANCAR",
+      "tipe": "H"
+     },
+     {
+      "kode": 121,
+      "perkiraan": "PIUTANG JANGKA PANJANG",
+      "tipe": "H"
+     },
+     {
+      "kode": "121.001.000",
+      "perkiraan": "Piutang YKP Kota Surabaya",
+      "tipe": "D"
+     },
+     {
+      "kode": "121.002.000",
+      "perkiraan": "Piutang Angsuran Rumah Jangka Panjang",
+      "tipe": "D"
+     },
+     {
+      "kode": 122,
+      "perkiraan": "BEBAN DITANGGUHKAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "122.001.000",
+      "perkiraan": "Ijin Lokasi",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.001.100",
+      "perkiraan": "BEBAN DITANGGUHKAN GREEN LEAF",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.001.101",
+      "perkiraan": "BEBAN DITANGGUHKAN MA.II",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.001.102",
+      "perkiraan": "BEBAN DITANGGUHKAN VILLA EDELWEIS",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.002.000",
+      "perkiraan": "Bunga Pinjaman YKP-KS",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.003.000",
+      "perkiraan": "Beban Promosi & Iklan",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.003.101",
+      "perkiraan": "KOMISI PENJUALAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.004.000",
+      "perkiraan": "Beban PBB",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.004.101",
+      "perkiraan": "PPH PASAL 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.004.102",
+      "perkiraan": "BEBAN LEMBUR",
+      "tipe": "D"
+     },
+     {
+      "kode": 123,
+      "perkiraan": "AKTIVA TETAP",
+      "tipe": "H"
+     },
+     {
+      "kode": 123.001,
+      "perkiraan": "Nilai Perolehan Aktiva Tetap",
+      "tipe": "H"
+     },
+     {
+      "kode": "123.001.001",
+      "perkiraan": "Bangunan",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.002",
+      "perkiraan": "Kendaraan",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.003",
+      "perkiraan": "Inventaris Kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.004",
+      "perkiraan": "Inventaris Proyek",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.005",
+      "perkiraan": "INVENTARIS GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.006",
+      "perkiraan": "KENDARAAN GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": 123.002,
+      "perkiraan": "Akumulasi Penyusutan Aktiva Tetap",
+      "tipe": "H"
+     },
+     {
+      "kode": "123.002.001",
+      "perkiraan": "AKUMULASI PENYUSUTAN BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.002",
+      "perkiraan": "AKUMULASI PENYUSUTAN KENDARAAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.003",
+      "perkiraan": "AKUMULASI PENYUSUTAN INVENTARIS KANTOR",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.004",
+      "perkiraan": "AKUMULASI INVENTARIS PROYEK",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.005",
+      "perkiraan": "AKUMULASI PENYUSUTAN INVENTARIS GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.006",
+      "perkiraan": "AKUMULASI PENYUSUTAN KENDARAAN GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.007",
+      "perkiraan": "AKUMULASI PENYUSUTAN PROPERTI INVESTASI",
+      "tipe": "D"
+     },
+     {
+      "kode": 124,
+      "perkiraan": "Aktiva Lain-Lain",
+      "tipe": "H"
+     },
+     {
+      "kode": "124.001.001",
+      "perkiraan": "ASURANSI SUNLIFE FINANCIAL",
+      "tipe": "D"
+     },
+     {
+      "kode": "124.001.002",
+      "perkiraan": "ASURANSI AIA",
+      "tipe": "D"
+     },
+     {
+      "kode": "124.001.003",
+      "perkiraan": "ASURANSI JIWASRAYA",
+      "tipe": "D"
+     },
+     {
+      "kode": 125,
+      "perkiraan": "PROPERTI INVESTASI ",
+      "tipe": "H"
+     },
+     {
+      "kode": "125.001.001",
+      "perkiraan": "GEDUNG GRAHA YKP ",
+      "tipe": "D"
+     },
+     {
+      "kode": "125.001.002",
+      "perkiraan": "LAHAN PARKIR PENJARINGAN SARI II",
+      "tipe": "D"
+     },
+     {
+      "kode": 2,
+      "perkiraan": "KEWAJIBAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 21,
+      "perkiraan": "KEWAJIBAN LANCAR",
+      "tipe": "H"
+     },
+     {
+      "kode": 211,
+      "perkiraan": "HUTANG USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": "211.001.000",
+      "perkiraan": "Hutang Usaha ",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.002.000",
+      "perkiraan": "Hutang Biaya Rumah Dalam Proses",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.003.000",
+      "perkiraan": "Hutang Biaya",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.004.000",
+      "perkiraan": "HUTANG BOOKING FEE",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.005.000",
+      "perkiraan": "HUTANG JAMINAN PELAKSANAAN KONSTRUKSI",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.009.000",
+      "perkiraan": "HUTANG LAIN-LAIN",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.009.001",
+      "perkiraan": "HUTANG NIAGA FINANCE",
+      "tipe": "D"
+     },
+     {
+      "kode": 212,
+      "perkiraan": "BIAYA YANG MASIH HARUS DIBAYAR",
+      "tipe": "H"
+     },
+     {
+      "kode": "212.001.000",
+      "perkiraan": "Listrik",
+      "tipe": "D"
+     },
+     {
+      "kode": "212.002.000",
+      "perkiraan": "Air",
+      "tipe": "D"
+     },
+     {
+      "kode": "212.003.000",
+      "perkiraan": "Telpon",
+      "tipe": "D"
+     },
+     {
+      "kode": "212.004.000",
+      "perkiraan": "Pengurusan Sertifikat",
+      "tipe": "D"
+     },
+     {
+      "kode": "212.005.000",
+      "perkiraan": "Tenaga Kerja Langsung",
+      "tipe": "D"
+     },
+     {
+      "kode": 213,
+      "perkiraan": "HUTANG PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": "213.001.000",
+      "perkiraan": "PPh. pasal 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.001",
+      "perkiraan": "HUTANG PAJAK PPH PASAL 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.002",
+      "perkiraan": "HUTANG PAJAK PPH PASAL 29",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.003",
+      "perkiraan": "HUTANG PAJAK PPN DN",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.004",
+      "perkiraan": "HUTANG PAJAK ATAS TANAH DAN BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.005",
+      "perkiraan": "HUTANG PAJAK PPH FINAL JASA KONSTRUKSI",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.006",
+      "perkiraan": "HUTANG PAJAK PPH  PSL 23",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.007",
+      "perkiraan": "HUTANG PAJAK PPH PASAL 4 AYAT 2  SEWA",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.008",
+      "perkiraan": "HUTANG PAJAK DAERAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.002.000",
+      "perkiraan": "PPh. pasal 21 Tahunan",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.003.000",
+      "perkiraan": "PPh. pasal 25",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.004.000",
+      "perkiraan": "PPh pasal 29",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.005.000",
+      "perkiraan": "PPh pasal 4 ayat (2)",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.006.000",
+      "perkiraan": "PPN Keluaran",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.007.000",
+      "perkiraan": "PPh pasal 4 ayat (2) Sewa Tanah dan Bangunan",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.008.000",
+      "perkiraan": "PPh Final Jasa Konstruksi",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.009.000",
+      "perkiraan": "PPh Pasal 23",
+      "tipe": "D"
+     },
+     {
+      "kode": 214,
+      "perkiraan": "HUTANG BANK",
+      "tipe": "H"
+     },
+     {
+      "kode": "214.001.000",
+      "perkiraan": "Hutang BNI '46",
+      "tipe": "D"
+     },
+     {
+      "kode": "214.002.000",
+      "perkiraan": "Hutang Bank Niaga",
+      "tipe": "D"
+     },
+     {
+      "kode": 215,
+      "perkiraan": "UANG MUKA PENJUALAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "215.001.000",
+      "perkiraan": "Uang Muka Penjualan Rumah",
+      "tipe": "D"
+     },
+     {
+      "kode": "215.002.000",
+      "perkiraan": "Uang Muka Penjualan Tanah Kavling",
+      "tipe": "D"
+     },
+     {
+      "kode": "215.003.000",
+      "perkiraan": "Uang Muka Penjualan Tanah Mentah",
+      "tipe": "D"
+     },
+     {
+      "kode": "215.004.000",
+      "perkiraan": "UANG MUKA BOOKING KAVLING",
+      "tipe": "D"
+     },
+     {
+      "kode": "215.005.000",
+      "perkiraan": "UANG MUKA NUP",
+      "tipe": "D"
+     },
+     {
+      "kode": 216,
+      "perkiraan": "HUTANG AFILIASI",
+      "tipe": "H"
+     },
+     {
+      "kode": "216.001.000",
+      "perkiraan": "Hutang YKP Kota Surabaya",
+      "tipe": "D"
+     },
+     {
+      "kode": 217,
+      "perkiraan": "UANG MUKA SEWA",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.001.000",
+      "perkiraan": "UANG MUKA SEWA GEDUNG GRAHA YKP",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.002.000",
+      "perkiraan": "UANG MUKA CHARGE GEDUNG",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.003.000",
+      "perkiraan": "UANG MUKA SEWA WISMA",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.004.000",
+      "perkiraan": "UANG MUKA SEWA STAND",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.005.000",
+      "perkiraan": "UANG MUKA PENGELOLAAN PARKIR",
+      "tipe": "D"
+     },
+     {
+      "kode": 22,
+      "perkiraan": "KEWAJIBAN JANGKA PANJANG",
+      "tipe": "H"
+     },
+     {
+      "kode": 221,
+      "perkiraan": "KEWAJIBAN DITANGGUHKAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "221.001.000",
+      "perkiraan": "Kewajiban Ditangguhkan Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.002.000",
+      "perkiraan": "Kewajiban Ditangguhkan Penjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.003.000",
+      "perkiraan": "Kewajiban Ditangguhkan Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.004.000",
+      "perkiraan": "Kewajiban Ditangguhkan Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.005.000",
+      "perkiraan": "Kewajiban Ditangguhkan Griyo Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.006.000",
+      "perkiraan": "Kewajiban Ditangguhkan Green Leaf ",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.007.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Tenggilis Mejoyo",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.008.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Pandugo I",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.009.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.010.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Griyo Alam Hijau",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.011.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Griyo Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.012.000",
+      "perkiraan": "Kewajiban Ditangguhkan Penjaringan Sari I",
+      "tipe": "D"
+     },
+     {
+      "kode": 222,
+      "perkiraan": "KEWAJIBAN DIESTIMASI",
+      "tipe": "H"
+     },
+     {
+      "kode": "222.001.000",
+      "perkiraan": "Imbalan Masa\/Pasca Kerja Karyawan",
+      "tipe": "D"
+     },
+     {
+      "kode": 223,
+      "perkiraan": "PENDAPATAN DITERIMA DIMUKA",
+      "tipe": "H"
+     },
+     {
+      "kode": "223.001.000",
+      "perkiraan": "PENDAPATAN SEWA TANAH DAN ATAU BANGUNAN ",
+      "tipe": "D"
+     },
+     {
+      "kode": 3,
+      "perkiraan": "EKUITAS",
+      "tipe": "H"
+     },
+     {
+      "kode": 31,
+      "perkiraan": "EKUITAS",
+      "tipe": "H"
+     },
+     {
+      "kode": "311.000.000",
+      "perkiraan": "MODAL DISETOR DIMUKA",
+      "tipe": "D"
+     },
+     {
+      "kode": "312.000.000",
+      "perkiraan": "MODAL DISETOR",
+      "tipe": "D"
+     },
+     {
+      "kode": "314.000.000",
+      "perkiraan": "LABA DITAHAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "315.000.000",
+      "perkiraan": "LABA (RUGI) TAHUN BERJALAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "316.000.000",
+      "perkiraan": "CADANGAN WAJIB",
+      "tipe": "D"
+     },
+     {
+      "kode": 4,
+      "perkiraan": "PENDAPATAN USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 41,
+      "perkiraan": "PENDAPATAN USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 411,
+      "perkiraan": "PENJUALAN RUMAH",
+      "tipe": "H"
+     },
+     {
+      "kode": "411.001.000",
+      "perkiraan": "Penjualan Rumah Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.002.000",
+      "perkiraan": "Penjualan Rumah Griya Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.003.000",
+      "perkiraan": "Penjualan Rumah Penjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.004.000",
+      "perkiraan": "Penjualan Rumah Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.005.000",
+      "perkiraan": "Penjualan Rumah Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.006.000",
+      "perkiraan": "Penjualan Rumah Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.007.000",
+      "perkiraan": "Penjualan Rumah Wisma Medokan",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.008.000",
+      "perkiraan": "Penjualan Rumah Pandugo I",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.009.000",
+      "perkiraan": "Penjualan Rumah Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.010.000",
+      "perkiraan": "Penjualan Green Leaf",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.011.000",
+      "perkiraan": "PENJUALAN RUMAH PENJARINGAN SARI I",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.012.000",
+      "perkiraan": "PENJUALAN RUMAH MEDOKAN AYU III",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.013.000",
+      "perkiraan": "PENJUALAN RUMAH DI TENGGILIS MEJOYO SEL",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.014.000",
+      "perkiraan": "PENJUALAN RUMAH GPR",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.015.000",
+      "perkiraan": "PENJUALAN RUMAH TOKO TAMAN RIVERA REGENC",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.016.000",
+      "perkiraan": "PENJUALAN VILLA EkodeELWEIS",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.017.000",
+      "perkiraan": "PENJUALAN ECO MEDAYU",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.018.000",
+      "perkiraan": "PENJUALAN RUMAH TOKO THE GREEN LEAF REGE",
+      "tipe": "D"
+     },
+     {
+      "kode": 412,
+      "perkiraan": "PENJUALAN TANAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 412.001,
+      "perkiraan": "Penjualan Tanah Kavling",
+      "tipe": "H"
+     },
+     {
+      "kode": "412.001.001",
+      "perkiraan": "Penjualan Tanah Kavling Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.002",
+      "perkiraan": "Penjualan Tanah Kavling Griya Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.003",
+      "perkiraan": "Penjualan Tanah Kavling Penjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.004",
+      "perkiraan": "Penjualan Tanah Kavling Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.005",
+      "perkiraan": "Penjualan Tanah Kavling Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.006",
+      "perkiraan": "Penjualan Tanah Kavling Rungkut Kkodeul",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.007",
+      "perkiraan": "Penjualan Tanah Kavling Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.008",
+      "perkiraan": "Penjualan Tanah Kavling Gunung Anyar",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.009",
+      "perkiraan": "Penjualan Tanah Kavling Medokan Ayu",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.010",
+      "perkiraan": "Penjualan Tanah Kavling Pandugo I",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.011",
+      "perkiraan": "Penjualan Tanah Kavling Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.012",
+      "perkiraan": "Penjualan Tanah Kavling Tenggilis",
+      "tipe": "D"
+     },
+     {
+      "kode": 412.002,
+      "perkiraan": "Penjualan Tanah Mentah",
+      "tipe": "H"
+     },
+     {
+      "kode": "412.002.001",
+      "perkiraan": "Penjualan Tanah Mentah Boboh, Gresik",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.002.002",
+      "perkiraan": "Penjualan Tanah Mentah Medokan Ayu ",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.002.003",
+      "perkiraan": "Penjualan Tanah Mentah Wonorejo",
+      "tipe": "D"
+     },
+     {
+      "kode": 413,
+      "perkiraan": "PENDAPATAN USAHA LAINNYA",
+      "tipe": "H"
+     },
+     {
+      "kode": "413.001.000",
+      "perkiraan": "Pendapatan Renovasi Rumah",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.002.000",
+      "perkiraan": "Pendapatan Kerja Tambah",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.003.000",
+      "perkiraan": "PENDAPATAN SEWA GEDUNG GRAHA YKP",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.004.000",
+      "perkiraan": "PENDAPATAN SEWA KAMAR WISMA WIJAYA KUSUM",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.005.000",
+      "perkiraan": "PENDAPATAN PENGELOLAAN LAHAN PARKIR",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.006.000",
+      "perkiraan": "PENDAPATAN CHARGE GEDUNG GRAHA ",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.007.000",
+      "perkiraan": "PENDAPATAN SEWA STAND",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.008.000",
+      "perkiraan": "PENDAPATAN SEWA TANAH DAN ATAU BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": 5,
+      "perkiraan": "BEBAN POKOK",
+      "tipe": "H"
+     },
+     {
+      "kode": 51,
+      "perkiraan": "BEBAN POKOK PENJUALAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 511,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 511.001,
+      "perkiraan": "Beban Pokok Penjualan Rumah Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.002,
+      "perkiraan": "Beban Pokok Penjualan Rumah Griya Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.003,
+      "perkiraan": "Beban Pokok Penjualan Rumah Penjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.004,
+      "perkiraan": "Beban Pokok Penjualan Rumah Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.005,
+      "perkiraan": "Beban Pokok Penjualan Rumah Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.006,
+      "perkiraan": "Beban Pokok Penjualan Rumah Green Leaf",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.007,
+      "perkiraan": "Beban Pokok Penjualan Rumah Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.008,
+      "perkiraan": "Beban Pokok Penjualan Rumah Pandugo I ",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.009,
+      "perkiraan": "Beban Pokok Penjualan Rumah Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.01,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH MEDOKAN AYU",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.011,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH TENGGILIS M",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.012,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH WISMA MEDOKA",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.013,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUKO TAMAN RIVERA ",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.014,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH VILLA EkodeELW",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.015,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH GPR",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.016,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH ECO MEDAYU",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.017,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUKO THE GREEN LEA",
+      "tipe": "D"
+     },
+     {
+      "kode": 512,
+      "perkiraan": "BEBAN POKOK PENJUALAN TANAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 512.001,
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling",
+      "tipe": "H"
+     },
+     {
+      "kode": "512.001.001",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.002",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Griya Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.003",
+      "perkiraan": "Beban Pokok Penjualan Tanah KavlingPenjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.004",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.005",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.006",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Green Leaf",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.007",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.008",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Pandugo I ",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.009",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.010",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Tenggilis",
+      "tipe": "D"
+     },
+     {
+      "kode": 512.002,
+      "perkiraan": "Beban Pokok Penjualan Tanah Mentah",
+      "tipe": "H"
+     },
+     {
+      "kode": "512.002.001",
+      "perkiraan": "Beban Pokok Penjualan Tanah Mentah Boboh, Gresik",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.002.002",
+      "perkiraan": "Beban Pokok Penjualan Tanah Mentah Medokan Ayu",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.002.003",
+      "perkiraan": "Beban Pokok Penjualan Tanah Mentah Gunung Anyar",
+      "tipe": "D"
+     },
+     {
+      "kode": 513,
+      "perkiraan": "BEBAN POKOK USAHA LAINNYA",
+      "tipe": "H"
+     },
+     {
+      "kode": "513.001.000",
+      "perkiraan": "Beban Pokok Renovasi Rumah",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.001.100",
+      "perkiraan": "BEBAN PENGURUSAN SERTIFIKAT",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.002.000",
+      "perkiraan": "BEBAN TENAGA KERJA LANGSUNG",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.003.000",
+      "perkiraan": "BEBAN PEMELIHARAAN PERSEDIAAN RUMAH JADI",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.004.000",
+      "perkiraan": "BEBAN PEMELIHARAAN SARANA PRASARANA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.005.000",
+      "perkiraan": "BEBAN PENGAWASAN LINGKUNGAN PROYEK",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.006.000",
+      "perkiraan": "BEBAN KONSULTAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.007.000",
+      "perkiraan": "BEBAN GAJI KARYAWAN GEDUNG GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.008.000",
+      "perkiraan": "BEBAN HONOR TEAM EVENT",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.009.000",
+      "perkiraan": "BEBAN UPAH HARIAN \/ HONORARIUM",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.010.000",
+      "perkiraan": "BEBAN OPERASIONAL EVENT",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.011.000",
+      "perkiraan": "BEBAN INSENTIF",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.012.000",
+      "perkiraan": "BEBAN TUNJANGAN HARI RAYA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.013.000",
+      "perkiraan": "BEBAN BPJS KESEHATAN & TENAGA KERJA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.014.000",
+      "perkiraan": "BEBAN PERALATAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.015.000",
+      "perkiraan": "BEBAN UTILITY",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.016.000",
+      "perkiraan": "BEBAN PAKAIAN SERAGAM",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.017.000",
+      "perkiraan": "BEBAN ENTERTAINTMENT",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.018.000",
+      "perkiraan": "BEBAN PEMBELIAN BBM",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.019.000",
+      "perkiraan": "BEBAN PEMELIHARAAN & PERBAIKAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.020.000",
+      "perkiraan": "BEBAN RUMAH TANGGA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.021.000",
+      "perkiraan": "BEBAN PENYUSUTAN PROPERTI INVESTASI",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.022.000",
+      "perkiraan": "BEBAN PAJAK DAERAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.023.000",
+      "perkiraan": "BEBAN UMUM LAINNYA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.024.000",
+      "perkiraan": "BEBAN PENYUSUTAN INVENTARIS GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.025.000",
+      "perkiraan": "BEBAN PENYUSUTAN KENDARAAN GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.026.000",
+      "perkiraan": "BIAYA PROMOSI",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.027.000",
+      "perkiraan": "BEBAN PENGAMANAN ASET TANAH MENTAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.028.000",
+      "perkiraan": "BEBAN NARASUMBER \/ PENDAMPINGAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.029.000",
+      "perkiraan": "BEBAN PERLENGKAPAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.030.000",
+      "perkiraan": "BEBAN PEMELIHARAAN ASET",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.031.000",
+      "perkiraan": "BEBAN PEMELIHARAAN TANAMAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.032.000",
+      "perkiraan": "BEBAN KONSUMSI",
+      "tipe": "D"
+     },
+     {
+      "kode": 6,
+      "perkiraan": "BEBAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 61,
+      "perkiraan": "BEBAN USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 611,
+      "perkiraan": "BEBAN PENJUALAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "611.001.000",
+      "perkiraan": "Beban BBM",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.002.000",
+      "perkiraan": "Beban Promosi & Iklan",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.003.000",
+      "perkiraan": "Komisi Penjualan",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.004.000",
+      "perkiraan": "BEBAN LAIN-LAIN MARKETING",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.005.000",
+      "perkiraan": "BEBAN PERLENGKAPAN PROMOSI",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.006.000",
+      "perkiraan": "BEBAN PAMERAN & EVENT",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.007.000",
+      "perkiraan": "BEBAN BONUS PRODUK",
+      "tipe": "D"
+     },
+     {
+      "kode": 612,
+      "perkiraan": "BEBAN UMUM DAN ADMINISTRASI",
+      "tipe": "H"
+     },
+     {
+      "kode": 612.001,
+      "perkiraan": "Beban Pegawai",
+      "tipe": "H"
+     },
+     {
+      "kode": "612.001.001",
+      "perkiraan": "Gaji Pegawai",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.002",
+      "perkiraan": "Honorarium Komisaris",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.003",
+      "perkiraan": "Lembur ",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.004",
+      "perkiraan": "Tunjangan Hari Raya ",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.005",
+      "perkiraan": "Premi\/insentif",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.006",
+      "perkiraan": "Astek ",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.007",
+      "perkiraan": "Pajak PPh Pasal 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.008",
+      "perkiraan": "Pakaian Dinas",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.009",
+      "perkiraan": "Pendkodeikan\/ Pelatihan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.010",
+      "perkiraan": "Seminar\/ Penataran",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.011",
+      "perkiraan": "Lain-lain Beban Pegawai",
+      "tipe": "D"
+     },
+     {
+      "kode": 612.002,
+      "perkiraan": "BEBAN UMUM KANTOR",
+      "tipe": "H"
+     },
+     {
+      "kode": "612.002.001",
+      "perkiraan": "Beban Alat Tulis Kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.002",
+      "perkiraan": "Beban Foto Copy & Cetakan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.003",
+      "perkiraan": "Beban Materai",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.004",
+      "perkiraan": "Beban Sewa Gedung",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.005",
+      "perkiraan": "Beban Listrik",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.006",
+      "perkiraan": "Beban Telpon",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.007",
+      "perkiraan": "Beban Air PDAM",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.008",
+      "perkiraan": "Beban Konsumsi Kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.009",
+      "perkiraan": "Beban PBB",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.010",
+      "perkiraan": "BEBAN BBM, TOL & PARKIR",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.011",
+      "perkiraan": "Beban Pajak Kendaraan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.012",
+      "perkiraan": "Beban Konsultan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.013",
+      "perkiraan": "Sumbangan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.014",
+      "perkiraan": "Denda Pajak",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.015",
+      "perkiraan": "Iuran Anggota REI",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.016",
+      "perkiraan": "Beban Perjalanan Dinas",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.017",
+      "perkiraan": "Beban Penyusutan Kendaraan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.018",
+      "perkiraan": "Beban Penyusutan Inventaris Kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.019",
+      "perkiraan": "Beban Penyusutan Inventaris Proyek",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.020",
+      "perkiraan": "Beban Pemeliharaan Aktiva Tetap",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.021",
+      "perkiraan": "Beban Pemeliharaan Persediaan Rumah Jadi",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.022",
+      "perkiraan": "Beban Pemeliharaan Sarana Prasarana",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.023",
+      "perkiraan": "Beban Pengawasan Lingkungan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.024",
+      "perkiraan": "Beban Lain-lain kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.025",
+      "perkiraan": "Devkodeen",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.026",
+      "perkiraan": "BEBAN PEMELIHARAAN KANTOR",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.027",
+      "perkiraan": "BEBAN PEMELIHARAAN KENDARAAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.028",
+      "perkiraan": "BEBAN PENYUSUTAN BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.029",
+      "perkiraan": "BEBAN CADANGAN PASCA KERJA",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.030",
+      "perkiraan": "BEBAN KETERLAMBATAN PENYERAHAN RUMAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.031",
+      "perkiraan": "BEBAN PENGHAPUSAN PIUTANG USAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.032",
+      "perkiraan": "BEBAN SATUAN PENGAMANAN PROYEK",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.033",
+      "perkiraan": "BIAYA RUMAH TANGGA",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.034",
+      "perkiraan": "BEBAN SEWA ",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.035",
+      "perkiraan": "BEBAN JASA",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.036",
+      "perkiraan": "BEBAN PERLENGKAPAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.037",
+      "perkiraan": "BEBAN PENGHAPUSAN ASET",
+      "tipe": "D"
+     },
+     {
+      "kode": 613,
+      "perkiraan": "BEBAN PROYEK"
+     },
+     {
+      "kode": "613.001.001",
+      "perkiraan": "BEBAN LAIN-LAIN PROYEK",
+      "tipe": "D"
+     },
+     {
+      "kode": 7,
+      "perkiraan": "PENDAPATAN DAN BEBAN DI LUAR USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 71,
+      "perkiraan": "PENDAPATAN DAN BEBAN DI LUAR USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 711,
+      "perkiraan": "PENDAPATAN DI LUAR USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": "711.001.000",
+      "perkiraan": "Jasa Giro",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.002.000",
+      "perkiraan": "Bunga Deposito",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.003.000",
+      "perkiraan": "Laba Penjualan Aktiva tetap",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.004.000",
+      "perkiraan": "Pendapatan Lainnya",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.005.000",
+      "perkiraan": "Pendapatan DENDA ANGSURAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.006.000",
+      "perkiraan": "PENDAPATAN DENDA KONTRAKTOR",
+      "tipe": "D"
+     },
+     {
+      "kode": 712,
+      "perkiraan": "BEBAN DI LUAR USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": "712.001.000",
+      "perkiraan": "Beban Bunga Pinjaman Bank",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.002.000",
+      "perkiraan": "Beban Administrasi Bank",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.003.000",
+      "perkiraan": "Beban PPh pasal 23 Jasa Giro",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.004.000",
+      "perkiraan": "Beban PPh pasal 23 Bunga Deposito",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.005.000",
+      "perkiraan": "Rugi Penjualan Aktiva Tetap",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.006.000",
+      "perkiraan": "Beban di Luar Usaha Lainnya",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.007.000",
+      "perkiraan": "BEBAN PPH PASAL 21",
+      "tipe": "D"
+     },
+     {
+      "kode": 8,
+      "perkiraan": "BEBAN PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": 81,
+      "perkiraan": "BEBAN PAJAK PENGHASILAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 811,
+      "perkiraan": "PAJAK PENGHASILAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "811.001.000",
+      "perkiraan": "PPH PS 25 \/ 29",
+      "tipe": "D"
+     },
+     {
+      "kode": "811.002.000",
+      "perkiraan": "Pajak Penghasilan PPh pasal 4 ayat (2)",
+      "tipe": "D"
+     },
+     {
+      "kode": "811.003.000",
+      "perkiraan": "PAJAK PENGHASILAN PPH 23",
+      "tipe": "D"
+     },
+     {
+      "kode": 9,
+      "perkiraan": "LABA BERSIH SETELAH PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": 91,
+      "perkiraan": "LABA BERSIH SETELAH PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": 911,
+      "perkiraan": "LABA BERSIH SETELAH PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": "911.001.000",
+      "perkiraan": "Laba Bersih Setelah Pajak",
+      "tipe": "D"
+     },
+     {
+      "kode": "999.999.999",
+      "perkiraan": "AYAT SILANG",
+      "tipe": "D"
+     }
+    ],
+    "PERKIRAAN 240124":[
+     {
+      "Column9": "Hal :"
+     },
+     {
+      "kode": "MASTER BUKU BESAR PERKIRAAN ( REVISI )"
+     },
+     null,
+     {
+      "kode": "NOMOR",
+      "perkiraan": "JENIS",
+      "Column7": "Type",
+      "Column11": "Code"
+     },
+     {
+      "kode": 1,
+      "perkiraan": "AKTIVA",
+      "tipe": "H"
+     },
+     {
+      "kode": 11,
+      "perkiraan": "AKTIVA LANCAR",
+      "tipe": "H"
+     },
+     {
+      "kode": 111,
+      "perkiraan": "KAS SETARA KAS",
+      "tipe": "H"
+     },
+     {
+      "kode": 111.001,
+      "perkiraan": "KAS",
+      "tipe": "H"
+     },
+     {
+      "kode": "111.001.001",
+      "perkiraan": "Kas Besar",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.002",
+      "perkiraan": "KAS KECIL YANTO",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.003",
+      "perkiraan": "Kas Kecil Teknik Proyek Sby",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.004",
+      "perkiraan": "KAS KECIL KANTOR",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.005",
+      "perkiraan": "Kas Kecil Perijinan",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.006",
+      "perkiraan": "Kas Kecil Administrasi",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.007",
+      "perkiraan": "Kas Kecil Pembangunan",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.008",
+      "perkiraan": "Kas Kecil Pemasaran",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.009",
+      "perkiraan": "KAS KECIL ME (MANAGEMENT ESTATE)",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.010",
+      "perkiraan": "KAS GRAHA YKP",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.099",
+      "perkiraan": "Kas\/ Bank Instransit",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.001.100",
+      "perkiraan": "KAS KECIL GUGUS TUGAS",
+      "tipe": "D"
+     },
+     {
+      "kode": 111.002,
+      "perkiraan": "BANK",
+      "tipe": "H"
+     },
+     {
+      "kode": "111.002.001",
+      "perkiraan": "Giro BCA AC No.0101640654",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.002",
+      "perkiraan": "Giro Bank BNI AC No. 0035824698 (Cabang Tanjung Perak)",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.003",
+      "perkiraan": "Giro Bank BNI AC No. 0046219112",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.004",
+      "perkiraan": "Giro Bank BUKOPIN AC No.100.3133.11-3",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.005",
+      "perkiraan": "Giro Bank Mandiri AC No.142-00-3636363-7",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.006",
+      "perkiraan": "GIRO BANK NIAGA AC. 112-01-00014-0-00-3",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.007",
+      "perkiraan": "GIRO BANK BRI AC.00000360-01-000168-30-1",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.008",
+      "perkiraan": "Giro BNI Escrow AC.2335338332",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.009",
+      "perkiraan": "Giro Bank Mandiri Escrow AC No.142-00-0473805-9",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.010",
+      "perkiraan": "Giro BCA AC No.0101641456 (ESCROW)",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.011",
+      "perkiraan": "GIRO BTN SYARIAH AC NO.7031000355",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.012",
+      "perkiraan": "TABUNGAN BUKOPIN AC  NO.1301200044",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.013",
+      "perkiraan": "TABUNGAN BTPN AC NO.0385.0.034752",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.014",
+      "perkiraan": "GIRO BANK BUKOPIN AC NO.100.6040.11.6",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.015",
+      "perkiraan": "GIRO BTN ESCROW AC. 00058-01-32-000005-0",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.016",
+      "perkiraan": "TABUNGAN OCBC NISP ",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.017",
+      "perkiraan": "TABUNGAN BRI",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.018",
+      "perkiraan": "TABUNGAN BTN SYARIAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.019",
+      "perkiraan": "TABUNGAN CIMB NIAGA",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.020",
+      "perkiraan": "TABUNGAN PANIN SYARIAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.021",
+      "perkiraan": "BTN GIRO AC. 0002-01-30-001361-8",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.022",
+      "perkiraan": "BANK BNI AC. 5258999975",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.023",
+      "perkiraan": "TABUNGAN BNI AC. 6677885536",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.002.024",
+      "perkiraan": "GIRO BSI MUDHARABAH UMUM AC. 5550005877",
+      "tipe": "D"
+     },
+     {
+      "kode": 111.003,
+      "perkiraan": "DEPOSITO",
+      "tipe": "H"
+     },
+     {
+      "kode": "111.003.001",
+      "perkiraan": "Deposito BCA",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.002",
+      "perkiraan": "Deposito Bank BNI",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.003",
+      "perkiraan": "Deposito Bank Bukopin",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.004",
+      "perkiraan": "Deposito Bank Mandiri",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.005",
+      "perkiraan": "Deposito Bank Niaga",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.007",
+      "perkiraan": "Deposito Bank BTN Syariah",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.008",
+      "perkiraan": "DEPOSITO BANK BTPN",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.009",
+      "perkiraan": "DEPOSITO BANK PANIN SYARIAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.010",
+      "perkiraan": "DEPOSITO BANK NISP",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.011",
+      "perkiraan": "DEPOSITO JIWASRAYA",
+      "tipe": "D"
+     },
+     {
+      "kode": "111.003.012",
+      "perkiraan": "DEPOSITO BANK BRI",
+      "tipe": "D"
+     },
+     {
+      "kode": 112,
+      "perkiraan": "PIUTANG USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 112.001,
+      "perkiraan": "Piutang KPR",
+      "tipe": "H"
+     },
+     {
+      "kode": "112.001.001",
+      "perkiraan": "Piutang KPR BCA",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.002",
+      "perkiraan": "Piutang KPR Bank BNI",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.003",
+      "perkiraan": "Piutang KPR Bank BUKOPIN",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.004",
+      "perkiraan": "Piutang KPR Bank Mandiri",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.005",
+      "perkiraan": "Piutang KPR Bank Niaga",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.006",
+      "perkiraan": "PIUTANG KPR BANK BTN SYARIAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.007",
+      "perkiraan": "PIUTANG KPR BANK JATIM",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.008",
+      "perkiraan": "PIUTANG KPR BANK MUAMALAT",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.009",
+      "perkiraan": "PIUTANG KPR BANK PANIN",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.010",
+      "perkiraan": "PIUTANG KPR BANK STANDARD CHARTERED",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.011",
+      "perkiraan": "PIUTANG KPR BANK BRI",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.001.012",
+      "perkiraan": "PIUTANG KPR BANK BSI",
+      "tipe": "D"
+     },
+     {
+      "kode": 112.002,
+      "perkiraan": "Piutang Angsuran Rumah",
+      "tipe": "H"
+     },
+     {
+      "kode": "112.002.001",
+      "perkiraan": "PIUTANG ANGSURAN RUMAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.002.002",
+      "perkiraan": "PIUTANG ANGSURAN RUMAH TOKO",
+      "tipe": "D"
+     },
+     {
+      "kode": 112.003,
+      "perkiraan": "Piutang Angsuran Tanah Kavling",
+      "tipe": "H"
+     },
+     {
+      "kode": 112.004,
+      "perkiraan": "Piutang Angsuran Tanah Mentah",
+      "tipe": "H"
+     },
+     {
+      "kode": "112.004.001",
+      "perkiraan": "PIUTANG ANGSURAN TANAH",
+      "tipe": "D"
+     },
+     {
+      "kode": 112.005,
+      "perkiraan": "PIUTANG SEWA",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.001",
+      "perkiraan": "PIUTANG SEWA GEDUNG GRAHA YKP",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.002",
+      "perkiraan": "PIUTANG SEWA KAMAR WISMA WIJAYA KUSUMA",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.003",
+      "perkiraan": "PIUTANG CHARGE SEWA GEDUNG GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.004",
+      "perkiraan": "PIUTANG PENGELOLAAN LAHAN PARKIR",
+      "tipe": "D"
+     },
+     {
+      "kode": "112.005.005",
+      "perkiraan": "PIUTANG SEWA TANAH DAN ATAU BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": 113,
+      "perkiraan": "PIUTANG LAIN-LAIN",
+      "tipe": "H"
+     },
+     {
+      "kode": "113.000.099",
+      "perkiraan": "Piutang Lainnya",
+      "tipe": "D"
+     },
+     {
+      "kode": "113.001.001",
+      "perkiraan": "Piutang Karyawan",
+      "tipe": "D"
+     },
+     {
+      "kode": "113.001.002",
+      "perkiraan": "Piutang ",
+      "tipe": "D"
+     },
+     {
+      "kode": "113.001.003",
+      "perkiraan": "Piutang ",
+      "tipe": "D"
+     },
+     {
+      "kode": 114,
+      "perkiraan": "UANG MUKA",
+      "tipe": "H"
+     },
+     {
+      "kode": "114.001.001",
+      "perkiraan": "Uang Muka Biaya",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.001.002",
+      "perkiraan": "Uang Muka Pembelian Tanah",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.001.003",
+      "perkiraan": "UANG MUKA PEMBELIAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.001",
+      "perkiraan": "PPh Pasal 25 Badan",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.002",
+      "perkiraan": "PPN Masukan Dapat Dikreditkan",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.003",
+      "perkiraan": "PPn Keluaran",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.004",
+      "perkiraan": "PPh Pasal 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.005",
+      "perkiraan": "PPh Final Jasa Konstruksi",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.006",
+      "perkiraan": "PPh Pasal.29",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.007",
+      "perkiraan": "PPN DN Setor Sendiri",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.002.008",
+      "perkiraan": "PPN DN DIBAYAR DIMUKA",
+      "tipe": "D"
+     },
+     {
+      "kode": "114.004.001",
+      "perkiraan": "PPh pasal 4 Ayat 2 atas Sewa Tanah dan bangunan",
+      "tipe": "D"
+     },
+     {
+      "kode": 114.02,
+      "perkiraan": "Uang Muka Pajak",
+      "tipe": "H"
+     },
+     {
+      "kode": "114.020.001",
+      "perkiraan": "PPH PASAL 4 AYAT 2 DM",
+      "tipe": "D"
+     },
+     {
+      "kode": 115,
+      "perkiraan": "PERSEDIAAN BAHAN BANGUNAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 115.001,
+      "perkiraan": "Persediaan Bahan Bangunan Gudang SURABAYA",
+      "tipe": "H"
+     },
+     {
+      "kode": 115.002,
+      "perkiraan": "Persediaan Bahan Bangunan Gudang GRESIK",
+      "tipe": "H"
+     },
+     {
+      "kode": 116,
+      "perkiraan": "PERSEDIAAN TANAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 116.001,
+      "perkiraan": "Persediaan Tanah Mentah",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.001.001",
+      "perkiraan": "Tanah Mentah Boboh, Gresik",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.002",
+      "perkiraan": "Tanah Mentah Skodeoarjo",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.003",
+      "perkiraan": "Tanah Mentah Medokan Ayu",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.004",
+      "perkiraan": "Tanah Mentah Wonorejo",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.005",
+      "perkiraan": "Tanah Mentah Gunung Anyar",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.006",
+      "perkiraan": "TANAH MENTAH THE MEDAYU CITY (MA II )",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.007",
+      "perkiraan": "TANAH MENTAH TENGGILIS MEJOYO SELATAN",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.008",
+      "perkiraan": "Tanah Mentah Penjaringan Sari",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.009",
+      "perkiraan": "Tanah Mentah Gresik ?",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.010",
+      "perkiraan": "TANAH MENTAH PANDUGO I",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.011",
+      "perkiraan": "TANAH MENTAH PANDUGO II",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": "116.001.012",
+      "perkiraan": "TANAH MENTAH GRIYA PESONA ASRI",
+      "tipe": "D",
+      "Column12": "M"
+     },
+     {
+      "kode": 116.002,
+      "perkiraan": "Persediaan Tanah Dalam Proses",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.002.001",
+      "perkiraan": "Tanah Dalam Proses Boboh, Gresik",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "116.002.002",
+      "perkiraan": "Tanah Dalam Proses Skodeoarjo",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "116.002.003",
+      "perkiraan": "Tanah Dalam Proses Medokan Ayu",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "116.002.004",
+      "perkiraan": "Tanah Dalam Proses Wonorejo  ( Green Leaf)",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": 116.003,
+      "perkiraan": "Persediaan Tanah Kavling",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.003.001",
+      "perkiraan": "Tanah Kavling Griya Kencana Asri",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.002",
+      "perkiraan": "Tanah Kavling Griya Pesona Asri",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.003",
+      "perkiraan": "Tanah Kavling Penjaringan Sari II",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.004",
+      "perkiraan": "Tanah Kavling Taman Rivera Regency",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.005",
+      "perkiraan": "Tanah Kavling Prambon Asri",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.006",
+      "perkiraan": "Tanah Kavling Green Leaf",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.007",
+      "perkiraan": "Tanah Kavling Wonorejo Asri",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.008",
+      "perkiraan": "Tanah Kavling Pandugo I ",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.009",
+      "perkiraan": "Tanah Kavling Pandugo II",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.010",
+      "perkiraan": "Tanah Kavling Penjaringan Sari I",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.011",
+      "perkiraan": "TANAH KAVLING MEDOKAN AYU",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.012",
+      "perkiraan": "TANAH KAVLING GPR",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.013",
+      "perkiraan": "TANAH KAVLING VILLA EDELWEIS",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.014",
+      "perkiraan": "TANAH KAVLING ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": "116.003.015",
+      "perkiraan": "TANAH KAVLING TENGGILIS MEJOYO SELATAN",
+      "tipe": "D",
+      "Column12": "K"
+     },
+     {
+      "kode": 116.004,
+      "perkiraan": "PERSEDIAAN PERLENGKAPAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.004.001",
+      "perkiraan": "PERLENGKAPAN",
+      "tipe": "D"
+     },
+     {
+      "kode": 116.999,
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING",
+      "tipe": "H"
+     },
+     {
+      "kode": "116.999.001",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING GKA",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.002",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING GPA",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.003",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING PS.II",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.004",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING TRR",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.005",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING PA",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.006",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING GREEN LEAF",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.007",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING WONOREJO AS",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.008",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING P I",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.009",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING P II",
+      "tipe": "D"
+     },
+     {
+      "kode": "116.999.010",
+      "perkiraan": "BIAYA OVERHEAD TANAH KAVLING PS II",
+      "tipe": "D"
+     },
+     {
+      "kode": 117,
+      "perkiraan": "PERSEDIAAN RUMAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 117.001,
+      "perkiraan": "Persediaan Rumah Dalam Proses",
+      "tipe": "H"
+     },
+     {
+      "kode": "117.001.001",
+      "perkiraan": "Rumah Dalam Proses Griya Kencana Asri",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.002",
+      "perkiraan": "Rumah Dalam Proses Griya Pesona Asri",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.003",
+      "perkiraan": "Rumah Dalam Proses Penjaringan Sari II",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.004",
+      "perkiraan": "Rumah Dalam Proses Taman Rivera Regency",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.005",
+      "perkiraan": "Rumah Dalam Proses Prambon Asri",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.006",
+      "perkiraan": "Rumah Dalam Proses Pandugo I",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.007",
+      "perkiraan": "Rumah Dalam Proses Wonorejo Asri",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.008",
+      "perkiraan": "Rumah Dalam Proses Pandugo II",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.009",
+      "perkiraan": "Rumah Dalam Proses Wisma Medokan",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.010",
+      "perkiraan": "Rumah Dalam Proses Tenggilis Mejoyo ",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.011",
+      "perkiraan": "Rumah Dalam Proses Green Leaf",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.012",
+      "perkiraan": "Rumah Dalam Proses Penjaringan Sari I",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.013",
+      "perkiraan": "RUMAH DALAM PROSES MEDOKAN AYU III",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.014",
+      "perkiraan": "RUMAH DALAM PROSES GPR",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.015",
+      "perkiraan": "RUMAH DALAM PROSES GRIYA WONOREJO ASRI",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.016",
+      "perkiraan": "RUMAH DALAM PROSES VILLA EkodeELWEIS",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.017",
+      "perkiraan": "RUMAH DALAM PROSES ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.093",
+      "perkiraan": "BIAYA OVERHEAD TAMAN RIVERA REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.094",
+      "perkiraan": "BIAYA OVERHEAD PRAMBON ASRI",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.095",
+      "perkiraan": "BIAYA OVERHEAD PANDUGO I",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.096",
+      "perkiraan": "BIAYA OVERHEAD THE GREEN LEAF REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.097",
+      "perkiraan": "BIAYA OVERHEAD VILLA EDELWEIS",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.098",
+      "perkiraan": "BIAYA OVERHEAD ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.099",
+      "perkiraan": "Rumah Dalam Proses - Biaya Overhead",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.001.100",
+      "perkiraan": "BIAYA OVERHEAD WONOREJO",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": 117.002,
+      "perkiraan": "Persediaan Rumah Jadi",
+      "tipe": "H"
+     },
+     {
+      "kode": "117.002.001",
+      "perkiraan": "Persediaan Rumah Jadi Griya Kencana Asri",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.002",
+      "perkiraan": "Persediaan Rumah Jadi Griya Pesona Asri",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.003",
+      "perkiraan": "Persediaan Rumah Jadi Penjaringan Sari II",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.004",
+      "perkiraan": "Persediaan Rumah Jadi Taman Rivera Regency",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.005",
+      "perkiraan": "Persediaan Rumah Jadi Prambon Asri",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.006",
+      "perkiraan": "Persediaan Rumah Jadi Green Leaf",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.007",
+      "perkiraan": "Persediaan Rumah Jadi Wonorejo Asri",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.008",
+      "perkiraan": "Persediaan Rumah Jadi Penjaringan Sari I",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.009",
+      "perkiraan": "Persediaan Rumah Jadi Medokan Ayu III",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.010",
+      "perkiraan": "Persediaan Rumah Jadi Pandugo I",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.011",
+      "perkiraan": "Persediaan Rumah Jadi Pandugo II",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.012",
+      "perkiraan": "PERSEDIAAN RUMAH JADI GPR",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.013",
+      "perkiraan": "PERSEDIAAN RUMAH JADI WISMA MEDOKAN",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.014",
+      "perkiraan": "PERSEDIAAN RUMAH JADI VILLA EkodeELWEIS",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.015",
+      "perkiraan": "PERSEDIAAN RUKO TAMAN RIVERA REGENCY",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.016",
+      "perkiraan": "PERSEDIAAN RUMAH JADI ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": "117.002.017",
+      "perkiraan": "PERSEDIAAN RUKO THE GREEN LEAF REGENCY",
+      "tipe": "D",
+      "Column12": "J"
+     },
+     {
+      "kode": 117.011,
+      "perkiraan": "PERSEDIAAN RUKO DALAM PROSES",
+      "tipe": "H"
+     },
+     {
+      "kode": "117.011.001",
+      "perkiraan": "RUKO DALAM PROSES TAMAN RIVERA REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.002",
+      "perkiraan": "RUKO DALAM PROSES ECO MEDAYU",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.003",
+      "perkiraan": "CLUB HOUSE DALAM PROSES THE MEDAYU CITY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.004",
+      "perkiraan": "RUKO DALAM PROSES THE GREEN LEAF REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.098",
+      "perkiraan": "BIAYA OVERHEAD RUKO THE GREEN LEAF REGEN",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": "117.011.099",
+      "perkiraan": "BIAYA OVERHEAD RUKO TAMAN RIVERA REGENCY",
+      "tipe": "D",
+      "Column12": "P"
+     },
+     {
+      "kode": 12,
+      "perkiraan": "AKTIVA TkodeAK LANCAR",
+      "tipe": "H"
+     },
+     {
+      "kode": 121,
+      "perkiraan": "PIUTANG JANGKA PANJANG",
+      "tipe": "H"
+     },
+     {
+      "kode": "121.001.000",
+      "perkiraan": "Piutang YKP Kota Surabaya",
+      "tipe": "D"
+     },
+     {
+      "kode": "121.002.000",
+      "perkiraan": "Piutang Angsuran Rumah Jangka Panjang",
+      "tipe": "D"
+     },
+     {
+      "kode": 122,
+      "perkiraan": "BEBAN DITANGGUHKAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "122.001.000",
+      "perkiraan": "Ijin Lokasi",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.001.100",
+      "perkiraan": "BEBAN DITANGGUHKAN GREEN LEAF",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.001.101",
+      "perkiraan": "BEBAN DITANGGUHKAN MA.II",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.001.102",
+      "perkiraan": "BEBAN DITANGGUHKAN VILLA EDELWEIS",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.002.000",
+      "perkiraan": "Bunga Pinjaman YKP-KS",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.003.000",
+      "perkiraan": "Beban Promosi & Iklan",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.003.101",
+      "perkiraan": "KOMISI PENJUALAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.004.000",
+      "perkiraan": "Beban PBB",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.004.101",
+      "perkiraan": "PPH PASAL 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "122.004.102",
+      "perkiraan": "BEBAN LEMBUR",
+      "tipe": "D"
+     },
+     {
+      "kode": 123,
+      "perkiraan": "AKTIVA TETAP",
+      "tipe": "H"
+     },
+     {
+      "kode": 123.001,
+      "perkiraan": "Nilai Perolehan Aktiva Tetap",
+      "tipe": "H"
+     },
+     {
+      "kode": "123.001.001",
+      "perkiraan": "Bangunan",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.002",
+      "perkiraan": "Kendaraan",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.003",
+      "perkiraan": "Inventaris Kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.004",
+      "perkiraan": "Inventaris Proyek",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.005",
+      "perkiraan": "INVENTARIS GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.001.006",
+      "perkiraan": "KENDARAAN GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": 123.002,
+      "perkiraan": "Akumulasi Penyusutan Aktiva Tetap",
+      "tipe": "H"
+     },
+     {
+      "kode": "123.002.001",
+      "perkiraan": "AKUMULASI PENYUSUTAN BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.002",
+      "perkiraan": "AKUMULASI PENYUSUTAN KENDARAAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.003",
+      "perkiraan": "AKUMULASI PENYUSUTAN INVENTARIS KANTOR",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.004",
+      "perkiraan": "AKUMULASI INVENTARIS PROYEK",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.005",
+      "perkiraan": "AKUMULASI PENYUSUTAN INVENTARIS GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.006",
+      "perkiraan": "AKUMULASI PENYUSUTAN KENDARAAN GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "123.002.007",
+      "perkiraan": "AKUMULASI PENYUSUTAN PROPERTI INVESTASI",
+      "tipe": "D"
+     },
+     {
+      "kode": 124,
+      "perkiraan": "Aktiva Lain-Lain",
+      "tipe": "H"
+     },
+     {
+      "kode": "124.001.001",
+      "perkiraan": "ASURANSI SUNLIFE FINANCIAL",
+      "tipe": "D"
+     },
+     {
+      "kode": "124.001.002",
+      "perkiraan": "ASURANSI AIA",
+      "tipe": "D"
+     },
+     {
+      "kode": "124.001.003",
+      "perkiraan": "ASURANSI JIWASRAYA",
+      "tipe": "D"
+     },
+     {
+      "kode": 125,
+      "perkiraan": "PROPERTI INVESTASI ",
+      "tipe": "H"
+     },
+     {
+      "kode": "125.001.001",
+      "perkiraan": "GEDUNG GRAHA YKP ",
+      "tipe": "D"
+     },
+     {
+      "kode": "125.001.002",
+      "perkiraan": "LAHAN PARKIR PENJARINGAN SARI II",
+      "tipe": "D"
+     },
+     {
+      "kode": 2,
+      "perkiraan": "KEWAJIBAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 21,
+      "perkiraan": "KEWAJIBAN LANCAR",
+      "tipe": "H"
+     },
+     {
+      "kode": 211,
+      "perkiraan": "HUTANG USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": "211.001.000",
+      "perkiraan": "Hutang Usaha ",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.002.000",
+      "perkiraan": "Hutang Biaya Rumah Dalam Proses",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.003.000",
+      "perkiraan": "Hutang Biaya",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.004.000",
+      "perkiraan": "HUTANG BOOKING FEE",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.005.000",
+      "perkiraan": "HUTANG JAMINAN PELAKSANAAN KONSTRUKSI",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.009.000",
+      "perkiraan": "HUTANG LAIN-LAIN",
+      "tipe": "D"
+     },
+     {
+      "kode": "211.009.001",
+      "perkiraan": "HUTANG NIAGA FINANCE",
+      "tipe": "D"
+     },
+     {
+      "kode": 212,
+      "perkiraan": "BIAYA YANG MASIH HARUS DIBAYAR",
+      "tipe": "H"
+     },
+     {
+      "kode": "212.001.000",
+      "perkiraan": "Listrik",
+      "tipe": "D"
+     },
+     {
+      "kode": "212.002.000",
+      "perkiraan": "Air",
+      "tipe": "D"
+     },
+     {
+      "kode": "212.003.000",
+      "perkiraan": "Telpon",
+      "tipe": "D"
+     },
+     {
+      "kode": "212.004.000",
+      "perkiraan": "Pengurusan Sertifikat",
+      "tipe": "D"
+     },
+     {
+      "kode": "212.005.000",
+      "perkiraan": "Tenaga Kerja Langsung",
+      "tipe": "D"
+     },
+     {
+      "kode": 213,
+      "perkiraan": "HUTANG PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": "213.001.000",
+      "perkiraan": "PPh. pasal 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.001",
+      "perkiraan": "HUTANG PAJAK PPH PASAL 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.002",
+      "perkiraan": "HUTANG PAJAK PPH PASAL 29",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.003",
+      "perkiraan": "HUTANG PAJAK PPN DN",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.004",
+      "perkiraan": "HUTANG PAJAK ATAS TANAH DAN BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.005",
+      "perkiraan": "HUTANG PAJAK PPH FINAL JASA KONSTRUKSI",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.006",
+      "perkiraan": "HUTANG PAJAK PPH  PSL 23",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.007",
+      "perkiraan": "HUTANG PAJAK PPH PASAL 4 AYAT 2  SEWA",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.001.008",
+      "perkiraan": "HUTANG PAJAK DAERAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.002.000",
+      "perkiraan": "PPh. pasal 21 Tahunan",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.003.000",
+      "perkiraan": "PPh. pasal 25",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.004.000",
+      "perkiraan": "PPh pasal 29",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.005.000",
+      "perkiraan": "PPh pasal 4 ayat (2)",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.006.000",
+      "perkiraan": "PPN Keluaran",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.007.000",
+      "perkiraan": "PPh pasal 4 ayat (2) Sewa Tanah dan Bangunan",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.008.000",
+      "perkiraan": "PPh Final Jasa Konstruksi",
+      "tipe": "D"
+     },
+     {
+      "kode": "213.009.000",
+      "perkiraan": "PPh Pasal 23",
+      "tipe": "D"
+     },
+     {
+      "kode": 214,
+      "perkiraan": "HUTANG BANK",
+      "tipe": "H"
+     },
+     {
+      "kode": "214.001.000",
+      "perkiraan": "Hutang BNI '46",
+      "tipe": "D"
+     },
+     {
+      "kode": "214.002.000",
+      "perkiraan": "Hutang Bank Niaga",
+      "tipe": "D"
+     },
+     {
+      "kode": 215,
+      "perkiraan": "UANG MUKA PENJUALAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "215.001.000",
+      "perkiraan": "Uang Muka Penjualan Rumah",
+      "tipe": "D"
+     },
+     {
+      "kode": "215.002.000",
+      "perkiraan": "Uang Muka Penjualan Tanah Kavling",
+      "tipe": "D"
+     },
+     {
+      "kode": "215.003.000",
+      "perkiraan": "Uang Muka Penjualan Tanah Mentah",
+      "tipe": "D"
+     },
+     {
+      "kode": "215.004.000",
+      "perkiraan": "UANG MUKA BOOKING KAVLING",
+      "tipe": "D"
+     },
+     {
+      "kode": "215.005.000",
+      "perkiraan": "UANG MUKA NUP",
+      "tipe": "D"
+     },
+     {
+      "kode": 216,
+      "perkiraan": "HUTANG AFILIASI",
+      "tipe": "H"
+     },
+     {
+      "kode": "216.001.000",
+      "perkiraan": "Hutang YKP Kota Surabaya",
+      "tipe": "D"
+     },
+     {
+      "kode": 217,
+      "perkiraan": "UANG MUKA SEWA",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.001.000",
+      "perkiraan": "UANG MUKA SEWA GEDUNG GRAHA YKP",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.002.000",
+      "perkiraan": "UANG MUKA CHARGE GEDUNG",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.003.000",
+      "perkiraan": "UANG MUKA SEWA WISMA",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.004.000",
+      "perkiraan": "UANG MUKA SEWA STAND",
+      "tipe": "D"
+     },
+     {
+      "kode": "217.005.000",
+      "perkiraan": "UANG MUKA PENGELOLAAN PARKIR",
+      "tipe": "D"
+     },
+     {
+      "kode": 218001000,
+      "perkiraan": "HUTANG DEVkodeEN",
+      "tipe": "D"
+     },
+     {
+      "kode": 218002000,
+      "perkiraan": "HUTANG INSENTIF KERJA",
+      "tipe": "D"
+     },
+     {
+      "kode": 218003000,
+      "perkiraan": "HUTANG DANA SOSIAL",
+      "tipe": "D"
+     },
+     {
+      "kode": 22,
+      "perkiraan": "KEWAJIBAN JANGKA PANJANG",
+      "tipe": "H"
+     },
+     {
+      "kode": 221,
+      "perkiraan": "KEWAJIBAN DITANGGUHKAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "221.001.000",
+      "perkiraan": "Kewajiban Ditangguhkan Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.002.000",
+      "perkiraan": "Kewajiban Ditangguhkan Penjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.003.000",
+      "perkiraan": "Kewajiban Ditangguhkan Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.004.000",
+      "perkiraan": "Kewajiban Ditangguhkan Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.005.000",
+      "perkiraan": "Kewajiban Ditangguhkan Griyo Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.006.000",
+      "perkiraan": "Kewajiban Ditangguhkan Green Leaf ",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.007.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Tenggilis Mejoyo",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.008.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Pandugo I",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.009.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.010.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Griyo Alam Hijau",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.011.000",
+      "perkiraan": "Kewajiban Ditangguhkan - Griyo Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "221.012.000",
+      "perkiraan": "Kewajiban Ditangguhkan Penjaringan Sari I",
+      "tipe": "D"
+     },
+     {
+      "kode": 222,
+      "perkiraan": "KEWAJIBAN DIESTIMASI",
+      "tipe": "H"
+     },
+     {
+      "kode": "222.001.000",
+      "perkiraan": "Imbalan Masa\/Pasca Kerja Karyawan",
+      "tipe": "D"
+     },
+     {
+      "kode": 223,
+      "perkiraan": "PENDAPATAN DITERIMA DIMUKA",
+      "tipe": "H"
+     },
+     {
+      "kode": "223.001.000",
+      "perkiraan": "PENDAPATAN SEWA TANAH DAN ATAU BANGUNAN ",
+      "tipe": "D"
+     },
+     {
+      "kode": 3,
+      "perkiraan": "EKUITAS",
+      "tipe": "H"
+     },
+     {
+      "kode": 31,
+      "perkiraan": "EKUITAS",
+      "tipe": "H"
+     },
+     {
+      "kode": "311.000.000",
+      "perkiraan": "MODAL DISETOR DIMUKA",
+      "tipe": "D"
+     },
+     {
+      "kode": "312.000.000",
+      "perkiraan": "MODAL DISETOR",
+      "tipe": "D"
+     },
+     {
+      "kode": "314.000.000",
+      "perkiraan": "LABA DITAHAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "315.000.000",
+      "perkiraan": "LABA (RUGI) TAHUN BERJALAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "316.000.000",
+      "perkiraan": "CADANGAN WAJIB",
+      "tipe": "D"
+     },
+     {
+      "kode": 4,
+      "perkiraan": "PENDAPATAN USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 41,
+      "perkiraan": "PENDAPATAN USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 411,
+      "perkiraan": "PENJUALAN RUMAH",
+      "tipe": "H"
+     },
+     {
+      "kode": "411.001.000",
+      "perkiraan": "Penjualan Rumah Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.002.000",
+      "perkiraan": "Penjualan Rumah Griya Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.003.000",
+      "perkiraan": "Penjualan Rumah Penjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.004.000",
+      "perkiraan": "Penjualan Rumah Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.005.000",
+      "perkiraan": "Penjualan Rumah Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.006.000",
+      "perkiraan": "Penjualan Rumah Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.007.000",
+      "perkiraan": "Penjualan Rumah Wisma Medokan",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.008.000",
+      "perkiraan": "Penjualan Rumah Pandugo I",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.009.000",
+      "perkiraan": "Penjualan Rumah Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.010.000",
+      "perkiraan": "Penjualan Green Leaf",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.011.000",
+      "perkiraan": "PENJUALAN RUMAH PENJARINGAN SARI I",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.012.000",
+      "perkiraan": "PENJUALAN RUMAH MEDOKAN AYU III",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.013.000",
+      "perkiraan": "PENJUALAN RUMAH DI TENGGILIS MEJOYO SEL",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.014.000",
+      "perkiraan": "PENJUALAN RUMAH GPR",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.015.000",
+      "perkiraan": "PENJUALAN RUMAH TOKO TAMAN RIVERA REGENC",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.016.000",
+      "perkiraan": "PENJUALAN VILLA EkodeELWEIS",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.017.000",
+      "perkiraan": "PENJUALAN ECO MEDAYU",
+      "tipe": "D"
+     },
+     {
+      "kode": "411.018.000",
+      "perkiraan": "PENJUALAN RUMAH TOKO THE GREEN LEAF REGE",
+      "tipe": "D"
+     },
+     {
+      "kode": 412,
+      "perkiraan": "PENJUALAN TANAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 412.001,
+      "perkiraan": "Penjualan Tanah Kavling",
+      "tipe": "H"
+     },
+     {
+      "kode": "412.001.001",
+      "perkiraan": "Penjualan Tanah Kavling Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.002",
+      "perkiraan": "Penjualan Tanah Kavling Griya Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.003",
+      "perkiraan": "Penjualan Tanah Kavling Penjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.004",
+      "perkiraan": "Penjualan Tanah Kavling Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.005",
+      "perkiraan": "Penjualan Tanah Kavling Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.006",
+      "perkiraan": "Penjualan Tanah Kavling Rungkut Kkodeul",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.007",
+      "perkiraan": "Penjualan Tanah Kavling Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.008",
+      "perkiraan": "Penjualan Tanah Kavling Gunung Anyar",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.009",
+      "perkiraan": "Penjualan Tanah Kavling Medokan Ayu",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.010",
+      "perkiraan": "Penjualan Tanah Kavling Pandugo I",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.011",
+      "perkiraan": "Penjualan Tanah Kavling Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.001.012",
+      "perkiraan": "Penjualan Tanah Kavling Tenggilis",
+      "tipe": "D"
+     },
+     {
+      "kode": 412.002,
+      "perkiraan": "Penjualan Tanah Mentah",
+      "tipe": "H"
+     },
+     {
+      "kode": "412.002.001",
+      "perkiraan": "Penjualan Tanah Mentah Boboh, Gresik",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.002.002",
+      "perkiraan": "Penjualan Tanah Mentah Medokan Ayu ",
+      "tipe": "D"
+     },
+     {
+      "kode": "412.002.003",
+      "perkiraan": "Penjualan Tanah Mentah Wonorejo",
+      "tipe": "D"
+     },
+     {
+      "kode": 413,
+      "perkiraan": "PENDAPATAN USAHA LAINNYA",
+      "tipe": "H"
+     },
+     {
+      "kode": "413.001.000",
+      "perkiraan": "Pendapatan Renovasi Rumah",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.002.000",
+      "perkiraan": "Pendapatan Kerja Tambah",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.003.000",
+      "perkiraan": "PENDAPATAN SEWA GEDUNG GRAHA YKP",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.004.000",
+      "perkiraan": "PENDAPATAN SEWA KAMAR WISMA WIJAYA KUSUM",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.005.000",
+      "perkiraan": "PENDAPATAN PENGELOLAAN LAHAN PARKIR",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.006.000",
+      "perkiraan": "PENDAPATAN CHARGE GEDUNG GRAHA ",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.007.000",
+      "perkiraan": "PENDAPATAN SEWA STAND",
+      "tipe": "D"
+     },
+     {
+      "kode": "413.008.000",
+      "perkiraan": "PENDAPATAN SEWA TANAH DAN ATAU BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": 5,
+      "perkiraan": "BEBAN POKOK",
+      "tipe": "H"
+     },
+     {
+      "kode": 51,
+      "perkiraan": "BEBAN POKOK PENJUALAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 511,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 511.001,
+      "perkiraan": "Beban Pokok Penjualan Rumah Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.002,
+      "perkiraan": "Beban Pokok Penjualan Rumah Griya Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.003,
+      "perkiraan": "Beban Pokok Penjualan Rumah Penjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.004,
+      "perkiraan": "Beban Pokok Penjualan Rumah Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.005,
+      "perkiraan": "Beban Pokok Penjualan Rumah Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.006,
+      "perkiraan": "Beban Pokok Penjualan Rumah Green Leaf",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.007,
+      "perkiraan": "Beban Pokok Penjualan Rumah Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.008,
+      "perkiraan": "Beban Pokok Penjualan Rumah Pandugo I ",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.009,
+      "perkiraan": "Beban Pokok Penjualan Rumah Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.01,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH MEDOKAN AYU",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.011,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH TENGGILIS M",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.012,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH WISMA MEDOKA",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.013,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUKO TAMAN RIVERA ",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.014,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH VILLA EkodeELW",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.015,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH GPR",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.016,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUMAH ECO MEDAYU",
+      "tipe": "D"
+     },
+     {
+      "kode": 511.017,
+      "perkiraan": "BEBAN POKOK PENJUALAN RUKO THE GREEN LEA",
+      "tipe": "D"
+     },
+     {
+      "kode": 512,
+      "perkiraan": "BEBAN POKOK PENJUALAN TANAH",
+      "tipe": "H"
+     },
+     {
+      "kode": 512.001,
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling",
+      "tipe": "H"
+     },
+     {
+      "kode": "512.001.001",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Griya Kencana Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.002",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Griya Pesona Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.003",
+      "perkiraan": "Beban Pokok Penjualan Tanah KavlingPenjaringan Sari II",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.004",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Taman Rivera Regency",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.005",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Prambon Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.006",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Green Leaf",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.007",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Wonorejo Asri",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.008",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Pandugo I ",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.009",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Pandugo II",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.001.010",
+      "perkiraan": "Beban Pokok Penjualan Tanah Kavling Tenggilis",
+      "tipe": "D"
+     },
+     {
+      "kode": 512.002,
+      "perkiraan": "Beban Pokok Penjualan Tanah Mentah",
+      "tipe": "H"
+     },
+     {
+      "kode": "512.002.001",
+      "perkiraan": "Beban Pokok Penjualan Tanah Mentah Boboh, Gresik",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.002.002",
+      "perkiraan": "Beban Pokok Penjualan Tanah Mentah Medokan Ayu",
+      "tipe": "D"
+     },
+     {
+      "kode": "512.002.003",
+      "perkiraan": "Beban Pokok Penjualan Tanah Mentah Gunung Anyar",
+      "tipe": "D"
+     },
+     {
+      "kode": 513,
+      "perkiraan": "BEBAN POKOK USAHA LAINNYA",
+      "tipe": "H"
+     },
+     {
+      "kode": "513.001.000",
+      "perkiraan": "Beban Pokok Renovasi Rumah",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.001.100",
+      "perkiraan": "BEBAN PENGURUSAN SERTIFIKAT",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.002.000",
+      "perkiraan": "BEBAN TENAGA KERJA LANGSUNG",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.003.000",
+      "perkiraan": "BEBAN PEMELIHARAAN PERSEDIAAN RUMAH JADI",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.004.000",
+      "perkiraan": "BEBAN PEMELIHARAAN SARANA PRASARANA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.005.000",
+      "perkiraan": "BEBAN PENGAWASAN LINGKUNGAN PROYEK",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.006.000",
+      "perkiraan": "BEBAN KONSULTAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.007.000",
+      "perkiraan": "BEBAN GAJI KARYAWAN GEDUNG GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.008.000",
+      "perkiraan": "BEBAN HONOR TEAM EVENT",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.009.000",
+      "perkiraan": "BEBAN UPAH HARIAN \/ HONORARIUM",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.010.000",
+      "perkiraan": "BEBAN OPERASIONAL EVENT",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.011.000",
+      "perkiraan": "BEBAN INSENTIF",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.012.000",
+      "perkiraan": "BEBAN TUNJANGAN HARI RAYA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.013.000",
+      "perkiraan": "BEBAN BPJS KESEHATAN & TENAGA KERJA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.014.000",
+      "perkiraan": "BEBAN PERALATAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.015.000",
+      "perkiraan": "BEBAN UTILITY",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.016.000",
+      "perkiraan": "BEBAN PAKAIAN SERAGAM",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.017.000",
+      "perkiraan": "BEBAN ENTERTAINTMENT",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.018.000",
+      "perkiraan": "BEBAN PEMBELIAN BBM",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.019.000",
+      "perkiraan": "BEBAN PEMELIHARAAN & PERBAIKAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.020.000",
+      "perkiraan": "BEBAN RUMAH TANGGA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.021.000",
+      "perkiraan": "BEBAN PENYUSUTAN PROPERTI INVESTASI",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.022.000",
+      "perkiraan": "BEBAN PAJAK DAERAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.023.000",
+      "perkiraan": "BEBAN UMUM LAINNYA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.024.000",
+      "perkiraan": "BEBAN PENYUSUTAN INVENTARIS GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.025.000",
+      "perkiraan": "BEBAN PENYUSUTAN KENDARAAN GRAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.026.000",
+      "perkiraan": "BIAYA PROMOSI",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.027.000",
+      "perkiraan": "BEBAN PENGAMANAN ASET TANAH MENTAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.028.000",
+      "perkiraan": "BEBAN NARASUMBER \/ PENDAMPINGAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.029.000",
+      "perkiraan": "BEBAN PERLENGKAPAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.030.000",
+      "perkiraan": "BEBAN PEMELIHARAAN ASET",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.031.000",
+      "perkiraan": "BEBAN PEMELIHARAAN TANAMAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "513.032.000",
+      "perkiraan": "BEBAN KONSUMSI",
+      "tipe": "D"
+     },
+     {
+      "kode": 6,
+      "perkiraan": "BEBAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 61,
+      "perkiraan": "BEBAN USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 611,
+      "perkiraan": "BEBAN PENJUALAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "611.001.000",
+      "perkiraan": "Beban BBM",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.002.000",
+      "perkiraan": "Beban Promosi & Iklan",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.003.000",
+      "perkiraan": "Komisi Penjualan",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.004.000",
+      "perkiraan": "BEBAN LAIN-LAIN MARKETING",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.005.000",
+      "perkiraan": "BEBAN PERLENGKAPAN PROMOSI",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.006.000",
+      "perkiraan": "BEBAN PAMERAN & EVENT",
+      "tipe": "D"
+     },
+     {
+      "kode": "611.007.000",
+      "perkiraan": "BEBAN BONUS PRODUK",
+      "tipe": "D"
+     },
+     {
+      "kode": 612,
+      "perkiraan": "BEBAN UMUM DAN ADMINISTRASI",
+      "tipe": "H"
+     },
+     {
+      "kode": 612.001,
+      "perkiraan": "Beban Pegawai",
+      "tipe": "H"
+     },
+     {
+      "kode": "612.001.001",
+      "perkiraan": "Gaji Pegawai",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.002",
+      "perkiraan": "Honorarium Komisaris",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.003",
+      "perkiraan": "Lembur ",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.004",
+      "perkiraan": "Tunjangan Hari Raya ",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.005",
+      "perkiraan": "Premi\/insentif",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.006",
+      "perkiraan": "Astek ",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.007",
+      "perkiraan": "Pajak PPh Pasal 21",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.008",
+      "perkiraan": "Pakaian Dinas",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.009",
+      "perkiraan": "Pendkodeikan\/ Pelatihan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.010",
+      "perkiraan": "Seminar\/ Penataran",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.001.011",
+      "perkiraan": "Lain-lain Beban Pegawai",
+      "tipe": "D"
+     },
+     {
+      "kode": 612.002,
+      "perkiraan": "BEBAN UMUM KANTOR",
+      "tipe": "H"
+     },
+     {
+      "kode": "612.002.001",
+      "perkiraan": "Beban Alat Tulis Kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.002",
+      "perkiraan": "Beban Foto Copy & Cetakan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.003",
+      "perkiraan": "Beban Materai",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.004",
+      "perkiraan": "Beban Sewa Gedung",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.005",
+      "perkiraan": "Beban Listrik",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.006",
+      "perkiraan": "Beban Telpon",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.007",
+      "perkiraan": "Beban Air PDAM",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.008",
+      "perkiraan": "Beban Konsumsi Kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.009",
+      "perkiraan": "Beban PBB",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.010",
+      "perkiraan": "BEBAN BBM, TOL & PARKIR",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.011",
+      "perkiraan": "Beban Pajak Kendaraan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.012",
+      "perkiraan": "Beban Konsultan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.013",
+      "perkiraan": "Sumbangan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.014",
+      "perkiraan": "Denda Pajak",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.015",
+      "perkiraan": "Iuran Anggota REI",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.016",
+      "perkiraan": "Beban Perjalanan Dinas",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.017",
+      "perkiraan": "Beban Penyusutan Kendaraan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.018",
+      "perkiraan": "Beban Penyusutan Inventaris Kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.019",
+      "perkiraan": "Beban Penyusutan Inventaris Proyek",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.020",
+      "perkiraan": "Beban Pemeliharaan Aktiva Tetap",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.021",
+      "perkiraan": "Beban Pemeliharaan Persediaan Rumah Jadi",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.022",
+      "perkiraan": "Beban Pemeliharaan Sarana Prasarana",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.023",
+      "perkiraan": "Beban Pengawasan Lingkungan",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.024",
+      "perkiraan": "Beban Lain-lain kantor",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.025",
+      "perkiraan": "Devkodeen",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.026",
+      "perkiraan": "BEBAN PEMELIHARAAN KANTOR",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.027",
+      "perkiraan": "BEBAN PEMELIHARAAN KENDARAAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.028",
+      "perkiraan": "BEBAN PENYUSUTAN BANGUNAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.029",
+      "perkiraan": "BEBAN CADANGAN PASCA KERJA",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.030",
+      "perkiraan": "BEBAN KETERLAMBATAN PENYERAHAN RUMAH",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.031",
+      "perkiraan": "BEBAN PENGHAPUSAN PIUTANG USAHA",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.032",
+      "perkiraan": "BEBAN SATUAN PENGAMANAN PROYEK",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.033",
+      "perkiraan": "BIAYA RUMAH TANGGA",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.034",
+      "perkiraan": "BEBAN SEWA ",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.035",
+      "perkiraan": "BEBAN JASA",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.036",
+      "perkiraan": "BEBAN PERLENGKAPAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "612.002.037",
+      "perkiraan": "BEBAN PENGHAPUSAN ASET",
+      "tipe": "D"
+     },
+     {
+      "kode": 613,
+      "perkiraan": "BEBAN PROYEK"
+     },
+     {
+      "kode": "613.001.001",
+      "perkiraan": "BEBAN LAIN-LAIN PROYEK",
+      "tipe": "D"
+     },
+     {
+      "kode": 7,
+      "perkiraan": "PENDAPATAN DAN BEBAN DI LUAR USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 71,
+      "perkiraan": "PENDAPATAN DAN BEBAN DI LUAR USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": 711,
+      "perkiraan": "PENDAPATAN DI LUAR USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": "711.001.000",
+      "perkiraan": "Jasa Giro",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.002.000",
+      "perkiraan": "Bunga Deposito",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.003.000",
+      "perkiraan": "Laba Penjualan Aktiva tetap",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.004.000",
+      "perkiraan": "Pendapatan Lainnya",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.005.000",
+      "perkiraan": "Pendapatan DENDA ANGSURAN",
+      "tipe": "D"
+     },
+     {
+      "kode": "711.006.000",
+      "perkiraan": "PENDAPATAN DENDA KONTRAKTOR",
+      "tipe": "D"
+     },
+     {
+      "kode": 712,
+      "perkiraan": "BEBAN DI LUAR USAHA",
+      "tipe": "H"
+     },
+     {
+      "kode": "712.001.000",
+      "perkiraan": "Beban Bunga Pinjaman Bank",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.002.000",
+      "perkiraan": "Beban Administrasi Bank",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.003.000",
+      "perkiraan": "Beban PPh pasal 23 Jasa Giro",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.004.000",
+      "perkiraan": "Beban PPh pasal 23 Bunga Deposito",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.005.000",
+      "perkiraan": "Rugi Penjualan Aktiva Tetap",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.006.000",
+      "perkiraan": "Beban di Luar Usaha Lainnya",
+      "tipe": "D"
+     },
+     {
+      "kode": "712.007.000",
+      "perkiraan": "BEBAN PPH PASAL 21",
+      "tipe": "D"
+     },
+     {
+      "kode": 8,
+      "perkiraan": "BEBAN PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": 81,
+      "perkiraan": "BEBAN PAJAK PENGHASILAN",
+      "tipe": "H"
+     },
+     {
+      "kode": 811,
+      "perkiraan": "PAJAK PENGHASILAN",
+      "tipe": "H"
+     },
+     {
+      "kode": "811.001.000",
+      "perkiraan": "PPH PS 25 \/ 29",
+      "tipe": "D"
+     },
+     {
+      "kode": "811.002.000",
+      "perkiraan": "Pajak Penghasilan PPh pasal 4 ayat (2)",
+      "tipe": "D"
+     },
+     {
+      "kode": "811.003.000",
+      "perkiraan": "PAJAK PENGHASILAN PPH 23",
+      "tipe": "D"
+     },
+     {
+      "kode": 9,
+      "perkiraan": "LABA BERSIH SETELAH PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": 91,
+      "perkiraan": "LABA BERSIH SETELAH PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": 911,
+      "perkiraan": "LABA BERSIH SETELAH PAJAK",
+      "tipe": "H"
+     },
+     {
+      "kode": "911.001.000",
+      "perkiraan": "Laba Bersih Setelah Pajak",
+      "tipe": "D"
+     },
+     {
+      "kode": "999.999.999",
+      "perkiraan": "AYAT SILANG",
+      "tipe": "D"
+     }
+    ]
+    }
