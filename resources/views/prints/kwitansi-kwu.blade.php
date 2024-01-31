@@ -10,14 +10,14 @@
 	body {
 		padding-left: 20px;
 	}
-	.ver 
+	.ver
 {
   vertical-align: top;
   text-align: right;
   font-size: 20px;
 }
 
-.ver div 
+.ver div
 {
   -ms-writing-mode: tb-rl;
   -webkit-writing-mode: vertical-rl;
@@ -110,13 +110,13 @@
 	 		</tr>
 	 	</table>
 
-	 	
+
 
 	 	<table cellpadding="0" cellspacing="0" border="0" width="100%" style="font-size: 16px; font-family: Arial, Helvetica, sans-serif;margin-top: 30px;">
 	 		<tr>
 	 			<td width="75%" rowspan="2" style="padding-top: 4px;padding-bottom: 41px;vertical-align:top;">
 	 				<span style="border-top: 2px solid #000;padding-top: 8px;padding-bottom: 8px;padding-right:50px;border-bottom: 2px solid #000;font-weight: bold;font-size: 20px;width: 50%;margin-bottom: 25px;">TOTAL Rp. {{ number_format($data->jumlah, 0, ",", ".") }}</span><br><br>
-	 				
+
 	 			</td>
 	 			<td width="25%" style="vertical-align: top;text-align: right;">
 	 				<span style="text-align: right;">Surabaya, 27 April 2023</span>
