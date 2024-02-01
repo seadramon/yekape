@@ -19,7 +19,7 @@
                 <div class="card-header">
                     <h3 class="card-title">@if (isset($data))Edit @else Buat @endif Kwitansi {{$tipe}}</h3>
                 </div>
-            
+
                 <div class="card-body">
                     @if (count($errors) > 0)
                         @foreach($errors->all() as $error)
@@ -39,7 +39,7 @@
                                 @if ($tipe == 'KWT')
                                     SPR
                                 @else
-                                    NUP / Bookin Fee
+                                    NUP / Tanda Jadi
                                     @php
                                         $attr = ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'nup']
                                     @endphp
@@ -50,13 +50,14 @@
                     </div>
                     <div class="row">
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Tanggal Kwitansi</label>
-                            {!! Form::text('tanggal', null, ['class'=>'form-control kt-datepicker', 'id'=>'tanggal', 'autocomplete'=>'off', 'required']) !!}
-                        </div>
-                        <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Jenis Penerimaan</label>
                             {!! Form::select('jenis_penerimaan', $jenis_penerimaan, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'jenis_penerimaan', 'required']) !!}
                         </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Tanggal Kwitansi</label>
+                            {!! Form::text('tanggal', null, ['class'=>'form-control kt-datepicker', 'id'=>'tanggal', 'autocomplete'=>'off', 'required']) !!}
+                        </div>
+
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Terima Dari</label>
                             {!! Form::text('nama', null, ['class'=>'form-control', 'id'=>'nama', 'autocomplete'=>'off', 'required']) !!}
@@ -74,13 +75,13 @@
                             {!! Form::select('tipe_bayar', $tipe_bayar, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tipe_bayar']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Bank</label>
+                            <label class="form-label">Bank Penerima</label>
                             {!! Form::select('bank', $bank, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'bank']) !!}
                         </div>
-                        <div class="fv-row form-group col-lg-6 mb-3">
+                        {{-- <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tanggal Transfer</label>
                             {!! Form::text('tanggal_transfer', null, ['class'=>'form-control kt-datepicker', 'id'=>'tanggal_transfer', 'autocomplete'=>'off']) !!}
-                        </div>
+                        </div> --}}
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Jumlah</label>
                             {!! Form::text('jumlah', null, ['class'=>'form-control currency', 'id'=>'jumlah', 'autocomplete'=>'off', 'required']) !!}
@@ -109,7 +110,7 @@
                         @endif
                     </div>
                 </div>
-            
+
                 <div class="card-footer" style="text-align: right;">
                     <a href="{{ route('kwitansi.index') }}" class="btn btn-light btn-active-light-primary me-2">Kembali</a>
                     <input type="submit" class="btn btn-success" id="btn-submit" value="Simpan">
@@ -144,7 +145,7 @@
                 $("#jumlah").val(result.data.jumlah);
                 $("#jumlah").trigger('keyup');
                 // $("#ppn").val(result.data.ppn).trigger('change');
-                
+
                 blockUI.release();
             });
         });
@@ -153,9 +154,9 @@
             var ppn = parseInt($("#ppn").val());
             $("#ppn_rp").val(jml * ppn / 100);
         });
-        
+
     });
 
-    
+
 </script>
 @endsection

@@ -69,7 +69,7 @@ class KwitansiController extends Controller
                 })
                 ->all();
             $spr = ['' => 'Pilih No SPR'] + $spr;
-            
+
             $opt_spr = $spr_->mapWithKeys(function($item){
                 return [$item->id => ['data-harga' => ($item->harga_jual ?? "unknown")]];
             })
@@ -94,8 +94,11 @@ class KwitansiController extends Controller
             $opt_spr = [];
             $jenis_penerimaan = [
                 'nup' => 'NUP',
-                'utj' => 'Booking Fee',
-                'jampel' => 'Jampel'
+                'utj' => 'Tanda Jadi',
+                'jampel' => 'Jampel',
+                'ipl' => 'Iuran Pengelolaan Lingkungan',
+                'tambahan' => 'Pekerjaan Tambahan',
+                'll' => 'Lain - lain'
             ];
         }
         $tipe_bayar = [
@@ -214,7 +217,7 @@ class KwitansiController extends Controller
             $kwitansi->bank = $request->bank;
             $kwitansi->tanggal_transfer = $request->tanggal_transfer;
             $kwitansi->jumlah = str_replace('.', '', $request->jumlah);
-            
+
             if($request->jenis_kwitansi == 'KWT'){
                 $spr = SuratPesananRumah::find($request->spr);
                 $kwitansi->source_type = get_class($spr);
@@ -269,7 +272,7 @@ class KwitansiController extends Controller
             $kwitansi->bank = $request->bank;
             $kwitansi->tanggal_transfer = $request->tanggal_transfer;
             $kwitansi->jumlah = str_replace('.', '', $request->jumlah);
-            
+
             if($request->jenis_kwitansi == 'KWT'){
                 $spr = SuratPesananRumah::find($request->spr);
                 $kwitansi->source_type = get_class($spr);
@@ -320,7 +323,7 @@ class KwitansiController extends Controller
             return response()->json(['result' => $e->getMessage()])->setStatusCode(500, 'ERROR');
         }
     }
-    
+
     public function sourceData(Request $request)
     {
         $data = [];
@@ -335,7 +338,7 @@ class KwitansiController extends Controller
         }else{
             $source  = Nup::find($request->source_id) ?? BookingFee::find($request->source_id);
         }
-        
+
         return response()->json(['result' => 'success', 'data' => $data])->setStatusCode(200, 'OK');
     }
 
@@ -343,7 +346,7 @@ class KwitansiController extends Controller
     {
         $data = Kwitansi::find($id);
         $spr = $data->source;
-        
+
         $pdf = Pdf::loadView('prints.kwitansi-' . strtolower($data->jenis_kwitansi), [
             'data' => $data,
             'spr' => $spr
