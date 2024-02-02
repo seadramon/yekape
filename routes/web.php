@@ -115,6 +115,7 @@ Route::middleware('auth')->group(function () {
 			Route::put('{id}/revisi', 	[SuratPesananController::class, 'revisiStore'])->name('revisi-store');
 			Route::get('{id}/upload', 	[SuratPesananController::class, 'upload'])->name('upload');
 			Route::put('{id}/upload', 	[SuratPesananController::class, 'uploadStore'])->name('upload-store');
+			Route::post('store-sppk', [SuratPesananController::class, 'storeSppk'])->name('sppk');
 			Route::resource('/', SuratPesananController::class)->except(['destroy'])->parameters(['' => 'spr']);
 		});
 	

@@ -61,6 +61,7 @@ class SuratPesananController extends Controller
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.show', $model->id) .'" target="_blank">Lihat</a></li>
+                            <li><a class="dropdown-item input-sppk" data-id="' . $model->id . '" data-bank="' . $model->bank_kpr . '" data-sppk="' . $model->no_sppk . '" href="javascript:void(0)">Input Sppk</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Perubahan</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.upload', ['id' => $model->id]) .'" target="_blank">Upload File</a></li>
                             <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>
@@ -103,14 +104,14 @@ class SuratPesananController extends Controller
             $data->jenis_pembeli = $request->jenis_pembeli;
             $data->customer_id = $request->customer_id;
             $data->kavling_id = $request->kavling_id;
-            $data->bank_kpr = $request->bank_kpr;
+            // $data->bank_kpr = $request->bank_kpr;
             $data->harga_jual = str_replace('.', '', $request->harga_jual);
             $data->harga_dasar = str_replace('.', '', $request->harga_dasar);
             $data->ppn = str_replace('.', '', $request->ppn);
             $data->rp_uangmuka = str_replace('.', '', $request->rp_uangmuka);
             $data->rp_angsuran = str_replace('.', '', $request->rp_angsuran);
             $data->lm_angsuran = str_replace('.', '', $request->lm_angsuran);
-            $data->no_sppk = $request->no_sppk;
+            // $data->no_sppk = $request->no_sppk;
             $data->rencana_ajb = date('Y-m-d', strtotime($request->rencana_ajb));
             $data->masa_bangun = $request->masa_bangun;
             if (!empty($request->range_pembangunan)) {
@@ -234,6 +235,28 @@ class SuratPesananController extends Controller
             return response()->json(['result' => $e->getMessage()])->setStatusCode(500, 'ERROR');
         }
     }
+    
+    public function storeSppk(Request $request, FlasherInterface $flasher)
+    {
+        // return response()->json($request->all());
+        // DB::beginTransaction();
+
+        // try {
+            $spr = SuratPesananRumah::find($request->id);
+            $spr->bank_kpr = $request->bank_kpr;
+            $spr->no_sppk = $request->no_sppk;
+            $spr->save();
+            // DB::commit();
+
+            $flasher->addSuccess('Data has been saved successfully!');
+            return redirect()->route('pemasaran.suratpesanan.index');
+        // } catch(Exception $e) {
+        //     DB::rollback();
+
+        //     $flasher->addError($e->getMessage());
+        //     return redirect()->back();
+        // }
+    }
 
     public function cetak($id)
     {
@@ -316,12 +339,15 @@ class SuratPesananController extends Controller
                 return [$item->id => $item->nama];
             })->all();
         $customer = ["" => "-Pilih Customer-"] + $customer;
-        $booking = BookingFee::select('id', 'nomor')
-            ->get()
-            ->mapWithKeys(function($item){
-                return [$item->id => $item->nomor];
+
+        $book = BookingFee::with('kavling')->get();
+        $booking = $book->mapWithKeys(function($item){
+                return [$item->id => $item->nomor . '|' . $item->kavling->nama . ' ' . $item->kavling->kode_kavling];
             })->all();
         $booking = ["" => "-Pilih booking fee-"] + $booking;
+        $opt_booking = $book->mapWithKeys(function($item){
+            return [$item->id => ['data-harga' => ($item->harga_jual)]];
+        })->all();
 
         $ppn = [
             '0' => 'Tanpa PPN',
@@ -345,6 +371,7 @@ class SuratPesananController extends Controller
             'kavling'      => $kavling,
             'customer'     => $customer,
             'booking'      => $booking,
+            'opt_booking'      => $opt_booking,
             'ppn'          => $ppn,
             'karyawan'     => $karyawan,
             'opt_karyawan' => $opt_karyawan,

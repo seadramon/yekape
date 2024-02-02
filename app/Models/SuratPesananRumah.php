@@ -14,6 +14,7 @@ class SuratPesananRumah extends Model
 
     protected $table = 'spr';
     protected $guarded = [];
+    protected $morphClass = 'spr';
     protected $casts = [
         'data' => 'array',
     ];

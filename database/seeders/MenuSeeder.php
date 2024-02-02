@@ -117,13 +117,6 @@ class MenuSeeder extends Seeder
                 'sequence' => '0410'
             ],
             [
-                'name' => 'SPR',
-                'route_name' => 'pemasaran.suratpesanan.index',
-                'icon' => 'fas fa-file fs-3',
-                'level' => '2',
-                'sequence' => '0420'
-            ],
-            [
                 'name' => 'NUP',
                 'route_name' => 'pemasaran.nup.index',
                 'icon' => 'fas fa-file fs-3',
@@ -131,11 +124,18 @@ class MenuSeeder extends Seeder
                 'sequence' => '0430'
             ],
             [
-                'name' => 'Booking Fee',
+                'name' => 'Tanda Jadi',
                 'route_name' => 'pemasaran.booking-fee.index',
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
-                'sequence' => '0430'
+                'sequence' => '0420'
+            ],
+            [
+                'name' => 'SPR',
+                'route_name' => 'pemasaran.suratpesanan.index',
+                'icon' => 'fas fa-file fs-3',
+                'level' => '2',
+                'sequence' => '0440'
             ],
             [
                 'name' => 'Perencanaan',

@@ -12,9 +12,9 @@ class BookingFee extends Model
 
     protected static function booted()
     {
-        static::saving(function ($spr) {
+        static::saving(function (BookingFee $spr) {
             if ($spr->nomor == null) {
-                $number = self::generate_number($spr->parent_id != null, $spr->tgl_sp);
+                $number = self::generate_number($spr->tanggal);
                 $spr->counter = $number[0];
                 $spr->nomor = $number[1];
             }
@@ -24,7 +24,7 @@ class BookingFee extends Model
         });
     }
 
-    public static function generate_number($revised, $tgl)
+    public static function generate_number($tgl)
     {
         $year = date('Y', strtotime($tgl));
         $month = date('m', strtotime($tgl));

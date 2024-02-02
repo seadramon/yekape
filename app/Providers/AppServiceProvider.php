@@ -25,7 +25,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Relation::enforceMorphMap([
             'ssh' => 'App\Models\Ssh',
-            'spr' => 'App\Models\SuratPesananRumah'
+            'spr' => 'App\Models\SuratPesananRumah',
+            'user' => 'App\Models\User',
         ]);
         View::composer('layout', function($view)
         {

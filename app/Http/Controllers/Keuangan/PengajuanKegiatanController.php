@@ -296,7 +296,12 @@ class PengajuanKegiatanController extends Controller
     {
         $data = Serapan::find($id);
 
-        $pdf = Pdf::loadView('keuangan.pengajuan-kegiatan.cetak-'.strtolower($data->jenis), [
+        if($data->jenis == 'BS'){
+            $tmplt = 'bs';
+        }else{
+            $tmplt = 'pp';
+        }
+        $pdf = Pdf::loadView('keuangan.pengajuan-kegiatan.cetak-'.$tmplt, [
             'data' => $data
         ]);
         $filename = "pengajuan-pengadaan-barang-jasa";
