@@ -10,6 +10,8 @@ class BookingFee extends Model
 {
     use HasFactory;
 
+    protected $morphClass = 'utj';
+
     protected static function booted()
     {
         static::saving(function (BookingFee $spr) {
@@ -39,7 +41,7 @@ class BookingFee extends Model
     {
         return $this->belongsTo(Kavling::class, 'kavling_id');
     }
-    
+
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'customer_id');
