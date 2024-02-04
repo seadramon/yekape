@@ -155,6 +155,11 @@
                     $("#dpp").trigger('keyup');
                     $("#ppn_rp").trigger('keyup');
                     // $("#ppn").val(result.data.ppn).trigger('change');
+                    if(result.data.tipe == 'KPR'){
+                        $("#keterangan").val('KPR - Angsuran Uang Muka Pembelian Rumah Lokasi : ' + result.data.kavling);
+                    }else{
+                        $("#keterangan").val(result.data.tipe + ' - Angsuran Pembelian Rumah Lokasi : ' + result.data.kavling);
+                    }
 
                     blockUI.release();
                 });

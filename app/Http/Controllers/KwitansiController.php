@@ -377,6 +377,8 @@ class KwitansiController extends Controller
                 'alamat' => $source->customer->alamat,
                 'jumlah' => (float) $source->harga_jual,
                 'ppn' => (float) ($source->ppn ?? 0),
+                'kavling' => $source->kavling->kode_kavling,
+                'tipe' => $source->tipe_pembelian,
             ];
         }else{
             $source  = Nup::find($request->source_id) ?? BookingFee::find($request->source_id);
