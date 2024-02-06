@@ -63,11 +63,11 @@
                             {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Approval</label>
+                            <label class="form-label">Pembuat</label>
                             {!! Form::select('approval', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'approval'], $opt_karyawan) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Jabatan</label>
+                            <label class="form-label">Jabatan Pembuat Pengajuan</label>
                             {!! Form::text('approval_jabatan', null, ['class'=>'form-control', 'id'=>'approval_jabatan', 'autocomplete'=>'off', 'required']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-12 mb-3 mt-2">
@@ -139,7 +139,7 @@
         $("#jenis").trigger('change');
 
         $("#approval").on('change', function(){
-            $("#approval_jabatan").val($("#approval option:selected").attr('data-jabatan'));   
+            $("#approval_jabatan").val($("#approval option:selected").attr('data-jabatan'));
         });
     });
 
