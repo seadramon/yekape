@@ -14,7 +14,11 @@ class KegiatanDetailSeeder extends Seeder
     public function run(): void
     {
         $kdetail = json_decode(file_get_contents(public_path('migrations/kegiatan_detail.json')))->kdetail;
+
         foreach ($kdetail as $item) {
+            $kdetail = KegiatanDetail::firstOrNew([
+                'id' => $item->id,
+            ]);
             $kdetail->kegiatan_id = $item->kegiatan_id;
             $kdetail->kode_perkiraan = $item->kode_perkiraan;
             $kdetail->komponen_type = $item->komponen_type;
