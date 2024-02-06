@@ -159,11 +159,11 @@
                 <td width="40%" style="text-align:right;">
                     <div style="text-align:center;margin-bottom:70px;">
                         Yang mengajukan<br>
-                        Supervisor Hukum, Humas, Kerjasama dan Rumah tangga
+                        {{$data->created_jabatan}}
                     </div>
 
                     <div style="text-align:center;">
-                        (........................................)
+                        ({{$data->created_by->nama}})
                     </div>
                 </td>
             </tr>

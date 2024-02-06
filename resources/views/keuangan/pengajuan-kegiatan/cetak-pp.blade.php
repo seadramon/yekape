@@ -169,11 +169,11 @@
                     Surabaya, 25 Sept 2023
                     <div style="text-align:center;margin-bottom:80px;">
                         Dibuat dan diajukan oleh :<br>
-                        Supervisor/PPK
+                        {{$data->created_jabatan ?? ''}}
                     </div>
 
                     <div style="text-align:center;">
-                        <b><u>.....................</u></b><br>
+                        <b><u>{{$data->created_by->nama}}</u></b><br>
                     </div>
                 </td>
 

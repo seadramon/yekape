@@ -64,11 +64,11 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Pembuat</label>
-                            {!! Form::select('approval', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'approval'], $opt_karyawan) !!}
+                            {!! Form::select('created', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'created'], $opt_karyawan) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Jabatan Pembuat Pengajuan</label>
-                            {!! Form::text('approval_jabatan', null, ['class'=>'form-control', 'id'=>'approval_jabatan', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('created_jabatan', null, ['class'=>'form-control', 'id'=>'created_jabatan', 'autocomplete'=>'off', 'required']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-12 mb-3 mt-2">
                             <button type="button" class="btn btn-light-primary" id="add-kegiatan-detail">

@@ -99,8 +99,8 @@ class PengajuanKegiatanController extends Controller
             $serapan->costing_date = $request->costing_date;
             $serapan->tahun = $request->tahun ?? date('Y');
             $serapan->status = 'draft';
-            $serapan->approval_id = $request->approval;
-            $serapan->approval_jabatan = $request->approval_jabatan;
+            $serapan->created_id = $request->created;
+            $serapan->created_jabatan = $request->created_jabatan;
             $serapan->save();
 
             foreach (($request->komponen_kegiatan ?? []) as $index => $kegiatan) {
@@ -156,8 +156,8 @@ class PengajuanKegiatanController extends Controller
             $serapan->jenis_lelang = $request->jenis_lelang;
             $serapan->costing_date = $request->costing_date;
             $serapan->tahun = $request->tahun ?? date('Y');
-            $serapan->approval_id = $request->approval;
-            $serapan->approval_jabatan = $request->approval_jabatan;
+            $serapan->created_id = $request->created;
+            $serapan->created_jabatan = $request->created_jabatan;
             $serapan->detail()->delete();
 
             foreach (($request->komponen_kegiatan ?? []) as $index => $kegiatan) {
@@ -266,7 +266,7 @@ class PengajuanKegiatanController extends Controller
         })
         ->all();
         $opt_komponen_kegiatan = ["" => ['data-hargasatuan' => 0, 'data-volume' => 0, 'data-kegiatan' => '', 'data-ppn' => 0]] + $opt_komponen_kegiatan;
-        
+
         $kar = Karyawan::with('jabatan')->get();
         $karyawan = $kar->mapWithKeys(function($item){
                 return [$item->id => $item->nama];
@@ -294,7 +294,7 @@ class PengajuanKegiatanController extends Controller
 
     public function cetak($id)
     {
-        $data = Serapan::find($id);
+        $data = Serapan::with('created_by')->find($id);
 
         if($data->jenis == 'BS'){
             $tmplt = 'bs';

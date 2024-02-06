@@ -81,6 +81,8 @@ class ValidasiPengajuanKegiatanController extends Controller
             DB::beginTransaction();
             $serapan = Serapan::find($request->id);
             $serapan->status = 'valid';
+            $serapan->approval_id = Auth::user()->karyawan_id;
+            $serapan->approval_jabatan = Auth::user()->jabatan->nama ?? '-';
             $serapan->save();
 
             DB::commit();

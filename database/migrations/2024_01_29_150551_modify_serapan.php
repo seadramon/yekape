@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('serapan', function (Blueprint $table) {
+            $table->integer('counter')->default(0);
             $table->foreignId('approval_id')->nullable()->constrained('karyawans');
             $table->string('approval_jabatan', 255)->nullable();
+            $table->foreignId('created_id')->nullable()->constrained('karyawans');
+            $table->string('created_jabatan', 255)->nullable();
         });
     }
 
@@ -23,7 +26,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('serapan', function (Blueprint $table) {
-            $table->dropColumn(['approval_id', 'approval_jabatan']);
+            $table->dropColumn(['approval_id', 'approval_jabatan', 'created_id', 'created_jabatan']);
         });
     }
 };
