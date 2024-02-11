@@ -65,7 +65,7 @@
                     No./TANGGAL RAB
                 </td>
                 <td width="5%" style="font-weight:bold;">:</td>
-                <td width="70%">{{ $data->kode . ' / ' . date('d M Y', strtotime($data->costing_date)) }}</td>
+                <td width="70%">{{ $data->kode . ' / ' . date('d M Y', strtotime($data->created_at)) }}</td>
             </tr>
             <tr>
                 <td width="25%" style="font-weight:bold;">
@@ -152,17 +152,17 @@
                     </div>
 
                     <div style="text-align:center;">
-                        <b><u>.....................</u></b><br>
+                        <b><u>{{$manajer_keu->nama}}</u></b><br>
                     </div>
                 </td>
                 <td width="33%">
                     <div style="text-align:center;padding-top:10px;margin-bottom:80px;">
                         Disetujui oleh :<br>
-                        Manajer/Sekretaris Perusahaan
+                        Manajer {{ ucfirst(strtolower($data->bagian->nama)) }}
                     </div>
 
                     <div style="text-align:center;">
-                        <b><u>...................</u></b><br>
+                        <b><u>{{$manajer_bagian->nama}}</u></b><br>
                     </div>
                 </td>
                 <td width="33%" >

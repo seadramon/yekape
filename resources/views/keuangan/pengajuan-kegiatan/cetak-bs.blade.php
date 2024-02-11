@@ -148,11 +148,11 @@
                 <td width="30%" style="text-align:left;">
                     <div style="text-align:center;margin-bottom:70px;">
                         Menyetujui<br>
-                        Sekretaris Perusahaan
+                        {{ ucfirst(strtolower($data->bagian->nama)) }}
                     </div>
 
                     <div style="text-align:center;">
-                        (........................................)
+                        ({{$manajer_bagian->nama}})
                     </div>
                 </td>
                 <td width="30%"></td>
@@ -180,7 +180,7 @@
                     </div>
 
                     <div style="text-align:center;">
-                        (........................................)
+                        ({{$manajer_keu->nama}})
                     </div>
                 </td>\
             </tr>

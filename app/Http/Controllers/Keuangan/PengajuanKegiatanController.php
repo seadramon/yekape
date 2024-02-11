@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Keuangan;
 
 use App\Http\Controllers\Controller;
+use App\Library\AmbilPemilikJabatan;
 use App\Models\Bagian;
 use App\Models\Karyawan;
 use App\Models\Misi;
@@ -295,14 +296,21 @@ class PengajuanKegiatanController extends Controller
     public function cetak($id)
     {
         $data = Serapan::with('created_by')->find($id);
+        $keu = Bagian::whereKode('KEU')->first();
 
         if($data->jenis == 'BS'){
             $tmplt = 'bs';
+            $manajer_bagian = (new AmbilPemilikJabatan)->dariBagian($data->bagian_id, 'manajer');
+            $manajer_keu = (new AmbilPemilikJabatan)->dariBagian($keu->id, 'manajer');
         }else{
             $tmplt = 'pp';
+            $manajer_bagian = (new AmbilPemilikJabatan)->dariBagian($data->bagian_id, 'manajer');
+            $manajer_keu = (new AmbilPemilikJabatan)->dariBagian($keu->id, 'manajer');
         }
         $pdf = Pdf::loadView('keuangan.pengajuan-kegiatan.cetak-'.$tmplt, [
-            'data' => $data
+            'data' => $data,
+            'manajer_bagian' => $manajer_bagian,
+            'manajer_keu' => $manajer_keu,
         ]);
         $filename = "pengajuan-pengadaan-barang-jasa";
 
