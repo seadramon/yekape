@@ -178,18 +178,20 @@
                 </td>
 
             </tr>
-            {{-- <tr>
-                <td colspan="3">
-                    <div style="text-align:center;padding-top:10px;margin-bottom:150px;">
-                        Mengetahui :<br>
-                        Direktur
-                    </div>
+            @if ($jumlah >= 100000000)
+                <tr>
+                    <td colspan="3">
+                        <div style="text-align:center;padding-top:10px;margin-bottom:80px;">
+                            Mengetahui :<br>
+                            Direktur PT. Yekape Surabaya
+                        </div>
 
-                    <div style="text-align:center;">
-                        <b><u>...................</u></b><br>
-                    </div>
-                </td>
-            </tr> --}}
+                        <div style="text-align:center;">
+                            <b><u>Ir. HERMIEN ROOSITA, MM.</u></b><br>
+                        </div>
+                    </td>
+                </tr>
+            @endif
         </table>
     </body>
 </html>

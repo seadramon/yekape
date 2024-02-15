@@ -10,9 +10,13 @@
                 <div class="card-header">
                     <h3 class="card-title">Surat Pesanan Rumah</h3>
                     <div class="card-toolbar">
-                        <a href="{{route('pemasaran.suratpesanan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
+                        @if (in_array('add', json_decode(session('ACTION_MENU_' . auth()->user()->id))))
+                            <a href="{{route('pemasaran.suratpesanan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Data</a>
+                        @endif
                         &nbsp;
-                        <a href="javascript:void(0)" class="btn btn-light-success" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a>
+                        @if (in_array('export', json_decode(session('ACTION_MENU_' . auth()->user()->id))))
+                            <a href="javascript:void(0)" class="btn btn-light-success" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a>
+                        @endif
                     </div>
                 </div>
 

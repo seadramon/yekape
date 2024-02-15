@@ -39,7 +39,7 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-truck fs-3',
                 'level' => '2',
                 'sequence' => '0210',
-                'action' => []
+                'action' => ['add']
             ],
             [
                 'name' => 'Master Kavling',
@@ -47,7 +47,11 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-truck fs-3',
                 'level' => '2',
                 'sequence' => '0220',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                    'delete'
+                ]
             ],
             [
                 'name' => 'Master Cluster',
@@ -55,7 +59,11 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-truck fs-3',
                 'level' => '2',
                 'sequence' => '0230',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                    'delete'
+                ]
             ],
             [
                 'name' => 'Pemesanan rumah',
@@ -87,16 +95,23 @@ class MenuSeeder extends Seeder
                 'route_name' => 'pemasaran.nup.index',
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
-                'sequence' => '0330',
-                'action' => []
+                'sequence' => '0320',
+                'action' => [
+                    'add',
+                    'add_booking_fee',
+                ]
             ],
             [
                 'name' => 'Tanda Jadi',
                 'route_name' => 'pemasaran.booking-fee.index',
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
-                'sequence' => '0320',
-                'action' => []
+                'sequence' => '0330',
+                'action' => [
+                    'add',
+                    'edit',
+                    'delete'
+                ]
             ],
             [
                 'name' => 'SPR',
@@ -104,7 +119,16 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0340',
-                'action' => []
+                'action' => [
+                    'add',
+                    'export',
+                    'view',
+                    'sppk',
+                    'edit',
+                    'upload',
+                    'print',
+                    'print_ppjb',
+                ]
             ],
             [
                 'name' => 'Validasi SPR',
@@ -112,7 +136,9 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-truck-front fs-3',
                 'level' => '2',
                 'sequence' => '0350',
-                'action' => []
+                'action' => [
+                    'validasi'
+                ]
             ],
             [
                 'name' => 'Kwitansi',
@@ -120,7 +146,14 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-user-plus fs-3',
                 'level' => '2',
                 'sequence' => '0360',
-                'action' => []
+                'action' => [
+                    'add_kwu',
+                    'add_kwt',
+                    'export',
+                    'print',
+                    'edit',
+                    'delete',
+                ]
             ],
             [
                 'name' => 'Penyusunan Anggaran',
@@ -136,7 +169,10 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0410',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                ]
             ],
             [
                 'name' => 'Misi',
@@ -144,7 +180,10 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0420',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                ]
             ],
             [
                 'name' => 'Sasaran',
@@ -152,7 +191,10 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0430',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                ]
             ],
             [
                 'name' => 'Program',
@@ -160,7 +202,10 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0440',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                ]
             ],
             [
                 'name' => 'Kegiatan',
@@ -168,7 +213,10 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0450',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                ]
             ],
             [
                 'name' => 'Rincian Kegiatan',
@@ -176,7 +224,10 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0460',
-                'action' => []
+                'action' => [
+                    'export',
+                    'edit',
+                ]
             ],
             [
                 'name' => 'SSH',
@@ -184,7 +235,10 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0470',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                ]
             ],
             [
                 'name' => 'HSPK',
@@ -192,7 +246,10 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0480',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                ]
             ],
             [
                 'name' => 'Validasi Kegiatan',
@@ -200,7 +257,9 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-truck-front fs-3',
                 'level' => '2',
                 'sequence' => '0490',
-                'action' => []
+                'action' => [
+                    'validasi'
+                ]
             ],
             [
                 'name' => 'Penyerapan Anggaran',
@@ -216,7 +275,11 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-truck-front fs-3',
                 'level' => '2',
                 'sequence' => '0610',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                    'print',
+                ]
             ],
             [
                 'name' => 'Validasi Pengajuan Kegiatan',
@@ -224,7 +287,9 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-truck-front fs-3',
                 'level' => '2',
                 'sequence' => '0620',
-                'action' => []
+                'action' => [
+                    'validasi'
+                ]
             ],
             [
                 'name' => 'Monitoring',
@@ -264,7 +329,11 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-truck fs-3',
                 'level' => '2',
                 'sequence' => '0810',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                    'delete',
+                ]
             ],
             [
                 'name' => 'Manajemen User',
@@ -280,7 +349,11 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0910',
-                'action' => []
+                'action' => [
+                    'add',
+                    'edit',
+                    'setting_menu',
+                ]
             ],
             [
                 'name' => 'User',
@@ -288,7 +361,10 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-file fs-3',
                 'level' => '2',
                 'sequence' => '0920',
-                'action' => []
+                'action' => [
+                    'add',
+                    'change_password',
+                ]
             ],
         ];
 

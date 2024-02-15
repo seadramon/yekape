@@ -55,17 +55,32 @@ class SuratPesananController extends Controller
                 return $teks;
             })
             ->addColumn('menu', function ($model) {
+                $action = json_decode(session('ACTION_MENU_' . Auth::user()->id));
+                $list = '';
+                if(in_array('view', $action)){
+                    $list .= '<li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.show', $model->id) .'" target="_blank">Lihat</a></li>';
+                }
+                if(in_array('sppk', $action)){
+                    $list .= '<li><a class="dropdown-item input-sppk" data-id="' . $model->id . '" data-bank="' . $model->bank_kpr . '" data-sppk="' . $model->no_sppk . '" href="javascript:void(0)">Input Sppk</a></li>';
+                }
+                if(in_array('edit', $action)){
+                    $list .= '<li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Perubahan</a></li>';
+                }
+                if(in_array('upload', $action)){
+                    $list .= '<li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.upload', ['id' => $model->id]) .'" target="_blank">Upload File</a></li>';
+                }
+                if(in_array('print', $action)){
+                    $list .= '<li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>';
+                }
+                if(in_array('print_ppjb', $action)){
+                    $list .= '<li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank">Cetak PPJB</a></li>';
+                }
                 $html = '<div class="btn-group">
                         <button class="btn btn-light-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.show', $model->id) .'" target="_blank">Lihat</a></li>
-                            <li><a class="dropdown-item input-sppk" data-id="' . $model->id . '" data-bank="' . $model->bank_kpr . '" data-sppk="' . $model->no_sppk . '" href="javascript:void(0)">Input Sppk</a></li>
-                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Perubahan</a></li>
-                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.upload', ['id' => $model->id]) .'" target="_blank">Upload File</a></li>
-                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetak', ['id' => $model->id]) .'" target="_blank">Cetak</a></li>
-                            <li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.cetakppjb', ['id' => $model->id]) .'" target="_blank">Cetak PPJB</a></li>
+                            ' . $list . '
                         </ul>
                     </div>';
 

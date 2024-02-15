@@ -10,7 +10,9 @@
                 <div class="card-header">
                     <h3 class="card-title">Data Pengajuan Kegiatan</h3>
 					<div class="card-toolbar">
-                        <a href="{{route('keuangan.pengajuan-kegiatan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Pengajuan</a>
+						@if (in_array('add', json_decode(session('ACTION_MENU_' . auth()->user()->id))))
+							<a href="{{route('keuangan.pengajuan-kegiatan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Pengajuan</a>
+						@endif
                     </div>
                 </div>
 
