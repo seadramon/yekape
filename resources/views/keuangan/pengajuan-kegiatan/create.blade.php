@@ -70,10 +70,6 @@
                             <label class="form-label">Jabatan Pembuat Pengajuan</label>
                             {!! Form::text('created_jabatan', null, ['class'=>'form-control', 'id'=>'created_jabatan', 'autocomplete'=>'off', 'required']) !!}
                         </div>
-                        <div class="fv-row form-group col-lg-6 mb-3 form-bs hidden">
-                            <label class="form-label">Penerima</label>
-                            {!! Form::select('penerima', $karyawan, $data->penerima->id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'penerima'], $opt_karyawan) !!}
-                        </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Upload RAB</label>
                             {!! Form::file('file_rab', ['class' => 'form-control', 'id' => 'file_rab']) !!}                            

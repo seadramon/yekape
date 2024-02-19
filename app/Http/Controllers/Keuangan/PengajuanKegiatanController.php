@@ -112,13 +112,6 @@ class PengajuanKegiatanController extends Controller
             $serapan->status = 'draft';
             $serapan->created_id = $request->created;
             $serapan->created_jabatan = $request->created_jabatan;
-            if($request->penerima){
-                $p = Karyawan::find($request->penerima);
-                $data['penerima'] = [
-                    'id' => $p->id,
-                    'nama' => $p->nama,
-                ];
-            }
             $serapan->data = $data;
             $serapan->save();
             
@@ -193,13 +186,7 @@ class PengajuanKegiatanController extends Controller
             $serapan->tahun = $request->tahun ?? date('Y');
             $serapan->created_id = $request->created;
             $serapan->created_jabatan = $request->created_jabatan;
-            if($request->penerima){
-                $p = Karyawan::find($request->penerima);
-                $data['penerima'] = [
-                    'id' => $p->id,
-                    'nama' => $p->nama,
-                ];
-            }
+            
             $serapan->detail()->delete();
             if ($request->hasFile('file_rab')) {
                 $file = $request->file('file_rab');

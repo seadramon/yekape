@@ -84,10 +84,21 @@ class ValidasiPengajuanKegiatanController extends Controller
         try {
             DB::beginTransaction();
             $serapan = Serapan::find($request->id);
+
+            $data = $serapan->data;
+
             $serapan->status = 'valid';
             $serapan->approval_id = Auth::user()->karyawan_id;
             $serapan->approval_jabatan = Auth::user()->jabatan->nama ?? '-';
             $serapan->costing_date = date('Y-m-d');
+            if($request->has('penerima')){
+                $p = Karyawan::find($request->penerima);
+                $data['penerima'] = [
+                    'id' => $p->id,
+                    'nama' => $p->nama,
+                ];
+            }
+            $serapan->data = $data;
             $serapan->save();
 
             DB::commit();

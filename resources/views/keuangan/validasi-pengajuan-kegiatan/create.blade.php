@@ -56,7 +56,7 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
                             <label class="form-label">Tanggal Verifikasi</label>
-                            {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off', 'readonly']) !!}
+                            {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off', 'disabled']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Approval</label>
@@ -66,6 +66,12 @@
                             <label class="form-label">Jabatan</label>
                             {!! Form::text('approval_jabatan', null, ['class'=>'form-control', 'id'=>'approval_jabatan', 'autocomplete'=>'off', 'required', 'readonly']) !!}
                         </div>
+                        @if ($data->jenis == 'BS')
+                            <div class="fv-row form-group col-lg-6 mb-3">
+                                <label class="form-label">Penerima</label>
+                                {!! Form::select('penerima', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'penerima'], $opt_karyawan) !!}
+                            </div>
+                        @endif
                         <div class="fv-row form-group col-lg-12 mb-3 mt-2">
                             {{-- <button type="button" class="btn btn-light-primary" id="add-kegiatan-detail">
                                 <i class="la la-plus"></i>Tambah Komponen Kegiatan
