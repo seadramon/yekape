@@ -59,6 +59,14 @@
                             {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off', 'disabled']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Pembuat</label>
+                            {!! Form::select('created', $karyawan, $data->created_id ?? null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'created', 'disabled'], $opt_karyawan) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Jabatan Pembuat</label>
+                            {!! Form::text('created_jabatan', null, ['class'=>'form-control', 'id'=>'created_jabatan', 'autocomplete'=>'off', 'required', 'readonly']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Approval</label>
                             {!! Form::select('approval', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'approval', 'disabled'], $opt_karyawan) !!}
                         </div>

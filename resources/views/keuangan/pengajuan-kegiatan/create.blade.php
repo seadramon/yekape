@@ -159,8 +159,8 @@
     $(document).ready(function() {
         $("#jenis").trigger('change');
 
-        $("#approval").on('change', function(){
-            $("#approval_jabatan").val($("#approval option:selected").attr('data-jabatan'));
+        $("#created").on('change', function(){
+            $("#created_jabatan").val($("#created option:selected").attr('data-jabatan'));
         });
 
         var exampleModal = document.getElementById('imageModal');
