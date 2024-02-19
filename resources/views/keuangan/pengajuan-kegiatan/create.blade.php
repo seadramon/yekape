@@ -8,11 +8,11 @@
         <!--begin::Col-->
         <div class="col-12 mb-md-5 mb-xl-10">
             @if (isset($data))
-                {!! Form::model($data, ['route' => ['keuangan.pengajuan-kegiatan.update', $data->id], 'class' => 'form', 'id' => "form-kegiatan",]) !!}
+                {!! Form::model($data, ['route' => ['keuangan.pengajuan-kegiatan.update', $data->id], 'class' => 'form', 'id' => "form-kegiatan", 'enctype' => 'multipart/form-data']) !!}
                 {!! Form::hidden('id', $data->id) !!}
                 @method('PUT')
             @else
-                {!! Form::open(['url' => route('keuangan.pengajuan-kegiatan.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-kegiatan"]) !!}
+                {!! Form::open(['url' => route('keuangan.pengajuan-kegiatan.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-kegiatan", 'enctype' => 'multipart/form-data']) !!}
             @endif
             <div class="card shadow-sm">
                 <div class="card-header">
@@ -70,6 +70,14 @@
                             <label class="form-label">Jabatan Pembuat Pengajuan</label>
                             {!! Form::text('created_jabatan', null, ['class'=>'form-control', 'id'=>'created_jabatan', 'autocomplete'=>'off', 'required']) !!}
                         </div>
+                        <div class="fv-row form-group col-lg-6 mb-3 form-bs hidden">
+                            <label class="form-label">Penerima</label>
+                            {!! Form::select('penerima', $karyawan, $data->penerima->id ?? null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'penerima'], $opt_karyawan) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Upload RAB</label>
+                            {!! Form::file('file_rab', ['class' => 'form-control', 'id' => 'file_rab']) !!}                            
+                        </div>
                         <div class="fv-row form-group col-lg-12 mb-3 mt-2">
                             <button type="button" class="btn btn-light-primary" id="add-kegiatan-detail">
                                 <i class="la la-plus"></i>Tambah Komponen Kegiatan
@@ -125,6 +133,23 @@
     <!--end::Row-->
 </div>
 <!--end::Content container-->
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{ asset('assets/img/empty.jpg') }}" id="fileImage" width="300px">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @include('keuangan.pengajuan-kegiatan.modal_komponen')
 @endsection
 
@@ -141,7 +166,22 @@
         $("#approval").on('change', function(){
             $("#approval_jabatan").val($("#approval option:selected").attr('data-jabatan'));
         });
+
+        var exampleModal = document.getElementById('imageModal');
+        exampleModal.addEventListener('show.bs.modal', function (event) {
+    
+            var button = event.relatedTarget;
+            var title = button.getAttribute('data-bs-title');
+            var image = button.getAttribute('data-bs-image');
+          
+            var modalTitle = exampleModal.querySelector('.modal-title');
+            var modalBodyInput = exampleModal.querySelector('.modal-body img');
+    
+            modalTitle.textContent = title;
+            $('#fileImage').attr('src', image);
+        });
     });
+
 
     $('#add-kegiatan-detail').on('click', function(){
         resetModalKegiatanDetail()
@@ -151,7 +191,9 @@
     $(document).on('change', '#jenis', function(event){
         if($("#jenis").val() == 'BS'){
             $(".optional").addClass('hidden');
+            $(".form-bs").removeClass('hidden');
         }else{
+            $(".form-bs").addClass('hidden');
             $(".optional").removeClass('hidden');
         }
     });

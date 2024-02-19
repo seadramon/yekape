@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class PengajuanKegiatanController extends Controller
 {
@@ -96,6 +98,8 @@ class PengajuanKegiatanController extends Controller
                 'jenis' => 'required',
             ])->validate();
 
+            $data = [];
+
             $serapan = new Serapan;
             $serapan->nama = $request->nama;
             $serapan->bagian_id = $request->bagian_id;
@@ -108,7 +112,27 @@ class PengajuanKegiatanController extends Controller
             $serapan->status = 'draft';
             $serapan->created_id = $request->created;
             $serapan->created_jabatan = $request->created_jabatan;
+            if($request->penerima){
+                $p = Karyawan::find($request->penerima);
+                $data['penerima'] = [
+                    'id' => $p->id,
+                    'nama' => $p->nama,
+                ];
+            }
+            $serapan->data = $data;
             $serapan->save();
+            
+            if ($request->hasFile('file_rab')) {
+                $file = $request->file('file_rab');
+    
+                $dir = "customer/" . $serapan->id;
+                $filename = 'file_rab' . '.' . $file->getClientOriginalExtension();
+                $path = $dir . '/' . $filename;
+                Storage::put($path, File::get($file));
+                $data['rab']['file'] = $path;
+                $serapan->data = $data;
+                $serapan->save();
+            }
 
             foreach (($request->komponen_kegiatan ?? []) as $index => $kegiatan) {
                 $detail = new SerapanDetail;
@@ -154,7 +178,11 @@ class PengajuanKegiatanController extends Controller
                 'bagian_id' => 'required',
                 'jenis' => 'required',
             ])->validate();
+
             $serapan = Serapan::find($request->id);
+            
+            $data = $serapan->data;
+            
             $serapan->nama = $request->nama;
             $serapan->bagian_id = $request->bagian_id;
             $serapan->metode = $request->metode;
@@ -165,7 +193,28 @@ class PengajuanKegiatanController extends Controller
             $serapan->tahun = $request->tahun ?? date('Y');
             $serapan->created_id = $request->created;
             $serapan->created_jabatan = $request->created_jabatan;
+            if($request->penerima){
+                $p = Karyawan::find($request->penerima);
+                $data['penerima'] = [
+                    'id' => $p->id,
+                    'nama' => $p->nama,
+                ];
+            }
             $serapan->detail()->delete();
+            if ($request->hasFile('file_rab')) {
+                $file = $request->file('file_rab');
+    
+                $dir = "customer/" . $serapan->id;
+                $filename = 'file_rab' . '.' . $file->getClientOriginalExtension();
+                $path = $dir . '/' . $filename;
+                Storage::put($path, File::get($file));
+
+                $data = $serapan->data;
+                $data['rab']['file'] = $path;
+                $serapan->data = $data;
+
+            }
+            $serapan->save();
 
             foreach (($request->komponen_kegiatan ?? []) as $index => $kegiatan) {
                 if($request->detail_id[$index] == '0'){
