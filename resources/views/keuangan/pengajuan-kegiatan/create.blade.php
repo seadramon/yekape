@@ -72,7 +72,7 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 form-bs hidden">
                             <label class="form-label">Penerima</label>
-                            {!! Form::select('penerima', $karyawan, $data->penerima->id ?? null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'penerima'], $opt_karyawan) !!}
+                            {!! Form::select('penerima', $karyawan, $data->penerima->id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'penerima'], $opt_karyawan) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Upload RAB</label>
