@@ -61,7 +61,7 @@ class SuratPesananController extends Controller
                     $list .= '<li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.show', $model->id) .'" target="_blank">Lihat</a></li>';
                 }
                 if(in_array('sppk', $action)){
-                    $list .= '<li><a class="dropdown-item input-sppk" data-id="' . $model->id . '" data-bank="' . $model->bank_kpr . '" data-sppk="' . $model->no_sppk . '" href="javascript:void(0)">Input Sppk</a></li>';
+                    $list .= '<li><a class="dropdown-item input-sppk" data-id="' . $model->id . '" data-bank="' . $model->bank_kpr . '" data-sppk="' . $model->no_sppk . '"  data-nilai-sppk="' . ($model->data['sppk']['nilai'] ?? '') . '" href="javascript:void(0)">Input Sppk</a></li>';
                 }
                 if(in_array('edit', $action)){
                     $list .= '<li><a class="dropdown-item" href="'. route('pemasaran.suratpesanan.revisi', ['id' => $model->id]) .'" target="_blank">Perubahan</a></li>';
@@ -254,23 +254,25 @@ class SuratPesananController extends Controller
     public function storeSppk(Request $request, FlasherInterface $flasher)
     {
         // return response()->json($request->all());
-        // DB::beginTransaction();
+        DB::beginTransaction();
 
-        // try {
+        try {
             $spr = SuratPesananRumah::find($request->id);
             $spr->bank_kpr = $request->bank_kpr;
             $spr->no_sppk = $request->no_sppk;
+
+            $data = $spr->data;
+            $data['sppk']['nilai'] = $request->nilai_sppk;
+            $spr->data = $data;
             $spr->save();
-            // DB::commit();
+            DB::commit();
 
             $flasher->addSuccess('Data has been saved successfully!');
-            return redirect()->route('pemasaran.suratpesanan.index');
-        // } catch(Exception $e) {
-        //     DB::rollback();
-
-        //     $flasher->addError($e->getMessage());
-        //     return redirect()->back();
-        // }
+        } catch(Exception $e) {
+            DB::rollback();    
+            $flasher->addError($e->getMessage());
+        }
+        return redirect()->route('pemasaran.suratpesanan.index');
     }
 
     public function cetak($id)

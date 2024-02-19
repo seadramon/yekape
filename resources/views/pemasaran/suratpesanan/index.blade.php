@@ -144,6 +144,10 @@
                         <label class="form-label">No SPPK</label>
                         {!! Form::text('no_sppk', "", ['class'=>'form-control modal-text', 'id'=>'modal_no_sppk']) !!}
                     </div>
+                    <div class="form-group col-lg-6">
+                        <label class="form-label">Nilai SPPK</label>
+                        {!! Form::text('nilai_sppk', null, ['class'=>'form-control currency', 'id'=>'modal_nilai_sppk', 'autocomplete'=>'off']) !!}
+                    </div>
                 </div>
             </div>
             <!--end::Modal body-->
@@ -274,6 +278,7 @@
 		$("#modal_id").val($(this).attr('data-id'));
 		$("#modal_bank_kpr").val($(this).attr('data-bank'));
 		$("#modal_no_sppk").val($(this).attr('data-sppk'));
+		$("#modal_nilai_sppk").val($(this).attr('data-nilai-sppk'));
 		$('#modal_sppk').modal('toggle');
     });
 
