@@ -14,6 +14,9 @@ class Serapan extends Model
 
     protected $table = 'serapan';
     protected $guarded = [];
+    protected $casts = [
+        'data' => 'array',
+    ];
 
     protected static function booted()
     {
