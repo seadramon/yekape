@@ -50,7 +50,7 @@
 		<!--begin::Root-->
 		<div class="d-flex flex-column flex-root" id="kt_app_root">
 			<!--begin::Page bg image-->
-			<style>body { background-image: url('assets/media/auth/bg4.jpg'); } [data-bs-theme="dark"] body { background-image: url('assets/media/auth/bg4-dark.jpg'); }</style>
+			<style>body { background-image: url("{{ asset('assets/media/auth/bg4.jpg') }}"); } [data-bs-theme="dark"] body { background-image: url("{{ asset('assets/media/auth/bg4-dark.jpg') }}"); }</style>
 			<!--end::Page bg image-->
 			<!--begin::Authentication - Sign-in -->
 			<div class="d-flex flex-column flex-column-fluid flex-lg-row">
@@ -64,7 +64,7 @@
 						</a>
 						<!--end::Logo-->
 						<!--begin::Title-->
-						<h2 class="text-white fw-normal m-0">Real Estate with 30 years Experience2</h2>
+						<h2 class="text-white fw-normal m-0">PORTAL APLIKASI</h2>
 						<!--end::Title-->
 					</div>
 					<!--begin::Aside-->
@@ -149,7 +149,7 @@
 							<div class="me-0">
 								<!--begin::Toggle-->
 								<button class="btn btn-flex btn-link btn-color-gray-700 btn-active-color-primary rotate fs-base" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" data-kt-menu-offset="0px, 0px">
-									<img data-kt-element="current-lang-flag" class="w-20px h-20px rounded me-3" src="assets/media/flags/united-states.svg" alt="" />
+									<img data-kt-element="current-lang-flag" class="w-20px h-20px rounded me-3" src="{{ asset('assets/media/flags/united-states.svg') }}" alt="" />
 									<span data-kt-element="current-lang-name" class="me-1">English</span>
 									<i class="ki-duotone ki-down fs-5 text-muted rotate-180 m-0"></i>
 								</button>
@@ -160,7 +160,7 @@
 									<div class="menu-item px-3">
 										<a href="#" class="menu-link d-flex px-5" data-kt-lang="English">
 											<span class="symbol symbol-20px me-4">
-												<img data-kt-element="lang-flag" class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
+												<img data-kt-element="lang-flag" class="rounded-1" src="{{ asset('assets/media/flags/united-states.svg') }}" alt="" />
 											</span>
 											<span data-kt-element="lang-name">English</span>
 										</a>
