@@ -67,13 +67,13 @@
                 <td width="5%" style="font-weight:bold;">:</td>
                 <td width="70%">{{ $data->kode . ' / ' . date('d M Y', strtotime($data->created_at)) }}</td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <td width="25%" style="font-weight:bold;">
                     DASAR
                 </td>
                 <td width="5%" style="font-weight:bold;">:</td>
                 <td width="70%"></td>
-            </tr>
+            </tr> --}}
         </table>
 
         <table width="100%" border="1" cellspacing="0" style="margin-bottom:1px;">
@@ -165,8 +165,8 @@
                         <b><u>{{$manajer_bagian->nama}}</u></b><br>
                     </div>
                 </td>
-                <td width="33%" >
-                    Surabaya, 25 Sept 2023
+                <td width="33%" style="text-align:center;">
+                    Surabaya, {{ date('d M Y', strtotime($data->created_at)) }}
                     <div style="text-align:center;margin-bottom:80px;">
                         Dibuat dan diajukan oleh :<br>
                         {{$data->created_jabatan ?? ''}}
