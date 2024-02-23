@@ -56,9 +56,11 @@
                 <td width="70%">{{ $data->bagian->nama }}</td>
             </tr>
             <tr>
-                <td colspan="3" style="text-align:right;font-weight:bold;padding-right:20%;">
-                    No.Perkiraan : {{ $kode_perkiraan }}
+                <td style="text-align:left;font-weight:bold;padding-right:20%;">
+                    No.Perkiraan
                 </td>
+                <td width="5%" style="font-weight:bold;">:</td>
+                <td width="70%">{{ $kode_perkiraan }}</td>
             </tr>
             <tr>
                 <td width="25%" style="font-weight:bold;">
@@ -105,7 +107,7 @@
                     ?>
                     <tr>
                         <td style="text-align:center;">{{ $i }}</td>
-                        <td>{{ $row->kegiatan_detail->kegiatan->nama }}</td>
+                        <td>{{ $row->kegiatan_detail->komponen->nama }}</td>
                         <td></td>
                         <td style="text-align:right;">{{ $row->volume }}</td>
                         <td style="text-align:right;">{{ !empty($harsat)?number_format($harsat, 0, ',', '.'):0 }}</td>
@@ -139,6 +141,7 @@
             <tr>
                 <td colspan="6" style="padding-left:2%;padding-top:10px;padding-bottom:10px;font-weight:bold;">
                     Terbilang : {{ucwords(terbilang($total))}} Rupiah
+
                 </td>
             </tr>
         </table>
