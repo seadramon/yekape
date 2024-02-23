@@ -113,7 +113,7 @@
                 </td>
                 <td>:</td>
                 <td>
-                    {{ terbilang($total) }}
+                    {{ ucwords(terbilang($total)) }} Rupiah
                 </td>
             </tr>
             <tr>
