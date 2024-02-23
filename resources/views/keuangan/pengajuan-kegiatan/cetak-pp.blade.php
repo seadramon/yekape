@@ -138,7 +138,7 @@
             </tr>
             <tr>
                 <td colspan="6" style="padding-left:2%;padding-top:10px;padding-bottom:10px;font-weight:bold;">
-                    Terbilang : {{terbilang($total)}}
+                    Terbilang : {{ucwords(terbilang($total))}} Rupiah
                 </td>
             </tr>
         </table>
