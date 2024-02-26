@@ -29,6 +29,7 @@ use App\Http\Controllers\Perencanaan\VisiController;
 use App\Http\Controllers\SuratPesananController;
 use App\Http\Controllers\StokKavlingController;
 use App\Http\Controllers\SerapanController;
+use App\Http\Controllers\BagianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,16 @@ Route::middleware('auth')->group(function () {
 	
 	Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
 	
+		Route::group(['prefix' => '/bagian', 'as' => 'bagian.'], function(){
+	
+			Route::get('/', 		[BagianController::class, 'index'])->name('index');
+			Route::get('loadData', 	[BagianController::class, 'loadData'])->name('data');
+			Route::get('create', 	[BagianController::class, 'create'])->name('create');
+			Route::get('edit/{id}', 		[BagianController::class, 'edit'])->name('edit');
+			Route::post('store', 	[BagianController::class, 'store'])->name('store');
+			Route::post('/destroy', [BagianController::class, 'destroy'])->name('destroy');
+		});
+		
 		Route::group(['prefix' => '/tanah-kavling', 'as' => 'tanah-kavling.'], function(){
 	
 			Route::get('/', 		[TanahKavlingController::class, 'index'])->name('index');

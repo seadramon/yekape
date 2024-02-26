@@ -2,7 +2,7 @@
     <head>
         <style>
             body {
-                font-size: 11px;
+                font-size: 12px;
                 font-family: arial;
             }
 
@@ -20,6 +20,7 @@
             .content table, .content th, .content td {
                 border: 1px solid;
                 padding-left: 5px:
+
             }
             @page { margin:20px 25px 60px 25px; }
             header { margin-bottom: 10px; }
@@ -50,7 +51,7 @@
             })->join(', ');
         @endphp
 
-        <table width="100%" cellspacing="0">
+        <table width="100%" cellspacing="1">
             <tr>
                 <td colspan="3" style="text-align:right;">
                     NO : {{ $data->kode }}
@@ -63,6 +64,11 @@
                 <td width="2%">:</td>
                 <td width="68%">
                     Diperintahkan oleh :
+                    @if(ucfirst(strtoupper($data->bagian->nama)) == "SEKRETARIAT PERUSAHAAN")
+                            SEKRETARIS PERUSAHAAN
+                        @else
+                            MANAJER {{ ucfirst(strtoupper($data->bagian->nama)) }}
+                        @endif
                 </td>
             </tr>
             <tr>
@@ -71,7 +77,7 @@
                 </td>
                 <td>:</td>
                 <td>
-                    Supervisor Hukum
+                    {{$data->created_jabatan}}
                 </td>
             </tr>
             <tr>
@@ -107,7 +113,7 @@
                 </td>
                 <td>:</td>
                 <td>
-                    {{ terbilang($total) }}
+                    {{ ucwords(terbilang($total)) }} Rupiah
                 </td>
             </tr>
             <tr>
@@ -148,7 +154,11 @@
                 <td width="30%" style="text-align:left;">
                     <div style="text-align:center;margin-bottom:70px;">
                         Menyetujui<br>
-                        {{ ucfirst(strtolower($data->bagian->nama)) }}
+                        @if(ucfirst(strtoupper($data->bagian->nama)) == "SEKRETARIAT PERUSAHAAN")
+                            SEKRETARIS PERUSAHAAN
+                        @else
+                            MANAJER {{ ucfirst(strtoupper($data->bagian->nama)) }}
+                        @endif
                     </div>
 
                     <div style="text-align:center;">

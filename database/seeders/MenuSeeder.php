@@ -34,11 +34,23 @@ class MenuSeeder extends Seeder
                 'action' => []
             ],
             [
+                'name' => 'Bagian',
+                'route_name' => 'master.bagian.index',
+                'icon' => 'fas fa-truck fs-3',
+                'level' => '2',
+                'sequence' => '0210',
+                'action' => [
+                    'add',
+                    'edit',
+                    'delete',
+                ]
+            ],
+            [
                 'name' => 'Master Tanah Mentah',
                 'route_name' => 'master.tanah-mentah.index',
                 'icon' => 'fas fa-truck fs-3',
                 'level' => '2',
-                'sequence' => '0210',
+                'sequence' => '0220',
                 'action' => ['add']
             ],
             [
@@ -46,7 +58,7 @@ class MenuSeeder extends Seeder
                 'route_name' => 'master.tanah-kavling.index',
                 'icon' => 'fas fa-truck fs-3',
                 'level' => '2',
-                'sequence' => '0220',
+                'sequence' => '0230',
                 'action' => [
                     'add',
                     'edit',
@@ -58,7 +70,7 @@ class MenuSeeder extends Seeder
                 'route_name' => 'master.cluster.index',
                 'icon' => 'fas fa-truck fs-3',
                 'level' => '2',
-                'sequence' => '0230',
+                'sequence' => '0240',
                 'action' => [
                     'add',
                     'edit',

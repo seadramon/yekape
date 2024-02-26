@@ -35,7 +35,7 @@
                             {!! Form::select('bagian_id', $bagian, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'bagian']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Nama</label>
+                            <label class="form-label">Nama Kegiatan</label>
                             {!! Form::text('nama', null, ['class'=>'form-control', 'id'=>'nama', 'autocomplete'=>'off', 'required']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
@@ -71,7 +71,7 @@
                             {!! Form::text('created_jabatan', null, ['class'=>'form-control', 'id'=>'created_jabatan', 'autocomplete'=>'off', 'required']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Upload RAB</label>
+                            <label class="form-label">Upload RAB (Format PDF)</label>
                             {!! Form::file('file_rab', ['class' => 'form-control', 'id' => 'file_rab']) !!}                            
                         </div>
                         <div class="fv-row form-group col-lg-12 mb-3 mt-2">
