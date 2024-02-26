@@ -62,6 +62,9 @@ class PengajuanKegiatanController extends Controller
                 if(in_array('print', $action)){
                     $list .= '<li><a class="dropdown-item" target="_blank" href="' . route('keuangan.pengajuan-kegiatan.cetak', $model->id) . '">Cetak</a></li>';
                 }
+                if(in_array('print', $action)){
+                    $list .= '<li><a class="dropdown-item" target="_blank" href="' . route('keuangan.pengajuan-kegiatan.cetakLampiranBS', $model->id) . '">Cetak Lamp BS</a></li>';
+                }
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
@@ -355,6 +358,29 @@ class PengajuanKegiatanController extends Controller
             'manajer_keu' => $manajer_keu,
         ]);
         $filename = "pengajuan-pengadaan-barang-jasa";
+
+        $customPaper = [0, 0, 16.5, 21.5];
+
+        return $pdf->setPaper('a4', 'portrait')
+            ->stream($filename . '.pdf');
+    }
+
+    public function cetakLampiran($id)
+    {
+        $data = Serapan::with('created_by')->find($id);
+        $keu = Bagian::whereKode('KEU')->first();
+
+        // if($data->jenis == 'BS'){
+        //     $tmplt = 'bs';
+        //     $manajer_bagian = (new AmbilPemilikJabatan)->dariBagian($data->bagian_id, 'manajer');
+        //     $manajer_keu = (new AmbilPemilikJabatan)->dariBagian($keu->id, 'manajer');
+        // }else{
+        //     $tmplt = 'pp';
+        //     $manajer_bagian = (new AmbilPemilikJabatan)->dariBagian($data->bagian_id, 'manajer');
+        //     $manajer_keu = (new AmbilPemilikJabatan)->dariBagian($keu->id, 'manajer');
+        // }
+        $pdf = Pdf::loadView('keuangan.pengajuan-kegiatan.cetakLampiranBS', [ 'data' => $data]);
+        $filename = "Lampiran BS";
 
         $customPaper = [0, 0, 16.5, 21.5];
 

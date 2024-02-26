@@ -55,18 +55,18 @@ Route::middleware('auth')->group(function () {
 		// return view('template');
 		return redirect()->route('dashboard.index');
 	});
-	
+
 	Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.'], function(){
 		Route::get('spr-monthly', [DashboardController::class, 'sprMonthly'])->name('spr-monthly');
 		Route::get('kavling-per-cluster', [DashboardController::class, 'kavlingPerCluster'])->name('kavling-per-cluster');
 		Route::get('tanah-mentah-per-kota', [DashboardController::class, 'tanahMentahPerKota'])->name('tanah-mentah-per-kota');
 		Route::resource('/', DashboardController::class)->only(['index'])->parameters(['' => 'id']);
 	});
-	
+
 	Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
-	
+
 		Route::group(['prefix' => '/bagian', 'as' => 'bagian.'], function(){
-	
+
 			Route::get('/', 		[BagianController::class, 'index'])->name('index');
 			Route::get('loadData', 	[BagianController::class, 'loadData'])->name('data');
 			Route::get('create', 	[BagianController::class, 'create'])->name('create');
@@ -74,9 +74,9 @@ Route::middleware('auth')->group(function () {
 			Route::post('store', 	[BagianController::class, 'store'])->name('store');
 			Route::post('/destroy', [BagianController::class, 'destroy'])->name('destroy');
 		});
-		
+
 		Route::group(['prefix' => '/tanah-kavling', 'as' => 'tanah-kavling.'], function(){
-	
+
 			Route::get('/', 		[TanahKavlingController::class, 'index'])->name('index');
 			Route::get('loadData', 	[TanahKavlingController::class, 'loadData'])->name('data');
 			Route::get('create', 	[TanahKavlingController::class, 'create'])->name('create');
@@ -84,9 +84,9 @@ Route::middleware('auth')->group(function () {
 			Route::post('store', 	[TanahKavlingController::class, 'store'])->name('store');
 			Route::post('/destroy', [TanahKavlingController::class, 'destroy'])->name('destroy');
 		});
-	
+
 		Route::group(['prefix' => '/customer', 'as' => 'customer.'], function(){
-	
+
 			Route::get('/', 			[CustomerController::class, 'index'])->name('index');
 			Route::get('loadData', 		[CustomerController::class, 'loadData'])->name('data');
 			Route::get('create/{id?}', 	[CustomerController::class, 'create'])->name('create');
@@ -94,18 +94,18 @@ Route::middleware('auth')->group(function () {
 			Route::get('search', 		[CustomerController::class, 'searchCustomer'])->name('search');
 			Route::post('/destroy', 	[CustomerController::class, 'destroy'])->name('destroy');
 		});
-	
+
 		Route::group(['prefix' => '/tanah-mentah', 'as' => 'tanah-mentah.'], function(){
-	
+
 			Route::get('/', 			[TanahMentahController::class, 'index'])->name('index');
 			Route::get('loadData', 		[TanahMentahController::class, 'loadData'])->name('data');
 			Route::get('create/{id?}', 	[TanahMentahController::class, 'create'])->name('create');
 			Route::post('store', 		[TanahMentahController::class, 'store'])->name('store');
 			Route::post('/destroy', 	[TanahMentahController::class, 'destroy'])->name('destroy');
 		});
-	
+
 		Route::group(['prefix' => '/cluster', 'as' => 'cluster.'], function(){
-	
+
 			Route::get('/', 			[ClusterController::class, 'index'])->name('index');
 			Route::get('loadData', 		[ClusterController::class, 'loadData'])->name('data');
 			Route::get('create/{id?}', 	[ClusterController::class, 'create'])->name('create');
@@ -113,9 +113,9 @@ Route::middleware('auth')->group(function () {
 			Route::post('/destroy', 	[ClusterController::class, 'destroy'])->name('destroy');
 		});
 	});
-	
+
 	Route::group(['prefix' => '/pemasaran', 'as' => 'pemasaran.'], function(){
-	
+
 		Route::group(['prefix' => '/suratpesanan', 'as' => 'suratpesanan.'], function(){
 			Route::get('/loadData', [SuratPesananController::class, 'loadData'])->name('data');
 			Route::get('/exportExcel', [SuratPesananController::class, 'exportExcel'])->name('export-excel');
@@ -129,29 +129,29 @@ Route::middleware('auth')->group(function () {
 			Route::post('store-sppk', [SuratPesananController::class, 'storeSppk'])->name('sppk');
 			Route::resource('/', SuratPesananController::class)->except(['destroy'])->parameters(['' => 'spr']);
 		});
-	
+
 		Route::group(['prefix' => '/nup', 'as' => 'nup.'], function(){
-	
+
 			Route::get('/data', [NupController::class, 'data'])->name('data');
 			Route::post('/destroy', [NupController::class, 'destroy'])->name('destroy');
 			Route::resource('/', NupController::class)->except(['destroy'])->parameters(['' => 'nup']);
 		});
 		Route::group(['prefix' => '/booking-fee', 'as' => 'booking-fee.'], function(){
-	
+
 			Route::get('/data', [BookingFeeController::class, 'data'])->name('data');
 			Route::post('/destroy', [BookingFeeController::class, 'destroy'])->name('destroy');
 			Route::resource('/', BookingFeeController::class)->except(['destroy'])->parameters(['' => 'booking-fee']);
 		});
 	});
-	
+
 	Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){
-	
+
 		Route::get('/data', [KaryawanController::class, 'data'])->name('data');
 		Route::post('/destroy', [KaryawanController::class, 'destroy'])->name('destroy');
 		Route::resource('/', KaryawanController::class)->except(['destroy'])->parameters(['' => 'karyawan']);
 	});
-	
-	
+
+
 	Route::group(['prefix' => '/kwitansi', 'as' => 'kwitansi.'], function(){
 		Route::get('/data', [KwitansiController::class, 'data'])->name('data');
 		Route::get('/exportExcel', [KwitansiController::class, 'exportExcel'])->name('export-excel');
@@ -162,9 +162,9 @@ Route::middleware('auth')->group(function () {
 		Route::get('/source-data', [KwitansiController::class, 'sourceData'])->name('source-data');
 		Route::resource('/', KwitansiController::class)->except(['destroy', 'create'])->parameters(['' => 'kwitansi']);
 	});
-	
+
 	Route::group(['prefix' => '/keuangan', 'as' => 'keuangan.'], function(){
-	
+
 		Route::group(['prefix' => '/validasi-spr', 'as' => 'validasi-spr.'], function(){
 			Route::get('/loadData', [ValidasiSprController::class, 'loadData'])->name('data');
 			Route::get('{id}/validasi', [ValidasiSprController::class, 'validasi'])->name('validasi');
@@ -174,6 +174,7 @@ Route::middleware('auth')->group(function () {
 		Route::group(['prefix' => 'pengajuan-kegiatan', 'as' => 'pengajuan-kegiatan.'], function(){
 			Route::get('/data', [PengajuanKegiatanController::class, 'data'])->name('data');
 			Route::get('/cetak/{id}', 	[PengajuanKegiatanController::class, 'cetak'])->name('cetak');
+            Route::get('/cetakLampiran/{id}', 	[PengajuanKegiatanController::class, 'cetakLampiran'])->name('cetakLampiranBS');
 			Route::post('/destroy', [PengajuanKegiatanController::class, 'destroy'])->name('destroy');
 			Route::resource('/', PengajuanKegiatanController::class)->except(['destroy'])->parameters(['' => 'pengajuan-kegiatan']);
 		});
@@ -184,7 +185,7 @@ Route::middleware('auth')->group(function () {
 			Route::post('/destroy', [ValidasiKegiatanDetailController::class, 'destroy'])->name('destroy');
 			Route::resource('/', ValidasiKegiatanDetailController::class)->except(['destroy', 'create'])->parameters(['' => 'validasi-kegiatan-detail']);
 		});
-		
+
 		Route::group(['prefix' => 'validasi-pengajuan-kegiatan', 'as' => 'validasi-pengajuan-kegiatan.'], function(){
 			Route::get('/data', [ValidasiPengajuanKegiatanController::class, 'data'])->name('data');
 			Route::get('/cetak/{id}', 	[ValidasiPengajuanKegiatanController::class, 'cetak'])->name('cetak');
@@ -260,7 +261,7 @@ Route::middleware('auth')->group(function () {
 
 	Route::group(['prefix' => '/monitoring', 'as' => 'monitoring.'], function(){
 		Route::group(['prefix' => '/stokkavling', 'as' => 'stokkavling.'], function(){
-		
+
 			Route::get('/data', [StokKavlingController::class, 'data'])->name('data');
 			Route::post('/destroy', [StokKavlingController::class, 'destroy'])->name('destroy');
 			Route::resource('/', StokKavlingController::class)->except(['destroy'])->parameters(['' => 'stokkavling']);
