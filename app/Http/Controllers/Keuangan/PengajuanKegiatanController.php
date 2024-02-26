@@ -114,10 +114,10 @@ class PengajuanKegiatanController extends Controller
             $serapan->created_jabatan = $request->created_jabatan;
             $serapan->data = $data;
             $serapan->save();
-            
+
             if ($request->hasFile('file_rab')) {
                 $file = $request->file('file_rab');
-    
+
                 $dir = "customer/" . $serapan->id;
                 $filename = 'file_rab' . '.' . $file->getClientOriginalExtension();
                 $path = $dir . '/' . $filename;
@@ -173,9 +173,9 @@ class PengajuanKegiatanController extends Controller
             ])->validate();
 
             $serapan = Serapan::find($request->id);
-            
+
             $data = $serapan->data;
-            
+
             $serapan->nama = $request->nama;
             $serapan->bagian_id = $request->bagian_id;
             $serapan->metode = $request->metode;
@@ -186,11 +186,11 @@ class PengajuanKegiatanController extends Controller
             $serapan->tahun = $request->tahun ?? date('Y');
             $serapan->created_id = $request->created;
             $serapan->created_jabatan = $request->created_jabatan;
-            
+
             $serapan->detail()->delete();
             if ($request->hasFile('file_rab')) {
                 $file = $request->file('file_rab');
-    
+
                 $dir = "customer/" . $serapan->id;
                 $filename = 'file_rab' . '.' . $file->getClientOriginalExtension();
                 $path = $dir . '/' . $filename;
@@ -292,7 +292,7 @@ class PengajuanKegiatanController extends Controller
         })->all();
         $bagian = ["" => "---Pilih Bagian---"] + $bagian;
 
-        $kegiatan_detail = KegiatanDetail::with('komponen', 'kegiatan')->get();
+        $kegiatan_detail = KegiatanDetail::with('komponen', 'kegiatan','perkiraan')->get();
         $komponen_kegiatan = $kegiatan_detail->mapWithKeys(function($item){
             return [$item->id => $item->kode_perkiraan . ' | ' . $item->komponen->kode . ' | ' . $item->komponen->nama];
         })->all();

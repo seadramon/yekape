@@ -49,6 +49,10 @@
             $kode_perkiraan = $data->detail->map(function($d){
                 return $d->kegiatan_detail->kode_perkiraan ?? '-';
             })->join(', ');
+
+            $nm_perkiraan = $data->detail->map(function($d){
+                return $d->kegiatan_detail->perkiraan->keterangan ?? '-';
+            })->join(',');
         @endphp
 
         <table width="100%" cellspacing="1">
@@ -95,7 +99,7 @@
                 </td>
                 <td>:</td>
                 <td>
-                    {{ $kode_perkiraan }}
+                    {{ $kode_perkiraan }} - {{ $nm_perkiraan }}
                 </td>
             </tr>
             <tr>

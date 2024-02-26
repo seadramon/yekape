@@ -35,6 +35,9 @@
             $kode_perkiraan = $data->detail->map(function($d){
                 return $d->kegiatan_detail->kode_perkiraan ?? '-';
             })->join(', ');
+            $nm_perkiraan = $data->detail->map(function($d){
+                return $d->kegiatan_detail->perkiraan->keterangan ?? '-';
+            })->join(',');
         @endphp
         <div class="tengah" style="margin-bottom:30px">
             <u>PENGAJUAN PENGADAAN BARANG / JASA</u>
@@ -60,7 +63,7 @@
                     No.Perkiraan
                 </td>
                 <td width="5%" style="font-weight:bold;">:</td>
-                <td width="70%">{{ $kode_perkiraan }}</td>
+                <td width="70%">{{ $kode_perkiraan }} - {{ $nm_perkiraan }}</td>
             </tr>
             <tr>
                 <td width="25%" style="font-weight:bold;">
@@ -161,7 +164,12 @@
                 <td width="33%">
                     <div style="text-align:center;padding-top:10px;margin-bottom:80px;">
                         Disetujui oleh :<br>
-                        Manajer {{ ucfirst(strtolower($data->bagian->nama)) }}
+                        @if(ucfirst(strtoupper($data->bagian->nama)) == "SEKRETARIAT PERUSAHAAN")
+                        SEKRETARIS PERUSAHAAN
+                    @else
+                        MANAJER {{ ucfirst(strtoupper($data->bagian->nama)) }}
+                    @endif
+
                     </div>
 
                     <div style="text-align:center;">
