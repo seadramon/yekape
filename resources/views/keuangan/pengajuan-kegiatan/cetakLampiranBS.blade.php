@@ -40,7 +40,7 @@
             })->join(',');
         @endphp
         <div class="tengah" style="margin-bottom:30px">
-            <u>PENGAJUAN PENGADAAN BARANG / JASA</u>
+            <u>LAMPIRAN BON SEMENTARA</u>
         </div>
 
         <table width="100%" style="margin-bottom:30px;">
@@ -67,7 +67,7 @@
             </tr>
             <tr>
                 <td width="25%" style="font-weight:bold;">
-                    No./TANGGAL RAB
+                    No./TANGGAL BON SEMENTARA
                 </td>
                 <td width="5%" style="font-weight:bold;">:</td>
                 <td width="70%">{{ $data->kode . ' / ' . date('d M Y', strtotime($data->created_at)) }}</td>
@@ -85,7 +85,6 @@
             <tr>
                 <td width="2%" rowspan="2" class="tengah">No</td>
                 <td width="40%" rowspan="2" class="tengah">Uraian</td>
-                <td width="10%" rowspan="2" class="tengah">Satuan</td>
                 <td width="10%" rowspan="2" class="tengah">Volume</td>
                 <td colspan="2" width="38%" class="tengah">Harga (Rp)</td>
             </tr>
@@ -111,7 +110,6 @@
                     <tr>
                         <td style="text-align:center;">{{ $i }}</td>
                         <td>{{ $row->kegiatan_detail->komponen->nama }}</td>
-                        <td></td>
                         <td style="text-align:right;">{{ $row->volume }}</td>
                         <td style="text-align:right;">{{ !empty($harsat)?number_format($harsat, 0, ',', '.'):0 }}</td>
                         <td style="text-align:right;">{{ !empty($subtotal)?number_format($subtotal, 0, ',', '.'):0 }}</td>
@@ -130,79 +128,25 @@
                 </tr>
             @endif
             <tr>
-                <td colspan="5" style="padding-left:80%">Jumlah</td>
+                <td colspan="4" style="padding-left:80%">Jumlah</td>
                 <td style="text-align:right;">{{ number_format($jumlah, 0, ',', '.') }}</td>
             </tr>
             <tr>
-                <td colspan="5" style="padding-left:80%">PPN 11%</td>
+                <td colspan="4" style="padding-left:80%">PPN 11%</td>
                 <td style="text-align:right;">{{ number_format($ppn, 0, ',', '.') }}</td>
             </tr>
             <tr>
-                <td colspan="5" style="padding-left:80%">TOTAL</td>
+                <td colspan="4" style="padding-left:80%">TOTAL</td>
                 <td style="text-align:right;">{{ number_format($total, 0, ',', '.') }}</td>
             </tr>
             <tr>
-                <td colspan="6" style="padding-left:2%;padding-top:10px;padding-bottom:10px;font-weight:bold;">
+                <td colspan="5" style="padding-left:2%;padding-top:10px;padding-bottom:10px;font-weight:bold;">
                     Terbilang : {{ucwords(terbilang($total))}} Rupiah
 
                 </td>
             </tr>
         </table>
 
-        <table width="100%" border="1" cellspacing="0">
-            <tr>
-                <td width="34%" >
-                    <div style="text-align:center;padding-top:10px;margin-bottom:80px;">
-                        Diteliti dan Dicatat oleh :<br>
-                        Manajer Keuangan
-                    </div>
 
-                    <div style="text-align:center;">
-                        <b><u>{{$manajer_keu->nama}}</u></b><br>
-                    </div>
-                </td>
-                <td width="33%">
-                    <div style="text-align:center;padding-top:10px;margin-bottom:80px;">
-                        Disetujui oleh :<br>
-                        @if(ucfirst(strtoupper($data->bagian->nama)) == "SEKRETARIAT PERUSAHAAN")
-                        SEKRETARIS PERUSAHAAN
-                    @else
-                        MANAJER {{ ucfirst(strtoupper($data->bagian->nama)) }}
-                    @endif
-
-                    </div>
-
-                    <div style="text-align:center;">
-                        <b><u>{{$manajer_bagian->nama}}</u></b><br>
-                    </div>
-                </td>
-                <td width="33%" style="text-align:center;">
-                    Surabaya, {{ date('d M Y', strtotime($data->created_at)) }}
-                    <div style="text-align:center;margin-bottom:80px;">
-                        Dibuat dan diajukan oleh :<br>
-                        {{$data->created_jabatan ?? ''}}
-                    </div>
-
-                    <div style="text-align:center;">
-                        <b><u>{{$data->created_by->nama}}</u></b><br>
-                    </div>
-                </td>
-
-            </tr>
-            @if ($jumlah >= 100000000)
-                <tr>
-                    <td colspan="3">
-                        <div style="text-align:center;padding-top:10px;margin-bottom:80px;">
-                            Mengetahui :<br>
-                            Direktur PT. Yekape Surabaya
-                        </div>
-
-                        <div style="text-align:center;">
-                            <b><u>Ir. HERMIEN ROOSITA, MM.</u></b><br>
-                        </div>
-                    </td>
-                </tr>
-            @endif
-        </table>
     </body>
 </html>

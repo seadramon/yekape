@@ -88,6 +88,9 @@ class PengajuanKegiatanController extends Controller
                 if(in_array('print', $action)){
                     $list .= '<li><a class="dropdown-item" target="_blank" href="' . route('keuangan.pengajuan-kegiatan.cetak', $model->id) . '">Cetak</a></li>';
                 }
+                if(in_array('print', $action)){
+                    $list .= '<li><a class="dropdown-item" target="_blank" href="' . route('keuangan.pengajuan-kegiatan.cetakLampiranBS', $model->id) . '">Cetak Lamp BS</a></li>';
+                }
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
@@ -140,10 +143,10 @@ class PengajuanKegiatanController extends Controller
             $serapan->created_jabatan = $request->created_jabatan;
             $serapan->data = $data;
             $serapan->save();
-            
+
             if ($request->hasFile('file_rab')) {
                 $file = $request->file('file_rab');
-    
+
                 $dir = "customer/" . $serapan->id;
                 $filename = 'file_rab' . '.' . $file->getClientOriginalExtension();
                 $path = $dir . '/' . $filename;
@@ -199,9 +202,9 @@ class PengajuanKegiatanController extends Controller
             ])->validate();
 
             $serapan = Serapan::find($request->id);
-            
+
             $data = $serapan->data;
-            
+
             $serapan->nama = $request->nama;
             $serapan->bagian_id = $request->bagian_id;
             $serapan->metode = $request->metode;
@@ -212,11 +215,11 @@ class PengajuanKegiatanController extends Controller
             $serapan->tahun = $request->tahun ?? date('Y');
             $serapan->created_id = $request->created;
             $serapan->created_jabatan = $request->created_jabatan;
-            
+
             $serapan->detail()->delete();
             if ($request->hasFile('file_rab')) {
                 $file = $request->file('file_rab');
-    
+
                 $dir = "customer/" . $serapan->id;
                 $filename = 'file_rab' . '.' . $file->getClientOriginalExtension();
                 $path = $dir . '/' . $filename;
@@ -318,7 +321,7 @@ class PengajuanKegiatanController extends Controller
         })->all();
         $bagian = ["" => "---Pilih Bagian---"] + $bagian;
 
-        $kegiatan_detail = KegiatanDetail::with('komponen', 'kegiatan')->get();
+        $kegiatan_detail = KegiatanDetail::with('komponen', 'kegiatan','perkiraan')->get();
         $komponen_kegiatan = $kegiatan_detail->mapWithKeys(function($item){
             return [$item->id => $item->kode_perkiraan . ' | ' . $item->komponen->kode . ' | ' . $item->komponen->nama];
         })->all();
@@ -381,6 +384,29 @@ class PengajuanKegiatanController extends Controller
             'manajer_keu' => $manajer_keu,
         ]);
         $filename = "pengajuan-pengadaan-barang-jasa";
+
+        $customPaper = [0, 0, 16.5, 21.5];
+
+        return $pdf->setPaper('a4', 'portrait')
+            ->stream($filename . '.pdf');
+    }
+
+    public function cetakLampiran($id)
+    {
+        $data = Serapan::with('created_by')->find($id);
+        $keu = Bagian::whereKode('KEU')->first();
+
+        // if($data->jenis == 'BS'){
+        //     $tmplt = 'bs';
+        //     $manajer_bagian = (new AmbilPemilikJabatan)->dariBagian($data->bagian_id, 'manajer');
+        //     $manajer_keu = (new AmbilPemilikJabatan)->dariBagian($keu->id, 'manajer');
+        // }else{
+        //     $tmplt = 'pp';
+        //     $manajer_bagian = (new AmbilPemilikJabatan)->dariBagian($data->bagian_id, 'manajer');
+        //     $manajer_keu = (new AmbilPemilikJabatan)->dariBagian($keu->id, 'manajer');
+        // }
+        $pdf = Pdf::loadView('keuangan.pengajuan-kegiatan.cetakLampiranBS', [ 'data' => $data]);
+        $filename = "Lampiran BS";
 
         $customPaper = [0, 0, 16.5, 21.5];
 
