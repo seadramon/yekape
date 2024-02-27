@@ -31,7 +31,24 @@ class PengajuanKegiatanController extends Controller
     //
     public function index(Request $request)
     {
-        return view('keuangan.pengajuan-kegiatan.index');
+        $tahun = [
+            '' => '-Semua Tahun-'
+        ];
+        for ($i=-3; $i < 4; $i++) {
+            $temp = date('Y', strtotime($i . ' years'));
+            $tahun[$temp] = $temp;
+        }
+
+    	$bagian = Bagian::all()->mapWithKeys(function($item){
+            return [$item->id => $item->nama];
+        })->all();
+        $bagian = ["" => "-Semua Bagian-"] + $bagian;
+        $status = [
+            '' => '-Semua Statu',
+            'draft' => 'Draft',
+            'valid' => 'Valid',
+        ];
+        return view('keuangan.pengajuan-kegiatan.index', compact('tahun', 'bagian', 'status'));
     }
 
     public function data(Request $request)
@@ -40,6 +57,15 @@ class PengajuanKegiatanController extends Controller
         $query = Serapan::with('bagian')->select('*');
         if(session('BAGIAN') != "KEU"){
             $query->whereBagianId(session('BAGIAN_ID'));
+        }
+        if($request->bagian != ''){
+            $query->whereBagianId($request->bagian);
+        }
+        if($request->status != ''){
+            $query->whereStatus($request->status);
+        }
+        if($request->tahun != ''){
+            $query->whereTahun($request->tahun);
         }
 
         return (new DataTables)->eloquent($query)
@@ -337,7 +363,7 @@ class PengajuanKegiatanController extends Controller
 
     public function cetak($id)
     {
-        $data = Serapan::with('created_by')->find($id);
+        $data = Serapan::with('created_by', 'detail.kegiatan_detail.perkiraan')->find($id);
         $keu = Bagian::whereKode('KEU')->first();
 
         if($data->jenis == 'BS'){

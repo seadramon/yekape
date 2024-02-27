@@ -47,7 +47,7 @@
         ?>
         @php
             $kode_perkiraan = $data->detail->map(function($d){
-                return $d->kegiatan_detail->kode_perkiraan ?? '-';
+                return ($d->kegiatan_detail->kode_perkiraan ?? '') . ' - ' . ($d->kegiatan_detail->perkiraan->keterangan ?? '');
             })->join(', ');
         @endphp
 
