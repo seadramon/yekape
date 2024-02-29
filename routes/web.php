@@ -30,6 +30,8 @@ use App\Http\Controllers\SuratPesananController;
 use App\Http\Controllers\StokKavlingController;
 use App\Http\Controllers\SerapanController;
 use App\Http\Controllers\BagianController;
+use App\Http\Controllers\Master\KontraktorController;
+use App\Http\Controllers\SpkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -143,6 +145,15 @@ Route::middleware('auth')->group(function () {
 			Route::resource('/', BookingFeeController::class)->except(['destroy'])->parameters(['' => 'booking-fee']);
 		});
 	});
+
+    Route::group(['prefix' => '/spk', 'as' => 'spk.'], function(){
+        Route::get('/data', [SpkController::class, 'data'])->name('data');
+        Route::post('/destroy', [SpkController::class, 'destroy'])->name('destroy');
+        Route::resource('/', SpkController::class)->except(['destroy'])->parameters(['' => 'spk']);
+    });
+
+    Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
+    });
 
 	Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){
 

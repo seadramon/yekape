@@ -72,7 +72,7 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Upload RAB (Format PDF)</label>
-                            {!! Form::file('file_rab', ['class' => 'form-control', 'id' => 'file_rab']) !!}                            
+                            {!! Form::file('file_rab', ['class' => 'form-control', 'id' => 'file_rab', "accept" => "application/pdf"]) !!}
                         </div>
                         <div class="fv-row form-group col-lg-12 mb-3 mt-2">
                             <button type="button" class="btn btn-light-primary" id="add-kegiatan-detail">
@@ -165,14 +165,14 @@
 
         var exampleModal = document.getElementById('imageModal');
         exampleModal.addEventListener('show.bs.modal', function (event) {
-    
+
             var button = event.relatedTarget;
             var title = button.getAttribute('data-bs-title');
             var image = button.getAttribute('data-bs-image');
-          
+
             var modalTitle = exampleModal.querySelector('.modal-title');
             var modalBodyInput = exampleModal.querySelector('.modal-body img');
-    
+
             modalTitle.textContent = title;
             $('#fileImage').attr('src', image);
         });

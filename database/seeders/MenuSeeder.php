@@ -348,6 +348,18 @@ class MenuSeeder extends Seeder
                 ]
             ],
             [
+                'name' => 'Kontraktor',
+                'route_name' => 'master.kontraktor.index',
+                'icon' => 'fas fa-truck fs-3',
+                'level' => '2',
+                'sequence' => '0820',
+                'action' => [
+                    'add',
+                    'edit',
+                    'delete',
+                ]
+            ],
+            [
                 'name' => 'Manajemen User',
                 'route_name' => '#',
                 'icon' => 'fas fa-clipboard-list fs-3',
