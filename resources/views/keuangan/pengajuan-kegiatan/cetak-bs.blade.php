@@ -70,6 +70,8 @@
                     Diperintahkan oleh :
                     @if(ucfirst(strtoupper($data->bagian->nama)) == "SEKRETARIAT PERUSAHAAN")
                             SEKRETARIS PERUSAHAAN
+                        @elseif(ucfirst(strtoupper($data->bagian->nama)) == "PENGADAAN BARANG DAN JASA")
+                            KEPALA {{ ucfirst(strtoupper($data->bagian->nama)) }}
                         @else
                             MANAJER {{ ucfirst(strtoupper($data->bagian->nama)) }}
                         @endif
