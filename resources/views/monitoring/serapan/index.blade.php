@@ -26,7 +26,9 @@
                         </div>
                         <div class="fv-row form-group col-lg-4 mb-3" style="padding-top: 26px;">
                             <a href="javascript: void(0);" class="btn btn-primary" id="tampilkan">Tampilkan Data</a>
+                            <a href="javascript: void(0);" class="btn btn-primary" id="exportBtn">Export EXCEL</a>
                         </div>
+
                 	</div>
                 </div>
 
@@ -98,24 +100,45 @@
 @endsection
 @section('js')
 <script defer src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js"></script>
-<script type="text/javascript">	
+<script type="text/javascript">
 
 var target = document.querySelector("#kt_app_body");
-            
+
 var blockUI = new KTBlockUI(target, {
     message: '<div class="blockui-message"><span class="spinner-border text-primary"></span> Loading data...</div>',
 });
 
 $(document).ready(function() {
+    $('#exportBtn').on('click', function (e) {
+    	e.preventDefault()
+
+    	let tahun = $("#tahun").val()
+    	let bagian = $("#bagian").val()
+    	let bagianLabel = $("#bagian option:selected").text()
+
+    	console.log(bagianLabel)
+
+    	if (tahun != '' && bagian != '') {
+	    	let exportExcelUrl = "{{ URL::to('perencanaan/rincian-kegiatan/exportExcel') }}?tahun=" + tahun + '&bagian=' + bagian + '&bagianLabel=' + bagianLabel;
+	    	window.open(exportExcelUrl, '_blank');
+    	} else {
+    		$("#errMsg").show()
+    		$("#errMsg").text('Mohon lengkapi filter terlebih dahulu')
+
+    		setTimeout(() => {
+                $("#errMsg").hide()
+            }, 2000)
+    	}
+    });
 });
 
 $("#tampilkan").click(function() {
 	let data = {
-	    '_token': '{{ csrf_token() }}', 
-	    'bagian': $('#bagian').val(), 
+	    '_token': '{{ csrf_token() }}',
+	    'bagian': $('#bagian').val(),
 	    'tahun': $('#tahun').val()
 	};
-	
+
 	$.ajax({
 	    url: "{{ route('monitoring.serapan.data') }}",
 	    type: "POST",

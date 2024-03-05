@@ -39,7 +39,7 @@ class PengajuanKegiatanController extends Controller
             $tahun[$temp] = $temp;
         }
 
-    	$bagian = Bagian::all()->mapWithKeys(function($item){
+    	$bagian = Bagian::where('id',session('BAGIAN_ID'))->get()->mapWithKeys(function($item){
             return [$item->id => $item->nama];
         })->all();
         $bagian = ["" => "-Semua Bagian-"] + $bagian;
@@ -321,7 +321,9 @@ class PengajuanKegiatanController extends Controller
         })->all();
         $bagian = ["" => "---Pilih Bagian---"] + $bagian;
 
-        $kegiatan_detail = KegiatanDetail::with('komponen', 'kegiatan','perkiraan')->get();
+        $kegiatan_detail = KegiatanDetail::with('komponen', 'kegiatan','perkiraan')->whereHas('kegiatan',function($sql){
+            $sql->where('bagian_id',session('BAGIAN_ID'));
+        })->get();
         $komponen_kegiatan = $kegiatan_detail->mapWithKeys(function($item){
             return [$item->id => $item->kode_perkiraan . ' | ' . $item->komponen->kode . ' | ' . $item->komponen->nama];
         })->all();

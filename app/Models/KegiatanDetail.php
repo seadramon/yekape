@@ -24,6 +24,16 @@ class KegiatanDetail extends Model
         return $total + round($total * $this->ppn / 100, 2);
     }
 
+    public function getTotalPpAttribute()
+    {
+        return $this->serapan()->whereHas('serapan', function($sql){ $sql->whereIn('jenis', ['PB', 'PJ']); })->sum('total');
+    }
+
+    public function getTotalBsAttribute()
+    {
+        return $this->serapan()->whereHas('serapan', function($sql){ $sql->whereIn('jenis', ['BS']); })->sum('total');
+    }
+
     public function komponen(): MorphTo
     {
         return $this->morphTo();

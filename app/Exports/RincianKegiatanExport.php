@@ -31,7 +31,7 @@ class RincianKegiatanExport implements FromView, WithStyles, ShouldAutoSize
         $bagianId = $this->bagian;
         $bagian = $this->bagianLabel;
 
-        $datas = Kegiatan::where('tahun', $tahun)
+        $datas = Kegiatan::with('detail.serapan.serapan')->where('tahun', $tahun)
             ->withSum('detail', 'harga_satuan')
             ->where('bagian_id', $bagianId)
             ->get();
@@ -39,7 +39,7 @@ class RincianKegiatanExport implements FromView, WithStyles, ShouldAutoSize
         $i = 0;
 
         return view('report.rincian-kegiatan', [
-            'datas' => $datas, 
+            'datas' => $datas,
             'tahun' => $this->tahun,
             'bagian' => $this->bagianLabel
         ]);
@@ -70,7 +70,7 @@ class RincianKegiatanExport implements FromView, WithStyles, ShouldAutoSize
             ],
         ]);
 
-        /*$row = (int)$this->jml + 9; 
+        /*$row = (int)$this->jml + 9;
 
         $sheet->getStyle('B9:R'.$row)->applyFromArray([
             'borders' => [
