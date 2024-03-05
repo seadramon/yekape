@@ -9,7 +9,7 @@ use Zip;
 
 class BaseController extends Controller
 {
-    
+
     public function gambar($kode)
     {
         $content_type = [

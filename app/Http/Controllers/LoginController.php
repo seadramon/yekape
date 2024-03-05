@@ -26,10 +26,10 @@ class LoginController extends Controller
  		// $validate = $this->validateUser($request);
 
  		if (Auth::attempt($credentials)) {
-			$request->session()->regenerate();
+            $request->session()->regenerate();
             Session::put('BAGIAN', Auth::user()->karyawan->jabatan->bagian->kode ?? "");
             Session::put('BAGIAN_ID', Auth::user()->karyawan->jabatan->bagian_id ?? "");
-	
+
 			return redirect()->to('/');
 		} else {
             return back()->withErrors([
@@ -42,7 +42,7 @@ class LoginController extends Controller
         Session::flush();
 		Session::forget('TMP_WBSESSID');
         Auth::logout();
-  
+
         return redirect()->route('login');
     }
 }

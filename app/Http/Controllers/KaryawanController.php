@@ -13,7 +13,9 @@ use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 
@@ -105,7 +107,7 @@ class KaryawanController extends Controller
 
             Validator::make($request->all(), [
                 'nama' => 'required',
-                // 'jabatan_id' => 'required',
+                'file' => 'file|max:1024',
             ])->validate();
 
             $karyawan = new Karyawan;
@@ -120,6 +122,21 @@ class KaryawanController extends Controller
             $karyawan->jenis_kelamin = $request->jenis_kelamin;
             $karyawan->no_hp = $request->no_hp;
             $karyawan->save();
+
+            $temp = $karyawan->data;
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+
+                $dir = "karyawan/" . $karyawan->id;
+                $filename = 'file_foto' . '.' . $file->getClientOriginalExtension();
+                $path = $dir . '/' . $filename;
+
+                Storage::put($path, File::get($file));
+
+                $temp['foto'] = $path;
+                $karyawan->data = $temp;
+                $karyawan->save();
+            }
 
             DB::commit();
 
@@ -143,6 +160,7 @@ class KaryawanController extends Controller
 
             Validator::make($request->all(), [
                 'nama' => 'required',
+                'file' => 'file|max:1024',
             ])->validate();
 
             $karyawan = Karyawan::find($request->karyawan);
@@ -158,8 +176,20 @@ class KaryawanController extends Controller
             $karyawan->no_hp = $request->no_hp;
             $karyawan->save();
 
+            $temp = $karyawan->data;
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
 
-            $karyawan->save();
+                $dir = "karyawan/" . $karyawan->id;
+                $filename = 'file_foto' . '.' . $file->getClientOriginalExtension();
+                $path = $dir . '/' . $filename;
+
+                Storage::put($path, File::get($file));
+
+                $temp['foto'] = $path;
+                $karyawan->data = $temp;
+                $karyawan->save();
+            }
 
             DB::commit();
 
