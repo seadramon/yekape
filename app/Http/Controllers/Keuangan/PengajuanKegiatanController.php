@@ -88,8 +88,8 @@ class PengajuanKegiatanController extends Controller
                 if(in_array('print', $action)){
                     $list .= '<li><a class="dropdown-item" target="_blank" href="' . route('keuangan.pengajuan-kegiatan.cetak', $model->id) . '">Cetak</a></li>';
                 }
-                if(in_array('print', $action)){
-                    $list .= '<li><a class="dropdown-item" target="_blank" href="' . route('keuangan.pengajuan-kegiatan.cetakLampiranBS', $model->id) . '">Cetak Lamp BS</a></li>';
+                if((in_array('file_rab', $action) && $model->data['rab']['file'] ?? false)){
+                    $list .= '<li><a class="dropdown-item" target="_blank" href="' . route('api.gambar', ['kode' => str_replace('/', '&', $model->data['rab']['file'])]) . '">File Rab</a></li>';
                 }
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
