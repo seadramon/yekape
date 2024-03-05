@@ -22,6 +22,7 @@ use Yajra\DataTables\DataTables;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\KwitansiExport;
+use Illuminate\Support\Facades\Auth;
 
 class KwitansiController extends Controller
 {
@@ -37,18 +38,23 @@ class KwitansiController extends Controller
 
         return (new DataTables)->eloquent($query)
             ->addColumn('menu', function ($model) {
+                $action = json_decode(session('ACTION_MENU_' . Auth::user()->id));
+                $list = '';
+                if(in_array('print', $action)){
+                    $list .= '<li><a class="dropdown-item" target="_blank" href="'.route('kwitansi.cetak', ['id' => $model->id]).'">Cetak</a></li>';
+                }
+                if(in_array('edit', $action)){
+                    $list .= '<li><a class="dropdown-item" href="'.route('kwitansi.edit', ['kwitansi' => $model->id]).'">Edit</a></li>';
+                }
+                if(in_array('delete', $action)){
+                    $list .= '<li><a class="dropdown-item delete" href="javascript:void(0)" data-id="'.$model->id.'" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>';
+                }
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" target="_blank" href="'.route('kwitansi.cetak', ['id' => $model->id]).'">Cetak</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="'.route('kwitansi.edit', ['kwitansi' => $model->id]).'">Edit</a>
-                            </li>
-                            <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="'.$model->id.'" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
+                            ' . $list . '
                         </ul>
                         </div>';
 
@@ -62,40 +68,57 @@ class KwitansiController extends Controller
     {
         $data = null;
 
-        if($tipe == 'KWT'){
-            $spr_ = SuratPesananRumah::get();
-            $spr = $spr_->mapWithKeys(function ($item) {
-                    return [$item->id => $item->no_sp];
-                })
-                ->all();
-            $spr = ['' => 'Pilih No SPR'] + $spr;
-            
-            $opt_spr = $spr_->mapWithKeys(function($item){
-                return [$item->id => ['data-harga' => ($item->harga_jual ?? "unknown")]];
+        $spr_ = SuratPesananRumah::with('kavling')->get();
+        $spr = $spr_->mapWithKeys(function ($item) {
+                return [$item->id => $item->no_sp . ' | ' . ($item->kavling->kode_kavling ?? '-')];
             })
             ->all();
+        $spr = ['' => 'Pilih No SPR'] + $spr;
+
+        $opt_spr = $spr_->mapWithKeys(function($item){
+            return [$item->id => ['data-harga' => ($item->harga_jual ?? "unknown")]];
+        })
+        ->all();
+        $source_kwu = [];
+        if($tipe == 'KWT'){
             $jenis_penerimaan = [
-                'um' => 'Uang Muka',
-                'tambahan' => 'Tambahan'
+                'kwu' => 'KWU',
+                'angsuran' => 'Angsuran',
+                'kpr' => 'Pencairan KPR'
             ];
         }else{
-            $nup = Nup::get()
+            $nup = Nup::with('kavling')->get()
                 ->mapWithKeys(function ($item) {
-                    return [$item->id => "NUP-" . $item->id];
+                    return [$item->id => $item->id . ' | ' . ($item->kavling->kode_kavling ?? '-')];
                 })
                 ->all();
-            $utj = BookingFee::get()
-                ->mapWithKeys(function ($item) {
-                    return [$item->id => "BookingFee-" . $item->nomor];
-                })
-                ->all();
-            $spr = ['' => 'Pilih NUP/BookingFee'] + $nup + $utj;
+            $source_kwu['nup'] = ['' => 'Pilih NUP'] + $nup;
 
-            $opt_spr = [];
+            $utj_ = BookingFee::with('kavling', 'customer')->get();
+            $utj = $utj_->mapWithKeys(function ($item) {
+                    return [$item->id => $item->nomor . ' | ' . ($item->kavling->kode_kavling ?? '-')];
+                })
+                ->all();
+            $source_kwu['utj'] = ['' => 'Pilih UTJ'] + $utj;
+            $source_kwu['opt_utj'] = $utj_->mapWithKeys(function($item){
+                return [
+                    $item->id => [
+                        'data-nama' => ($item->customer->nama ?? "unknown"),
+                        'data-alamat' => ($item->customer->alamat ?? "unknown"),
+                        'data-keterangan' => ($item->kavling->kode_kavling ?? "unknown"),
+                        'data-jumlah' => ($item->harga_jual ?? "unknown")
+                    ]
+                ];
+            })
+            ->all();
+
             $jenis_penerimaan = [
                 'nup' => 'NUP',
-                'utj' => 'Booking Fee',
-                'jampel' => 'Jampel'
+                'utj' => 'Tanda Jadi',
+                'jampel' => 'Jampel',
+                'ipl' => 'Iuran Pengelolaan Lingkungan',
+                'tambahan' => 'Pekerjaan Tambahan',
+                'll' => 'Lain - lain'
             ];
         }
         $tipe_bayar = [
@@ -123,7 +146,8 @@ class KwitansiController extends Controller
             'bank'             => $bank,
             'data'             => $data,
             'ppn'              => $ppn,
-            'opt_spr'          => $opt_spr ,
+            'opt_spr'          => $opt_spr,
+            'source_kwu'       => $source_kwu,
         ]);
     }
 
@@ -136,33 +160,57 @@ class KwitansiController extends Controller
         $data->dpp = !empty($data->dpp)?number_format($data->dpp,0,",","."):'';
         $data->ppn = !empty($data->ppn)?number_format($data->ppn,0,",","."):'';
 
+        $spr_ = SuratPesananRumah::with('kavling')->get();
+        $spr = $spr_->mapWithKeys(function ($item) {
+                return [$item->id => $item->no_sp . ' | ' . ($item->kavling->kode_kavling ?? '-')];
+            })
+            ->all();
+        $spr = ['' => 'Pilih No SPR'] + $spr;
+
+        $opt_spr = $spr_->mapWithKeys(function($item){
+            return [$item->id => ['data-harga' => ($item->harga_jual ?? "unknown")]];
+        })
+        ->all();
+        $source_kwu = [];
         if($tipe == 'KWT'){
-            $spr = SuratPesananRumah::get()
-                ->mapWithKeys(function ($item) {
-                    return [$item->id => $item->no_sp];
-                })
-                ->all();
-            $spr = ['' => 'Pilih No SPR'] + $spr;
             $jenis_penerimaan = [
-                'um' => 'Uang Muka',
-                'tambahan' => 'Tambahan'
+                'kwu' => 'KWU',
+                'angsuran' => 'Angsuran',
+                'kpr' => 'Pencairan KPR'
             ];
         }else{
-            $nup = Nup::get()
+            $nup = Nup::with('kavling')->get()
                 ->mapWithKeys(function ($item) {
-                    return [$item->id => "NUP-" . $item->id];
+                    return [$item->id => $item->id . ' | ' . ($item->kavling->kode_kavling ?? '-')];
                 })
                 ->all();
-            $utj = BookingFee::get()
-                ->mapWithKeys(function ($item) {
-                    return [$item->id => "BookingFee-" . $item->nomor];
+            $source_kwu['nup'] = ['' => 'Pilih NUP'] + $nup;
+
+            $utj_ = BookingFee::with('kavling', 'customer')->get();
+            $utj = $utj_->mapWithKeys(function ($item) {
+                    return [$item->id => $item->nomor . ' | ' . ($item->kavling->kode_kavling ?? '-')];
                 })
                 ->all();
-            $spr = ['' => 'Pilih NUP/BookingFee'] + $nup + $utj;
+            $source_kwu['utj'] = ['' => 'Pilih UTJ'] + $utj;
+            $source_kwu['opt_utj'] = $utj_->mapWithKeys(function($item){
+                return [
+                    $item->id => [
+                        'data-nama' => ($item->customer->nama ?? "unknown"),
+                        'data-alamat' => ($item->customer->alamat ?? "unknown"),
+                        'data-keterangan' => ($item->kavling->kode_kavling ?? "unknown"),
+                        'data-jumlah' => ($item->harga_jual ?? "unknown")
+                    ]
+                ];
+            })
+            ->all();
+
             $jenis_penerimaan = [
                 'nup' => 'NUP',
-                'utj' => 'Booking Fee',
-                'jampel' => 'Jampel'
+                'utj' => 'Tanda Jadi',
+                'jampel' => 'Jampel',
+                'ipl' => 'Iuran Pengelolaan Lingkungan',
+                'tambahan' => 'Pekerjaan Tambahan',
+                'll' => 'Lain - lain'
             ];
         }
         $tipe_bayar = [
@@ -170,9 +218,9 @@ class KwitansiController extends Controller
             'transfer' => 'Transfer'
         ];
         $ppn = [
-            '11' => 'PPN 11%',
+            '0' => 'Tanpa PPN',
             '10' => 'PPN 10%',
-            '0' => 'Tanpa PPN'
+            '11' => 'PPN 11%',
         ];
         $bank = [
             '' => 'Pilih Bank',
@@ -190,6 +238,8 @@ class KwitansiController extends Controller
             'bank'             => $bank,
             'data'             => $data,
             'ppn'              => $ppn,
+            'opt_spr'          => $opt_spr,
+            'source_kwu'       => $source_kwu,
         ]);
     }
 
@@ -213,19 +263,20 @@ class KwitansiController extends Controller
             $kwitansi->tipe_bayar = $request->tipe_bayar;
             $kwitansi->bank = $request->bank;
             $kwitansi->tanggal_transfer = $request->tanggal_transfer;
-            $kwitansi->jumlah = str_replace('.', '', $request->jumlah);
-            
+            $kwitansi->jumlah = str_replace(',', '.', str_replace('.', '', $request->jumlah));
+            $kwitansi->created_by = Auth::user()->id;
+
             if($request->jenis_kwitansi == 'KWT'){
                 $spr = SuratPesananRumah::find($request->spr);
                 $kwitansi->source_type = get_class($spr);
                 $kwitansi->source_id = $spr->id;
 
-                $kwitansi->ppn = str_replace('.', '', $request->ppn);
-                $kwitansi->dpp = str_replace('.', '', $request->dpp);
-                $kwitansi->ppn = str_replace('.', '', $request->ppn);
+                $kwitansi->ppn = str_replace(',', '.', str_replace('.', '', $request->ppn));
+                $kwitansi->dpp = str_replace(',', '.', str_replace('.', '', $request->dpp));
+                $kwitansi->ppn = str_replace(',', '.', str_replace('.', '', $request->ppn));
             }else{
-                if($request->spr){
-                    $spr = Nup::find($request->spr) ?? BookingFee::find($request->spr);
+                if(in_array($request->jenis_penerimaan, ['nup', 'utj', 'tambahan'])){
+                    $spr = Nup::find($request->spr) ?? BookingFee::find($request->spr) ?? SuratPesananRumah::find($request->spr);
                     $kwitansi->source_type = get_class($spr);
                     $kwitansi->source_id = $spr->id;
                 }
@@ -268,19 +319,19 @@ class KwitansiController extends Controller
             $kwitansi->tipe_bayar = $request->tipe_bayar;
             $kwitansi->bank = $request->bank;
             $kwitansi->tanggal_transfer = $request->tanggal_transfer;
-            $kwitansi->jumlah = str_replace('.', '', $request->jumlah);
-            
+            $kwitansi->jumlah = str_replace(',', '.', str_replace('.', '', $request->jumlah));
+
             if($request->jenis_kwitansi == 'KWT'){
                 $spr = SuratPesananRumah::find($request->spr);
                 $kwitansi->source_type = get_class($spr);
                 $kwitansi->source_id = $spr->id;
 
-                $kwitansi->ppn = str_replace('.', '', $request->ppn);
-                $kwitansi->dpp = str_replace('.', '', $request->dpp);
-                $kwitansi->ppn = str_replace('.', '', $request->ppn);
+                $kwitansi->ppn = str_replace(',', '.', str_replace('.', '', $request->ppn));
+                $kwitansi->dpp = str_replace(',', '.', str_replace('.', '', $request->dpp));
+                $kwitansi->ppn = str_replace(',', '.', str_replace('.', '', $request->ppn));
             }else{
-                if($request->spr){
-                    $spr = Nup::find($request->spr) ?? BookingFee::find($request->spr);
+                if(in_array($request->jenis_penerimaan, ['nup', 'utj', 'tambahan'])){
+                    $spr = Nup::find($request->spr) ?? BookingFee::find($request->spr) ?? SuratPesananRumah::find($request->spr);
                     $kwitansi->source_type = get_class($spr);
                     $kwitansi->source_id = $spr->id;
                 }
@@ -320,7 +371,7 @@ class KwitansiController extends Controller
             return response()->json(['result' => $e->getMessage()])->setStatusCode(500, 'ERROR');
         }
     }
-    
+
     public function sourceData(Request $request)
     {
         $data = [];
@@ -329,13 +380,15 @@ class KwitansiController extends Controller
             $data = [
                 'terima_dari' => $source->customer->nama,
                 'alamat' => $source->customer->alamat,
-                'jumlah' => $source->nilai_angsuran,
-                'ppn' => $source->ppn ?? 0,
+                'jumlah' => (float) $source->harga_jual,
+                'ppn' => (float) ($source->ppn ?? 0),
+                'kavling' => $source->kavling->kode_kavling,
+                'tipe' => $source->tipe_pembelian,
             ];
         }else{
             $source  = Nup::find($request->source_id) ?? BookingFee::find($request->source_id);
         }
-        
+
         return response()->json(['result' => 'success', 'data' => $data])->setStatusCode(200, 'OK');
     }
 
@@ -343,7 +396,7 @@ class KwitansiController extends Controller
     {
         $data = Kwitansi::find($id);
         $spr = $data->source;
-        
+
         $pdf = Pdf::loadView('prints.kwitansi-' . strtolower($data->jenis_kwitansi), [
             'data' => $data,
             'spr' => $spr

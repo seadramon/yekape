@@ -10,12 +10,31 @@
                 <div class="card-header">
                     <h3 class="card-title">Data Pengajuan Kegiatan</h3>
 					<div class="card-toolbar">
-                        <a href="{{route('keuangan.pengajuan-kegiatan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Pengajuan</a>
+						@if (in_array('add', json_decode(session('ACTION_MENU_' . auth()->user()->id))))
+							<a href="{{route('keuangan.pengajuan-kegiatan.create')}}" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Tambah Pengajuan</a>
+						@endif
                     </div>
                 </div>
 
                 <div class="card-body py-5">
-                    <table id="tabel_master_driver" class="table table-row-bordered gy-5" style="vertical-align: middle;">
+					<div class="row">
+                		<div class="fv-row form-group col-lg-2 mb-3">
+                            <label class="form-label">Bagian</label>
+                            {!! Form::select('bagian', $bagian, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'bagian']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-2 mb-3">
+                            <label class="form-label">Tahun</label>
+                            {!! Form::select('tahun', $tahun, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tahun']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-2 mb-3">
+                            <label class="form-label">Status</label>
+                            {!! Form::select('status', $status, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'status']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-2 mb-3" style="padding-top: 26px;">
+                            <button class="btn btn-primary" id="filter">Filter</button>
+                        </div>
+                	</div>
+                    <table id="tabel" class="table table-row-bordered gy-5" style="vertical-align: middle;">
                         <thead>
                             <tr class="fw-semibold fs-6 text-muted">
                                 <th>Tahun</th>
@@ -61,6 +80,13 @@
 <script type="text/javascript">
 	"use strict";
 
+	$(document).ready(function () {
+		$("#filter").click(function(){
+            var datatableUrl = "{{ route('keuangan.pengajuan-kegiatan.data') }}?" + getParam();
+            $('#tabel').DataTable().ajax.url(datatableUrl).load();
+        });
+	});
+
 	// Class definition
 	var KTDatatablesServerSide = function () {
 	    // Shared variables
@@ -69,7 +95,7 @@
 
 	    // Private functions
 	    var initDatatable = function () {
-	        dt = $("#tabel_master_driver").DataTable({
+	        dt = $("#tabel").DataTable({
 				language: {
   					lengthMenu: "Show _MENU_",
  				},
@@ -90,7 +116,7 @@
 	            serverSide: true,
 	            order: [[0, 'desc']],
 	            stateSave: true,
-	            ajax: "{{ route('keuangan.pengajuan-kegiatan.data') }}",
+	            ajax: "{{ route('keuangan.pengajuan-kegiatan.data') }}?" + getParam(),
 	            columns: [
                     {data: 'tahun', name: 'tahun', defaultContent: '-'},
                     {data: 'bagian.nama', name: 'bagian.nama', defaultContent: '-'},
@@ -152,6 +178,13 @@
 	  	modalTitle.textContent = title
 	  	$('#fileImage').attr('src', image)
 	})
+
+	function getParam(){
+        var bagian = $("#bagian").val();
+        var tahun = $("#tahun").val();
+        var status = $("#status").val();
+        return $.param({bagian, tahun, status});
+    }
 
 </script>
 @endsection

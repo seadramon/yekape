@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Response;
 use Yajra\DataTables\Facades\DataTables;
 use Elibyy\TCPDF\Facades\TCPDF as PDF;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ValidasiSprController extends Controller
 {
@@ -50,12 +51,17 @@ class ValidasiSprController extends Controller
                 return $teks;
             })
             ->addColumn('menu', function ($model) {
+                $action = json_decode(session('ACTION_MENU_' . Auth::user()->id));
+                $list = '';
+                if(in_array('validasi', $action)){
+                    $list .= '<li><a class="dropdown-item" href="'. route('keuangan.validasi-spr.validasi', ['id' => $model->id]) .'" target="_blank">Validasi</a></li>';
+                }
                 $html = '<div class="btn-group">
                         <button class="btn btn-light-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="'. route('keuangan.validasi-spr.validasi', ['id' => $model->id]) .'" target="_blank">Validasi</a></li>
+                            ' . $list . '
                         </ul>
                     </div>';
 

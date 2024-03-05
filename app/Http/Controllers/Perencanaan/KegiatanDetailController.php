@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\RincianKegiatanExport;
+use Illuminate\Support\Facades\Auth;
 
 class KegiatanDetailController extends Controller
 {
@@ -67,13 +68,17 @@ class KegiatanDetailController extends Controller
                 return number_format($anggaran - $serapan, 2, ',', '.');
             })
             ->addColumn('menu', function ($kegiatan) {
-            // <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$kegiatan->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
+                $action = json_decode(session('ACTION_MENU_' . Auth::user()->id));
+                $list = '';
+                if(in_array('edit', $action)){
+                    $list .= '<li><a class="dropdown-item" href="' . route('perencanaan.kegiatan-detail.edit', $kegiatan->id) . '">Edit</a></li>';
+                }
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="' . route('perencanaan.kegiatan-detail.edit', $kegiatan->id) . '">Rincian</a></li>
+                            ' . $list . '
                         </ul>
                         </div>';
 

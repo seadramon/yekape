@@ -10,11 +10,13 @@ class Nup extends Model
 {
     use HasFactory;
 
+    protected $morphClass = 'nup';
+
     public function kavling(): BelongsTo
     {
         return $this->belongsTo(Kavling::class, 'kavling_id');
     }
-    
+
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'customer_id');

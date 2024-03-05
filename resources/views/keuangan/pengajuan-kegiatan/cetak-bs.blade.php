@@ -2,7 +2,7 @@
     <head>
         <style>
             body {
-                font-size: 11px;
+                font-size: 12px;
                 font-family: arial;
             }
 
@@ -20,6 +20,7 @@
             .content table, .content th, .content td {
                 border: 1px solid;
                 padding-left: 5px:
+
             }
             @page { margin:20px 25px 60px 25px; }
             header { margin-bottom: 10px; }
@@ -46,11 +47,15 @@
         ?>
         @php
             $kode_perkiraan = $data->detail->map(function($d){
-                return $d->kegiatan_detail->kode_perkiraan ?? '-';
+                return ($d->kegiatan_detail->kode_perkiraan ?? '') . ' - ' . ($d->kegiatan_detail->perkiraan->keterangan ?? '');
             })->join(', ');
+
+            $nm_perkiraan = $data->detail->map(function($d){
+                return $d->kegiatan_detail->perkiraan->keterangan ?? '-';
+            })->join(',');
         @endphp
 
-        <table width="100%" cellspacing="0">
+        <table width="100%" cellspacing="1">
             <tr>
                 <td colspan="3" style="text-align:right;">
                     NO : {{ $data->kode }}
@@ -63,6 +68,13 @@
                 <td width="2%">:</td>
                 <td width="68%">
                     Diperintahkan oleh :
+                    @if(ucfirst(strtoupper($data->bagian->nama)) == "SEKRETARIAT PERUSAHAAN")
+                            SEKRETARIS PERUSAHAAN
+                        @elseif(ucfirst(strtoupper($data->bagian->nama)) == "PENGADAAN BARANG DAN JASA")
+                            KEPALA {{ ucfirst(strtoupper($data->bagian->nama)) }}
+                        @else
+                            MANAJER {{ ucfirst(strtoupper($data->bagian->nama)) }}
+                        @endif
                 </td>
             </tr>
             <tr>
@@ -71,7 +83,7 @@
                 </td>
                 <td>:</td>
                 <td>
-                    Supervisor Hukum
+                    {{$data->created_jabatan}}
                 </td>
             </tr>
             <tr>
@@ -89,7 +101,7 @@
                 </td>
                 <td>:</td>
                 <td>
-                    {{ $kode_perkiraan }}
+                    {{ $kode_perkiraan }} - {{ $nm_perkiraan }}
                 </td>
             </tr>
             <tr>
@@ -107,7 +119,7 @@
                 </td>
                 <td>:</td>
                 <td>
-                    {{ terbilang($total) }}
+                    {{ ucwords(terbilang($total)) }} Rupiah
                 </td>
             </tr>
             <tr>
@@ -148,22 +160,26 @@
                 <td width="30%" style="text-align:left;">
                     <div style="text-align:center;margin-bottom:70px;">
                         Menyetujui<br>
-                        Sekretaris Perusahaan
+                        @if(ucfirst(strtoupper($data->bagian->nama)) == "SEKRETARIAT PERUSAHAAN")
+                            SEKRETARIS PERUSAHAAN
+                        @else
+                            MANAJER {{ ucfirst(strtoupper($data->bagian->nama)) }}
+                        @endif
                     </div>
 
                     <div style="text-align:center;">
-                        (........................................)
+                        ({{$manajer_bagian->nama}})
                     </div>
                 </td>
                 <td width="30%"></td>
                 <td width="40%" style="text-align:right;">
                     <div style="text-align:center;margin-bottom:70px;">
                         Yang mengajukan<br>
-                        Supervisor Hukum, Humas, Kerjasama dan Rumah tangga
+                        {{$data->created_jabatan}}
                     </div>
 
                     <div style="text-align:center;">
-                        (........................................)
+                        ({{$data->created_by->nama}})
                     </div>
                 </td>
             </tr>
@@ -180,7 +196,7 @@
                     </div>
 
                     <div style="text-align:center;">
-                        (........................................)
+                        ({{$manajer_keu->nama}})
                     </div>
                 </td>\
             </tr>
@@ -232,7 +248,7 @@
                     </div>
 
                     <div style="text-align:center;">
-                        (........................................)<br> <br>
+                        ({{ $data->data['penerima']['nama'] ?? '........................................' }})<br> <br>
                         Tgl.
                     </div>
                 </td>

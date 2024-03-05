@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Flasher\Prime\FlasherInterface;
 use App\Models\Customer;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -26,18 +27,35 @@ class CustomerController extends Controller
 
     	return DataTables::eloquent($query)
             ->addColumn('menu', function ($model) {
+                $action = json_decode(session('ACTION_MENU_' . Auth::user()->id));
+                $list = '';
+                if(in_array('show_ktp_suami', $action)){
+                    $list .= '<li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_ktp_suami ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show KTP Suami</a></li>';
+                }
+                if(in_array('show_ktp_istri', $action)){
+                    $list .= '<li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_ktp_istri ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show KTP Istri</a></li>';
+                }
+                if(in_array('show_kk', $action)){
+                    $list .= '<li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_kk ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show KK</a></li>';
+                }
+                if(in_array('show_npwp', $action)){
+                    $list .= '<li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_npwp ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show NPWP</a></li>';
+                }
+                if(in_array('show_sk', $action)){
+                    $list .= '<li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_sk ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show SK</a></li>';
+                }
+                if(in_array('edit', $action)){
+                    $list .= '<li><a class="dropdown-item" href="' . route('master.customer.create', ['id' => $model->id]) . '">Edit</a></li>';
+                }
+                if(in_array('delete', $action)){
+                    $list .= '<li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$model->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>';
+                }
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_ktp_suami ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show KTP Suami</a></li>
-                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_ktp_istri ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show KTP Istri</a></li>
-                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_kk ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show KK</a></li>
-                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_npwp ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show NPWP</a></li>
-                            <li><a href="' . route('api.gambar', ['kode' => str_replace('/', '&', ($model->file_sk ?? "notfound.jpg"))]) . '" target="_blank" class="dropdown-item">Show SK</a></li>
-                            <li><a class="dropdown-item" href="' . route('master.customer.create', ['id' => $model->id]) . '">Edit</a></li>
-                            <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$model->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
+                            ' . $list . '
                         </ul>
                         </div>';
 

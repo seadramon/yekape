@@ -35,7 +35,7 @@
                                 <div class="row">
                                     <div class="fv-row form-group col-lg-12 mb-3">
                                         <label class="form-label">Booking Fee</label>
-                                        {!! Form::select('booking', $booking, $data->booking_fee_id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'booking']) !!}
+                                        {!! Form::select('booking', $booking, $data->booking_fee_id ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'booking'], $opt_booking) !!}
                                     </div>
 
                                     <div class="fv-row form-group col-lg-6 mb-3 @if(!isset($data)) hidden @endif">
@@ -72,16 +72,16 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="fv-row form-group col-lg-4 mb-3">
-                                        <label class="form-label">Harga Jual</label>
-                                        {!! Form::text('harga_jual', null, ['class'=>'form-control currency', 'id'=>'harga_jual', 'autocomplete'=>'off', 'required']) !!}
-                                    </div>
-                                    <div class="fv-row form-group col-lg-4 mb-3">
                                         <label class="form-label">Harga Dasar</label>
                                         {!! Form::text('harga_dasar', null, ['class'=>'form-control currency', 'id'=>'harga_dasar', 'autocomplete'=>'off', 'required']) !!}
                                     </div>
                                     <div class="fv-row form-group col-lg-4 mb-3">
                                         <label class="form-label">PPn</label>
                                         {!! Form::select('ppn', $ppn, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'ppn']) !!}
+                                    </div>
+                                    <div class="fv-row form-group col-lg-4 mb-3">
+                                        <label class="form-label">Harga Jual</label>
+                                        {!! Form::text('harga_jual', null, ['class'=>'form-control currency', 'id'=>'harga_jual', 'autocomplete'=>'off', 'required']) !!}
                                     </div>
                                 </div>
                             </li>
@@ -91,10 +91,10 @@
 
                                 {{-- <legend class="g-5">UANG MUKA :</legend> --}}
                                 <div class="row">
-                                    <div class="fv-row form-group col-lg-6 mb-3">
+                                    {{-- <div class="fv-row form-group col-lg-6 mb-3">
                                         <label class="form-label">Bank Pemberi KPR</label>
                                         {!! Form::text('bank_kpr', null, ['class'=>'form-control', 'id'=>'bank_kpr', 'autocomplete'=>'off', 'required']) !!}
-                                    </div>
+                                    </div> --}}
                                     <div class="fv-row form-group col-lg-6 mb-3">
                                         <label class="form-label">Total Uang Muka</label>
                                         {!! Form::text('rp_uangmuka', null, ['class'=>'form-control currency', 'id'=>'rp_uangmuka', 'autocomplete'=>'off', 'required']) !!}
@@ -110,10 +110,10 @@
                                         {!! Form::text('lm_angsuran', null, ['class'=>'form-control currency', 'id'=>'lm_angsuran', 'autocomplete'=>'off', 'required']) !!}
                                     </div>
 
-                                    <div class="fv-row form-group col-lg-6 mb-3">
+                                    {{-- <div class="fv-row form-group col-lg-6 mb-3">
                                         <label class="form-label">No SPPPK</label>
                                         {!! Form::text('no_sppk', null, ['class'=>'form-control', 'id'=>'no_sppk', 'autocomplete'=>'off', 'required']) !!}
-                                    </div>
+                                    </div> --}}
                                     <div class="fv-row form-group col-lg-6 mb-3">
                                         <label class="form-label">Rencana Realisasi</label>
                                         {!! Form::text('rencana_ajb', null, ['class'=>'form-control kt-datepicker', 'id'=>'rencana_ajb', 'autocomplete'=>'off', 'required']) !!}
@@ -184,7 +184,11 @@
             $("#harga_jual").val((jml + (jml * ppn / 100)).toFixed(2).replaceAll('.', ','));
             $("#harga_jual").trigger('keyup');
         });
-        
+        $("#booking").on('change', function(){
+            $("#harga_dasar").val($("#booking option:selected").attr('data-harga').replaceAll('.', ','));
+            $("#harga_dasar").trigger('keyup');
+            $("#ppn").trigger('change');
+        });
     });
 </script>
 @endsection

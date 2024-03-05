@@ -10,6 +10,7 @@ use App\Models\Ssh;
 use Exception;
 use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -33,12 +34,17 @@ class HspkController extends Controller
             })
             ->addColumn('menu', function ($model) {
             // <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$model->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
+                $action = json_decode(session('ACTION_MENU_' . Auth::user()->id));
+                $list = '';
+                if(in_array('edit', $action)){
+                    $list .= '<li><a class="dropdown-item" href="' . route('perencanaan.hspk.edit', $model->id) . '">Edit</a></li>';
+                }
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="' . route('perencanaan.hspk.edit', $model->id) . '">Edit</a></li>
+                            ' . $list . '
                         </ul>
                         </div>';
 

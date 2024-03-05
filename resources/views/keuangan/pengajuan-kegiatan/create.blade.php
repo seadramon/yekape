@@ -8,11 +8,11 @@
         <!--begin::Col-->
         <div class="col-12 mb-md-5 mb-xl-10">
             @if (isset($data))
-                {!! Form::model($data, ['route' => ['keuangan.pengajuan-kegiatan.update', $data->id], 'class' => 'form', 'id' => "form-kegiatan",]) !!}
+                {!! Form::model($data, ['route' => ['keuangan.pengajuan-kegiatan.update', $data->id], 'class' => 'form', 'id' => "form-kegiatan", 'enctype' => 'multipart/form-data']) !!}
                 {!! Form::hidden('id', $data->id) !!}
                 @method('PUT')
             @else
-                {!! Form::open(['url' => route('keuangan.pengajuan-kegiatan.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-kegiatan"]) !!}
+                {!! Form::open(['url' => route('keuangan.pengajuan-kegiatan.store'), 'class' => 'form', 'method' => 'post', 'id' => "form-kegiatan", 'enctype' => 'multipart/form-data']) !!}
             @endif
             <div class="card shadow-sm">
                 <div class="card-header">
@@ -35,7 +35,7 @@
                             {!! Form::select('bagian_id', $bagian, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'bagian']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Nama</label>
+                            <label class="form-label">Nama Kegiatan</label>
                             {!! Form::text('nama', null, ['class'=>'form-control', 'id'=>'nama', 'autocomplete'=>'off', 'required']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
@@ -60,15 +60,19 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
                             <label class="form-label">Tanggal Verifikasi</label>
-                            {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off']) !!}
+                            {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off', 'disabled']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Approval</label>
-                            {!! Form::select('approval', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'approval'], $opt_karyawan) !!}
+                            <label class="form-label">Pembuat</label>
+                            {!! Form::select('created', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'created'], $opt_karyawan) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Jabatan</label>
-                            {!! Form::text('approval_jabatan', null, ['class'=>'form-control', 'id'=>'approval_jabatan', 'autocomplete'=>'off', 'required']) !!}
+                            <label class="form-label">Jabatan Pembuat Pengajuan</label>
+                            {!! Form::text('created_jabatan', null, ['class'=>'form-control', 'id'=>'created_jabatan', 'autocomplete'=>'off', 'required']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Upload RAB (Format PDF)</label>
+                            {!! Form::file('file_rab', ['class' => 'form-control', 'id' => 'file_rab', "accept" => "application/pdf"]) !!}
                         </div>
                         <div class="fv-row form-group col-lg-12 mb-3 mt-2">
                             <button type="button" class="btn btn-light-primary" id="add-kegiatan-detail">
@@ -125,6 +129,23 @@
     <!--end::Row-->
 </div>
 <!--end::Content container-->
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{ asset('assets/img/empty.jpg') }}" id="fileImage" width="300px">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @include('keuangan.pengajuan-kegiatan.modal_komponen')
 @endsection
 
@@ -138,10 +159,25 @@
     $(document).ready(function() {
         $("#jenis").trigger('change');
 
-        $("#approval").on('change', function(){
-            $("#approval_jabatan").val($("#approval option:selected").attr('data-jabatan'));   
+        $("#created").on('change', function(){
+            $("#created_jabatan").val($("#created option:selected").attr('data-jabatan'));
+        });
+
+        var exampleModal = document.getElementById('imageModal');
+        exampleModal.addEventListener('show.bs.modal', function (event) {
+
+            var button = event.relatedTarget;
+            var title = button.getAttribute('data-bs-title');
+            var image = button.getAttribute('data-bs-image');
+
+            var modalTitle = exampleModal.querySelector('.modal-title');
+            var modalBodyInput = exampleModal.querySelector('.modal-body img');
+
+            modalTitle.textContent = title;
+            $('#fileImage').attr('src', image);
         });
     });
+
 
     $('#add-kegiatan-detail').on('click', function(){
         resetModalKegiatanDetail()
@@ -151,7 +187,9 @@
     $(document).on('change', '#jenis', function(event){
         if($("#jenis").val() == 'BS'){
             $(".optional").addClass('hidden');
+            $(".form-bs").removeClass('hidden');
         }else{
+            $(".form-bs").addClass('hidden');
             $(".optional").removeClass('hidden');
         }
     });

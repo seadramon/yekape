@@ -14,12 +14,17 @@ class Serapan extends Model
 
     protected $table = 'serapan';
     protected $guarded = [];
+    protected $casts = [
+        'data' => 'array',
+    ];
 
     protected static function booted()
     {
         static::saving(function (Serapan $serapan) {
             if ($serapan->kode == null) {
-                $serapan->kode = self::generate_kode($serapan);
+                $result = self::generate_kode($serapan);
+                $serapan->kode = $result[0];
+                $serapan->counter = $result[1];
             }
         });
         self::saved(function (Serapan $serapan) {
@@ -29,9 +34,12 @@ class Serapan extends Model
 
     public static function generate_kode(Serapan $serapan)
     {
-        $max_code = explode('.', serapan::whereJenis($serapan->jenis)->whereTahun($serapan->tahun)->max('kode'));
-        $counter = intval($max_code[1] ?? 0) + 1;
-        return $serapan->bagian->kode . "/" . $serapan->jenis . "/" . sprintf('%02d', $counter) . "/" . date('m') . "/" . $serapan->tahun;
+        $max_code = Serapan::whereJenis($serapan->jenis)->whereTahun($serapan->tahun)->max('counter');
+        $counter = intval($max_code ?? 0) + 1;
+        return [
+            $serapan->bagian->kode . "/" . $serapan->jenis . "/" . sprintf('%02d', $counter) . "/" . date('m') . "/" . $serapan->tahun,
+            $counter
+        ];
     }
 
     public function bagian(): BelongsTo
@@ -42,5 +50,15 @@ class Serapan extends Model
     public function detail(): HasMany
     {
         return $this->hasMany(SerapanDetail::class, 'serapan_id');
+    }
+
+    public function created_by(): BelongsTo
+    {
+        return $this->belongsTo(Karyawan::class, 'created_id');
+    }
+
+    public function approval_by(): BelongsTo
+    {
+        return $this->belongsTo(Karyawan::class, 'approval_id');
     }
 }

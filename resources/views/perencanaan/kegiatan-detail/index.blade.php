@@ -10,7 +10,9 @@
                 <div class="card-header">
                     <h3 class="card-title">Data Rincian Kegiatan</h3>
                     <div class="card-toolbar">
-                        <a href="javascript:void(0)" class="btn btn-light-success me-2" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a>
+						@if (in_array('export', json_decode(session('ACTION_MENU_' . auth()->user()->id))))
+							<a href="javascript:void(0)" class="btn btn-light-success me-2" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a>
+						@endif
                     </div>
                 </div>
 

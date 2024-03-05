@@ -10,9 +10,15 @@
                 <div class="card-header">
                     <h3 class="card-title">Data Kwitansi</h3>
                     <div class="card-toolbar">
-                        <a href="{{route('kwitansi.create', ['tipe' => 'KWT'])}}" class="btn btn-light-primary me-2">Buat KWT</a>
-                        <a href="{{route('kwitansi.create', ['tipe' => 'KWU'])}}" class="btn btn-light-warning me-2">Buat KWU</a>
-                        <a href="javascript:void(0)" class="btn btn-light-success me-2" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a>
+						@if (in_array('add_kwu', json_decode(session('ACTION_MENU_' . auth()->user()->id))))
+							<a href="{{route('kwitansi.create', ['tipe' => 'KWU'])}}" class="btn btn-light-warning me-2">Buat KWU</a>
+						@endif
+						@if (in_array('add_kwt', json_decode(session('ACTION_MENU_' . auth()->user()->id))))
+							<a href="{{route('kwitansi.create', ['tipe' => 'KWT'])}}" class="btn btn-light-primary me-2">Buat KWT</a>
+						@endif
+						@if (in_array('export', json_decode(session('ACTION_MENU_' . auth()->user()->id))))
+							<a href="javascript:void(0)" class="btn btn-light-success me-2" data-bs-toggle="modal" data-bs-target="#exportModal">Export</a>
+						@endif
                     </div>
                 </div>
 

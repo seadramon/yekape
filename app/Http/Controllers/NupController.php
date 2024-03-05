@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Exception;
 use Flasher\Prime\FlasherInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -39,12 +40,17 @@ class NupController extends Controller
                 return number_format($model->biaya, 0, ',', '.');
             })
             ->addColumn('menu', function ($model) {
+                $action = json_decode(session('ACTION_MENU_' . Auth::user()->id));
+                $list = '';
+                if(in_array('add_booking_fee', $action)){
+                    $list .= '<li><a class="dropdown-item" href="'.route('pemasaran.booking-fee.create', ['nup' => $model->id]).'" target="_blank">Buat Booking Fee</a></li>';
+                }
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="'.route('pemasaran.booking-fee.create', ['nup' => $model->id]).'" target="_blank">Buat Booking Fee</a></li>
+                            ' . $list . '
                         </ul>
                         </div>';
 

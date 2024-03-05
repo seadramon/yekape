@@ -51,13 +51,17 @@ class ValidasiPengajuanKegiatanController extends Controller
                 return number_format($serapan->detail->sum('total'), 2, ',', '.');
             })
             ->addColumn('menu', function ($model) {
-            // <li><a class="dropdown-item delete" href="javascript:void(0)" data-id="' .$model->id. '" data-toggle="tooltip" data-original-title="Delete">Delete</a></li>
+                $action = json_decode(session('ACTION_MENU_' . Auth::user()->id));
+                $list = '';
+                if(in_array('validasi', $action)){
+                    $list .= '<li><a class="dropdown-item" href="' . route('keuangan.validasi-pengajuan-kegiatan.edit', $model->id) . '">Validasi</a></li>';
+                }
                 $column = '<div class="btn-group">
                             <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="' . route('keuangan.validasi-pengajuan-kegiatan.edit', $model->id) . '">Validasi</a></li>
+                            ' . $list . '
                         </ul>
                         </div>';
 
@@ -80,7 +84,21 @@ class ValidasiPengajuanKegiatanController extends Controller
         try {
             DB::beginTransaction();
             $serapan = Serapan::find($request->id);
+
+            $data = $serapan->data;
+
             $serapan->status = 'valid';
+            $serapan->approval_id = Auth::user()->karyawan_id;
+            $serapan->approval_jabatan = Auth::user()->jabatan->nama ?? '-';
+            $serapan->costing_date = date('Y-m-d');
+            if($request->has('penerima')){
+                $p = Karyawan::find($request->penerima);
+                $data['penerima'] = [
+                    'id' => $p->id,
+                    'nama' => $p->nama,
+                ];
+            }
+            $serapan->data = $data;
             $serapan->save();
 
             DB::commit();
