@@ -64,7 +64,7 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Pembuat</label>
-                            {!! Form::select('created', $karyawan, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'created'], $opt_karyawan) !!}
+                            {!! Form::select('created', $karyawan, $data->created_id ?? null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'created'], $opt_karyawan) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Jabatan Pembuat Pengajuan</label>
@@ -73,6 +73,9 @@
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Upload RAB (Format PDF)</label>
                             {!! Form::file('file_rab', ['class' => 'form-control', 'id' => 'file_rab', "accept" => "application/pdf"]) !!}
+                            @if ($data && ($data->data['rab']['file'] ?? false))
+                                <a href="{{ route('api.gambar', ['kode' => str_replace('/', '&', $data->data['rab']['file'])]) }}" target="_blank" rel="noopener noreferrer">Lihat File</a>
+                            @endif
                         </div>
                         <div class="fv-row form-group col-lg-12 mb-3 mt-2">
                             <button type="button" class="btn btn-light-primary" id="add-kegiatan-detail">

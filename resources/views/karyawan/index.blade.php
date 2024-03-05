@@ -28,7 +28,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -48,7 +48,7 @@
         display: flex;
     }
     .custom-label {
-        display: flex; 
+        display: flex;
         align-items: center;
         margin-bottom: 0px;
     }
@@ -94,14 +94,14 @@
 	                {data: 'nik', name: 'nik', defaultContent: '-'},
 	                {data: 'nama', name: 'nama', defaultContent: '-'},
 	                {data: 'jabatan.nama', name: 'jabatan.nama', defaultContent: '-'},
-	                {data: 'alamat', name: 'alamat', defaultContent: '-'},
+	                {data: 'alamat_ktp', name: 'alamat_ktp', defaultContent: '-'},
 	                {data: 'menu', orderable: false, searchable: false}
 	            ],
 	        });
 
 	        table = dt.$;
 	    }
-	    
+
 	    // Public methods
 	    return {
 	        init: function () {
@@ -141,7 +141,7 @@
 	  	var button = event.relatedTarget
 	  	var title = button.getAttribute('data-bs-title')
 	  	var image = button.getAttribute('data-bs-image')
-	  
+
 	  	var modalTitle = exampleModal.querySelector('.modal-title')
 	  	var modalBodyInput = exampleModal.querySelector('.modal-body img')
 

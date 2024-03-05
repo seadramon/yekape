@@ -9,7 +9,7 @@ use Zip;
 
 class BaseController extends Controller
 {
-    
+
     public function gambar($kode)
     {
         $content_type = [
@@ -28,7 +28,7 @@ class BaseController extends Controller
             $size = Storage::size('imagenotfound.jpg');
             $ext = 'jpg';
         }
-
+//
         return Response::make($img, 200, ['Content-Type' => $content_type[$ext] ?? null, 'Content-Length' => $size]);
     }
 

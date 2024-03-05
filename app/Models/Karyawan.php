@@ -10,6 +10,10 @@ class Karyawan extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'data' => 'array',
+    ];
+
     /**
      * Get the jabatan that owns the Karyawan
      *
