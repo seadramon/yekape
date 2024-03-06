@@ -108,6 +108,7 @@ class CustomerController extends Controller
 	        $data->agama = $request->agama;
 	        $data->jenis_kelamin = $request->jenis_kelamin;
 	        $data->alamat = $request->alamat;
+	        $data->alamat_domisili = $request->alamat_domisili;
 	        $data->kelurahan = $request->kelurahan;
 	        $data->kecamatan = $request->kecamatan;
 	        $data->kota = $request->kota;
@@ -142,7 +143,7 @@ class CustomerController extends Controller
 	        foreach ($files as $postFile) {
 		        if ($request->hasFile($postFile)) {
                     $file = $request->file($postFile);
-        
+
                     $dir = "customer/" . $id;
                     $filename = $postFile . '.' . $file->getClientOriginalExtension();
                     $path = $dir . '/' . $filename;

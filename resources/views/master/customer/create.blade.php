@@ -18,7 +18,7 @@
                 <div class="card-header">
                     <h3 class="card-title">@if (isset($data))Edit @else Tambah @endif Customer</h3>
                 </div>
-            
+
                 <div class="card-body">
                     @if (count($errors) > 0)
                         @foreach($errors->all() as $error)
@@ -97,6 +97,11 @@
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Alamat Domisili</label>
+                            {!! Form::textarea('alamat_domisili', null, ['class'=>'form-control', 'rows'=>'3', 'id'=>'alamat_domisili', 'autocomplete'=>'off']) !!}
+                        </div>
+
+                        <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Nama Pajak</label>
                             {!! Form::text('nama_pajak', null, ['class'=>'form-control', 'id'=>'nama_pajak', 'autocomplete'=>'off']) !!}
                         </div>
@@ -109,8 +114,17 @@
                             {!! Form::text('kota_pajak', null, ['class'=>'form-control', 'id'=>'kota_pajak', 'autocomplete'=>'off']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Email</label>
+                            {!! Form::text('email', null, ['class'=>'form-control', 'id'=>'email', 'autocomplete'=>'off']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Pekerjaan</label>
+                            {!! Form::text('pekerjaan', null, ['class'=>'form-control', 'id'=>'pekerjaan', 'autocomplete'=>'off']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
                             &nbsp;
                         </div>
+
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">
@@ -156,7 +170,7 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="card-footer" style="text-align: right;">
                     <a href="{{ route('master.customer.index') }}" class="btn btn-light btn-active-light-primary me-2">Kembali</a>
                     <input type="submit" class="btn btn-success" id="btn-submit" value="Simpan">
@@ -207,7 +221,7 @@ $(document).ready(function() {
         var button = event.relatedTarget
         var title = button.getAttribute('data-bs-title')
         var image = button.getAttribute('data-bs-image')
-      
+
         var modalTitle = exampleModal.querySelector('.modal-title')
         var modalBodyInput = exampleModal.querySelector('.modal-body img')
 
