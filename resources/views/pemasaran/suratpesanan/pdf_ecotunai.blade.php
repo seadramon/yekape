@@ -14,7 +14,7 @@
 		margin: 0;
 		font-family: 'Dot Matrix', sans-serif!important;
 		font-size: 10px;
-		line-height: 1.5;
+		line-height: 1.2;
 		/*color: #464E5F;*/
 		color: black;
 		text-align: left;
@@ -390,9 +390,7 @@
 		</tr>
 	</table>
 
-	<br>
 	<table width="100%" border="0">
-		<br>
 		<tr>
 			<td style="width: 5%;"></td>
 			<td style="width: 30%; text-align: center;">Disetujui</td>
@@ -408,7 +406,7 @@
 			<td style="width: 5%;"></td>
 		</tr>
 		<tr>
-			<td colspan="5" style="width: 100%;"><br><br><br><br><br><br></td>
+			<td colspan="5" style="width: 100%;"><br><br><br><br><br><br><br><br></td>
 		</tr>
 		<tr>
 			<td style="width: 5%;"></td>
