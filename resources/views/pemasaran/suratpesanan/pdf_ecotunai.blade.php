@@ -117,7 +117,7 @@
 		</tr>
 	</table>
 
-	<br><br>
+	<br>
 
 	<table width="100%">
 		<tr>
@@ -131,7 +131,7 @@
 		</tr>
 	</table>
 
-	<br><br>
+	<br>
 
 	<table border="0" width="100%">
 		<tr>
@@ -390,9 +390,9 @@
 		</tr>
 	</table>
 
-	<br><br>
+	<br>
 	<table width="100%" border="0">
-		<br><br>
+		<br>
 		<tr>
 			<td style="width: 5%;"></td>
 			<td style="width: 30%; text-align: center;">Disetujui</td>
