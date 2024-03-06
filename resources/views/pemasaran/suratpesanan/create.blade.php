@@ -178,15 +178,16 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $("#ppn").on('change', function(){
-            var jml = parseFloat($("#harga_dasar").val().replaceAll('.', '').replaceAll(',', '.'));
+            var jml = parseFloat($("#harga_jual").val().replaceAll('.', '').replaceAll(',', '.'));
             var ppn = parseInt($("#ppn").val());
-            
-            $("#harga_jual").val((jml + (jml * ppn / 100)).toFixed(2).replaceAll('.', ','));
-            $("#harga_jual").trigger('keyup');
+
+            // $("#harga_dasar").val((jml + (jml * ppn / 100)).toFixed(2).replaceAll('.', ','));
+            $("#harga_dasar").val((jml / ((100 + ppn) / 100)).toFixed(2).replaceAll('.', ','));
+            $("#harga_dasar").trigger('keyup');
         });
         $("#booking").on('change', function(){
-            $("#harga_dasar").val($("#booking option:selected").attr('data-harga').replaceAll('.', ','));
-            $("#harga_dasar").trigger('keyup');
+            $("#harga_jual").val($("#booking option:selected").attr('data-harga').replaceAll('.', ','));
+            $("#harga_jual").trigger('keyup');
             $("#ppn").trigger('change');
         });
     });
