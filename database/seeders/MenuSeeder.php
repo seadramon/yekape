@@ -291,6 +291,7 @@ class MenuSeeder extends Seeder
                     'add',
                     'edit',
                     'print',
+                    'lampiran_bs',
                     'file_rab',
                 ]
             ],
