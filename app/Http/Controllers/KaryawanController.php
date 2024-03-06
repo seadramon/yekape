@@ -107,7 +107,7 @@ class KaryawanController extends Controller
 
             Validator::make($request->all(), [
                 'nama' => 'required',
-                'file' => 'file|max:1024',
+                'file' => 'file|max:5000',
             ])->validate();
 
             $karyawan = new Karyawan;
@@ -160,7 +160,7 @@ class KaryawanController extends Controller
 
             Validator::make($request->all(), [
                 'nama' => 'required',
-                'file' => 'file|max:1024',
+                'file' => 'file|max:5000',
             ])->validate();
 
             $karyawan = Karyawan::find($request->karyawan);
