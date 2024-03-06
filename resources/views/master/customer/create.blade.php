@@ -100,6 +100,10 @@
                             <label class="form-label">Alamat Domisili</label>
                             {!! Form::textarea('alamat_domisili', null, ['class'=>'form-control', 'rows'=>'3', 'id'=>'alamat_domisili', 'autocomplete'=>'off']) !!}
                         </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Alamat Surat Menyurat</label>
+                            {!! Form::select('alamat_surat', $alamat_surat, $data->data['alamat_surat'] ?? null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'alamat_surat']) !!}
+                        </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Nama Pajak</label>
@@ -119,10 +123,15 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Pekerjaan</label>
-                            {!! Form::text('pekerjaan', null, ['class'=>'form-control', 'id'=>'pekerjaan', 'autocomplete'=>'off']) !!}
+                            {!! Form::select('pekerjaan', $pekerjaan, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'pekerjaan']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            &nbsp;
+                            <label class="form-label">Nama Instansi</label>
+                            {!! Form::text('nama_usaha', null, ['class'=>'form-control', 'id'=>'nama_usaha', 'autocomplete'=>'off']) !!}
+                        </div>
+                        <div class="fv-row form-group col-lg-6 mb-3">
+                            <label class="form-label">Kewarganegaraan</label>
+                            {!! Form::select('kewarganegaraan', $kwn, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'kewarganegaraan']) !!}
                         </div>
 
 

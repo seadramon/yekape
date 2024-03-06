@@ -65,6 +65,14 @@
                                         <label class="form-label">Kavling</label>
                                         {!! Form::select('kavling_id', $kavling, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'kavling_id']) !!}
                                     </div>
+                                    <div class="fv-row form-group col-lg-6 mb-3">
+                                        <label class="form-label">Sumber Dana</label>
+                                        {!! Form::select('sumber_dana', $sumber_dana, null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'sumber_dana']) !!}
+                                    </div>
+                                    <div class="fv-row form-group col-lg-6 mb-3">
+                                        <label class="form-label">Tujuan Pembelian</label>
+                                        {!! Form::select('tujuan_pembelian', $tujuan, $data->data['tujuan_pembelian'] ?? null, ['class'=>'form-control form-select-solid', 'required', 'data-control'=>'select2', 'id'=>'tujuan_pembelian']) !!}
+                                    </div>
                                 </div>
                             </li>
                         <br />
@@ -182,12 +190,14 @@
             var ppn = parseInt($("#ppn").val());
 
             // $("#harga_dasar").val((jml + (jml * ppn / 100)).toFixed(2).replaceAll('.', ','));
-            $("#harga_dasar").val((jml / ((100 + ppn) / 100)).toFixed(2).replaceAll('.', ','));
+            $("#harga_dasar").val((jml / ((100 + ppn) / 100)).toFixed(0).replaceAll('.', ','));
             $("#harga_dasar").trigger('keyup');
         });
         $("#booking").on('change', function(){
             $("#harga_jual").val($("#booking option:selected").attr('data-harga').replaceAll('.', ','));
+            $("#kavling_id").val($("#booking option:selected").attr('data-kavling-id'));
             $("#harga_jual").trigger('keyup');
+            $("#kavling_id").trigger('change');
             $("#ppn").trigger('change');
         });
     });

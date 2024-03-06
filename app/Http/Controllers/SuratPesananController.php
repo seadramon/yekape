@@ -110,7 +110,7 @@ class SuratPesananController extends Controller
             } else {
                 $data = new SuratPesananRumah;
             }
-
+            $temp_data = $data->data;
             if($request->booking != ''){
                 $data->booking_fee_id = $request->booking;
             }
@@ -127,6 +127,7 @@ class SuratPesananController extends Controller
             $data->rp_angsuran = str_replace('.', '', $request->rp_angsuran);
             $data->lm_angsuran = str_replace('.', '', $request->lm_angsuran);
             // $data->no_sppk = $request->no_sppk;
+            $data->sumber_dana = $request->sumber_dana;
             $data->rencana_ajb = date('Y-m-d', strtotime($request->rencana_ajb));
             $data->masa_bangun = $request->masa_bangun;
             if (!empty($request->range_pembangunan)) {
@@ -137,6 +138,8 @@ class SuratPesananController extends Controller
             }
             $data->doc = date('Y-m-d H:i:s');
             $data->user_entry = Auth::user()->id;
+            $temp_data['tujuan_pembelian'] = $request->tujuan_pembelian;
+            $data->data = $temp_data;
             $data->save();
 
             $id = $data->id;
@@ -250,7 +253,7 @@ class SuratPesananController extends Controller
             return response()->json(['result' => $e->getMessage()])->setStatusCode(500, 'ERROR');
         }
     }
-    
+
     public function storeSppk(Request $request, FlasherInterface $flasher)
     {
         // return response()->json($request->all());
@@ -269,7 +272,7 @@ class SuratPesananController extends Controller
 
             $flasher->addSuccess('Data has been saved successfully!');
         } catch(Exception $e) {
-            DB::rollback();    
+            DB::rollback();
             $flasher->addError($e->getMessage());
         }
         return redirect()->route('pemasaran.suratpesanan.index');
@@ -342,12 +345,24 @@ class SuratPesananController extends Controller
             "UMUM" => "UMUM",
             "KARYAWAN" => "KARYAWAN",
         ];
+        $sumber_dana = [
+            "" => '-Pilih Sumber Dana-',
+            "gaji" => "Gaji",
+            "hasil_usaha" => "Hasil Usaha",
+            "lainnya" => "Lainnya",
+        ];
+        $tujuan = [
+            "" => '-Pilih Tujuan Pembelian-',
+            "dipergunakan_sendiri" => "Dipergunakan Sendiri",
+            "lainnya" => "Lainnya",
+        ];
 
-        $kavling = Kavling::select('id', 'nama')
+        $kavling = Kavling::with('cluster')
             ->get()
-            ->mapWithKeys(function($item){
-                return [$item->id => $item->nama];
-            })->all();
+            ->mapWithKeys(function ($item) {
+                return [$item->id => ($item->cluster->nama ?? 'Unknown') . " | " . implode('-', [$item->nama, $item->blok, $item->nomor, $item->letak])];
+            })
+            ->all();
         $kavling = ["" => "-Pilih Kavling-"] + $kavling;
 
         $customer = Customer::select('id', 'nama')
@@ -358,12 +373,13 @@ class SuratPesananController extends Controller
         $customer = ["" => "-Pilih Customer-"] + $customer;
 
         $book = BookingFee::with('kavling')->get();
+
         $booking = $book->mapWithKeys(function($item){
                 return [$item->id => $item->nomor . '|' . $item->kavling->nama . ' ' . $item->kavling->kode_kavling];
             })->all();
         $booking = ["" => "-Pilih booking fee-"] + $booking;
         $opt_booking = $book->mapWithKeys(function($item){
-            return [$item->id => ['data-harga' => ($item->harga_jual)]];
+            return [$item->id => ['data-harga' => ($item->harga_jual), 'data-kavling-id' => $item->kavling_id]];
         })->all();
 
         $ppn = [
@@ -386,6 +402,8 @@ class SuratPesananController extends Controller
             'tipe'         => $tipe,
             'jenis'        => $jenis,
             'kavling'      => $kavling,
+            'sumber_dana'      => $sumber_dana,
+            'tujuan'      => $tujuan,
             'customer'     => $customer,
             'booking'      => $booking,
             'opt_booking'      => $opt_booking,

@@ -85,7 +85,28 @@ class CustomerController extends Controller
     		'L' => 'Laki-laki',
     		'P' => 'Perempuan'
     	];
-    	return view('master.customer.create', compact('agama', 'jk', 'data'));
+    	$kwn = [
+    		"" => "-Pilih Kewarganegaraan-",
+    		'WNI' => 'WNI',
+    		'WNA' => 'WNA'
+    	];
+    	$alamat_surat = [
+    		"" => "-Pilih Alamat Surat Menyurat-",
+            'sesuai_ktp' => 'Sesuai KTP',
+            'sesuai_domisili' => 'Sesuai Domisili'
+    	];
+    	$pekerjaan = [
+    		"" => "-Pilih Pekerjaan-",
+    		'PNS' => 'PNS',
+    		'SWASTA' => 'SWASTA',
+    		'BUMN' => 'BUMN',
+    		'IBU RUMAH TANGGA' => 'IBU RUMAH TANGGA',
+    		'WIRASWASTA' => 'WIRASWASTA',
+    		'PELAJAR' => 'PELAJAR',
+    		'TNI/POLRI' => 'TNI/POLRI',
+    		'LAINNYA' => 'LAINNYA',
+    	];
+    	return view('master.customer.create', compact('agama', 'jk', 'data', 'kwn', 'pekerjaan', 'alamat_surat'));
     }
 
     public function store(Request $request, FlasherInterface $flasher)
@@ -98,7 +119,7 @@ class CustomerController extends Controller
             } else {
             	$data = new Customer;
             }
-
+            $temp_data = $data->data;
 			$data->no_ktp = $request->no_ktp;
 	        $data->nama = $request->nama;
 	        $data->telp_1 = $request->telp_1;
@@ -113,6 +134,7 @@ class CustomerController extends Controller
 	        $data->kecamatan = $request->kecamatan;
 	        $data->kota = $request->kota;
 	        $data->pekerjaan = $request->pekerjaan;
+	        $data->kewarganegaraan = $request->kewarganegaraan;
 	        $data->nama_usaha = $request->nama_usaha;
 	        $data->telp_usaha = $request->telp_usaha;
 	        $data->alamat_usaha = $request->alamat_usaha;
@@ -123,6 +145,8 @@ class CustomerController extends Controller
 	        $data->alamat_pajak = $request->alamat_pajak;
 	        $data->kota_pajak = $request->kota_pajak;
 	        $data->doc = date('Y-m-d H:i:s');
+            $temp_data['alamat_surat'] = $request->alamat_surat;
+            $data->data = $temp_data;
 	        $data->save();
 
 	        $id = $data->id;
