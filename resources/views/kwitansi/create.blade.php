@@ -58,7 +58,7 @@
                         @endif
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tanggal Kwitansi</label>
-                            {!! Form::text('tanggal', null, ['class'=>'form-control kt-datepicker', 'id'=>'tanggal', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('tanggal', date('Y-m-d'), ['class'=>'form-control kt-datepicker', 'id'=>'tanggal', 'autocomplete'=>'off', 'required']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
@@ -78,7 +78,7 @@
                             {!! Form::select('tipe_bayar', $tipe_bayar, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tipe_bayar']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Bank Penerima</label>
+                            <label class="form-label">Bank Pengirim</label>
                             {!! Form::select('bank', $bank, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'bank']) !!}
                         </div>
                         {{-- <div class="fv-row form-group col-lg-6 mb-3">
@@ -104,7 +104,7 @@
                             </div>
                             <div class="fv-row form-group col-lg-6 mb-3">
                                 <label class="form-label">Sanksi/Denda</label>
-                                {!! Form::text('ppn', null, ['class'=>'form-control currency', 'id'=>'ppn', 'autocomplete'=>'off']) !!}
+                                {!! Form::text('denda', 0, ['class'=>'form-control currency', 'id'=>'denda', 'autocomplete'=>'off']) !!}
                             </div>
                             <div class="fv-row form-group col-lg-6 mb-3">
                                 <label class="form-label">Total</label>
@@ -162,8 +162,12 @@
                     }
 
                     blockUI.release();
+                    calculateTotal();
                 });
             }
+        });
+        $("#denda").on('keyup', function(){
+            calculateTotal();
         });
         $("#ppn").on('change', function(){
             var jml = parseFloat($("#jumlah").val().replaceAll('.', '').replaceAll(',', '.'));
@@ -194,6 +198,13 @@
         }
     });
 
+    function calculateTotal(){
+        var jml = parseFloat($("#jumlah").val().replaceAll('.', '').replaceAll(',', '.'));
+        var denda = parseFloat($("#denda").val().replaceAll('.', '').replaceAll(',', '.'));
+
+        $("#total").val(jml+denda);
+        $("#total").trigger('keyup');
+    }
 
 </script>
 @endsection

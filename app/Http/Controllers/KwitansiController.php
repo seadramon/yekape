@@ -262,8 +262,9 @@ class KwitansiController extends Controller
             $kwitansi->keterangan = $request->keterangan;
             $kwitansi->tipe_bayar = $request->tipe_bayar;
             $kwitansi->bank = $request->bank;
-            $kwitansi->tanggal_transfer = $request->tanggal_transfer;
+            $kwitansi->tanggal_transfer = $request->tanggal;
             $kwitansi->jumlah = str_replace(',', '.', str_replace('.', '', $request->jumlah));
+            $kwitansi->denda = str_replace(',', '.', str_replace('.', '', $request->denda ?? 0));
             $kwitansi->created_by = Auth::user()->id;
 
             if($request->jenis_kwitansi == 'KWT'){
@@ -271,9 +272,8 @@ class KwitansiController extends Controller
                 $kwitansi->source_type = get_class($spr);
                 $kwitansi->source_id = $spr->id;
 
-                $kwitansi->ppn = str_replace(',', '.', str_replace('.', '', $request->ppn));
+                $kwitansi->ppn = str_replace(',', '.', str_replace('.', '', $request->ppn ?? 0));
                 $kwitansi->dpp = str_replace(',', '.', str_replace('.', '', $request->dpp));
-                $kwitansi->ppn = str_replace(',', '.', str_replace('.', '', $request->ppn));
             }else{
                 if(in_array($request->jenis_penerimaan, ['nup', 'utj', 'tambahan'])){
                     $spr = Nup::find($request->spr) ?? BookingFee::find($request->spr) ?? SuratPesananRumah::find($request->spr);
@@ -320,6 +320,7 @@ class KwitansiController extends Controller
             $kwitansi->bank = $request->bank;
             $kwitansi->tanggal_transfer = $request->tanggal_transfer;
             $kwitansi->jumlah = str_replace(',', '.', str_replace('.', '', $request->jumlah));
+            $kwitansi->denda = str_replace(',', '.', str_replace('.', '', $request->denda ?? 0));
 
             if($request->jenis_kwitansi == 'KWT'){
                 $spr = SuratPesananRumah::find($request->spr);
@@ -377,11 +378,12 @@ class KwitansiController extends Controller
         $data = [];
         if($request->source == 'spr'){
             $source  = SuratPesananRumah::find($request->source_id);
+            $jml = $source->rp_uangmuka / $source->lm_angsuran;
             $data = [
                 'terima_dari' => $source->customer->nama,
                 'alamat' => $source->customer->alamat,
-                'jumlah' => (float) $source->harga_jual,
-                'ppn' => (float) ($source->ppn ?? 0),
+                'jumlah' => round($jml),
+                'ppn' => (float) round($jml/1.11),
                 'kavling' => $source->kavling->kode_kavling,
                 'tipe' => $source->tipe_pembelian,
             ];
@@ -404,6 +406,13 @@ class KwitansiController extends Controller
         $filename = "Kwitansi";
 
         $customPaper = [0, 0, 16.5, 21.5];
+
+        // // $pdf->output();
+        // $pdf->setOption([
+        //     'isRemoteEnabled' => true,
+        //     'isPhpEnabled' => true,
+        //     'isHtml5ParserEnabled' => true,
+        // ]);
 
         return $pdf->setPaper('a4', 'landscape')
             ->stream($filename . '.pdf');

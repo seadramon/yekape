@@ -10,25 +10,44 @@
 	body {
 		padding-left: 20px;
 	}
-	.ver 
-{
-  vertical-align: top;
-  text-align: right;
-  font-size: 20px;
-}
+	.ver
+    {
+    vertical-align: top;
+    text-align: right;
+    font-size: 20px;
+    }
 
-.ver div 
-{
-  -ms-writing-mode: tb-rl;
-  -webkit-writing-mode: vertical-rl;
-  writing-mode: vertical-rl;
-  transform: rotate(270deg);
-  white-space: nowrap;
-}
+    .ver div
+    {
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+    transform: rotate(270deg);
+    white-space: nowrap;
+    }
+    #watermark {
+        position: fixed;
+
+        /**
+            Set a position in the page for your image
+            This should center it vertically
+        **/
+        bottom:   10cm;
+        left:     5.5cm;
+
+        /** Change image dimensions**/
+        width:    8cm;
+        height:   8cm;
+
+        /** Your watermark should be behind every content**/
+        z-index:  -1000;
+    }
 </style>
 </head>
 <body>
-
+{{-- <div id="watermark">
+    <img src="http://yekape.local/api/gambar/karyawan&7&file_foto.jpeg" height="100%" width="100%" />
+</div> --}}
 <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;margin-top:-1.5em;margin-bottom: 5px;">
   <tr>
 	<td class="ver" width="10%">
@@ -134,27 +153,8 @@
 	 			<td style="text-align: right;">503.370.000</td>
 	 		</tr>
 	 	</table>
-
-	 	<table cellpadding="0" cellspacing="0" border="0" width="100%" style="font-size: 16px; font-family: Arial, Helvetica, sans-serif;margin-top: 10px;">
-	 		<tr>
-	 			<td width="20%">Jumlah Angsuran</td>
-	 			<td width="5%">: Rp.</td>
-	 			<td style="text-align: right;" width="15%">60.000.000</td>
-	 			<td width="60%">&nbsp;</td>
-	 		</tr>
-	 		<tr>
-	 			<td>Sanksi Denda</td>
-	 			<td style="border-bottom: 1px solid #000;">: Rp.</td>
-	 			<td style="text-align: right;border-bottom: 1px solid #000;">0</td>
-	 			<td>&nbsp;</td>
-	 		</tr>
-	 		<tr>
-	 			<td>&nbsp;</td>
-	 			<td>: Rp.</td>
-	 			<td style="text-align: right;">60.000.000</td>
-	 			<td>&nbsp;</td>
-	 		</tr>
-	 	</table>
+        <br>
+        <br>
 
 	 	<table cellpadding="0" cellspacing="0" border="0" width="100%" style="font-size: 16px; font-family: Arial, Helvetica, sans-serif;margin-top: 30px;">
 	 		<tr>
