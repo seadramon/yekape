@@ -153,6 +153,12 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::group(['prefix' => '/master', 'as' => 'master.'], function(){
+        Route::group(['prefix' => '/kontraktor', 'as' => 'kontraktor.'], function(){
+
+            Route::get('/data', [KontraktorController::class, 'data'])->name('data');
+            Route::post('/destroy', [KontraktorController::class, 'destroy'])->name('destroy');
+            Route::resource('/', KontraktorController::class)->except(['destroy'])->parameters(['' => 'kontraktor']);
+        });
     });
 
 	Route::group(['prefix' => '/karyawan', 'as' => 'karyawan.'], function(){
