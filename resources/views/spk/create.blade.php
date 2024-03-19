@@ -40,7 +40,7 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tanggal </label>
-                            {!! Form::text('tanggal', null, ['class'=>'form-control kt-datepicker', 'id'=>'tanggal', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('tanggal', $data ? date('d-m-Y', strtotime($data->tanggal)) : null, ['class'=>'form-control kt-datepicker', 'id'=>'tanggal', 'autocomplete'=>'off', 'required']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">PP</label>

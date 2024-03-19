@@ -56,7 +56,7 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3 optional hidden">
                             <label class="form-label">Tanggal Verifikasi</label>
-                            {!! Form::text('costing_date', null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off', 'disabled']) !!}
+                            {!! Form::text('costing_date', $data ? date('d-m-Y', strtotime($data->costing_date)) : null, ['class'=>'form-control kt-datepicker', 'id'=>'costing_date', 'autocomplete'=>'off', 'disabled']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Pembuat</label>
@@ -155,10 +155,10 @@
             $(".optional").removeClass('hidden');
         }
     });
-    
+
 </script>
 <script type="text/javascript">
-    
-    
+
+
 </script>
 @endsection

@@ -43,7 +43,7 @@
 
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tanggal SP</label>
-                            {!! Form::text('tgl_sp', date('Y-m-d'), ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'disabled']) !!}
+                            {!! Form::text('tgl_sp', $data ? date('d-m-Y', strtotime($data->tgl_sp)) : date('Y-m-d'), ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'disabled']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
@@ -167,7 +167,7 @@
 
                                             <div class="fv-row form-group col-lg-6 mb-3">
                                                 <label class="form-label">Tanggal SP</label>
-                                                {!! Form::text('tgl_sp', date('Y-m-d', strtotime($parent->tgl_sp)), ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'disabled']) !!}
+                                                {!! Form::text('tgl_sp', date('d-m-Y', strtotime($parent->tgl_sp)), ['class'=>'form-control kt-datepicker', 'id'=>'tgl_sp', 'autocomplete'=>'off', 'disabled']) !!}
                                             </div>
 
                                             <div class="fv-row form-group col-lg-6 mb-3">

@@ -53,7 +53,7 @@
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tanggal Lahir</label>
-                            {!! Form::text('tgl_lahir', null, ['class'=>'form-control kt-datepicker', 'id'=>'tgl_lahir', 'autocomplete'=>'off']) !!}
+                            {!! Form::text('tgl_lahir', $data ? date('d-m-Y', strtotime($data->tgl_lahir)) : null, ['class'=>'form-control kt-datepicker', 'id'=>'tgl_lahir', 'autocomplete'=>'off']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">

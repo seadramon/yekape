@@ -420,7 +420,9 @@
         </script>
 		@yield('js')
 		<script type="text/javascript">
-			$(".kt-datepicker").flatpickr();
+			$(".kt-datepicker").flatpickr({
+                dateFormat: "d-m-Y",
+            });
 
 			$(".kt-daterangepicker").flatpickr({
 				altInput: true,

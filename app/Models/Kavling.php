@@ -41,6 +41,6 @@ class Kavling extends Model
     }
 
     public function spr(){
-        return $this->belongsTo('App\Models\SuratPesananRumah', 'id', 'kavling_id');
+        return $this->hasOne(SuratPesananRumah::class, 'kavling_id', 'id');
     }
 }

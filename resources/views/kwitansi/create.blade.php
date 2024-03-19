@@ -58,7 +58,7 @@
                         @endif
                         <div class="fv-row form-group col-lg-6 mb-3">
                             <label class="form-label">Tanggal Kwitansi</label>
-                            {!! Form::text('tanggal', date('Y-m-d'), ['class'=>'form-control kt-datepicker', 'id'=>'tanggal', 'autocomplete'=>'off', 'required']) !!}
+                            {!! Form::text('tanggal', date('d-m-Y'), ['class'=>'form-control kt-datepicker', 'id'=>'tanggal', 'autocomplete'=>'off', 'required']) !!}
                         </div>
 
                         <div class="fv-row form-group col-lg-6 mb-3">
@@ -78,7 +78,7 @@
                             {!! Form::select('tipe_bayar', $tipe_bayar, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'tipe_bayar']) !!}
                         </div>
                         <div class="fv-row form-group col-lg-6 mb-3">
-                            <label class="form-label">Bank Pengirim</label>
+                            <label class="form-label">Bank Penerima</label>
                             {!! Form::select('bank', $bank, null, ['class'=>'form-control form-select-solid', 'data-control'=>'select2', 'id'=>'bank']) !!}
                         </div>
                         {{-- <div class="fv-row form-group col-lg-6 mb-3">
@@ -92,7 +92,7 @@
                         @if ($tipe == 'KWT')
                             <div class="fv-row form-group col-lg-6 mb-3">
                                 <label class="form-label">DPP</label>
-                                {!! Form::text('dpp', null, ['class'=>'form-control currency', 'id'=>'dpp', 'autocomplete'=>'off']) !!}
+                                {!! Form::text('dpp', null, ['class'=>'form-control currency', 'id'=>'dpp', 'autocomplete'=>'off', 'readonly']) !!}
                             </div>
                             <div class="fv-row form-group col-lg-6 mb-3">
                                 <label class="form-label">PPN</label>

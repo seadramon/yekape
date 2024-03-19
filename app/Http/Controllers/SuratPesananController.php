@@ -97,6 +97,15 @@ class SuratPesananController extends Controller
         if ($id) {
             $data['data'] = SuratPesananRumah::find($id);
         }
+        $kavling = Kavling::with('cluster')
+            ->doesntHave('spr')
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->id => ($item->cluster->nama ?? 'Unknown') . " | " . implode('-', [$item->nama, $item->blok, $item->nomor, $item->letak])];
+            })
+            ->all();
+        $kavling = ["" => "-Pilih Kavling-"] + $kavling;
+        $data['kavling'] = $kavling;
         return view('pemasaran.suratpesanan.create', $data);
     }
 
@@ -160,6 +169,18 @@ class SuratPesananController extends Controller
     {
         $data = $this->prepareData();
         $data['data'] = SuratPesananRumah::find($id);
+        $kavling = Kavling::with('cluster')
+            ->where(function($sql) use ($data) {
+                $sql->doesntHave('spr');
+                $sql->orWhere('id', $data['data']->kavling_id);
+            })
+            ->get()
+            ->mapWithKeys(function ($item) {
+                return [$item->id => ($item->cluster->nama ?? 'Unknown') . " | " . implode('-', [$item->nama, $item->blok, $item->nomor, $item->letak])];
+            })
+            ->all();
+        $kavling = ["" => "-Pilih Kavling-"] + $kavling;
+        $data['kavling'] = $kavling;
 
         return view('pemasaran.suratpesanan.create', $data);
     }
@@ -357,14 +378,6 @@ class SuratPesananController extends Controller
             "lainnya" => "Lainnya",
         ];
 
-        $kavling = Kavling::with('cluster')
-            ->get()
-            ->mapWithKeys(function ($item) {
-                return [$item->id => ($item->cluster->nama ?? 'Unknown') . " | " . implode('-', [$item->nama, $item->blok, $item->nomor, $item->letak])];
-            })
-            ->all();
-        $kavling = ["" => "-Pilih Kavling-"] + $kavling;
-
         $customer = Customer::select('id', 'nama')
             ->get()
             ->mapWithKeys(function($item){
@@ -401,7 +414,6 @@ class SuratPesananController extends Controller
         return [
             'tipe'         => $tipe,
             'jenis'        => $jenis,
-            'kavling'      => $kavling,
             'sumber_dana'      => $sumber_dana,
             'tujuan'      => $tujuan,
             'customer'     => $customer,
