@@ -255,14 +255,14 @@ class KwitansiController extends Controller
 
             $kwitansi = new Kwitansi();
             $kwitansi->jenis_kwitansi = $request->jenis_kwitansi;
-            $kwitansi->tanggal = $request->tanggal;
+            $kwitansi->tanggal = date('Y-m-d', strtotime($request->tanggal));
             $kwitansi->jenis_penerimaan = $request->jenis_penerimaan;
             $kwitansi->nama = $request->nama;
             $kwitansi->alamat = $request->alamat;
             $kwitansi->keterangan = $request->keterangan;
             $kwitansi->tipe_bayar = $request->tipe_bayar;
             $kwitansi->bank = $request->bank;
-            $kwitansi->tanggal_transfer = $request->tanggal;
+            $kwitansi->tanggal_transfer = date('Y-m-d', strtotime($request->tanggal));
             $kwitansi->jumlah = str_replace(',', '.', str_replace('.', '', $request->jumlah));
             $kwitansi->denda = str_replace(',', '.', str_replace('.', '', $request->denda ?? 0));
             $kwitansi->created_by = Auth::user()->id;
@@ -311,14 +311,14 @@ class KwitansiController extends Controller
 
             $kwitansi = Kwitansi::find($id);
             $kwitansi->jenis_kwitansi = $request->jenis_kwitansi;
-            $kwitansi->tanggal = $request->tanggal;
+            $kwitansi->tanggal = date('Y-m-d', strtotime($request->tanggal));
             $kwitansi->jenis_penerimaan = $request->jenis_penerimaan;
             $kwitansi->nama = $request->nama;
             $kwitansi->alamat = $request->alamat;
             $kwitansi->keterangan = $request->keterangan;
             $kwitansi->tipe_bayar = $request->tipe_bayar;
             $kwitansi->bank = $request->bank;
-            $kwitansi->tanggal_transfer = $request->tanggal_transfer;
+            $kwitansi->tanggal_transfer = date('Y-m-d', strtotime($request->tanggal_transfer));
             $kwitansi->jumlah = str_replace(',', '.', str_replace('.', '', $request->jumlah));
             $kwitansi->denda = str_replace(',', '.', str_replace('.', '', $request->denda ?? 0));
 

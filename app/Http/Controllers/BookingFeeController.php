@@ -124,7 +124,7 @@ class BookingFeeController extends Controller
 
             $karyawan = new BookingFee;
 
-            $karyawan->tanggal = $request->tanggal;
+            $karyawan->tanggal = date('Y-m-d', strtotime($request->tanggal));
             $karyawan->kavling_id = $request->kavling_id;
             $karyawan->customer_id = $request->customer_id;
             $karyawan->marketing_id = $request->marketing_id;

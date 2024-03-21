@@ -63,7 +63,7 @@ class NupController extends Controller
     public function create()
     {
         $data = null;
-        
+
         $kavlings = Kavling::with('cluster')
             ->get()
             ->mapWithKeys(function ($item) {
@@ -109,7 +109,7 @@ class NupController extends Controller
 
             $karyawan = new Nup;
 
-            $karyawan->tanggal = $request->tanggal;
+            $karyawan->tanggal = date('Y-m-d', strtotime($request->tanggal));
             $karyawan->kavling_id = $request->kavling_id;
             $karyawan->customer_id = $request->customer_id;
             $karyawan->marketing_id = $request->marketing_id;

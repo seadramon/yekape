@@ -88,7 +88,7 @@ class SpkController extends Controller
 
             $data->nomor = $request->nomor;
             $data->jenis = $request->jenis;
-            $data->tanggal = $request->tanggal;
+            $data->tanggal = date('Y-m-d', strtotime($request->tanggal));
             $data->serapan_id = $request->serapan;
             $data->kontraktor_id = $request->kontraktor;
             $data->uraian = $request->uraian;
@@ -145,7 +145,7 @@ class SpkController extends Controller
 
             $data->nomor = $request->nomor;
             $data->jenis = $request->jenis;
-            $data->tanggal = $request->tanggal;
+            $data->tanggal = date('Y-m-d', strtotime($request->tanggal));
             $data->serapan_id = $request->serapan;
             $data->kontraktor_id = $request->kontraktor;
             $data->uraian = $request->uraian;

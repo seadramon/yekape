@@ -117,7 +117,7 @@ class KaryawanController extends Controller
             $karyawan->alamat_ktp = $request->alamat_ktp;
             $karyawan->alamat_domisili = $request->alamat_domisili;
             $karyawan->tempat_lahir = $request->tempat_lahir;
-            $karyawan->tgl_lahir = $request->tgl_lahir;
+            $karyawan->tgl_lahir = date('Y-m-d', strtotime($request->tgl_lahir));
             $karyawan->jabatan_id = $request->jabatan_id;
             $karyawan->jenis_kelamin = $request->jenis_kelamin;
             $karyawan->no_hp = $request->no_hp;
@@ -170,7 +170,7 @@ class KaryawanController extends Controller
             $karyawan->alamat_ktp = $request->alamat_ktp;
             $karyawan->alamat_domisili = $request->alamat_domisili;
             $karyawan->tempat_lahir = $request->tempat_lahir;
-            $karyawan->tgl_lahir = $request->tgl_lahir;
+            $karyawan->tgl_lahir = date('Y-m-d', strtotime($request->tgl_lahir));
             $karyawan->jabatan_id = $request->jabatan_id;
             $karyawan->jenis_kelamin = $request->jenis_kelamin;
             $karyawan->no_hp = $request->no_hp;
